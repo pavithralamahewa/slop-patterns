@@ -1,5 +1,6 @@
 /* Paid ladder shared by the library home page and the research note.
-   Book a review goes through /api/pay so the Stripe link stays in env.
+   Book a review goes through /api/pay. That sends people to the live
+   $349 Payment Link unless REVIEW_PAY_URL overrides it.
    Calls go to the 15-minute slot. UTMs identify the page and the tier. */
 (function () {
   var CAL = 'https://cal.com/precious-studio/15min';

@@ -1,9 +1,8 @@
-/* Book a review. Stripe lives in env so the link is never invented in the repo.
-   REVIEW_PAY_URL or NEXT_PUBLIC_REVIEW_PAY_URL: https payment link.
-   If neither is set, the visitor lands on the scanner offer, which is where
-   "Book a review" goes today.
-   Feel Pack and the subscription are calls, not charges. */
+/* Book a review. The live $349 Payment Link is the destination.
+   REVIEW_PAY_URL or NEXT_PUBLIC_REVIEW_PAY_URL can replace it (https only).
+   Feel Pack and the subscription stay on the 15-minute call. */
 const CAL = 'https://cal.com/precious-studio/15min';
+const DEFAULT_REVIEW_PAY_URL = 'https://buy.stripe.com/bJeeVeb5G6Tv2mP6IG7Vm00';
 
 function httpsUrl(raw) {
   if (!raw) return '';
@@ -44,16 +43,8 @@ function buildLocation(env, search) {
   if (tier === 'feelpack' || tier === 'subscription') {
     return withUtm(CAL, medium, tier);
   }
-  const stripe = httpsUrl(env && (env.REVIEW_PAY_URL || env.NEXT_PUBLIC_REVIEW_PAY_URL));
-  if (stripe) return withUtm(stripe, medium, 'review');
-  const back = new URL('https://sloppatterns.com/score');
-  back.searchParams.set('utm_source', 'sloppatterns');
-  back.searchParams.set('utm_medium', medium);
-  back.searchParams.set('utm_campaign', 'launch');
-  back.searchParams.set('utm_content', 'review');
-  back.searchParams.set('tier', 'review');
-  back.hash = 'maker';
-  return back.pathname + back.search + back.hash;
+  const override = httpsUrl(env && (env.REVIEW_PAY_URL || env.NEXT_PUBLIC_REVIEW_PAY_URL));
+  return withUtm(override || DEFAULT_REVIEW_PAY_URL, medium, 'review');
 }
 
 module.exports = function pay(req, res) {
@@ -66,3 +57,5 @@ module.exports = function pay(req, res) {
 
 module.exports.buildLocation = buildLocation;
 module.exports.withUtm = withUtm;
+module.exports.DEFAULT_REVIEW_PAY_URL = DEFAULT_REVIEW_PAY_URL;
+module.exports.CAL = CAL;
