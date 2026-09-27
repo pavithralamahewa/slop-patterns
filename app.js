@@ -10676,7 +10676,7 @@ document.addEventListener('submit', function(e){
       btn.disabled = false;
       if(x.ok){ f.querySelector('.subrow').style.display = 'none';
         msg.className = 'submsg good';
-        msg.textContent = 'Check your inbox — one click to confirm and you are on the list.';
+        msg.textContent = 'Check your inbox. One click to confirm and you are on the list.';
         if(window.trackOffer) window.trackOffer('newsletter_signup'); }
       else { msg.className = 'submsg bad'; msg.textContent = (x.j && x.j.error) || 'That did not work.'; }
     })
@@ -10868,7 +10868,7 @@ function renderIndex(){
   <header class="hero hero2">
     <div class="hero-t">
     <h1 class="big">AI design fails in <span class="penword">patterns,<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="${penLoop(50,20,46,17,5)}"/></svg></span> not accidents.</h1>
-    <p class="lede">A public library of the failures in AI products — what they look like, why the tools produce them, and what to do instead.</p>
+    <p class="lede">A public library of the failures in AI products: what they look like, why the tools produce them, and what to do instead.</p>
     <div class="cta"><a class="btn btn-a" href="/score">Scan your site</a><button class="btn btn-b" data-scroll="1">Browse the library</button></div>
     <p class="byline">By <a href="#p0" data-go="p0">Pavithra Lamahewa</a>, Principal UX Architect at Precious Studio. 235 patterns, every one read and checked by hand.</p>
     <p class="reviewline"><a href="#review" data-go="review">Get a review</a> from the designer behind this research.</p>
