@@ -19,11 +19,21 @@
 
   window.trackOffer = window.trackOffer || function () {};
 
+  /* [FILL] Pavithra to confirm these two before merge. */
+  var REVIEW_TURNAROUND = '[FILL: turnaround, e.g. 3 business days]';
+  var FEELPACK_SCOPE = '[FILL: Feel Pack scope, e.g. up to X screens on one key flow, Figma files, one kickoff call, one revision round, dev-ready handoff]';
+
   window.renderOffer = function (medium) {
     var m = medium === 'research' ? 'research' : 'home';
     return '<section class="maker" id="review">'
-      + '<p class="maker-q">“I’ve spent thirteen years designing products. These are the things I look for first when I review one.”</p>'
-      + '<p class="maker-by"><b>Pavithra Lamahewa</b> · Principal UX Architect, <a href="https://precious.studio/" target="_blank" rel="noopener">Precious Studio</a> · Author of Slop Patterns and The Same Page</p>'
+      + '<div class="who" id="who">'
+      + '<p class="who-k">Who made this</p>'
+      + '<p class="who-name"><b>Pavithra Lamahewa</b>, Principal UX Architect at <a href="https://precious.studio/" target="_blank" rel="noopener">Precious Studio</a>. 13 years designing products.</p>'
+      + '<p class="who-body">Slop Patterns is built from 4,725 archived Show HN launch pages and 235 documented patterns, each with its sources. The nine rules counted in the research were checked by hand before anything was counted.</p>'
+      + '<p class="who-links"><a href="/research/the-same-page#audit">Research method</a><a href="https://www.linkedin.com/in/pavithralamahewa/" target="_blank" rel="noopener">LinkedIn</a><a href="https://precious.studio/" target="_blank" rel="noopener">precious.studio</a></p>'
+      /* SAMPLE REVIEW SLOT: one redacted sample review goes here. Remove `hidden` once it is added. */
+      + '<figure class="who-sample" data-slot="sample-review" hidden></figure>'
+      + '</div>'
       + '<h2 class="maker-h">Get a review from the designer behind this research</h2>'
       + '<div class="offers">'
       + row('First look', 'Free',
@@ -31,17 +41,17 @@
           '<button type="button" class="of-btn ghost" data-offer="ask" aria-expanded="false">Ask for a first look</button>',
           '<form class="of-form" hidden novalidate>'
             + '<label>Page<input name="url" type="text" inputmode="url" required placeholder="yoursite.com" autocomplete="url"></label>'
-            + '<label>Email<input name="email" type="email" required placeholder="you@company.com" autocomplete="email"></label>'
+            + '<label>Email<input name="email" type="email" required placeholder="you@company.com" autocomplete="email" aria-describedby="of-priv"><small class="of-priv" id="of-priv">Used only to send your notes. No marketing list.</small></label>'
             + '<label class="wide">What are you launching? <em>Optional</em><input name="note" type="text" maxlength="300" placeholder="A sentence is plenty"></label>'
             + '<input name="company" type="text" tabindex="-1" autocomplete="off" class="of-hp" aria-hidden="true">'
             + '<div class="of-send"><button type="submit" class="of-btn">Send</button><p class="of-note" role="status"></p></div>'
           + '</form>')
       + row('Design review', '$349',
-          'One page of your website, reviewed by hand: what to change first, and why. It comes off a Feel Pack or a subscription if you start one within 30 days.',
+          'One page, reviewed by hand by a senior designer. You get your three highest-impact changes, annotated screenshots, and a written review within ' + REVIEW_TURNAROUND + '. The $349 comes off a Feel Pack or subscription started within 30 days.',
           '<a class="of-btn" data-cta="review" href="' + pay('review', m) + '">Book a review</a>')
       + row('Feel Pack', '$2,500 · 5 days',
-          'We fix the worst of it for you: the top issues on your key flow, designed and handed off in 5 days. Your $349 review counts toward it.',
-          '<a class="of-btn" data-cta="feelpack" href="' + cal('feelpack', m) + '">Book a 15-minute call</a>')
+          'We fix the worst of it for you, designed and handed off in 5 days. Included: ' + FEELPACK_SCOPE + '. Your $349 review counts toward it.',
+          '<a class="of-btn" data-cta="feelpack" href="' + cal('feelpack', m) + '">Talk through a Feel Pack</a>')
       + row('Design subscription', 'from $4,500/mo',
           'A dedicated senior designer on your product, without hiring or a long commitment. AI does the heavy lift; a designer locks taste. <button type="button" class="of-more" data-offer="more" aria-expanded="false">How it works</button>',
           '<a class="of-btn ghost" data-cta="subscription" href="' + cal('subscription', m) + '">Book a 15-minute call</a>',

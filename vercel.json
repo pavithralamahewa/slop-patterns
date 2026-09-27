@@ -41,6 +41,11 @@
   ],
   "redirects": [
     {
+      "source": "/about",
+      "destination": "/#review",
+      "permanent": false
+    },
+    {
       "source": "/((?!mcp$|api/|score/api/|patterns\\.json$).*)",
       "has": [
         {

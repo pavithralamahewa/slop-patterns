@@ -10365,7 +10365,7 @@ function renderMcp(){
 
 <header class="mhero withterm"><div>
   <p class="mkick"><i></i>Model Context Protocol server</p>
-  <h1 class="mtitle">Your AI has seen every design. It learned the wrong ones.</h1>
+  <h1 class="mtitle">Your AI has seen a lot of the same designs. Help it skip the wrong ones.</h1>
   <p class="mlede">Slop Patterns MCP connects your AI agents to <b>235 documented AI design failures</b> and checks what they generate against them, so the slop gets caught where it's made.</p>
   <div class="cmdbox">
     <code id="cmd">claude mcp add slop --scope user --transport http ${MCP_ENDPOINT}</code>
