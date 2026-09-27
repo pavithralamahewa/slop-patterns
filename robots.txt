@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /score/inbox
+Disallow: /api/
+
+Sitemap: https://sloppatterns.com/sitemap.xml
