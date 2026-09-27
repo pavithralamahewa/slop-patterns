@@ -1,0 +1,74 @@
+# Slop Patterns — changelog
+
+Current: **v1.1.1** (2026-09-23). Machine-readable: `/library.json`. Also available from the MCP server as the `changelog` tool.
+
+## How versions work
+
+- **Library:** Semantic. MAJOR when a pattern is removed or its id changes. MINOR when patterns or detectors are added. PATCH for wording, sources and fixes to existing detectors.
+- **Entries:** Each entry carries version, added and updated. The entry version goes up by 0.1 when its definition, fix or detection changes; wording and source fixes update the date only.
+- **IDs:** Pattern ids and codes are permanent. A retired pattern keeps its code and is marked retired, never reused.
+
+## v1.1.1 — 2026-09-23
+
+**Added**
+
+- Confidence on whole pages: rules that passed a hand audit (A3, A10, A15, A22, A23, A36, A47, A55, B115) report as detected; the rest report as 'worth a look' until they pass
+
+**Changed**
+
+- Whole pages: CSS rules that match nothing on the page are ignored; script bodies, templates and HTML comments are no longer read as markup; utility-class checks read class attributes only; copy checks read visible text only
+- Detection tightened after a hand audit of 874 archived launch pages (entry version +0.1 each): A1, A2, A3, A8, A10, A12, A15, A20, A22, A24, A25, A36, A37, A40, A47, A48, A51, A57, A58, A61, A66, B115, B117, B118, B124, B135
+- B124 The Inert Button: snippets only (a rendered page attaches handlers from script, which markup cannot show)
+- A20: blur under 20px on whole pages and hover/focus states no longer count as glow
+- Fixed: A66 matched border-bottom-color as 'bottom'; A51 missed uppercase classes placed before the tracking class; A58 read the CSS property text-justify as a class; B118 read overflow-hidden as hidden
+
+Hand audit results and the study behind this release: 'The Same Page', Slop Patterns research note 01. First audit: most rules fell below 75% precision on whole pages; after fixes, nine rules reached 75% or better.
+
+## v1.1.0 — 2026-09-22
+
+**Added**
+
+- A49 The Endless Marquee
+- A50 Grey On Colour
+- A51 Wide-Tracked Body Text
+- A52 Torn-Edge Mask
+- A53 Cramped Body Leading
+- A54 All-Caps Paragraphs
+- A55 Skipped Heading Level
+- A56 Stripes For Texture
+- A57 Small Body Text
+- A58 Justified Without Hyphens
+- A59 Flat Type Hierarchy
+- A60 Stripe On A Rounded Corner
+- A61 Radial Halo Ground
+- A62 Bounce Easing In The Interface
+- A63 Same Words Twice
+- A64 Contrast Below The Floor
+- A65 Ghost Card
+- A66 Animating Layout Properties
+- A67 Content Stuck Waiting To Appear
+- A68 Text Under Another Layer
+- A69 Broken Or Placeholder Image
+- A70 Clipped Menu
+- A71 Lines Too Long To Read
+- A72 Content Flush To Its Border
+
+**Changed**
+
+- A23 Shouting Section Labels: automated detection added (entry v1.1)
+- A24 Cards Inside Cards: automated detection added (entry v1.1)
+- A38 Uniform Section Rhythm: automated detection added (entry v1.1)
+- MCP get_pattern: sources were printing as 'undefined — undefined'; fixed
+- Every entry now carries version, added, updated and detect (code / render / judgement)
+- A20 Neon Glow On Everything: no longer flags spread-only focus rings
+- noindex removed from every route
+
+Detection coverage raised to 63 patterns. Every new detector was run against a deliberately clean page (0 findings) and against gov.uk, practicaltypography.com, stripe.com, linear.app, apple.com, vercel.com and tailwindcss.com to tune out false positives before release.
+
+## v1.0.0 — 2026-09-17
+
+**Added**
+
+- Baseline: 211 patterns in 16 groups, 40 with automated detection
+
+First public release. Dates before this are not tracked per entry.

@@ -1,0 +1,55 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "headers": [
+    {
+      "source": "/patterns.json",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    },
+    {
+      "source": "/api/mcp",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/patterns",
+      "destination": "/patterns.json"
+    },
+    {
+      "source": "/mcp",
+      "destination": "/api/mcp"
+    },
+    {
+      "source": "/score",
+      "destination": "https://slop-score-nine.vercel.app/score"
+    },
+    {
+      "source": "/score/:path*",
+      "destination": "https://slop-score-nine.vercel.app/score/:path*"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/((?!mcp$|api/|score/api/|patterns\\.json$).*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "slop.precious.studio"
+        }
+      ],
+      "destination": "https://sloppatterns.com/$1",
+      "permanent": true
+    }
+  ]
+}
