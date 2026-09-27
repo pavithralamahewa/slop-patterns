@@ -19,9 +19,7 @@
 
   window.trackOffer = window.trackOffer || function () {};
 
-  /* [FILL] Pavithra to confirm these two before merge. */
-  var REVIEW_TURNAROUND = '[FILL: turnaround, e.g. 3 business days]';
-  var FEELPACK_SCOPE = '[FILL: Feel Pack scope, e.g. up to X screens on one key flow, Figma files, one kickoff call, one revision round, dev-ready handoff]';
+  var REVIEW_TURNAROUND = '2 business days';
 
   window.renderOffer = function (medium) {
     var m = medium === 'research' ? 'research' : 'home';
@@ -50,7 +48,7 @@
           'One page, reviewed by hand by a senior designer. You get your three highest-impact changes, annotated screenshots, and a written review within ' + REVIEW_TURNAROUND + '. The $349 comes off a Feel Pack or subscription started within 30 days.',
           '<a class="of-btn" data-cta="review" href="' + pay('review', m) + '">Book a review</a>')
       + row('Feel Pack', '$2,500 · 5 days',
-          'We fix the worst of it for you, designed and handed off in 5 days. Included: ' + FEELPACK_SCOPE + '. Your $349 review counts toward it.',
+          'Up to 3 screens on one key flow, or one landing page. Includes a kickoff call, Figma files, one round of revisions, and a dev-ready handoff, delivered in 5 business days. If you already bought the $349 review, it comes off the price.',
           '<a class="of-btn" data-cta="feelpack" href="' + cal('feelpack', m) + '">Talk through a Feel Pack</a>')
       + row('Design subscription', 'from $4,500/mo',
           'A dedicated senior designer on your product, without hiring or a long commitment. AI does the heavy lift; a designer locks taste. <button type="button" class="of-more" data-offer="more" aria-expanded="false">How it works</button>',
