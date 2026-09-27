@@ -80,7 +80,11 @@ h1.pat{line-height:1.05}h1.pat span{font-family:inherit}
 .spec:focus-visible{outline:2px solid var(--pen);outline-offset:6px;border-radius:8px}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .spec .card{background:#1a1a1c}}
 @media (max-width:1100px){.hero2{grid-template-columns:1fr}.specs{justify-self:start;max-width:520px}}
-@media (max-width:560px){.specs{aspect-ratio:1/1.15}.spec-l{font-size:12px}}
+@media (max-width:560px){.specs{aspect-ratio:1/1.15}.spec-l{font-size:12px}
+  /* track labels sit on their own line so a long one cannot widen the page */
+  .grphd{flex-wrap:wrap;row-gap:8px}
+  .grphd .tr{margin-left:0}
+}
 
 .spec .ink path{stroke-width:.85}.penword path{stroke-width:1.05}
 

@@ -10676,7 +10676,8 @@ document.addEventListener('submit', function(e){
       btn.disabled = false;
       if(x.ok){ f.querySelector('.subrow').style.display = 'none';
         msg.className = 'submsg good';
-        msg.textContent = 'Check your inbox — one click to confirm and you are on the list.'; }
+        msg.textContent = 'Check your inbox — one click to confirm and you are on the list.';
+        if(window.trackOffer) window.trackOffer('newsletter_signup'); }
       else { msg.className = 'submsg bad'; msg.textContent = (x.j && x.j.error) || 'That did not work.'; }
     })
     .catch(function(){ btn.disabled = false; msg.className = 'submsg bad';
@@ -10870,6 +10871,7 @@ function renderIndex(){
     <p class="lede">A public library of the failures in AI products — what they look like, why the tools produce them, and what to do instead.</p>
     <div class="cta"><a class="btn btn-a" href="/score">Scan your site</a><button class="btn btn-b" data-scroll="1">Browse the library</button></div>
     <p class="byline">By <a href="#p0" data-go="p0">Pavithra Lamahewa</a>, Principal UX Architect at Precious Studio. 235 patterns, every one read and checked by hand.</p>
+    <p class="reviewline"><a href="#review" data-go="review">Get a review</a> from the designer behind this research.</p>
     <p class="newnote"><a href="/research/the-same-page">New research: The Same Page. AI-era design tells on 4,725 launch pages, 2016 to 2026 →</a></p>
     </div>
     ${specimenBoard()}
@@ -10912,6 +10914,7 @@ function renderIndex(){
       <div class="subwrap">${subForm('block')}</div>
     </section>`}
   </section>
+  ${(typeof renderOffer==='function') ? renderOffer('home') : ''}
   <div class="foot"><span>Maintained by <a href="#p0" data-go="p0" style="text-decoration:none;font-weight:600">Pavithra Lamahewa</a> · Precious Studio</span><span class="sp"></span><a href="#newsletter" data-go="newsletter" style="text-decoration:none">Newsletter</a><a href="#mcp" data-go="mcp" style="text-decoration:none">MCP</a><span>CC BY-SA 4.0</span></div>`;
 }
 
@@ -11009,12 +11012,12 @@ function route(){
   setNavCount();
   const id = location.hash.replace('#','') || 'index';
   // section deep links: render the index, then scroll to that section
-  if(id.indexOf('s-')===0){
+  if(id.indexOf('s-')===0 || id==='review'){
     renderIndex(); fit(); requestAnimationFrame(fit);
     if(window.railSync) requestAnimationFrame(window.railSync);
     const t = document.getElementById(id);
-    if(t){ requestAnimationFrame(()=>{ t.scrollIntoView(); markJump(); });
-           setTimeout(()=>{ t.scrollIntoView(); markJump(); }, 320); }
+    if(t){ requestAnimationFrame(()=>{ t.scrollIntoView({behavior:'smooth', block:'start'}); if(id.indexOf('s-')===0) markJump(); });
+           setTimeout(()=>{ t.scrollIntoView({behavior:'smooth', block:'start'}); if(id.indexOf('s-')===0) markJump(); }, 320); }
     else window.scrollTo(0,0);
     return;
   }
@@ -11040,6 +11043,7 @@ document.addEventListener('click', e => {
     return; }
   const go = e.target.closest('[data-go]');
   if(go){ e.preventDefault(); const t=go.dataset.go;
+    if(t==='review' && location.hash==='#review'){ route(); return; }
     if(t==='index'){ if(location.hash){location.hash='';} else route(); } else location.hash=t; return; }
   const cq = e.target.closest('[data-clearq]');
   if(cq){ const i=document.getElementById('q'); if(i){ i.value=''; i.dispatchEvent(new Event('input')); } filter.q=null; renderIndex(); fit(); if(window.railSync) window.railSync(); const b=document.getElementById('browse'); if(b) b.scrollIntoView(); return; }
@@ -11230,7 +11234,7 @@ document.addEventListener('mousedown', function(e){
   var b = e.target.closest && e.target.closest('[data-ask]'); if(!b) return;
   e.preventDefault(); var i = document.getElementById('q'); if(!i) return;
   i.value = b.dataset.ask; i.dispatchEvent(new Event('input')); i.focus();
-  if(isUrl(i.value)) location.href = '/score?url=' + encodeURIComponent(i.value);
+  if(isUrl(i.value)){ if(window.trackOffer) window.trackOffer('outbound_score'); location.href = '/score?url=' + encodeURIComponent(i.value); }
 });
 function buildSearch(host){
   if(!host || host.querySelector('.railsearch')) return;
@@ -11274,7 +11278,7 @@ function buildSearch(host){
   input.addEventListener('keydown', function(e){
     if(e.key === 'Escape'){ input.value=''; input.blur(); run(); }
     if(e.key === 'Enter'){ clearTimeout(timer);
-      var u = input.value.trim(); if(isUrl(u)){ location.href = '/score?url=' + encodeURIComponent(u); return; }
+      var u = input.value.trim(); if(isUrl(u)){ if(window.trackOffer) window.trackOffer('outbound_score'); location.href = '/score?url=' + encodeURIComponent(u); return; }
       run(); }
   });
 }
