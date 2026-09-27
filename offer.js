@@ -43,7 +43,7 @@
           'We fix the worst of it for you: the top issues on your key flow, designed and handed off in 5 days. Your $349 review counts toward it.',
           '<a class="of-btn" data-cta="feelpack" href="' + cal('feelpack', m) + '">Book a 15-minute call</a>')
       + row('Design subscription', 'from $4,500/mo',
-          'A dedicated senior designer on your product, without hiring or a long commitment. AI does the heavy lift; a designer locks taste. <button type="button" class="of-more" data-offer="more" aria-expanded="false">How it works</button>',
+          'A dedicated senior designer from Precious Studio on your product, without hiring or a long commitment. AI does the heavy lift; a designer locks taste. <button type="button" class="of-more" data-offer="more" aria-expanded="false">How it works</button>',
           '<a class="of-btn ghost" data-cta="subscription" href="' + cal('subscription', m) + '">Book a 15-minute call</a>',
           how())
       + '</div></section>';
