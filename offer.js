@@ -17,12 +17,7 @@
   function cal(tier, medium) { return CAL + '?' + q(tier, medium); }
   function pay(tier, medium) { return '/api/pay?' + q(tier, medium); }
 
-  window.trackOffer = function (name) {
-    window.plausible = window.plausible || function () {
-      (window.plausible.q = window.plausible.q || []).push(arguments);
-    };
-    try { window.plausible(name); } catch (e) {}
-  };
+  window.trackOffer = window.trackOffer || function () {};
 
   window.renderOffer = function (medium) {
     var m = medium === 'research' ? 'research' : 'home';
