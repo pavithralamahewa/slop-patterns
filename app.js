@@ -11231,8 +11231,9 @@ function isUrl(v){ return !!v && !/\s/.test(v) && !/[<>{};]/.test(v) && /^(https
 document.addEventListener('mousedown', function(e){
   var b = e.target.closest && e.target.closest('[data-ask]'); if(!b) return;
   e.preventDefault(); var i = document.getElementById('q'); if(!i) return;
+  // The web-address example never starts a scan on its own: it asks for the person's own address.
+  if(isUrl(b.dataset.ask)){ i.value = ''; i.placeholder = 'Type your site, then Enter'; i.dispatchEvent(new Event('input')); i.focus(); return; }
   i.value = b.dataset.ask; i.dispatchEvent(new Event('input')); i.focus();
-  if(isUrl(i.value)){ if(window.trackOffer) window.trackOffer('outbound_score'); location.href = '/score?url=' + encodeURIComponent(i.value); }
 });
 function buildSearch(host){
   if(!host || host.querySelector('.railsearch')) return;
@@ -11245,7 +11246,7 @@ function buildSearch(host){
     + '<div class="askhint" role="note"><p class="ah-t">One box, three ways in</p>'
     + '<button type="button" data-ask="my landing page looks generic"><b>Describe it</b><span>“my landing page looks generic”</span></button>'
     + '<button type="button" data-ask="&lt;div class=&quot;bg-gradient-to-r from-indigo-500 to-violet-500&quot;&gt;"><b>Paste code</b><span>CSS, HTML or JSX, checked against the library</span></button>'
-    + '<button type="button" data-ask="stripe.com"><b>Paste a web address</b><span>runs Slop Score on the page</span></button></div>';
+    + '<button type="button" data-ask="yoursite.com"><b>Paste a web address</b><span>runs Slop Score on your page</span></button></div>';
   host.appendChild(w);
   var input = w.querySelector('#q'), i = 0, timer;
 
@@ -11254,6 +11255,7 @@ function buildSearch(host){
     input.placeholder = 'Ask, or paste code/URL';
   }
   cycle();
+  input.addEventListener('blur', function(){ if(!input.value) input.placeholder = 'Ask, or paste code/URL'; });
 
   function run(){
     var v = input.value.trim();
