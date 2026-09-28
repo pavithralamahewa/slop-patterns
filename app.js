@@ -11311,7 +11311,7 @@ function buildRail(){
     + '<div class="railfoot">'
     + '<a href="#submit" data-go="submit">Submit a pattern</a>'
     + '<a href="#newsletter" data-go="newsletter">Newsletter</a>'
-    + '<span class="cc">By <a href="#p0" data-go="p0">Pavithra Lamahewa</a>, Precious Studio · CC BY-SA 4.0</span></div>';
+    + '<span class="cc">By <a href="#p0" data-go="p0">Pavithra Lamahewa</a>, Precious Studio · CC BY-SA 4.0 · <a href="/privacy">Privacy</a></span></div>';
   navIn.insertAdjacentHTML('beforeend', html);
   railnav = navIn.querySelector('.railnav');
   fill    = navIn.querySelector('.railfill');
