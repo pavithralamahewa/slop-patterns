@@ -165,3 +165,4 @@ h1.pat{line-height:1.05}h1.pat span{font-family:inherit}
 .qclear:hover{text-decoration-color:currentColor}
 .ctrl.qmode .tabs{display:none}
 h1.pat span{display:block;margin-top:.25em;font-size:.55em;line-height:1.25;color:var(--ink-mid, #717171)}
+h1.pat span{letter-spacing:-.01em}
