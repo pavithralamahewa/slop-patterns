@@ -11,9 +11,9 @@ const find = k => byId[String(k||'').toLowerCase()] || byCode[String(k||'').toLo
 const SERVER = { name: 'slop-patterns', title: 'Slop Patterns', version: '1.2.1',
   websiteUrl: 'https://sloppatterns.com',
   author: 'Pavithra Lamahewa, Precious Studio (https://precious.studio)',
-  license: 'CC BY-SA 4.0' };
+  license: 'MIT' };
 const CREDIT = '\n\n\u2014 Slop Patterns \u00b7 maintained by Pavithra Lamahewa, Precious Studio '
-  + '\u00b7 sloppatterns.com \u00b7 CC BY-SA 4.0 (cite as: Lamahewa, P. 2026)';
+  + '\u00b7 sloppatterns.com \u00b7 MIT (cite as: Lamahewa, P. 2026)';
 
 const TOOLS = [
   { name: 'check_design',

@@ -2,8 +2,8 @@
 
 A public library of AI design anti-patterns: what they look like, why the tools produce them, and what to do instead. Live at [sloppatterns.com](https://sloppatterns.com).
 
-- **The library** (`patterns.json`, pattern text and sources) is licensed [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Reuse it with credit.
-- **The code** (site, rules and the MCP server in `api/`) is [MIT](LICENSE).
+- **License: MIT** ([LICENSE](LICENSE)). Only the pattern library is here and MIT: `patterns.json`, the pattern text and sources, the site, and the MCP server in `api/`.
+- **Scanner code is not open.** The Slop Score scanner at [sloppatterns.com/score](https://sloppatterns.com/score) (browser capture, live checks and grading) is a separate project and is not included in this repo.
 - **The MCP server** runs at `https://sloppatterns.com/mcp`. No account or key. See the "For agents" page on the site.
 - **The research note**, The Same Page, is in `research/`.
 
