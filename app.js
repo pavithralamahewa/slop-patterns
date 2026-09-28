@@ -8717,7 +8717,7 @@ const DATA=[
   "theFix": "Every branch a voice flow can reach needs a spoken route: read back the interpretation, offer numbered choices aloud, accept spoken confirm and cancel, and defer anything that genuinely needs the screen until the vehicle is stopped.",
   "heur": "Trace each voice intent to completion with the display disabled; flag any path that terminates in a required touch target or that presents alternatives without a spoken enumeration.",
   "sightings": "",
-  "observed": "Reported repeatedly across in-car assistants: a spoken request ends in \"choose one on the screen\". No dated first-hand capture in the library yet — a named vehicle and build would strengthen this entry.",
+  "observed": "Reported repeatedly across in-car assistants: a spoken request ends in \"choose one on the screen\". No dated first-hand capture in the library yet. A named vehicle and build would strengthen this entry.",
   "tier": "practitioner-observed",
   "sources": [],
   "rel": [
@@ -8774,16 +8774,16 @@ const DATA=[
   "who": "Patients acquire false facts in a permanent record that affects care, billing and insurance; clinicians assume liability for text they did not write.",
   "theFix": "Link every sentence to supporting transcript spans, visibly mark unsupported statements, retain the transcript, and never pre-fill unspoken negative findings or examination elements.",
   "heur": "Compare note claims with the transcript and flag sentences without semantic support; clinical significance still requires human review.",
-  "sightings": "Associated Press reporting (Burke and Schellmann, October 2024) found OpenAI's Whisper inventing sentences in transcriptions — including medications and statements never spoken — in tools used for medical visits. More than a dozen engineers and researchers described the same failure.",
+  "sightings": "Associated Press reporting (Burke and Schellmann, October 2024) found OpenAI's Whisper inventing sentences in transcriptions, including medications and statements never spoken, in tools used for medical visits. More than a dozen engineers and researchers described the same failure.",
   "observed": "",
   "tier": "sourced",
   "sources": [
    {
-    "t": "Researchers say an AI-powered transcription tool used in hospitals invents things no one ever said — Garance Burke and Hilke Schellmann, Associated Press",
+    "t": "Researchers say an AI-powered transcription tool used in hospitals invents things no one ever said. Garance Burke and Hilke Schellmann, Associated Press",
     "u": "https://www.columbian.com/news/2024/oct/28/researchers-say-an-ai-powered-transcription-tool-used-in-hospitals-invents-things-no-one-ever-said/"
    },
    {
-    "t": "OpenAI's Whisper transcription tool has hallucination issues, researchers say — TechCrunch",
+    "t": "OpenAI's Whisper transcription tool has hallucination issues, researchers say. TechCrunch",
     "u": "https://techcrunch.com/2024/10/26/openais-whisper-transcription-tool-has-hallucination-issues-researchers-say"
    }
   ],
@@ -10345,7 +10345,7 @@ const FAQ = [
   {q:'Does my code leave my machine?',
    a:['The snippet you pass to check_design is sent to the server, matched against the rules, and discarded. Nothing is stored, logged against you, or used for training. If that is still too much, the whole rule set is open: run it locally.']},
   {q:'Is it free?',
-   a:['Yes, and it stays free. The library is CC BY-SA 4.0 and the server has no account, no key and no plan. A reference that charges for access does not get cited, and citation is the entire point.']},
+   a:['Yes, and it stays free. The library is MIT on GitHub and the server has no account, no key and no plan. A reference that charges for access does not get cited, and citation is the entire point.']},
   {q:'Why only 63 of the 235?',
    a:['Because the other 172 need judgement. "Confident Fabrication" and "The Validation Spiral" are real, documented, and genuinely harmful, and no rule reading a code snippet can tell you whether an assistant is being sycophantic.',
       'A checker that claimed all '+DATA.length+' would be guessing on most of them. On a library about AI slop, that would be a little on the nose.']},
@@ -10497,14 +10497,14 @@ function renderMcp(){
 
 <section class="usedata" id="data">
   <h2>Use the data</h2>
-  <p>Every pattern, with its evidence tier, sources and fix, as one file. Free to use with credit under CC BY-SA 4.0; the code is MIT and <a href="https://github.com/pavithralamahewa/slop-patterns">on GitHub</a>. If you want to build it into a product under other terms, <a href="mailto:pavithra@precious.team?subject=Slop%20Patterns%20data%20licence">ask about a licence</a>.</p>
+  <p>Every pattern, with its evidence tier, sources and fix, as one file. Library MIT <a href="https://github.com/pavithralamahewa/slop-patterns">on GitHub</a>, free to use in your own tools. Scanner code is not open: the Slop Score scanner is a separate project and is not in the repo.</p>
   <ul class="dl">
     <li><a href="/patterns.json" download>patterns.json</a><span>All ${DATA.length} patterns · updates with each release</span></li>
     <li><code>GET https://sloppatterns.com/api/patterns</code><span>The same file, for programs</span></li>
     <li><a href="/library.json">library.json</a><span>Version and changelog</span></li>
   </ul>
 </section>
-<div class="foot"><span>Built by Precious Studio</span><span class="sp"></span><span>CC BY-SA 4.0</span></div>`;
+<div class="foot"><span>Built by Precious Studio</span><span class="sp"></span><span><a href="https://github.com/pavithralamahewa/slop-patterns" style="text-decoration:none">Library MIT on GitHub</a>. Scanner code is not open.</span></div>`;
 }
 
 /* ===== Submit a pattern ===== */
@@ -10554,7 +10554,7 @@ function renderSubmit(){
   </form>
 </section>
 
-<div class="foot"><span>Built by Precious Studio</span><span class="sp"></span><a href="#mcp" data-go="mcp" style="text-decoration:none">MCP</a><span>CC BY-SA 4.0</span></div>`;
+<div class="foot"><span>Built by Precious Studio</span><span class="sp"></span><a href="#mcp" data-go="mcp" style="text-decoration:none">MCP</a><span><a href="https://github.com/pavithralamahewa/slop-patterns" style="text-decoration:none">Library MIT on GitHub</a>. Scanner code is not open.</span></div>`;
 
   const f = document.getElementById('subform');
   f.addEventListener('submit', e => {
@@ -10622,7 +10622,7 @@ function renderP0(){
   + '<dl class="meta">'
   + '<div><dt>Maintainer</dt><dd>Pavithra Lamahewa <small>Precious Studio</small></dd></div>'
   + '<div><dt>Entries</dt><dd>' + DATA.length + ' <small>' + DATA.reduce(function(n,p){ return n + p.sources.length; }, 0) + ' sources</small></dd></div>'
-  + '<div><dt>Licence</dt><dd>CC BY-SA 4.0 <small>free to reuse with credit</small></dd></div>'
+  + '<div><dt>Licence</dt><dd>MIT <small>library on GitHub. Scanner code is not open.</small></dd></div>'
   + '<div><dt>Contact</dt><dd><a href="mailto:hello@precious.studio">hello@precious.studio</a></dd></div>'
   + '</dl>'
   + '<div class="acts">'
@@ -10641,7 +10641,7 @@ function renderP0(){
   + '<div class="tiles">' + DATA.slice(0,3).map(tile).join('') + '</div></section>'
   + '<div class="foot"><span>Maintained by Pavithra Lamahewa · Precious Studio</span>'
   + '<span class="sp"></span><a href="#mcp" data-go="mcp" style="text-decoration:none">MCP</a>'
-  + '<span>CC BY-SA 4.0</span></div>';
+  + '<span><a href="https://github.com/pavithralamahewa/slop-patterns" style="text-decoration:none">Library MIT on GitHub</a>. Scanner code is not open.</span></div>';
 }
 
 /* ===== newsletter signup + public stats ===== */
@@ -10710,7 +10710,7 @@ function renderNewsletter(){
     + '<p class="nl-fine">Sent by Pavithra Lamahewa. Your address is used for this email only.</p>'
     + '</div>' + issue + '</header>'
     + '<div id="statsmount"></div>'
-    + '<div class="foot"><span>Maintained by <a href="#p0" data-go="p0" style="text-decoration:none;font-weight:600">Pavithra Lamahewa</a> · Precious Studio</span><span class="sp"></span><a href="#mcp" data-go="mcp" style="text-decoration:none">For agents</a><span>CC BY-SA 4.0</span></div>';
+    + '<div class="foot"><span>Maintained by <a href="#p0" data-go="p0" style="text-decoration:none;font-weight:600">Pavithra Lamahewa</a> · Precious Studio</span><span class="sp"></span><a href="#mcp" data-go="mcp" style="text-decoration:none">For agents</a><span><a href="https://github.com/pavithralamahewa/slop-patterns" style="text-decoration:none">Library MIT on GitHub</a>. Scanner code is not open.</span></div>';
   fetch('/api/stats?days=30').then(function(r){ return r.json(); }).then(function(d){
     if(!d || !d.ready || !(d.rules||[]).length) return;
     var byCode = {}; DATA.forEach(function(p){ byCode[p.code] = p; });
@@ -10767,7 +10767,7 @@ function paintStats(d){
     + '<section class="browse"><div class="subwrap">' + subForm('block') + '</div></section>'
     + '<div class="foot"><span>Maintained by <a href="#p0" data-go="p0" style="text-decoration:none;font-weight:600">Pavithra Lamahewa</a> · Precious Studio</span>'
     + '<span class="sp"></span><a href="#mcp" data-go="mcp" style="text-decoration:none">MCP</a>'
-    + '<span>CC BY-SA 4.0</span></div>';
+    + '<span><a href="https://github.com/pavithralamahewa/slop-patterns" style="text-decoration:none">Library MIT on GitHub</a>. Scanner code is not open.</span></div>';
 }
 window.subForm = subForm;
 
@@ -10915,7 +10915,7 @@ function renderIndex(){
     </section>`}
   </section>
   ${(typeof renderOffer==='function') ? renderOffer('home') : ''}
-  <div class="foot"><span>Maintained by <a href="#p0" data-go="p0" style="text-decoration:none;font-weight:600">Pavithra Lamahewa</a> · Precious Studio</span><span class="sp"></span><a href="#newsletter" data-go="newsletter" style="text-decoration:none">Newsletter</a><a href="#mcp" data-go="mcp" style="text-decoration:none">MCP</a><span>CC BY-SA 4.0</span></div>`;
+  <div class="foot"><span>Maintained by <a href="#p0" data-go="p0" style="text-decoration:none;font-weight:600">Pavithra Lamahewa</a> · Precious Studio</span><span class="sp"></span><a href="#newsletter" data-go="newsletter" style="text-decoration:none">Newsletter</a><a href="#mcp" data-go="mcp" style="text-decoration:none">MCP</a><span><a href="https://github.com/pavithralamahewa/slop-patterns" style="text-decoration:none">Library MIT on GitHub</a>. Scanner code is not open.</span></div>`;
 }
 
 function renderPanel(){
@@ -10981,7 +10981,7 @@ function renderDetail(id){
     <div class="hd"><h2>Related patterns</h2><button data-go="index">All ${DATA.length} ›</button></div>
     <div class="tiles">${p.rel.map(r=>byId[r]).filter(Boolean).map(tile).join('')}</div>
   </section>
-  <div class="foot"><span>Maintained by <a href="#p0" data-go="p0" style="text-decoration:none;font-weight:600">Pavithra Lamahewa</a> · Precious Studio</span><span class="sp"></span><a href="#newsletter" data-go="newsletter" style="text-decoration:none">Newsletter</a><a href="#mcp" data-go="mcp" style="text-decoration:none">MCP</a><span>CC BY-SA 4.0</span></div>`;
+  <div class="foot"><span>Maintained by <a href="#p0" data-go="p0" style="text-decoration:none;font-weight:600">Pavithra Lamahewa</a> · Precious Studio</span><span class="sp"></span><a href="#newsletter" data-go="newsletter" style="text-decoration:none">Newsletter</a><a href="#mcp" data-go="mcp" style="text-decoration:none">MCP</a><span><a href="https://github.com/pavithralamahewa/slop-patterns" style="text-decoration:none">Library MIT on GitHub</a>. Scanner code is not open.</span></div>`;
 }
 
 /* scale each tile artefact to fit its card, so nothing is clipped */
@@ -11191,7 +11191,7 @@ function renderCheck(code, out){
   app.innerHTML = head + body
     + '<div class="foot"><span>Checked in your browser against '
     + '<a href="#mcp" data-go="mcp" style="text-decoration:none">the same MCP server</a> your agent can call</span>'
-    + '<span class="sp"></span><span>CC BY-SA 4.0</span></div>';
+    + '<span class="sp"></span><span><a href="https://github.com/pavithralamahewa/slop-patterns" style="text-decoration:none">Library MIT on GitHub</a>. Scanner code is not open.</span></div>';
 }
 
 function checkCode(code){
@@ -11311,7 +11311,7 @@ function buildRail(){
     + '<div class="railfoot">'
     + '<a href="#submit" data-go="submit">Submit a pattern</a>'
     + '<a href="#newsletter" data-go="newsletter">Newsletter</a>'
-    + '<span class="cc">By <a href="#p0" data-go="p0">Pavithra Lamahewa</a>, Precious Studio · CC BY-SA 4.0 · <a href="/privacy">Privacy</a></span></div>';
+    + '<span class="cc">By <a href="#p0" data-go="p0">Pavithra Lamahewa</a>, Precious Studio · <a href="https://github.com/pavithralamahewa/slop-patterns">Library MIT on GitHub</a>. Scanner code is not open. · <a href="/privacy">Privacy</a></span></div>';
   navIn.insertAdjacentHTML('beforeend', html);
   railnav = navIn.querySelector('.railnav');
   fill    = navIn.querySelector('.railfill');
