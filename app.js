@@ -10322,10 +10322,10 @@ const DETECTED = ['a1','a2','a3','a6','a7','a8','a10','a12','a15','a16','a18','a
 const MTOOLS = [
   {n:'check_design(code)', hero:true, tag:'the one that matters',
    d:'Reads a snippet of CSS, HTML or JSX and returns every pattern it matches, with the fix for each. This is the tool that changes what the agent ships rather than just informing it.'},
-  {n:'list_patterns(track?)', d:'The whole taxonomy — ids, names, one-liners. Cheap enough to call for orientation.'},
+  {n:'list_patterns(track?)', d:'The whole taxonomy: ids, names, one-liners. Cheap enough to call for orientation.'},
   {n:'get_pattern(id)', d:'One full entry: what it looks like, why the tools produce it, who it hurts, what to do instead.'},
   {n:'search_patterns(query)', d:'Plain-language lookup. "dark mode with no light option" finds A7 Permanent Midnight.'},
-  {n:'why(id)', d:'Just the causal note — which model, tool or template default produces this. The part nobody else publishes.'}
+  {n:'why(id)', d:'Just the causal note: which model, tool or template default produces this. The part nobody else publishes.'}
 ];
 
 const CLIENTS = [
@@ -10337,17 +10337,17 @@ const CLIENTS = [
 
 const FAQ = [
   {q:'How is this different from a linter?',
-   a:['A linter checks whether code is valid. This checks whether the design is generic. ESLint has no opinion about a purple-to-blue gradient, three equal feature cards, or a dark mode with no light option — every one of those is syntactically perfect and visually indistinguishable from the last forty AI-built products.',
+   a:['A linter checks whether code is valid. This checks whether the design is generic. ESLint has no opinion about a purple-to-blue gradient, three equal feature cards, or a dark mode with no light option: every one of those is syntactically perfect and visually indistinguishable from the last forty AI-built products.',
       'The rules here come from a documented library with sources, not from style preferences.']},
   {q:'Why not just put this in the prompt?',
    a:['You can, and for one or two patterns you should. It stops working at scale: a system prompt listing 235 anti-patterns eats context on every request, drifts as the conversation gets long, and is silently ignored the moment the model is optimising for something else.',
       'A tool call returns the same answer on turn one and turn ninety.']},
   {q:'Does my code leave my machine?',
-   a:['The snippet you pass to check_design is sent to the server, matched against the rules, and discarded. Nothing is stored, logged against you, or used for training. If that is still too much, the whole rule set is open — run it locally.']},
+   a:['The snippet you pass to check_design is sent to the server, matched against the rules, and discarded. Nothing is stored, logged against you, or used for training. If that is still too much, the whole rule set is open: run it locally.']},
   {q:'Is it free?',
    a:['Yes, and it stays free. The library is CC BY-SA 4.0 and the server has no account, no key and no plan. A reference that charges for access does not get cited, and citation is the entire point.']},
   {q:'Why only 63 of the 235?',
-   a:['Because the other 172 need judgement. "Confident Fabrication" and "The Validation Spiral" are real, documented, and genuinely harmful — and no rule reading a code snippet can tell you whether an assistant is being sycophantic.',
+   a:['Because the other 172 need judgement. "Confident Fabrication" and "The Validation Spiral" are real, documented, and genuinely harmful, and no rule reading a code snippet can tell you whether an assistant is being sycophantic.',
       'A checker that claimed all '+DATA.length+' would be guessing on most of them. On a library about AI slop, that would be a little on the nose.']},
   {q:'Can I add a pattern?',
    a:['Yes. Submissions go through the same review as everything else in the library: observable evidence, a capture date, and a description of what the design does rather than what you think the company intended.']}
@@ -10375,7 +10375,7 @@ function renderMcp(){
 </div>
 
 <div class="term-w">
-  <div class="term-bar"><i></i><i></i><i></i><span>claude code — slop mcp</span></div>
+  <div class="term-bar"><i></i><i></i><i></i><span>claude code · slop mcp</span></div>
 <div class="term-b"><span class="dim">&gt;</span> <span class="u">Build the pricing page hero</span>
 
 <span class="call">→ check_design(code)</span>
@@ -10442,7 +10442,7 @@ function renderMcp(){
   <span class="k">outline</span>: <span class="s">2px solid var(--brand)</span>;
   <span class="k">outline-offset</span>: <span class="s">2px</span>;
 }</pre></div>
-      <p class="banote">Each fix is the one written on that pattern's page — not invented per call.</p>
+      <p class="banote">Each fix is the one written on that pattern's page, not invented per call.</p>
     </div>
   </div>
 </section>
@@ -10460,7 +10460,7 @@ function renderMcp(){
 <section class="msec">
   <p class="mlbl">Install</p>
   <h2 class="mh">One line, then it's on.</h2>
-  <p class="msub">Remote server — nothing to install, nothing to keep updated. New patterns appear the day they're published.</p>
+  <p class="msub">Remote server: nothing to install, nothing to keep updated. New patterns appear the day they're published.</p>
   <div class="clients">
     ${CLIENTS.map(c=>`<div class="client"><div class="cn">${E(c.n)}</div><code>${E(c.c)}</code></div>`).join('')}
   </div>
@@ -10475,7 +10475,7 @@ function renderMcp(){
     <div><b>172</b><em>readable, not checkable</em></div>
   </div>
   <ul class="covlist">${det}</ul>
-  <p class="covnote">These forty have a tell a rule can see in code — a hex ramp, a font stack, a column count, a missing focus ring. The rest are real failures that need a human read. <code style="font-family:'JetBrains Mono',monospace;font-size:.92em">check_design</code> will never claim one of those. All 235 stay readable through the other four tools.</p>
+  <p class="covnote">These forty have a tell a rule can see in code: a hex ramp, a font stack, a column count, a missing focus ring. The rest are real failures that need a human read. <code style="font-family:'JetBrains Mono',monospace;font-size:.92em">check_design</code> will never claim one of those. All 235 stay readable through the other four tools.</p>
 </section>
 
 <section class="msec faqwrap">
@@ -10514,7 +10514,7 @@ const CRITERIA = [
  {t:'It has to be observable', d:'Something you can see in a shipped product and describe without guessing at anyone’s intention. "The cancel button is lower contrast than the confirm button" is a pattern. "They’re trying to trap you" is not.'},
  {t:'It has to cost someone something', d:'Name who is worse off and how. A thing that is merely common, or merely not to your taste, is not an anti-pattern.'},
  {t:'It has to be repeatable', d:'One product doing something odd is a bug. The same thing across several products, produced by the same tool or default, is a pattern.'},
- {t:'Evidence beats opinion', d:'A dated screenshot, a URL, a public incident report. If you have none, say so — it will be published as practitioner-observed rather than sourced.'}
+ {t:'Evidence beats opinion', d:'A dated screenshot, a URL, a public incident report. If you have none, say so: it will be published as practitioner-observed rather than sourced.'}
 ];
 
 function renderSubmit(){
@@ -10525,7 +10525,7 @@ function renderSubmit(){
 <header class="mhero">
   <p class="mkick"><i></i>Open submissions</p>
   <h1 class="mtitle">Seen one that isn’t here?</h1>
-  <p class="mlede">The library is ${DATA.length} patterns and nowhere near finished. If you have caught something an AI tool produces over and over, send it — with whatever evidence you have.</p>
+  <p class="mlede">The library is ${DATA.length} patterns and nowhere near finished. If you have caught something an AI tool produces over and over, send it, with whatever evidence you have.</p>
 </header>
 
 <section class="msec sub-grid">
@@ -10533,21 +10533,21 @@ function renderSubmit(){
     <p class="mlbl">What gets published</p>
     <h2 class="mh">The bar, before you spend the time.</h2>
     <ul class="crit">${CRITERIA.map(c=>`<li><h3>${E(c.t)}</h3><p>${E(c.d)}</p></li>`).join('')}</ul>
-    <p class="covnote">Every entry is reviewed by hand. Nothing is published without a stated evidence tier, and nothing claims intent — we describe what the design does, not what anyone meant by it.</p>
+    <p class="covnote">Every entry is reviewed by hand. Nothing is published without a stated evidence tier, and nothing claims intent: we describe what the design does, not what anyone meant by it.</p>
   </div>
 
   <form class="subform" id="subform">
     <div class="f"><label for="s-name">What would you call it?</label>
       <input id="s-name" required placeholder="e.g. The Accent Stripe"></div>
     <div class="f"><label for="s-seen">Where did you see it?</label>
-      <input id="s-seen" required placeholder="Product name or URL — or the tool that generated it"></div>
+      <input id="s-seen" required placeholder="Product name or URL, or the tool that generated it"></div>
     <div class="f"><label for="s-what">What does it look like?</label>
       <textarea id="s-what" rows="3" required placeholder="Describe only what is on screen. No guessing at motive."></textarea></div>
     <div class="f"><label for="s-harm">Who does it cost, and how?</label>
       <textarea id="s-harm" rows="2" required placeholder="The actual consequence for the person using it."></textarea></div>
     <div class="f"><label for="s-ev">Evidence <span class="opt">optional</span></label>
-      <input id="s-ev" placeholder="Link to a screenshot, a post, an incident report — with a date if you have one"></div>
-    <div class="f"><label for="s-you">Your name and email <span class="opt">optional — for credit</span></label>
+      <input id="s-ev" placeholder="Link to a screenshot, a post, an incident report, with a date if you have one"></div>
+    <div class="f"><label for="s-you">Your name and email <span class="opt">optional, for credit</span></label>
       <input id="s-you" placeholder="Priya Raman · priya@…"></div>
     <button type="submit" class="btn btn-a" style="margin-top:4px">Send this pattern</button>
     <p class="subnote">Opens your email app with everything filled in, addressed to ${SUBMIT_TO}. Nothing is stored on this site, and there is no account.</p>
@@ -10577,9 +10577,9 @@ function renderSubmit(){
 
 /* P0 — the library's entry for itself */
 var P0 = {
-  code:'P0', name:'Made By A Person',
+  code:'P0', name:'Made by a person',
   oneLiner:'Every entry in this library was read, checked and argued over by a human before it shipped.',
-  who:'Pavithra Lamahewa — Principal UX Architect and Managing Partner at Precious Studio, '
+  who:'Pavithra Lamahewa, Principal UX Architect and Managing Partner at Precious Studio, '
      +'a product design studio in Austin, Texas. Thirteen years designing software; the last few '
      +'spent watching the same failures arrive faster than anyone could name them.',
   why:'AI tools do not fail randomly. They fail the same way, over and over, because they are '
@@ -10587,11 +10587,11 @@ var P0 = {
      +'in a design review. A failure without one is just taste, and taste loses to a deadline.',
   how:'Patterns come from three places: reading and fetching primary sources, first-hand sightings '
      +'in shipped products, and proposals from research models. Nothing from a model is trusted. '
-     +'Every citation is fetched and read before it goes in — on the last research round that '
+     +'Every citation is fetched and read before it goes in. On the last research round, that check '
      +'caught a fabrication rate of roughly one in twelve. What survives that goes to an adversarial '
      +'pass from a different model, and then to a person. Eighty-eight proposals produced eleven entries.',
   honest:'AI helped draft and build this site, and it would be a poor argument to pretend otherwise. '
-     +'The distinction that matters is not whether a machine was involved — it is whether anyone '
+     +'The distinction that matters is not whether a machine was involved. It is whether anyone '
      +'checked. Every claim here was verified by a person, and every entry carries its evidence tier: '
      +'sourced, observed, or evidence needed. The third tier exists because some entries have not '
      +'earned the first two yet, and hiding that would be its own anti-pattern.'
@@ -10741,9 +10741,9 @@ function paintStats(d){
     + (d.ready
         ? 'From <b>' + d.checks.toLocaleString() + '</b> real checks run through the MCP server in the '
           + 'last ' + d.days + ' days, by people who chose to share anonymous counts. '
-          + 'No code, no URLs, no identities — only which rule codes fired.'
+          + 'No code, no URLs, no identities: only which rule codes fired.'
         : 'Nobody has opted in yet, so there is nothing honest to show. This page will fill up on its own. '
-          + 'Sharing is off by default and sends only which rule codes fired — never your code.')
+          + 'Sharing is off by default and sends only which rule codes fired, never your code.')
     + '</p></header>';
 
   var body = '';
@@ -11173,7 +11173,7 @@ function renderCheck(code, out){
        : hits.length
          ? 'Each one links to the pattern it belongs to, with the fix.'
          : 'That is not a clean bill of health. Only '+DETECTED.length+' of the '+DATA.length+' patterns here have a '
-           + 'mechanical tell — the other '+(DATA.length-DETECTED.length)+' need a human read and are never flagged by a machine.')
+           + 'mechanical tell: the other '+(DATA.length-DETECTED.length)+' need a human read and are never flagged by a machine.')
     + '</p><div class="cta"><button class="btn btn-b" data-go="index">Back to the library</button></div></header>';
 
   var body = '';
