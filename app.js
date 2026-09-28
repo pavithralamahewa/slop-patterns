@@ -10910,13 +10910,7 @@ function renderIndex(){
             <div class="tiles">${sorted(items).map(tile).join('')}</div>
           </section>`;}).join('')
     }
-  ${flat ? '' : `<section class="grp p0sec" id="s-who">
-      <div class="grphd"><h2>Who made this</h2><span class="n">1</span>
-        <span class="tr">Not a failure</span></div>
-      <p class="grpsub">The library has an entry for itself.</p>
-      <div class="tiles">${p0Tile()}</div>
-      <div class="subwrap">${subForm('block')}</div>
-    </section>`}
+  ${flat ? '' : `<section class="grp newsec" id="s-news"><div class="subwrap">${subForm('block')}</div></section>`}
   </section>
   ${(typeof renderOffer==='function') ? renderOffer('home') : ''}
   <div class="foot"><span>Maintained by <a href="#p0" data-go="p0" style="text-decoration:none;font-weight:600">Pavithra Lamahewa</a> · Precious Studio</span><span class="sp"></span><a href="#newsletter" data-go="newsletter" style="text-decoration:none">Newsletter</a><a href="#mcp" data-go="mcp" style="text-decoration:none">MCP</a><span><a href="https://github.com/pavithralamahewa/slop-patterns" style="text-decoration:none">Library MIT on GitHub</a>. Scanner code is not open.</span></div>`;

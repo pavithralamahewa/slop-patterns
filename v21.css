@@ -166,3 +166,13 @@ h1.pat{line-height:1.05}h1.pat span{font-family:inherit}
 .ctrl.qmode .tabs{display:none}
 h1.pat span{display:block;margin-top:.25em;font-size:.55em;line-height:1.25;color:var(--ink-mid, #717171)}
 h1.pat span{letter-spacing:-.01em}
+
+/* v2.3 newsletter under the library: the full width of the grid, words left and form right on wide screens */
+.newsec .subwrap{max-width:none;margin-top:0}
+.newsec .subf.block{max-width:none;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:48px;align-items:center}
+.newsec .subf.block .subh{grid-column:1}
+.newsec .subf.block .subd{grid-column:1;margin-bottom:0}
+.newsec .subf.block .subrow{grid-column:2;grid-row:1 / span 2}
+.newsec .subf.block .submsg{grid-column:2}
+@media (max-width:900px){.newsec .subf.block{display:block}.newsec .subf.block .subd{margin-bottom:18px}}
+.newsec .submsg:empty{display:none}
