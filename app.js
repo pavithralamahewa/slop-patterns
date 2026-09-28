@@ -10866,7 +10866,6 @@ function renderIndex(){
 
   const present = GROUPS.filter(G => DATA.some(p => p.group===G.g && inTrack(p)) && (!groupSel || groupSel===G.g));
   const countIn = g => (q ? list : DATA).filter(p => p.group===g && inTrack(p)).length;
-  const hiddenCount = ['harm','origin'].reduce((t,k)=>t+Object.keys(counts(k)).length,0);
 
   app.className='wrap wide';
   app.innerHTML = `
@@ -10893,7 +10892,7 @@ function renderIndex(){
     <div class="jsentinel"></div><div class="jump">
       <button class="jmark" data-go="index">Slop Patterns</button>
       <nav class="jlinks">${flat ? '' : present.map(G=>`<a href="#s-${slugify(G.g)}" data-jump="1">${E(G.g)}<b>${countIn(G.g)}</b></a>`).join('')}</nav>
-      <button class="filterbtn${cross?' active':''}" data-panel="1"><svg viewBox="0 0 24 24"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="17" x2="20" y2="17"/><circle cx="9" cy="7" r="2.2" fill="var(--ground)"/><circle cx="15" cy="17" r="2.2" fill="var(--ground)"/></svg>${cross?`${E(cross.v)} · clear`:`Filter<span class="n">${hiddenCount}</span>`}</button><a class="jcta" href="/score"><span class="jl">Scan your site</span><span class="js">Scan</span></a>
+      <button class="filterbtn${cross?' active':''}" data-panel="1"><svg viewBox="0 0 24 24"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="17" x2="20" y2="17"/><circle cx="9" cy="7" r="2.2" fill="var(--ground)"/><circle cx="15" cy="17" r="2.2" fill="var(--ground)"/></svg>${cross?`${E(cross.v)} · clear`:`Filter`}</button><a class="jcta" href="/score"><span class="jl">Scan your site</span><span class="js">Scan</span></a>
     </div>
     ${flat
       ? `${q ? '' : `<p class="count" style="margin-top:24px">${list.length} of ${DATA.length} patterns · ${E(cross.v)}</p>`}
