@@ -1397,7 +1397,7 @@ const DATA=[
   "who": "Users iterating on creative or precise output, who lose good variants.",
   "theFix": "Keep every generation as a navigable variant (Shape of AI 'Variations' and 'Branches') and let users pin or merge (HAX G12: remember recent interactions).",
   "heur": "After a regenerate action, check whether the prior output remains reachable via a control (pager, history, branch); its removal from DOM with no such control is the tell.",
-  "sightings": "Setproduct's guide lists 'silent response overwrites' where regenerated answers 'replace originals without preserving comparisons' as an observed pitfall. NEEDS EVIDENCE for a named product with a date.",
+  "sightings": "Setproduct's guide lists 'silent response overwrites' where regenerated answers 'replace originals without preserving comparisons' as an observed pitfall.",
   "sources": [
    {
     "t": "Designing AI chat interfaces: pitfalls (Setproduct)",
@@ -2349,7 +2349,7 @@ const DATA=[
   "who": "When everything glows nothing is emphasised, so hierarchy collapses; the page also reads as 'wall of neon' and dates itself instantly.",
   "theFix": "Reserve glow for at most one element per screen, if any, and derive it from the accent colour at low opacity. Use elevation through neutral shadows or borders instead; on dark themes prefer 1px lighter borders to shadows.",
   "heur": "Count elements whose computed box-shadow has blur radius >= 24px and a non-grey colour (saturation > 20%); flag if more than two per viewport or if any appears on a card container.",
-  "sightings": "NEEDS EVIDENCE",
+  "sightings": "",
   "observed": "",
   "tier": "sourced",
   "sources": [
@@ -2391,7 +2391,7 @@ const DATA=[
   "who": "The palette signals a brand personality (artisanal, calm, literary) the product may not have, which confuses positioning and makes unrelated products look like siblings.",
   "theFix": "Derive neutrals from the brand's actual hue: tint greys toward the primary colour rather than toward amber by default. Ask what the product's material and audience are before choosing warmth.",
   "heur": "Body background in the hue range 30-50 degrees with lightness > 94% and saturation 10-40%, combined with a primary accent in the 20-45 degree band.",
-  "sightings": "NEEDS EVIDENCE",
+  "sightings": "",
   "observed": "",
   "tier": "sourced",
   "sources": [
@@ -2434,7 +2434,7 @@ const DATA=[
   "theFix": "Set tracking per typeface and size: most display faces need no more than -0.02em, and body text should sit at 0. Check the headline at mobile size where tracking-tighter compounds with reduced font size.",
   "heur": "Flag headings with computed font-size >= 40px and letter-spacing <= -0.05em, or body paragraphs with letter-spacing >= 0.05em.",
   "sightings": "",
-  "observed": "NEEDS EVIDENCE",
+  "observed": "",
   "tier": "practitioner-observed",
   "sources": [
    {
@@ -2471,7 +2471,7 @@ const DATA=[
   "who": "Screen readers announce redundant text, uppercase small type is harder to scan, and the repetition adds noise to every scroll position.",
   "theFix": "Delete labels that duplicate the heading. Where a category label genuinely helps, keep it sentence case and give it content the heading lacks.",
   "heur": "Flag elements with text-transform: uppercase, font-size <= 14px and letter-spacing >= 0.05em that immediately precede an h2/h3 whose text shares >= 50% of the label's tokens.",
-  "sightings": "NEEDS EVIDENCE",
+  "sightings": "",
   "observed": "",
   "tier": "sourced",
   "sources": [
@@ -2513,7 +2513,7 @@ const DATA=[
   "who": "Visual noise rises and usable width falls, especially on mobile where five layers of padding leave a narrow column of text.",
   "theFix": "Allow one level of containment. Group with whitespace and alignment, not boxes; use a border or a background, not both, and remove wrappers that carry no content of their own.",
   "heur": "Flag any element with border-radius >= 8px and (border or box-shadow or distinct background) that has an ancestor within 3 levels meeting the same criteria, and a descendant meeting it too.",
-  "sightings": "NEEDS EVIDENCE",
+  "sightings": "",
   "observed": "",
   "tier": "sourced",
   "sources": [
@@ -2555,7 +2555,7 @@ const DATA=[
   "who": "Users read the stripe as a status indicator and look for meaning that is not there; the page borrows warning semantics for decoration.",
   "theFix": "Reserve edge stripes for genuine status (error, warning, selected). Distinguish cards by content, imagery or a single consistent border.",
   "heur": "Flag elements where exactly one of border-left-width/border-top-width is >= 3px, the others are 0, and that border colour is chromatic; raise confidence when >= 3 sibling cards share it.",
-  "sightings": "NEEDS EVIDENCE",
+  "sightings": "",
   "observed": "",
   "tier": "sourced",
   "sources": [
@@ -2597,7 +2597,7 @@ const DATA=[
   "who": "It competes with the headline for first attention and trains users to ignore the one place where a real announcement would go.",
   "theFix": "Use a badge only when there is actual news with a link. Otherwise remove it and let the headline own the top of the page.",
   "heur": "Flag an element with border-radius >= 9999px or >= 50% height, font-size <= 14px and <= 6 words, positioned as the immediate previous sibling of an h1 or h2.",
-  "sightings": "NEEDS EVIDENCE",
+  "sightings": "",
   "observed": "",
   "tier": "sourced",
   "sources": [
@@ -2639,7 +2639,7 @@ const DATA=[
   "who": "Readers get a fictional simplicity that the onboarding then contradicts, which costs trust at the exact moment of trial.",
   "theFix": "Show the actual first-run flow with screenshots, however many steps it has. If it is genuinely three steps, show the screens, not numerals.",
   "heur": "A container with exactly three children each starting with a numeral 1-3 (in a circle: border-radius >= 50% element with text matching /^0?[1-3]$/) followed by a heading; flag when no img appears in the section.",
-  "sightings": "NEEDS EVIDENCE",
+  "sightings": "",
   "observed": "",
   "tier": "sourced",
   "sources": [
@@ -2677,7 +2677,7 @@ const DATA=[
   "who": "Invented tiers mislead buyers about what exists, and the generic checklist gives no basis to compare plans, so the section produces confusion rather than a decision.",
   "theFix": "Price from real packaging decisions and show only plans that exist. Describe what changes between plans in concrete limits (seats, projects, retention), and only highlight a plan if data shows it is the right default.",
   "heur": "Exactly three sibling cards each containing a currency-formatted price or 'Contact' and a ul of >= 3 items with check icons, where the middle card has a distinct border colour, transform scale, or a badge child.",
-  "sightings": "NEEDS EVIDENCE",
+  "sightings": "",
   "observed": "",
   "tier": "sourced",
   "sources": [
@@ -2715,7 +2715,7 @@ const DATA=[
   "who": "The avatar tells the reader the testimonial is a placeholder, which poisons any real quotes nearby; it is also the visual signature of invented social proof.",
   "theFix": "Use real photos with permission, or drop avatars entirely and cite the person with a name, role, company and link. A quote with no picture is more credible than a quote with a fake one.",
   "heur": "Flag elements with border-radius >= 50%, width 32-64px, gradient background-image and text content matching /^[A-Z]{1,2}$/ that are inside a section containing a blockquote or the word 'testimonial'.",
-  "sightings": "NEEDS EVIDENCE",
+  "sightings": "",
   "observed": "",
   "tier": "sourced",
   "sources": [
@@ -2754,7 +2754,7 @@ const DATA=[
   "theFix": "Show the real install command only if it works, or show the product's actual interface. If the product is not a CLI, do not dress it as one.",
   "heur": "Flag a container with dark background containing three sibling elements of border-radius 50%, width <= 14px, colours near #FF5F56/#FFBD2E/#27C93F, followed by monospace text; raise confidence if the text starts with '$', 'npm', 'npx' or 'pip'.",
   "sightings": "",
-  "observed": "NEEDS EVIDENCE",
+  "observed": "",
   "tier": "practitioner-observed",
   "sources": [
    {
@@ -2792,7 +2792,7 @@ const DATA=[
   "theFix": "Screenshot the real product, even if it is rough. If it is not built yet, show a diagram of what it will do, labelled as such.",
   "heur": "Inside a hero/feature section, find a non-img container with >= 3 children matching /\\$[\\d,]+|\\d+(\\.\\d)?%/ plus an svg with a path but no text axis labels; or img alt text matching /dashboard|preview|mockup/i on a site with no app screenshots elsewhere.",
   "sightings": "",
-  "observed": "NEEDS EVIDENCE",
+  "observed": "",
   "tier": "practitioner-observed",
   "sources": [
    {
@@ -2829,7 +2829,7 @@ const DATA=[
   "who": "The icons carry no information and the tile adds a layer of decoration, so scanning yields nothing; the uniform tiles are one of the most recognised generated-card signatures.",
   "theFix": "Drop icons unless they distinguish items; if kept, use them without a background tile, or replace them with small illustrations or screenshots that actually show the feature.",
   "heur": "Flag svg elements with width 16-28px whose parent has width 36-56px, border-radius >= 6px and a background with alpha <= 0.2 or a -100/-50 tint, where >= 3 such parents share identical computed styles on the page.",
-  "sightings": "NEEDS EVIDENCE",
+  "sightings": "",
   "observed": "",
   "tier": "sourced",
   "sources": [
@@ -2871,7 +2871,7 @@ const DATA=[
   "who": "The visitor learns nothing about what they would be buying, and generic imagery lowers perceived authenticity, which matters most for unknown brands.",
   "theFix": "Show the product, the people who make it, or the thing it acts on. If illustration is needed, commission one with a specific subject and a consistent style tied to the brand.",
   "heur": "For hero img/picture elements: alt or filename matching /(abstract|3d|isometric|render|gradient|blob|futuristic|technology)/i, or a CLIP-style classifier scoring 'abstract 3D render' above 0.7; also flag an img with an overlaying element whose background is rgba(0,0,0,0.4-0.7).",
-  "sightings": "NEEDS EVIDENCE",
+  "sightings": "",
   "observed": "",
   "tier": "sourced",
   "sources": [
@@ -2913,7 +2913,7 @@ const DATA=[
   "who": "Readers who spot artefacts distrust everything else on the page; presenting generated people as staff or customers is deceptive and can misrepresent diversity and product reality.",
   "theFix": "Use real photographs of real people with consent, even phone photos, or no people at all. If generated imagery is used for illustration, disclose it and keep it away from testimonials and team pages.",
   "heur": "Run an AI-image classifier on images in sections labelled team/about/testimonials; additionally OCR image regions and flag text-like regions with no dictionary matches, and check EXIF for missing camera data plus generator tags (e.g. 'Midjourney', 'DALL-E', C2PA manifests).",
-  "sightings": "NEEDS EVIDENCE",
+  "sightings": "",
   "observed": "",
   "tier": "sourced",
   "sources": [
@@ -2955,7 +2955,7 @@ const DATA=[
   "who": "Motion-sensitive users get no reduced-motion fallback, content is delayed for everyone, and identical entrances flatten hierarchy rather than guiding it.",
   "theFix": "Animate at most one thing per screen with a reason (a chart drawing its line, a product state changing). Respect prefers-reduced-motion and never set initial opacity to 0 on essential content.",
   "heur": "Count elements with inline style opacity:0 and transform translateY, or classes matching /animate-(fade|slide)|aos-|motion-/ ; flag when >= 8 on the page or when no prefers-reduced-motion media rule exists in any stylesheet.",
-  "sightings": "NEEDS EVIDENCE",
+  "sightings": "",
   "observed": "",
   "tier": "sourced",
   "sources": [
@@ -2997,7 +2997,7 @@ const DATA=[
   "who": "Perpetual motion in peripheral vision draws attention away from content and is a problem for users with attention or vestibular sensitivities; a fake live indicator is also a small lie.",
   "theFix": "Show a status indicator only when it is bound to real state, and make it static unless a change just happened. Remove decorative pulses.",
   "heur": "Flag elements <= 12px wide with border-radius 50% and a computed animation-name containing 'ping' or 'pulse' (or infinite iteration count) that are not bound to a data attribute or updated by script within 30 seconds.",
-  "sightings": "NEEDS EVIDENCE",
+  "sightings": "",
   "observed": "",
   "tier": "sourced",
   "sources": [
@@ -3039,7 +3039,7 @@ const DATA=[
   "who": "Layout-affecting transforms cause repaint jank and misclicks, elastic easing slows routine actions, and the constant movement is tiring for many users.",
   "theFix": "Use subtle, fast feedback (colour or shadow change, 120-200ms, ease-out) and reserve springs for playful moments that warrant them. Never animate transform on dense grids.",
   "heur": "Flag rules where :hover sets transform scale >= 1.03 or translateY <= -4px on >= 3 sibling cards; flag animation-timing-function values with cubic-bezier overshoot (y > 1) or 'spring' library props with stiffness on dialogs; flag transition-all on more than 10 elements.",
-  "sightings": "NEEDS EVIDENCE",
+  "sightings": "",
   "observed": "",
   "tier": "sourced",
   "sources": [
@@ -3081,7 +3081,7 @@ const DATA=[
   "who": "Spacing is how readers infer grouping; equal gaps everywhere remove that signal and make long pages feel longer than they are.",
   "theFix": "Tighten space within groups and widen it between them. Give the most important section the most room and let dense sections be dense; set a spacing scale with at least three distinct section paddings.",
   "heur": "Compute padding-top/bottom of all top-level section elements and gap of all grids; flag when the coefficient of variation of section padding is < 0.1 and >= 80% of grids share one gap value.",
-  "sightings": "NEEDS EVIDENCE",
+  "sightings": "",
   "observed": "",
   "tier": "sourced",
   "sources": [
@@ -3124,7 +3124,7 @@ const DATA=[
   "theFix": "Define separate density tokens for marketing and product surfaces: 13-14px body, 32-40px rows, 12-16px card padding in the app. Design tables and forms from real data volumes, not three sample rows.",
   "heur": "On authenticated/app routes, flag when median table row height > 56px, median card padding >= 24px, or any heading > 32px in a data-heavy view (>= 3 tables or lists on screen).",
   "sightings": "",
-  "observed": "NEEDS EVIDENCE",
+  "observed": "",
   "tier": "practitioner-observed",
   "sources": [
    {
@@ -3161,7 +3161,7 @@ const DATA=[
   "who": "Readers have learned to discount these words, so the copy loses persuasive force; for non-native readers the abstract verbs also make the actual function harder to understand.",
   "theFix": "Replace each with a concrete verb and object: 'Export invoices to Xero in one click'. Keep a banned-word list in the design system and lint copy against it.",
   "heur": "Regex page text for /\\b(unlock|elevat\\w*|empower\\w*|seamless\\w*|streamlin\\w*|supercharg\\w*|robust|leverag\\w*|harness|delve|effortless\\w*|game[- ]chang\\w*|revolutioni[sz]\\w*)\\b/gi; flag when hits per 100 words >= 1.5 or any single term appears >= 3 times.",
-  "sightings": "NEEDS EVIDENCE",
+  "sightings": "",
   "observed": "",
   "tier": "sourced",
   "sources": [
@@ -3203,7 +3203,7 @@ const DATA=[
   "who": "The reader is told what something is not and left to guess what it is; repeated pivots make copy feel scripted and lower trust.",
   "theFix": "Cut the negative half and state the positive claim with evidence. If a contrast genuinely matters, name the specific alternative and the specific difference.",
   "heur": "Regex headings and paragraphs for /\\b(not|isn'?t|aren'?t) (just|only|about|a) [^.!?]{2,40}[.,;—-]+ (it'?s|but|it is) [^.!?]{2,40}/i; flag when >= 2 matches per page or one in the h1.",
-  "sightings": "NEEDS EVIDENCE",
+  "sightings": "",
   "observed": "",
   "tier": "sourced",
   "sources": [
@@ -3245,7 +3245,7 @@ const DATA=[
   "who": "Real information gets padded or truncated to fit the count, and the uniform cadence makes it hard to tell which of the three matters.",
   "theFix": "List what is true, in whatever number it comes. Vary sentence length deliberately; let one point be long and one be short.",
   "heur": "Regex for /\\b\\w+\\. \\w+\\. \\w+\\.(\\s|$)/ in headings and /\\b\\w+, \\w+,? and \\w+\\b/ patterns in body; flag when >= 3 tricola per 500 words or >= 60% of ul elements have exactly 3 li.",
-  "sightings": "NEEDS EVIDENCE",
+  "sightings": "",
   "observed": "",
   "tier": "sourced",
   "sources": [
@@ -3287,7 +3287,7 @@ const DATA=[
   "who": "Readers now associate the pattern with generated text and read the whole page with suspicion; in microcopy the dash also lengthens lines that should be short.",
   "theFix": "Rewrite each dash as a full stop, a comma, or a rephrase; allow at most one em-dash per screen of copy and none in buttons, labels or headlines.",
   "heur": "Count U+2014 (and ' - ' spaced hyphens used as dashes) per sentence across visible text; flag when > 0.15 per sentence, when any sentence has 2+, or when any appears in a button, label or h1.",
-  "sightings": "NEEDS EVIDENCE",
+  "sightings": "",
   "observed": "",
   "tier": "sourced",
   "sources": [
@@ -3330,7 +3330,7 @@ const DATA=[
   "theFix": "Strip leading emoji and exclamation marks, write full sentences, and let typography (a bold lead-in) do the scanning work if needed.",
   "heur": "Regex li and p text for /^\\s*[\\u{1F300}-\\u{1FAFF}\\u{2600}-\\u{27BF}\\u{2705}\\u{2714}]/u; flag when >= 3 list items in one list start with an emoji, or when >= 30% of sentences in a section end with '!'.",
   "sightings": "",
-  "observed": "NEEDS EVIDENCE",
+  "observed": "",
   "tier": "practitioner-observed",
   "sources": [
    {
@@ -3367,7 +3367,7 @@ const DATA=[
   "who": "Vague CTAs lower click-through because users cannot predict the outcome, and a page with three identical CTAs gives no sense of a next step that fits where the reader is.",
   "theFix": "Label the button with the action and outcome: 'Create your first invoice', 'See pricing', 'Book a 20-minute demo'. Vary CTAs by page position and reader intent.",
   "heur": "Collect text of button/a[role=button] elements; flag when primary CTA text matches /^(get started|learn more|start (free )?trial|try (it )?(for )?free|sign up)$/i, and raise confidence when the same pair appears >= 2 times.",
-  "sightings": "NEEDS EVIDENCE",
+  "sightings": "",
   "observed": "",
   "tier": "sourced",
   "sources": [
@@ -3409,7 +3409,7 @@ const DATA=[
   "who": "Dead links and placeholder text are a direct credibility hit and a legal exposure where privacy and terms links go nowhere; the heart line signals template origin to anyone who has seen a hundred of them.",
   "theFix": "Write a footer that only links to pages that exist, with a correct copyright line and real contact details. Delete the heart.",
   "heur": "In the footer: regex for /(made|built) with (❤️|love)/i, /\\[your company\\]|lorem ipsum/i, copyright year != current year, or >= 50% of anchors with href '#' or empty.",
-  "sightings": "NEEDS EVIDENCE",
+  "sightings": "",
   "observed": "",
   "tier": "sourced",
   "sources": [
@@ -3447,7 +3447,7 @@ const DATA=[
   "who": "Every shared link looks broken or untrustworthy, tabs are impossible to find, and search snippets show boilerplate; it is the cheapest possible credibility loss.",
   "theFix": "Ship a real favicon set, a 1200x630 OG image that shows the product, and title/description tags written for the page. Check the link in a chat app before launch.",
   "heur": "Fetch the document head: flag when link[rel=icon] is absent or its file hash matches known framework defaults (Vite, Next.js, CRA, Lovable), when meta[property=og:image] is absent, or when title matches /^(vite|create next app|my app|react app|untitled|new project)/i.",
-  "sightings": "NEEDS EVIDENCE",
+  "sightings": "",
   "observed": "",
   "tier": "sourced",
   "sources": [
@@ -3482,7 +3482,7 @@ const DATA=[
   "theFix": "Use a background that belongs to the product: a plain surface, a real screenshot, or a texture derived from the brand. If a grid is used, align the layout to it so it means something.",
   "heur": "Flag elements in the first viewport whose background-image contains repeating-linear-gradient or radial-gradient with background-size between 16px and 64px and colour alpha <= 0.25, or an svg pattern element with id matching /grid|dots/i, when content beneath is not laid out on that grid.",
   "sightings": "",
-  "observed": "NEEDS EVIDENCE",
+  "observed": "",
   "tier": "practitioner-observed",
   "sources": [
    {
@@ -5130,7 +5130,7 @@ const DATA=[
   "theFix": "Never insert delay that is not real work; stream at production rate; label reasoning displays as summaries, not transcripts; and drop typing indicators once first tokens are available.",
   "heur": "Timing analysis: compare time-to-first-token from the API against time-to-first-visible-character in the UI; flag padding, and flag 'thinking' badges shown on requests whose server latency is under one second.",
   "sightings": "",
-  "observed": "A BISE study found delayed replies (about 2.3 s) raised perceived social presence for novice chatbot users; an AI+ Community essay (2026-06-03) cites an NYU study in which identical GPT-4o responses were rated more 'thoughtful and useful' after a 9-second wait than a 2-second one. Direct evidence of padded streaming in a named product: NEEDS EVIDENCE.",
+  "observed": "A BISE study found delayed replies (about 2.3 s) raised perceived social presence for novice chatbot users; an AI+ Community essay (2026-06-03) cites an NYU study in which identical GPT-4o responses were rated more 'thoughtful and useful' after a 9-second wait than a 2-second one.",
   "tier": "practitioner-observed",
   "sources": [
    {
@@ -5476,7 +5476,7 @@ const DATA=[
   "theFix": "Stream only when the backend streams; otherwise render immediately. If a wait is real, show what phase the system is in rather than a decorative animation.",
   "heur": "Compare network response completion time to on-screen render completion; a consistent multi-second gap with per-character reveal on a single-chunk response is the tell.",
   "sightings": "",
-  "observed": "Setproduct's AI chat interface guide lists 'fake animations that throttle speed' that 'artificially slow down' fast responses as a pitfall observed in shipped products. No single named product with a date; NEEDS EVIDENCE for a dated product example.",
+  "observed": "Setproduct's AI chat interface guide lists 'fake animations that throttle speed' that 'artificially slow down' fast responses as a pitfall observed in shipped products.",
   "tier": "practitioner-observed",
   "sources": [
    {
@@ -5509,7 +5509,7 @@ const DATA=[
   "who": "Novice users and those with low AI literacy, who research shows lean harder on displayed confidence when it is wrong.",
   "theFix": "Show confidence only when it is calibrated and actionable; prefer categorical levels tied to a recommended action, or show N-best alternatives instead (PAIR Explainability + Trust). Never pair high confidence with an unverifiable claim.",
   "heur": "Flag numeric or categorical confidence indicators on AI output where no tooltip, method note or calibration statement is reachable from the indicator.",
-  "sightings": "Microsoft's Aether overreliance review found confidence scores and even non-informative accuracy displays increase reliance on incorrect recommendations. PAIR warns granular confidence 'can be confusing if the impact isn't clear'. NEEDS EVIDENCE for a dated shipped-product example.",
+  "sightings": "Microsoft's Aether overreliance review found confidence scores and even non-informative accuracy displays increase reliance on incorrect recommendations. PAIR warns granular confidence 'can be confusing if the impact isn't clear'.",
   "observed": "",
   "tier": "sourced",
   "sources": [
@@ -5548,7 +5548,7 @@ const DATA=[
   "theFix": "Provide stop, pause and redirect during execution, with the agent re-planning from the interruption point (Anthropic: users can stop and redirect; HAX G9). Show a live plan the user can edit.",
   "heur": "During an active generation/agent run, check for an enabled stop control and an accepting input field; absence of either is a flag.",
   "sightings": "",
-  "observed": "Setproduct lists 'missing stop controls' forcing users 'to watch unhelpful tokens stream helplessly' as an observed pitfall. The arXiv 'Terminal Is All You Need' paper (2026) notes GUI agent systems lack 'low-friction intervention mechanisms'. NEEDS EVIDENCE for a named product with a date.",
+  "observed": "Setproduct lists 'missing stop controls' forcing users 'to watch unhelpful tokens stream helplessly' as an observed pitfall. The arXiv 'Terminal Is All You Need' paper (2026) notes GUI agent systems lack 'low-friction intervention mechanisms'.",
   "tier": "practitioner-observed",
   "sources": [
    {
@@ -5696,7 +5696,7 @@ const DATA=[
   "theFix": "Make feedback granular and consequential: let users say what was wrong, apply preference changes immediately where possible, and tell them when it will take effect (HAX G15, G16; PAIR Feedback + Control levels 3 to 5).",
   "heur": "After a feedback interaction, check for any state change (preference stored, output adjusted, explanatory copy naming the effect); a generic acknowledgment with no persisted change is the tell.",
   "sightings": "",
-  "observed": "PAIR's guidance explicitly warns against 'vague acknowledgments that don't explain impact', reflecting the common shipped pattern; a Microsoft data-science essay argues thumbs alone are insufficient signal. NEEDS EVIDENCE for a dated product example.",
+  "observed": "PAIR's guidance explicitly warns against 'vague acknowledgments that don't explain impact', reflecting the common shipped pattern; a Microsoft data-science essay argues thumbs alone are insufficient signal.",
   "tier": "practitioner-observed",
   "sources": [
    {
@@ -5734,7 +5734,7 @@ const DATA=[
   "theFix": "Surface the current step ('Searching 3 sites', 'Running tests') and elapsed time, and distinguish stalled from active (Shape of AI 'Stream of Thought'; HAX G16).",
   "heur": "During an AI wait longer than ~3 seconds, check whether the loading element's text or aria-live content changes to reflect phases; a static indeterminate indicator is the tell.",
   "sightings": "",
-  "observed": "Practitioner streaming-UX guides (AI/TLDR, Setproduct) describe indeterminate 'thinking' indicators as the common default in chat products. NEEDS EVIDENCE for a dated named-product observation.",
+  "observed": "Practitioner streaming-UX guides (AI/TLDR, Setproduct) describe indeterminate 'thinking' indicators as the common default in chat products.",
   "tier": "practitioner-observed",
   "sources": [
    {
@@ -5848,7 +5848,7 @@ const DATA=[
   "theFix": "Show a visible boundary or summary marker when context is compacted, and expose editable memory the user can inspect (HAX G12; arXiv agent-governance UI proposal that agent memory be editable).",
   "heur": "When the request payload drops earlier turns, check whether the transcript renders a corresponding marker or notice; none is the tell.",
   "sightings": "",
-  "observed": "Setproduct's guide describes 'hidden conversation truncation' causing replies to contradict earlier turns as an observed pitfall; the arXiv paper on regulatory potential of agent UIs (2025) proposes editable agent memory as a governance pattern. NEEDS EVIDENCE for a dated product example.",
+  "observed": "Setproduct's guide describes 'hidden conversation truncation' causing replies to contradict earlier turns as an observed pitfall; the arXiv paper on regulatory potential of agent UIs (2025) proposes editable agent memory as a governance pattern.",
   "tier": "practitioner-observed",
   "sources": [
    {
@@ -6148,7 +6148,7 @@ const DATA=[
   "theFix": "Show the general caveat once at onboarding, then surface specific, content-linked caveats only where uncertainty or stakes are high (Shape of AI 'Caveat'; HAX G2).",
   "heur": "Count identical caveat strings across responses in a session; the same text on every message with no variation by content is the tell.",
   "sightings": "",
-  "observed": "Setproduct identifies repetitive per-message disclaimers becoming 'noise' as an observed pitfall. NEEDS EVIDENCE for a dated named-product observation.",
+  "observed": "Setproduct identifies repetitive per-message disclaimers becoming 'noise' as an observed pitfall.",
   "tier": "practitioner-observed",
   "sources": [
    {
@@ -6185,7 +6185,7 @@ const DATA=[
   "who": "Novices and time-pressed decision makers who take the explanation as evidence.",
   "theFix": "Calibrate explanation depth to stakes and focus explanations on uncertainty and verifiable evidence rather than justification (Aether mitigation; arXiv human-agent principle 'Make intent transparent': more information is not always better).",
   "heur": "Measure explanation length relative to answer length and check for verifiable references within it; long unreferenced justifications by default are the tell.",
-  "sightings": "Microsoft's Aether review found 'explanations increase user reliance on all AI recommendations' including incorrect ones. NEEDS EVIDENCE for a dated named-product observation.",
+  "sightings": "Microsoft's Aether review found 'explanations increase user reliance on all AI recommendations' including incorrect ones.",
   "observed": "",
   "tier": "sourced",
   "sources": [
@@ -6952,7 +6952,7 @@ const DATA=[
   "theFix": "Treat generated alt text as a draft requiring human edit, disclose when an image is AI-generated, and describe what matters for the page's purpose. WCAG 1.1.1 requires a text alternative that serves the equivalent purpose; the CHI 2024 study found screen reader users want provenance and aberration information for AI images.",
   "heur": "Flag alt attributes matching generation-prompt vocabulary (/8k|photorealistic|trending on|--ar \\d/i), alt strings identical across many images, or alt text whose length variance across a page is near zero; spot-check with an image-caption model for semantic mismatch.",
   "sightings": "",
-  "observed": "The CHI 2024 paper 'From Provenance to Aberrations' (Google Research) studied alt text for AI-generated images and found screen reader users need provenance and aberration information that prompt-derived alt text does not supply. Observed wrong prompt-as-alt in the wild: NEEDS EVIDENCE.",
+  "observed": "The CHI 2024 paper 'From Provenance to Aberrations' (Google Research) studied alt text for AI-generated images and found screen reader users need provenance and aberration information that prompt-derived alt text does not supply.",
   "tier": "practitioner-observed",
   "sources": [
    {
@@ -6986,7 +6986,7 @@ const DATA=[
   "theFix": "Publish only after a support engineer has reproduced the steps; include product version, date and a real screenshot; measure articles by resolved-without-ticket rate, not by count. ISO/IEC 26514 style guidance on task-oriented documentation is the reference.",
   "heur": "For a help center, compute the ratio of imperative steps and UI element names to total words; flag articles below a threshold that also contain 'if the issue persists' and lack a last-updated date or images.",
   "sightings": "",
-  "observed": "Zendesk documents a feature that generates help center draft articles from ticket data using generative AI. Published examples of resulting empty articles in production: NEEDS EVIDENCE.",
+  "observed": "Zendesk documents a feature that generates help center draft articles from ticket data using generative AI.",
   "tier": "practitioner-observed",
   "sources": [
    {
@@ -7020,7 +7020,7 @@ const DATA=[
   "theFix": "Say what the sender actually knows and why they are writing; disclose automation where required; drop the fabricated opener. CAN-SPAM and GDPR Art. 21 already govern unsolicited commercial email; the FTC treats misleading representations about how a message was produced as deceptive.",
   "heur": "Across an inbox corpus, cluster first sentences by template similarity after masking named entities; flag senders whose openers match a template at >0.85 similarity across many recipients.",
   "sightings": "",
-  "observed": "Hunter's State of Cold Email 2025 reports that 67% of recipients are unconcerned by AI-generated cold email provided it is relevant, and that recipients reject 'deceptive or low-quality' uses. A documented public example of wrong AI personalisation at scale: NEEDS EVIDENCE.",
+  "observed": "Hunter's State of Cold Email 2025 reports that 67% of recipients are unconcerned by AI-generated cold email provided it is relevant, and that recipients reject 'deceptive or low-quality' uses.",
   "tier": "practitioner-observed",
   "sources": [
    {
@@ -7130,7 +7130,7 @@ const DATA=[
   "theFix": "Confirm only irreversible, high-cost actions; prefer undo (snackbar with Undo) for the rest. Do not put a modal over the context needed to answer it (NN/g modal guidance; Nielsen #3 User Control and Freedom).",
   "heur": "Count role=dialog / role=alertdialog openings per distinct user action on a scripted walk; a ratio above 0.5, or any confirm dialog on a non-destructive action, is a fail.",
   "sightings": "",
-  "observed": "NEEDS EVIDENCE",
+  "observed": "",
   "tier": "practitioner-observed",
   "sources": [
    {
@@ -7396,7 +7396,7 @@ const DATA=[
   "theFix": "Design each object around its lifecycle and primary verb; expose the two or three actions that matter as first-class controls and drop generic edit-everything forms (Nielsen #2 Match between system and real world).",
   "heur": "Across list routes, hash the DOM structure below the page header; if 3 or more routes share identical structure (same column count of action buttons, same modal form component) treat as generic CRUD.",
   "sightings": "",
-  "observed": "NEEDS EVIDENCE",
+  "observed": "",
   "tier": "practitioner-observed",
   "sources": [
    {
@@ -7540,7 +7540,7 @@ const DATA=[
   "theFix": "Show value before asking for commitment: a public overview, a demo state, or read-only access; gate only what genuinely needs identity (NN/g login-wall research; Nielsen #3).",
   "heur": "Unauthenticated GET of '/' that redirects to a route matching login|signin|auth, with zero public routes other than auth pages discovered by crawl, is a fail.",
   "sightings": "",
-  "observed": "NEEDS EVIDENCE",
+  "observed": "",
   "tier": "practitioner-observed",
   "sources": [
    {
@@ -7574,7 +7574,7 @@ const DATA=[
   "theFix": "Replace the tour with a first-task flow: seed example content, present one concrete action, and use contextual hints where needed (NN/g: instructional onboarding should not supplement poor design).",
   "heur": "On first authenticated load, a role=dialog with 2 or more paginated steps whose text has no verbs matching the app's primary actions and whose dismissal changes no app state.",
   "sightings": "",
-  "observed": "NEEDS EVIDENCE",
+  "observed": "",
   "tier": "practitioner-observed",
   "sources": [
    {
@@ -7608,7 +7608,7 @@ const DATA=[
   "theFix": "Only expose a setting when there is a persisted field and a consumer; toggles must take immediate, visible effect or be replaced by a form with an explicit Save (NN/g toggle-switch guidelines; Nielsen #1).",
   "heur": "Flip each switch on the settings route and observe: no network request and no change to localStorage/cookies, and the state reverts on reload, is a fail; a switch inside a form next to a submit button is a secondary flag.",
   "sightings": "",
-  "observed": "NEEDS EVIDENCE",
+  "observed": "",
   "tier": "practitioner-observed",
   "sources": [
    {
@@ -7646,7 +7646,7 @@ const DATA=[
   "theFix": "Search must query the full data set on the server, match across relevant fields case-insensitively, and show result counts and a no-results state (Nielsen #7 Flexibility and Efficiency; NN/g search guidance).",
   "heur": "Type a term known to exist on page 2 of a paginated list into the search input: no network request fires and zero results render.",
   "sightings": "",
-  "observed": "NEEDS EVIDENCE",
+  "observed": "",
   "tier": "practitioner-observed",
   "sources": [
    {
@@ -8144,7 +8144,7 @@ const DATA=[
   "theFix": "Provide per-channel, per-type preferences that actually gate sends, batch low-priority events into digests, mark-as-read semantics for the in-app feed, and one-click unsubscribe in every email (Nielsen #3 User Control and Freedom; RFC 8058 List-Unsubscribe).",
   "heur": "Trigger 3 different events and count outbound notification requests and badge increments; then disable notifications in settings and repeat: if sends continue unchanged, or emails lack a List-Unsubscribe header, fail.",
   "sightings": "",
-  "observed": "NEEDS EVIDENCE",
+  "observed": "",
   "tier": "practitioner-observed",
   "sources": [
    {
@@ -10322,10 +10322,10 @@ const DETECTED = ['a1','a2','a3','a6','a7','a8','a10','a12','a15','a16','a18','a
 const MTOOLS = [
   {n:'check_design(code)', hero:true, tag:'the one that matters',
    d:'Reads a snippet of CSS, HTML or JSX and returns every pattern it matches, with the fix for each. This is the tool that changes what the agent ships rather than just informing it.'},
-  {n:'list_patterns(track?)', d:'The whole taxonomy — ids, names, one-liners. Cheap enough to call for orientation.'},
+  {n:'list_patterns(track?)', d:'The whole taxonomy: ids, names, one-liners. Cheap enough to call for orientation.'},
   {n:'get_pattern(id)', d:'One full entry: what it looks like, why the tools produce it, who it hurts, what to do instead.'},
   {n:'search_patterns(query)', d:'Plain-language lookup. "dark mode with no light option" finds A7 Permanent Midnight.'},
-  {n:'why(id)', d:'Just the causal note — which model, tool or template default produces this. The part nobody else publishes.'}
+  {n:'why(id)', d:'Just the causal note: which model, tool or template default produces this. The part nobody else publishes.'}
 ];
 
 const CLIENTS = [
@@ -10337,17 +10337,17 @@ const CLIENTS = [
 
 const FAQ = [
   {q:'How is this different from a linter?',
-   a:['A linter checks whether code is valid. This checks whether the design is generic. ESLint has no opinion about a purple-to-blue gradient, three equal feature cards, or a dark mode with no light option — every one of those is syntactically perfect and visually indistinguishable from the last forty AI-built products.',
+   a:['A linter checks whether code is valid. This checks whether the design is generic. ESLint has no opinion about a purple-to-blue gradient, three equal feature cards, or a dark mode with no light option: every one of those is syntactically perfect and visually indistinguishable from the last forty AI-built products.',
       'The rules here come from a documented library with sources, not from style preferences.']},
   {q:'Why not just put this in the prompt?',
    a:['You can, and for one or two patterns you should. It stops working at scale: a system prompt listing 235 anti-patterns eats context on every request, drifts as the conversation gets long, and is silently ignored the moment the model is optimising for something else.',
       'A tool call returns the same answer on turn one and turn ninety.']},
   {q:'Does my code leave my machine?',
-   a:['The snippet you pass to check_design is sent to the server, matched against the rules, and discarded. Nothing is stored, logged against you, or used for training. If that is still too much, the whole rule set is open — run it locally.']},
+   a:['The snippet you pass to check_design is sent to the server, matched against the rules, and discarded. Nothing is stored, logged against you, or used for training. If that is still too much, the whole rule set is open: run it locally.']},
   {q:'Is it free?',
    a:['Yes, and it stays free. The library is CC BY-SA 4.0 and the server has no account, no key and no plan. A reference that charges for access does not get cited, and citation is the entire point.']},
   {q:'Why only 63 of the 235?',
-   a:['Because the other 172 need judgement. "Confident Fabrication" and "The Validation Spiral" are real, documented, and genuinely harmful — and no rule reading a code snippet can tell you whether an assistant is being sycophantic.',
+   a:['Because the other 172 need judgement. "Confident Fabrication" and "The Validation Spiral" are real, documented, and genuinely harmful, and no rule reading a code snippet can tell you whether an assistant is being sycophantic.',
       'A checker that claimed all '+DATA.length+' would be guessing on most of them. On a library about AI slop, that would be a little on the nose.']},
   {q:'Can I add a pattern?',
    a:['Yes. Submissions go through the same review as everything else in the library: observable evidence, a capture date, and a description of what the design does rather than what you think the company intended.']}
@@ -10365,7 +10365,7 @@ function renderMcp(){
 
 <header class="mhero withterm"><div>
   <p class="mkick"><i></i>Model Context Protocol server</p>
-  <h1 class="mtitle">Your AI has seen every design. It learned the wrong ones.</h1>
+  <h1 class="mtitle">Your AI has seen a lot of the same designs. Help it skip the wrong ones.</h1>
   <p class="mlede">Slop Patterns MCP connects your AI agents to <b>235 documented AI design failures</b> and checks what they generate against them, so the slop gets caught where it's made.</p>
   <div class="cmdbox">
     <code id="cmd">claude mcp add slop --scope user --transport http ${MCP_ENDPOINT}</code>
@@ -10375,7 +10375,7 @@ function renderMcp(){
 </div>
 
 <div class="term-w">
-  <div class="term-bar"><i></i><i></i><i></i><span>claude code — slop mcp</span></div>
+  <div class="term-bar"><i></i><i></i><i></i><span>claude code · slop mcp</span></div>
 <div class="term-b"><span class="dim">&gt;</span> <span class="u">Build the pricing page hero</span>
 
 <span class="call">→ check_design(code)</span>
@@ -10442,7 +10442,7 @@ function renderMcp(){
   <span class="k">outline</span>: <span class="s">2px solid var(--brand)</span>;
   <span class="k">outline-offset</span>: <span class="s">2px</span>;
 }</pre></div>
-      <p class="banote">Each fix is the one written on that pattern's page — not invented per call.</p>
+      <p class="banote">Each fix is the one written on that pattern's page, not invented per call.</p>
     </div>
   </div>
 </section>
@@ -10460,7 +10460,7 @@ function renderMcp(){
 <section class="msec">
   <p class="mlbl">Install</p>
   <h2 class="mh">One line, then it's on.</h2>
-  <p class="msub">Remote server — nothing to install, nothing to keep updated. New patterns appear the day they're published.</p>
+  <p class="msub">Remote server: nothing to install, nothing to keep updated. New patterns appear the day they're published.</p>
   <div class="clients">
     ${CLIENTS.map(c=>`<div class="client"><div class="cn">${E(c.n)}</div><code>${E(c.c)}</code></div>`).join('')}
   </div>
@@ -10475,7 +10475,7 @@ function renderMcp(){
     <div><b>172</b><em>readable, not checkable</em></div>
   </div>
   <ul class="covlist">${det}</ul>
-  <p class="covnote">These forty have a tell a rule can see in code — a hex ramp, a font stack, a column count, a missing focus ring. The rest are real failures that need a human read. <code style="font-family:'JetBrains Mono',monospace;font-size:.92em">check_design</code> will never claim one of those. All 235 stay readable through the other four tools.</p>
+  <p class="covnote">These ${DETECTED.length} have a tell a rule can see in code: a hex ramp, a font stack, a column count, a missing focus ring. The rest are real failures that need a human read. <code style="font-family:'JetBrains Mono',monospace;font-size:.92em">check_design</code> will never claim one of those. All 235 stay readable through the other four tools.</p>
 </section>
 
 <section class="msec faqwrap">
@@ -10497,7 +10497,7 @@ function renderMcp(){
 
 <section class="usedata" id="data">
   <h2>Use the data</h2>
-  <p>Every pattern, with its evidence tier, sources and fix, as one file. Free to use with credit under CC BY-SA 4.0; the code is MIT. If you want to build it into a product under other terms, <a href="mailto:pavithra@precious.team?subject=Slop%20Patterns%20data%20licence">ask about a licence</a>.</p>
+  <p>Every pattern, with its evidence tier, sources and fix, as one file. Free to use with credit under CC BY-SA 4.0; the code is MIT and <a href="https://github.com/pavithralamahewa/slop-patterns">on GitHub</a>. If you want to build it into a product under other terms, <a href="mailto:pavithra@precious.team?subject=Slop%20Patterns%20data%20licence">ask about a licence</a>.</p>
   <ul class="dl">
     <li><a href="/patterns.json" download>patterns.json</a><span>All ${DATA.length} patterns · updates with each release</span></li>
     <li><code>GET https://sloppatterns.com/api/patterns</code><span>The same file, for programs</span></li>
@@ -10514,7 +10514,7 @@ const CRITERIA = [
  {t:'It has to be observable', d:'Something you can see in a shipped product and describe without guessing at anyone’s intention. "The cancel button is lower contrast than the confirm button" is a pattern. "They’re trying to trap you" is not.'},
  {t:'It has to cost someone something', d:'Name who is worse off and how. A thing that is merely common, or merely not to your taste, is not an anti-pattern.'},
  {t:'It has to be repeatable', d:'One product doing something odd is a bug. The same thing across several products, produced by the same tool or default, is a pattern.'},
- {t:'Evidence beats opinion', d:'A dated screenshot, a URL, a public incident report. If you have none, say so — it will be published as practitioner-observed rather than sourced.'}
+ {t:'Evidence beats opinion', d:'A dated screenshot, a URL, a public incident report. If you have none, say so: it will be published as practitioner-observed rather than sourced.'}
 ];
 
 function renderSubmit(){
@@ -10525,7 +10525,7 @@ function renderSubmit(){
 <header class="mhero">
   <p class="mkick"><i></i>Open submissions</p>
   <h1 class="mtitle">Seen one that isn’t here?</h1>
-  <p class="mlede">The library is ${DATA.length} patterns and nowhere near finished. If you have caught something an AI tool produces over and over, send it — with whatever evidence you have.</p>
+  <p class="mlede">The library is ${DATA.length} patterns and nowhere near finished. If you have caught something an AI tool produces over and over, send it, with whatever evidence you have.</p>
 </header>
 
 <section class="msec sub-grid">
@@ -10533,21 +10533,21 @@ function renderSubmit(){
     <p class="mlbl">What gets published</p>
     <h2 class="mh">The bar, before you spend the time.</h2>
     <ul class="crit">${CRITERIA.map(c=>`<li><h3>${E(c.t)}</h3><p>${E(c.d)}</p></li>`).join('')}</ul>
-    <p class="covnote">Every entry is reviewed by hand. Nothing is published without a stated evidence tier, and nothing claims intent — we describe what the design does, not what anyone meant by it.</p>
+    <p class="covnote">Every entry is reviewed by hand. Nothing is published without a stated evidence tier, and nothing claims intent: we describe what the design does, not what anyone meant by it.</p>
   </div>
 
   <form class="subform" id="subform">
     <div class="f"><label for="s-name">What would you call it?</label>
       <input id="s-name" required placeholder="e.g. The Accent Stripe"></div>
     <div class="f"><label for="s-seen">Where did you see it?</label>
-      <input id="s-seen" required placeholder="Product name or URL — or the tool that generated it"></div>
+      <input id="s-seen" required placeholder="Product name or URL, or the tool that generated it"></div>
     <div class="f"><label for="s-what">What does it look like?</label>
       <textarea id="s-what" rows="3" required placeholder="Describe only what is on screen. No guessing at motive."></textarea></div>
     <div class="f"><label for="s-harm">Who does it cost, and how?</label>
       <textarea id="s-harm" rows="2" required placeholder="The actual consequence for the person using it."></textarea></div>
     <div class="f"><label for="s-ev">Evidence <span class="opt">optional</span></label>
-      <input id="s-ev" placeholder="Link to a screenshot, a post, an incident report — with a date if you have one"></div>
-    <div class="f"><label for="s-you">Your name and email <span class="opt">optional — for credit</span></label>
+      <input id="s-ev" placeholder="Link to a screenshot, a post, an incident report, with a date if you have one"></div>
+    <div class="f"><label for="s-you">Your name and email <span class="opt">optional, for credit</span></label>
       <input id="s-you" placeholder="Priya Raman · priya@…"></div>
     <button type="submit" class="btn btn-a" style="margin-top:4px">Send this pattern</button>
     <p class="subnote">Opens your email app with everything filled in, addressed to ${SUBMIT_TO}. Nothing is stored on this site, and there is no account.</p>
@@ -10577,9 +10577,9 @@ function renderSubmit(){
 
 /* P0 — the library's entry for itself */
 var P0 = {
-  code:'P0', name:'Made By A Person',
+  code:'P0', name:'Made by a person',
   oneLiner:'Every entry in this library was read, checked and argued over by a human before it shipped.',
-  who:'Pavithra Lamahewa — Principal UX Architect and Managing Partner at Precious Studio, '
+  who:'Pavithra Lamahewa, Co-founder and UX Director at Precious Studio, '
      +'a product design studio in Austin, Texas. Thirteen years designing software; the last few '
      +'spent watching the same failures arrive faster than anyone could name them.',
   why:'AI tools do not fail randomly. They fail the same way, over and over, because they are '
@@ -10587,11 +10587,11 @@ var P0 = {
      +'in a design review. A failure without one is just taste, and taste loses to a deadline.',
   how:'Patterns come from three places: reading and fetching primary sources, first-hand sightings '
      +'in shipped products, and proposals from research models. Nothing from a model is trusted. '
-     +'Every citation is fetched and read before it goes in — on the last research round that '
+     +'Every citation is fetched and read before it goes in. On the last research round, that check '
      +'caught a fabrication rate of roughly one in twelve. What survives that goes to an adversarial '
      +'pass from a different model, and then to a person. Eighty-eight proposals produced eleven entries.',
   honest:'AI helped draft and build this site, and it would be a poor argument to pretend otherwise. '
-     +'The distinction that matters is not whether a machine was involved — it is whether anyone '
+     +'The distinction that matters is not whether a machine was involved. It is whether anyone '
      +'checked. Every claim here was verified by a person, and every entry carries its evidence tier: '
      +'sourced, observed, or evidence needed. The third tier exists because some entries have not '
      +'earned the first two yet, and hiding that would be its own anti-pattern.'
@@ -10617,7 +10617,7 @@ function renderP0(){
   app.innerHTML =
     '<button class="back" data-go="index"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg>Patterns</button>'
   + '<header class="head"><div class="code">P0</div>'
-  + '<h1 class="pat">' + P0.name + ' <span>— the one entry that is not a failure</span></h1>'
+  + '<h1 class="pat">' + P0.name + ' <span>The one entry that is not a failure</span></h1>'
   + '<p class="dlede">' + P0.oneLiner + '</p>'
   + '<dl class="meta">'
   + '<div><dt>Maintainer</dt><dd>Pavithra Lamahewa <small>Precious Studio</small></dd></div>'
@@ -10676,7 +10676,7 @@ document.addEventListener('submit', function(e){
       btn.disabled = false;
       if(x.ok){ f.querySelector('.subrow').style.display = 'none';
         msg.className = 'submsg good';
-        msg.textContent = 'Check your inbox — one click to confirm and you are on the list.';
+        msg.textContent = 'Check your inbox. One click to confirm and you are on the list.';
         if(window.trackOffer) window.trackOffer('newsletter_signup'); }
       else { msg.className = 'submsg bad'; msg.textContent = (x.j && x.j.error) || 'That did not work.'; }
     })
@@ -10741,9 +10741,9 @@ function paintStats(d){
     + (d.ready
         ? 'From <b>' + d.checks.toLocaleString() + '</b> real checks run through the MCP server in the '
           + 'last ' + d.days + ' days, by people who chose to share anonymous counts. '
-          + 'No code, no URLs, no identities — only which rule codes fired.'
+          + 'No code, no URLs, no identities: only which rule codes fired.'
         : 'Nobody has opted in yet, so there is nothing honest to show. This page will fill up on its own. '
-          + 'Sharing is off by default and sends only which rule codes fired — never your code.')
+          + 'Sharing is off by default and sends only which rule codes fired, never your code.')
     + '</p></header>';
 
   var body = '';
@@ -10868,9 +10868,9 @@ function renderIndex(){
   <header class="hero hero2">
     <div class="hero-t">
     <h1 class="big">AI design fails in <span class="penword">patterns,<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="${penLoop(50,20,46,17,5)}"/></svg></span> not accidents.</h1>
-    <p class="lede">A public library of the failures in AI products — what they look like, why the tools produce them, and what to do instead.</p>
+    <p class="lede">A public library of the failures in AI products: what they look like, why the tools produce them, and what to do instead.</p>
     <div class="cta"><a class="btn btn-a" href="/score">Scan your site</a><button class="btn btn-b" data-scroll="1">Browse the library</button></div>
-    <p class="byline">By <a href="#p0" data-go="p0">Pavithra Lamahewa</a>, Principal UX Architect at Precious Studio. 235 patterns, every one read and checked by hand.</p>
+    <p class="byline">By <a href="#p0" data-go="p0">Pavithra Lamahewa</a>, Co-founder and UX Director at Precious Studio. 235 patterns, every one read and checked by hand.</p>
     <p class="reviewline"><a href="#review" data-go="review">Get a review</a> from the designer behind this research.</p>
     <p class="newnote"><a href="/research/the-same-page">New research: The Same Page. AI-era design tells on 4,725 launch pages, 2016 to 2026 →</a></p>
     </div>
@@ -10941,7 +10941,7 @@ function renderDetail(id){
   <button class="back" data-go="index"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg>Patterns</button>
   <header class="head">
     <div class="code">${p.code}</div>
-    <h1 class="pat">${E(SC(p.name))} <span>— ${E(sub(p.id))}</span></h1>
+    <h1 class="pat">${E(SC(p.name))} <span>${E((s=>s.charAt(0).toUpperCase()+s.slice(1))(sub(p.id)))}</span></h1>
     <p class="dlede">${E(p.oneLiner)}</p>
     <dl class="meta">
       <div><dt>Track</dt><dd>${p.track[0].toUpperCase()+p.track.slice(1)} <small>${E(p.category)}</small></dd></div>
@@ -10973,7 +10973,7 @@ function renderDetail(id){
   <section class="fields">
     <div><h2>Why it happens</h2><p>${E(p.why)}</p></div>
     <div><h2>Who it hurts</h2><p>${E(p.who)}</p></div>
-    <div><h2>${p.tier==='practitioner-observed'?'Observed':'Sightings'}</h2><p>${p.sightings?E(p.sightings):p.observed?E(p.observed):'No dated first-hand capture yet. <b>Report a sighting</b> to add one.'}</p></div>
+    <div><h2>${p.tier==='practitioner-observed'?'Observed':'Sightings'}</h2><p>${(p.sightings&&!/NEEDS EVIDENCE/i.test(p.sightings))?E(p.sightings):(p.observed&&!/NEEDS EVIDENCE/i.test(p.observed))?E(p.observed):'No dated first-hand capture yet. <b>Report a sighting</b> to add one.'}</p></div>
     <div class="wide"><h2>Detection heuristic</h2><div class="heur">${E(p.heur)}</div></div>
     <div class="wide"><h2>Sources</h2><ul class="srcs">${p.sources.map(s=>`<li><a href="${s.u}" target="_blank" rel="noopener">${E(s.t)}</a><small>${E(new URL(s.u).hostname.replace('www.',''))}</small></li>`).join('')}</ul></div>
   </section>
@@ -11173,7 +11173,7 @@ function renderCheck(code, out){
        : hits.length
          ? 'Each one links to the pattern it belongs to, with the fix.'
          : 'That is not a clean bill of health. Only '+DETECTED.length+' of the '+DATA.length+' patterns here have a '
-           + 'mechanical tell — the other '+(DATA.length-DETECTED.length)+' need a human read and are never flagged by a machine.')
+           + 'mechanical tell: the other '+(DATA.length-DETECTED.length)+' need a human read and are never flagged by a machine.')
     + '</p><div class="cta"><button class="btn btn-b" data-go="index">Back to the library</button></div></header>';
 
   var body = '';
@@ -11311,7 +11311,7 @@ function buildRail(){
     + '<div class="railfoot">'
     + '<a href="#submit" data-go="submit">Submit a pattern</a>'
     + '<a href="#newsletter" data-go="newsletter">Newsletter</a>'
-    + '<span class="cc">By <a href="#p0" data-go="p0">Pavithra Lamahewa</a>, Precious Studio · CC BY-SA 4.0</span></div>';
+    + '<span class="cc">By <a href="#p0" data-go="p0">Pavithra Lamahewa</a>, Precious Studio · CC BY-SA 4.0 · <a href="/privacy">Privacy</a></span></div>';
   navIn.insertAdjacentHTML('beforeend', html);
   railnav = navIn.querySelector('.railnav');
   fill    = navIn.querySelector('.railfill');

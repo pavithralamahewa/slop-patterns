@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Privacy · Slop Patterns</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="What Slop Patterns and Slop Score collect, and why.">
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&family=Young+Serif&display=swap">
+<style>
+:root{--ground:#FBFAF7;--ink:#141414;--mid:#555;--rule:#E6E2DA;--pen:#C8412B}
+@media (prefers-color-scheme:dark){:root{--ground:#0F0F10;--ink:#F2F0EC;--mid:#A7A39C;--rule:#2A2926}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font:400 17px/1.6 "Instrument Sans",-apple-system,Helvetica,Arial,sans-serif}
+main{max-width:680px;margin:0 auto;padding:56px 20px 80px}
+a{color:inherit;text-underline-offset:3px}
+.top{font-size:15px;margin-bottom:48px}.top a{text-decoration:none;font-family:"Young Serif",Georgia,serif;font-size:20px}
+h1{font:400 clamp(34px,5vw,46px)/1.1 "Young Serif",Georgia,serif;letter-spacing:-.02em;margin:0 0 12px}
+.lede{color:var(--mid);margin:0 0 40px}
+h2{font:600 17px/1.4 "Instrument Sans",sans-serif;margin:36px 0 8px;padding-top:24px;border-top:1px solid var(--rule)}
+p{margin:0 0 12px}
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);color:var(--mid);font-size:14px}
+</style>
+</head>
+<body>
+<main>
+<div class="top"><a href="/">slop patterns</a></div>
+<h1>Privacy</h1>
+<p class="lede">What Slop Patterns and Slop Score collect, and why. Updated 28 September 2026.</p>
+
+<h2>Scanning a page</h2>
+<p>Slop Score opens the public page you enter in a real browser, then saves a screenshot, a short screen recording and the result. Reports are public at sloppatterns.com/score/r/ followed by the site's address, so they can be shared, but we ask search engines not to list them. We only scan public pages, never pages behind a login, and we refuse private or internal network addresses.</p>
+<p>Own a site that was scanned and want its report taken down? Email <a href="mailto:hello@precious.studio?subject=Remove%20a%20Slop%20Score%20report">hello@precious.studio</a> with the address and we will remove it.</p>
+
+<h2>Your email</h2>
+<p>We only have your email if you give it to us: for a free first look, to get a report by email, or for the newsletter. We use it to send what you asked for. If the scanner is busy and you leave your email to get your report later, we email the report once. Pavithra also gets a note with your email and the page you scanned, so she can follow up personally if it looks useful. You won't be added to the newsletter unless you ask. The newsletter needs you to confirm by email first, and every issue has an unsubscribe link. We don't add you to any other list, and we don't sell or share it.</p>
+
+<h2>Analytics</h2>
+<p>We use PostHog to count visits and see which links people use. On the scanner we also record sessions, with typed text masked, so we can see where people get stuck. There are no ad trackers.</p>
+
+<h2>Limits</h2>
+<p>To keep scans free and fair, we store a one-way hash of your IP address for the daily scan limit. It is not linked to your email.</p>
+
+<h2>Payments and calls</h2>
+<p>Paid reviews go through Stripe. We never see your card details. Calls are booked through Cal.com.</p>
+
+<h2>The MCP server</h2>
+<p>Code you send to check_design is matched against the rules and discarded. It isn't stored or used for training. If you turn sharing on, we keep only which rule codes fired.</p>
+
+<h2>Contact</h2>
+<p>Questions or deletion requests: <a href="mailto:hello@precious.studio">hello@precious.studio</a>. Slop Patterns is made by Pavithra Lamahewa at Precious Studio LLC, Leander, Texas.</p>
+
+<footer>Slop Patterns · <a href="/">Library</a> · <a href="/score">Scan a site</a></footer>
+</main>
+</body>
+</html>

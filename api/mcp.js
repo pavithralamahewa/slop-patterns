@@ -96,7 +96,9 @@ async function callTool(name, args){
     }
   }
   if (name === 'check_design') {
-    const hits = checkDesign(args.code || '');
+    const code = String(args.code || '');
+    if (code.length > 300000) return text('That is more than 300 KB of code. Send one page or component at a time.');
+    const hits = checkDesign(code);
     if (args.shareStats === true || process.env.SLOP_SHARE_STATS === '1')
       await record(hits.map(h => h.code), hits.length === 0);
     if (!hits.length) return text(`No documented slop patterns detected.\n\nChecked against the ${RULES.length} patterns with mechanical tells (Slop Patterns v${LIB.version}). This is not a clean bill of health — ${PATTERNS.length - RULES.length} of the ${PATTERNS.length} patterns in the library need a rendered page or a human read and are never flagged here.`);
@@ -196,7 +198,7 @@ module.exports = (req, res) => {
         error:{ code:-32000, message:'This server does not offer an SSE stream; POST JSON-RPC to this endpoint.' } });
     }
     return res.status(200).json({ server: SERVER, transport:'streamable-http',
-      tools: TOOLS.map(t=>t.name), patterns: PATTERNS.length, detected: 40,
+      tools: TOOLS.map(t=>t.name), patterns: PATTERNS.length, detected: RULES.length,
       docs: 'https://sloppatterns.com/#mcp' });
   }
   if (req.method !== 'POST') return res.status(405).end();
