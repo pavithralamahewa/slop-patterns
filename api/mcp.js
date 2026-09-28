@@ -198,7 +198,7 @@ module.exports = (req, res) => {
         error:{ code:-32000, message:'This server does not offer an SSE stream; POST JSON-RPC to this endpoint.' } });
     }
     return res.status(200).json({ server: SERVER, transport:'streamable-http',
-      tools: TOOLS.map(t=>t.name), patterns: PATTERNS.length, detected: 40,
+      tools: TOOLS.map(t=>t.name), patterns: PATTERNS.length, detected: RULES.length,
       docs: 'https://sloppatterns.com/#mcp' });
   }
   if (req.method !== 'POST') return res.status(405).end();

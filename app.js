@@ -10475,7 +10475,7 @@ function renderMcp(){
     <div><b>172</b><em>readable, not checkable</em></div>
   </div>
   <ul class="covlist">${det}</ul>
-  <p class="covnote">These forty have a tell a rule can see in code: a hex ramp, a font stack, a column count, a missing focus ring. The rest are real failures that need a human read. <code style="font-family:'JetBrains Mono',monospace;font-size:.92em">check_design</code> will never claim one of those. All 235 stay readable through the other four tools.</p>
+  <p class="covnote">These ${DETECTED.length} have a tell a rule can see in code: a hex ramp, a font stack, a column count, a missing focus ring. The rest are real failures that need a human read. <code style="font-family:'JetBrains Mono',monospace;font-size:.92em">check_design</code> will never claim one of those. All 235 stay readable through the other four tools.</p>
 </section>
 
 <section class="msec faqwrap">
