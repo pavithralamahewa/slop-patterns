@@ -10777,7 +10777,10 @@ const KEEP = new Set(['AI','Inter','CRUD','3D','X.','Y.','Zuckering','I']);
 const SC = n => n.split(' ').map((w,i,a)=>{ if(KEEP.has(w)) return w; const prev=a[i-1]||''; if(i===0||/[.?!]$/.test(prev)) return w[0].toUpperCase()+w.slice(1).toLowerCase(); return w.split('-').map(x=>KEEP.has(x)?x:x.toLowerCase()).join('-'); }).join(' ');
 let filter = {track:'all', facet:null, q:null, sort:'featured'};
 const ORD = new Map(DATA.map((p,i)=>[p.id,i]));
-const SORTS = {featured:(a,b)=>ORD.get(a.id)-ORD.get(b.id), latest:(a,b)=>(b.added||'').localeCompare(a.added||'')||ORD.get(a.id)-ORD.get(b.id), cited:(a,b)=>b.sources.length-a.sources.length, az:(a,b)=>a.name.localeCompare(b.name)};
+/* Featured: within each group, the best-evidenced patterns come first (sourced, then observed, then evidence needed). */
+const TIER_RANK = {sourced:0, 'practitioner-observed':1, needed:2};
+const tierRank = p => TIER_RANK[p.tier] ?? 1;
+const SORTS = {featured:(a,b)=>tierRank(a)-tierRank(b)||ORD.get(a.id)-ORD.get(b.id), latest:(a,b)=>(b.added||'').localeCompare(a.added||'')||ORD.get(a.id)-ORD.get(b.id), cited:(a,b)=>b.sources.length-a.sources.length, az:(a,b)=>a.name.localeCompare(b.name)};
 const sorted = arr => arr.slice().sort(SORTS[filter.sort]||SORTS.featured);
 const app = document.getElementById('app');
 const E = s => String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
