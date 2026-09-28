@@ -10866,7 +10866,6 @@ function renderIndex(){
 
   const present = GROUPS.filter(G => DATA.some(p => p.group===G.g && inTrack(p)) && (!groupSel || groupSel===G.g));
   const countIn = g => (q ? list : DATA).filter(p => p.group===g && inTrack(p)).length;
-  const hiddenCount = ['harm','origin'].reduce((t,k)=>t+Object.keys(counts(k)).length,0);
 
   app.className='wrap wide';
   app.innerHTML = `
@@ -10893,7 +10892,7 @@ function renderIndex(){
     <div class="jsentinel"></div><div class="jump">
       <button class="jmark" data-go="index">Slop Patterns</button>
       <nav class="jlinks">${flat ? '' : present.map(G=>`<a href="#s-${slugify(G.g)}" data-jump="1">${E(G.g)}<b>${countIn(G.g)}</b></a>`).join('')}</nav>
-      <button class="filterbtn${cross?' active':''}" data-panel="1"><svg viewBox="0 0 24 24"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="17" x2="20" y2="17"/><circle cx="9" cy="7" r="2.2" fill="var(--ground)"/><circle cx="15" cy="17" r="2.2" fill="var(--ground)"/></svg>${cross?`${E(cross.v)} · clear`:`Filter<span class="n">${hiddenCount}</span>`}</button><a class="jcta" href="/score"><span class="jl">Scan your site</span><span class="js">Scan</span></a>
+      <button class="filterbtn${cross?' active':''}" data-panel="1"><svg viewBox="0 0 24 24"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="17" x2="20" y2="17"/><circle cx="9" cy="7" r="2.2" fill="var(--ground)"/><circle cx="15" cy="17" r="2.2" fill="var(--ground)"/></svg>${cross?`${E(cross.v)} · clear`:`Filter`}</button><a class="jcta" href="/score"><span class="jl">Scan your site</span><span class="js">Scan</span></a>
     </div>
     ${flat
       ? `${q ? '' : `<p class="count" style="margin-top:24px">${list.length} of ${DATA.length} patterns · ${E(cross.v)}</p>`}
@@ -10911,13 +10910,7 @@ function renderIndex(){
             <div class="tiles">${sorted(items).map(tile).join('')}</div>
           </section>`;}).join('')
     }
-  ${flat ? '' : `<section class="grp p0sec" id="s-who">
-      <div class="grphd"><h2>Who made this</h2><span class="n">1</span>
-        <span class="tr">Not a failure</span></div>
-      <p class="grpsub">The library has an entry for itself.</p>
-      <div class="tiles">${p0Tile()}</div>
-      <div class="subwrap">${subForm('block')}</div>
-    </section>`}
+  ${flat ? '' : `<section class="grp newsec" id="s-news"><div class="subwrap">${subForm('block')}</div></section>`}
   </section>
   ${(typeof renderOffer==='function') ? renderOffer('home') : ''}
   <div class="foot"><span>Maintained by <a href="#p0" data-go="p0" style="text-decoration:none;font-weight:600">Pavithra Lamahewa</a> · Precious Studio</span><span class="sp"></span><a href="#newsletter" data-go="newsletter" style="text-decoration:none">Newsletter</a><a href="#mcp" data-go="mcp" style="text-decoration:none">MCP</a><span><a href="https://github.com/pavithralamahewa/slop-patterns" style="text-decoration:none">Library MIT on GitHub</a>. Scanner code is not open.</span></div>`;
@@ -11238,8 +11231,9 @@ function isUrl(v){ return !!v && !/\s/.test(v) && !/[<>{};]/.test(v) && /^(https
 document.addEventListener('mousedown', function(e){
   var b = e.target.closest && e.target.closest('[data-ask]'); if(!b) return;
   e.preventDefault(); var i = document.getElementById('q'); if(!i) return;
+  // The web-address example never starts a scan on its own: it asks for the person's own address.
+  if(isUrl(b.dataset.ask)){ i.value = ''; i.placeholder = 'Type your site, then Enter'; i.dispatchEvent(new Event('input')); i.focus(); return; }
   i.value = b.dataset.ask; i.dispatchEvent(new Event('input')); i.focus();
-  if(isUrl(i.value)){ if(window.trackOffer) window.trackOffer('outbound_score'); location.href = '/score?url=' + encodeURIComponent(i.value); }
 });
 function buildSearch(host){
   if(!host || host.querySelector('.railsearch')) return;
@@ -11252,7 +11246,7 @@ function buildSearch(host){
     + '<div class="askhint" role="note"><p class="ah-t">One box, three ways in</p>'
     + '<button type="button" data-ask="my landing page looks generic"><b>Describe it</b><span>“my landing page looks generic”</span></button>'
     + '<button type="button" data-ask="&lt;div class=&quot;bg-gradient-to-r from-indigo-500 to-violet-500&quot;&gt;"><b>Paste code</b><span>CSS, HTML or JSX, checked against the library</span></button>'
-    + '<button type="button" data-ask="stripe.com"><b>Paste a web address</b><span>runs Slop Score on the page</span></button></div>';
+    + '<button type="button" data-ask="yoursite.com"><b>Paste a web address</b><span>runs Slop Score on your page</span></button></div>';
   host.appendChild(w);
   var input = w.querySelector('#q'), i = 0, timer;
 
@@ -11261,6 +11255,7 @@ function buildSearch(host){
     input.placeholder = 'Ask, or paste code/URL';
   }
   cycle();
+  input.addEventListener('blur', function(){ if(!input.value) input.placeholder = 'Ask, or paste code/URL'; });
 
   function run(){
     var v = input.value.trim();

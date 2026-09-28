@@ -28,7 +28,7 @@
       + '<p class="who-k">Who made this</p>'
       + '<p class="who-name"><b>Pavithra Lamahewa</b>, Co-founder and UX Director at <a href="https://precious.studio/" target="_blank" rel="noopener">Precious Studio</a>. 13 years designing products.</p>'
       + '<p class="who-body">Slop Patterns is built from 4,725 archived Show HN launch pages and 235 documented patterns, each with its sources. The nine rules counted in the research were checked by hand before anything was counted.</p>'
-      + '<p class="who-links"><a href="/research/the-same-page#audit">Research method</a><a href="https://www.linkedin.com/in/pavithralamahewa/" target="_blank" rel="noopener">LinkedIn</a><a href="https://precious.studio/" target="_blank" rel="noopener">precious.studio</a></p>'
+      + '<p class="who-links"><a href="/#p0" data-go="p0">How the library is made</a><a href="/research/the-same-page#audit">Research method</a><a href="https://www.linkedin.com/in/pavithralamahewa/" target="_blank" rel="noopener">LinkedIn</a><a href="https://precious.studio/" target="_blank" rel="noopener">precious.studio</a></p>'
       /* SAMPLE REVIEW SLOT: one redacted sample review goes here. Remove `hidden` once it is added. */
       + '<figure class="who-sample" data-slot="sample-review" hidden></figure>'
       + '</div>'
