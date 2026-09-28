@@ -51,7 +51,7 @@
           'Up to 3 screens on one key flow, or one landing page. Includes a kickoff call, Figma files, one round of revisions, and a dev-ready handoff, delivered in 5 business days. If you already bought the $349 review, it comes off the price.',
           '<a class="of-btn" data-cta="feelpack" href="' + cal('feelpack', m) + '">Talk through a Feel Pack</a>')
       + row('Design subscription', 'from $4,500/mo',
-          'A dedicated senior designer on your product, without hiring or a long commitment. AI does the heavy lift; a designer locks taste. <button type="button" class="of-more" data-offer="more" aria-expanded="false">How it works</button>',
+          'A dedicated senior designer from Precious Studio on your product, without hiring or a long commitment. AI does the heavy lift; a designer locks taste. <button type="button" class="of-more" data-offer="more" aria-expanded="false">How it works</button>',
           '<a class="of-btn ghost" data-cta="subscription" href="' + cal('subscription', m) + '">Book a 15-minute call</a>',
           how())
       + '</div></section>';
