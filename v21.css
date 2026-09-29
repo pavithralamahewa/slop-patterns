@@ -222,3 +222,31 @@ h1.pat span{letter-spacing:-.01em}
 .railtop .l[aria-current]{color:var(--ink)!important}
 body.rail .railtop .l[aria-current]{background:var(--fill)}
 body.rail.nolib .railnav{visibility:hidden}
+
+/* v2.3 phone menu: logo, Scan, and one menu button; the menu holds search, pages and the footer */
+.menubtn{display:none}
+@media (max-width:1000px){
+  body .nav{position:relative!important;z-index:60}
+  body .nav-in{display:flex!important;flex-direction:row!important;flex-wrap:wrap!important;align-items:center!important;gap:10px!important;height:auto!important;min-height:56px;padding:8px 16px!important;row-gap:0!important}
+  body .nav .mark{order:1;margin:0 auto 0 0!important;padding:0!important}
+  body .nav .mark .cnt{display:none!important}
+  body .nav .railtop{display:contents!important}
+  body .nav .railtop .l{display:none!important}
+  body .nav .railtop .lscan{display:inline-flex!important;order:2;align-items:center;height:36px;padding:0 14px!important;border-radius:8px;background:var(--btn-bg);color:var(--btn-ink)!important;font-size:14px!important;font-weight:600;text-decoration:none}
+  .menubtn{display:inline-flex;order:3;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;margin-right:-8px;padding:0 10px;border:0;background:transparent;cursor:pointer;border-radius:8px}
+  .menubtn span{display:block;height:2px;border-radius:2px;background:var(--ink);transition:transform .2s ease}
+  body .nav .searchmount,body .nav .railnav,body .nav .railfoot{display:none!important}
+  /* open */
+  body.menuopen{overflow:hidden}
+  body.menuopen .nav{position:fixed!important;inset:0;height:100dvh;overflow-y:auto;border-bottom:0}
+  body.menuopen .nav-in{align-content:flex-start;align-items:flex-start!important;min-height:100%}
+  body.menuopen .nav .mark,body.menuopen .nav .lscan,body.menuopen .menubtn{align-self:center}
+  body.menuopen .menubtn span:first-child{transform:translateY(3.5px) rotate(45deg)}
+  body.menuopen .menubtn span:last-child{transform:translateY(-3.5px) rotate(-45deg)}
+  body.menuopen .nav .searchmount{display:block!important;order:4;flex:1 1 100%;margin-top:16px}
+  body.menuopen .nav .railsearch{display:flex!important;width:100%!important;margin:0!important}
+  body.menuopen .nav .railtop .l:not(.lscan){display:flex!important;order:5;flex:1 1 100%;padding:14px 0!important;border-bottom:1px solid var(--hair);font:400 28px/1.15 var(--serif)!important;letter-spacing:-.02em;color:var(--ink)!important;background:none!important}
+  body.menuopen .nav .railtop .l:not(.lscan)[aria-current]::after{content:'';width:7px;height:7px;border-radius:50%;background:var(--pen,#C8412B);margin-left:10px;align-self:center}
+  body.menuopen .nav .railtop .l:not(.lscan):first-child{margin-top:12px}
+  body.menuopen .nav .railfoot{display:block!important;order:6;flex:1 1 100%;margin-top:28px!important;border-top:0!important;padding:0!important}
+}

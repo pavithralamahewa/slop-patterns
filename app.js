@@ -11245,6 +11245,18 @@ function parseBlock(txt, review){
 
 /* --- the field itself --- */
 function isUrl(v){ return !!v && !/\s/.test(v) && !/[<>{};]/.test(v) && /^(https?:\/\/)?([a-z0-9-]+\.)+[a-z]{2,}(\/\S*)?$/i.test(v); }
+/* Phone menu: one button opens the whole site (search, pages, scan); any choice closes it. */
+function setMenu(open){
+  document.body.classList.toggle('menuopen', open);
+  var b = document.querySelector('.menubtn'); if(b){ b.setAttribute('aria-expanded', open); b.setAttribute('aria-label', open ? 'Close menu' : 'Open menu'); }
+  if(open){ var q = document.getElementById('q'); if(q && window.matchMedia('(hover:hover)').matches) q.focus(); }
+}
+document.addEventListener('click', function(e){
+  if(e.target.closest && e.target.closest('.menubtn')){ setMenu(!document.body.classList.contains('menuopen')); return; }
+  if(document.body.classList.contains('menuopen') && e.target.closest && e.target.closest('.nav a, .nav [data-go]')) setMenu(false);
+});
+document.addEventListener('keydown', function(e){ if(e.key==='Escape' && document.body.classList.contains('menuopen')) setMenu(false); });
+window.addEventListener('hashchange', function(){ setMenu(false); });
 document.addEventListener('click', function(e){
   var t = e.target.closest && e.target.closest('[data-scrollto]'); if(!t) return;
   var el = document.getElementById(t.dataset.scrollto); if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
