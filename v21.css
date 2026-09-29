@@ -2,7 +2,7 @@
    Young Serif for display, Instrument Sans for reading, IBM Plex Mono for data; pen red only for findings.
    Loaded after style.css; overrides only. Source of the rules: slop-score/docs/design-system.md */
 :root{--serif:"Young Serif",Georgia,serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;--pen:#C8412B;
-  --ink:#171717;--ink-mid:#525252;--ink-dim:#737373;--hair:rgba(23,23,23,.1);--card:#F6F6F4;--card-hover:#F0F0ED;--flag:#C8412B}
+  --ink:#171717;--ink-mid:#525252;--ink-dim:#666666;--hair:rgba(23,23,23,.1);--card:#F6F6F4;--card-hover:#F0F0ED;--flag:#C8412B}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#EDEDED;--ink-mid:#A3A3A3;--ink-dim:#8A8A8F;--card:#151517;--card-hover:#1B1B1E;--pen:#FF7A6B;--flag:#FF7A6B}}
 :root[data-theme="dark"]{--ink:#EDEDED;--ink-mid:#A3A3A3;--ink-dim:#8A8A8F;--card:#151517;--card-hover:#1B1B1E;--pen:#FF7A6B;--flag:#FF7A6B}
 
@@ -250,3 +250,7 @@ body.rail.nolib .railnav{visibility:hidden}
   body.menuopen .nav .railtop .l:not(.lscan):first-child{margin-top:12px}
   body.menuopen .nav .railfoot{display:block!important;order:6;flex:1 1 100%;margin-top:28px!important;border-top:0!important;padding:0!important}
 }
+
+/* v2.3 contrast: small labels and terminal text pass WCAG AA */
+.bahd .tagx.no{color:#A83A24}.bahd .tagx.yes{color:#2E6B3C}
+.term-b .dim,.term-bar span{color:#8B93A1}
