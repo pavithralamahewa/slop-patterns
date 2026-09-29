@@ -19,6 +19,13 @@ module.exports = async (req, res) => {
   if(!OK.test(email) || email.length > 200)
     return res.status(400).json({ error: 'That does not look like an email address.' });
 
+  // One confirmation email per address per day, and a few per connection, so nobody can use us to flood an inbox.
+  const { allow } = require('./_db.js');
+  const ip = String(req.headers['x-forwarded-for'] || '').split(',')[0].trim() || 'unknown';
+  const ipKey = require('crypto').createHash('sha256').update(ip + (process.env.IP_SALT || 'slop')).digest('hex').slice(0, 24);
+  if(!(await allow('sub-email', email, 2, 24)) || !(await allow('sub-ip', ipKey, 10, 24)))
+    return res.status(429).json({ error: 'We already sent a confirmation email. Check your inbox, or try again tomorrow.' });
+
   if(!signReady() || !mailReady())
     return res.status(503).json({ error: 'Signups are not switched on yet.' });
 

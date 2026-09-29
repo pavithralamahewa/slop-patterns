@@ -14,4 +14,18 @@ async function sql(query, params = []){
   return j.rows || [];
 }
 const configured = () => !!URL_;
-module.exports = { sql, configured };
+
+/* Abuse limits: at most `max` actions of `kind` for `key` within `hours`. Records the attempt.
+   Fails open (allows) if the database is unreachable, so a DB hiccup never blocks a real person. */
+let ready = false;
+async function allow(kind, key, max, hours){
+  if(!URL_) return true;
+  try {
+    if(!ready){ await sql('create table if not exists hits (kind text not null, k text not null, at timestamptz not null default now())'); ready = true; }
+    const r = await sql("select count(*)::int as n from hits where kind=$1 and k=$2 and at > now() - ($3 || ' hours')::interval", [kind, key, String(hours)]);
+    if((r[0] && r[0].n) >= max) return false;
+    await sql('insert into hits (kind, k) values ($1,$2)', [kind, key]);
+    return true;
+  } catch(e){ return true; }
+}
+module.exports = { sql, configured, allow };
