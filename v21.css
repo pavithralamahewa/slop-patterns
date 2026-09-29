@@ -216,3 +216,4 @@ h1.pat span{letter-spacing:-.01em}
 .inst-note{margin:12px 0 0;font-size:13px;line-height:20px;color:var(--ink-dim)}
 @media (prefers-color-scheme:dark){:root:not([data-theme=light]) .inst-tabs img.mono{filter:invert(1)}}
 :root[data-theme=dark] .inst-tabs img.mono{filter:invert(1)}
+#install{scroll-margin-top:24px}

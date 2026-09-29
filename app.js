@@ -10392,12 +10392,7 @@ function renderMcp(){
   <p class="mkick"><i></i>Model Context Protocol server</p>
   <h1 class="mtitle">Your AI has seen a lot of the same designs. Help it skip the wrong ones.</h1>
   <p class="mlede">Slop Patterns MCP connects your AI agents to <b>235 documented AI design failures</b> and checks what they generate against them, so the slop gets caught where it's made.</p>
-  <div class="cmdbox">
-    <code id="cmd">claude mcp add --scope user --transport http slop-patterns ${MCP_ENDPOINT}</code>
-    <button class="cp" data-copy="cmd">Copy</button>
-  </div>
-  <p class="mfree">No account. No key. No paid plan.</p>
-  <p class="mother">Using Cursor, Codex, VS Code, Windsurf, Gemini or the Claude app? <button type="button" class="lnk" data-scrollto="install">Setup for each agent</button></p>
+  <div id="install">${instBox()}</div>
 </div>
 
 <div class="term-w">
@@ -10483,12 +10478,6 @@ function renderMcp(){
   </div>
 </section>
 
-<section class="msec" id="install">
-  <p class="mlbl">Install</p>
-  <h2 class="mh">One line, then it's on.</h2>
-  <p class="msub">Remote server: nothing to install, nothing to keep updated. New patterns appear the day they're published.</p>
-  ${instBox()}
-</section>
 
 <section class="msec">
   <p class="mlbl">Coverage, stated straight</p>
@@ -10514,7 +10503,7 @@ function renderMcp(){
   <h2>The tools have defaults. Now they have a second opinion.</h2>
   <p>Free, open, and citable. Point your agent at it and see what it's been shipping.</p>
   <div class="cta">
-    <button class="btn btn-a" data-copy="cmd">Copy install command</button>
+    <button class="btn btn-a" data-scrollto="install">Install it</button>
     <button class="btn btn-b" data-go="index">Browse all ${DATA.length} patterns</button>
   </div>
 </section>
