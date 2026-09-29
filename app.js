@@ -11323,6 +11323,13 @@ document.addEventListener('keydown', function(e){
   e.preventDefault(); el.focus(); el.select();
 });
 window.buildSearch = buildSearch;
+/* Searches handed over from other pages arrive as /?q=... */
+window.addEventListener('load', function(){
+  var v = new URLSearchParams(location.search).get('q'); if(!v) return;
+  var i = document.getElementById('q'); if(!i) return;
+  history.replaceState(null, '', location.pathname + location.hash);
+  i.value = v; i.dispatchEvent(new Event('input')); i.focus();
+});
 
 /* ===== left rail: build, travelling fill, ticking counts, slop mode ===== */
 (function(){
