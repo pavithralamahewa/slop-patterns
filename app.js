@@ -10886,7 +10886,7 @@ function renderIndex(){
     <div class="hero-t">
     <h1 class="big">AI design fails in <span class="penword">patterns,<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="${penLoop(50,20,46,17,5)}"/></svg></span> not accidents.</h1>
     <p class="lede">A public library of the failures in AI products: what they look like, why the tools produce them, and what to do instead.</p>
-    <div class="cta"><a class="btn btn-a" href="/score">Scan your site</a><button class="btn btn-b" data-scroll="1">Browse the library</button></div>
+    <div class="cta"><a class="btn btn-a" href="/score" target="_blank" rel="noopener">Scan your site</a><button class="btn btn-b" data-scroll="1">Browse the library</button></div>
     <p class="byline">By <a href="#p0" data-go="p0">Pavithra Lamahewa</a>, Co-founder and UX Director at Precious Studio. 235 patterns, every one read and checked by hand.</p>
     <p class="reviewline"><a href="#review" data-go="review">Get a review</a> from the designer behind this research.</p>
     <p class="newnote"><a href="/research/the-same-page">New research: The Same Page. AI-era design tells on 4,725 launch pages, 2016 to 2026 →</a></p>
@@ -10905,7 +10905,7 @@ function renderIndex(){
     <div class="jsentinel"></div><div class="jump">
       <button class="jmark" data-go="index">Slop Patterns</button>
       <nav class="jlinks">${flat ? '' : present.map(G=>`<a href="#s-${slugify(G.g)}" data-jump="1">${E(G.g)}<b>${countIn(G.g)}</b></a>`).join('')}</nav>
-      <button class="filterbtn${cross?' active':''}" data-panel="1"><svg viewBox="0 0 24 24"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="17" x2="20" y2="17"/><circle cx="9" cy="7" r="2.2" fill="var(--ground)"/><circle cx="15" cy="17" r="2.2" fill="var(--ground)"/></svg>${cross?`${E(cross.v)} · clear`:`Filter`}</button><a class="jcta" href="/score"><span class="jl">Scan your site</span><span class="js">Scan</span></a>
+      <button class="filterbtn${cross?' active':''}" data-panel="1"><svg viewBox="0 0 24 24"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="17" x2="20" y2="17"/><circle cx="9" cy="7" r="2.2" fill="var(--ground)"/><circle cx="15" cy="17" r="2.2" fill="var(--ground)"/></svg>${cross?`${E(cross.v)} · clear`:`Filter`}</button><a class="jcta" href="/score" target="_blank" rel="noopener"><span class="jl">Scan your site</span><span class="js">Scan</span></a>
     </div>
     ${flat
       ? `${q ? '' : `<p class="count" style="margin-top:24px">${list.length} of ${DATA.length} patterns · ${E(cross.v)}</p>`}
@@ -10963,7 +10963,7 @@ function renderDetail(id){
       <div><dt>Entry</dt><dd>v${p.version} <small>added ${dmy(p.added)}${p.updated!==p.added?' · updated '+dmy(p.updated):''}</small></dd></div>
     </dl>
     <div class="acts">
-      <a class="pill pill-a" href="/score">Check your site for this</a>
+      <a class="pill pill-a" href="/score" target="_blank" rel="noopener">Check your site for this</a>
       <button class="pill pill-b" data-share="${p.id}"><svg viewBox="0 0 24 24"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7"/><path d="M12 15V4"/><path d="M8 8l4-4 4 4"/></svg>Share</button>
       <button class="pill pill-b" data-cite="${p.id}"><svg viewBox="0 0 24 24"><path d="M6 17h3l2-4V7H5v6h3z"/><path d="M15 17h3l2-4V7h-6v6h3z"/></svg>Cite this</button>
       <button class="pill pill-b" data-go="submit"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Report a sighting</button>
@@ -11022,6 +11022,10 @@ function setNavCount(){
 function route(){
   setNavCount();
   const id = location.hash.replace('#','') || 'index';
+  // Which page you are on: highlight it in the menu, and show the library groups only in the library.
+  const page = id==='mcp' ? 'mcp' : id==='review' ? 'review' : ['submit','newsletter','stats','p0'].indexOf(id)>=0 ? '' : 'index';
+  document.querySelectorAll('.railtop .l').forEach(function(a){ var k=a.dataset.go||''; if(k===page) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
+  document.body.classList.toggle('nolib', page!=='index' && page!=='review');
   // section deep links: render the index, then scroll to that section
   if(id.indexOf('s-')===0 || id==='review'){
     renderIndex(); fit(); requestAnimationFrame(fit);
@@ -11241,6 +11245,18 @@ function parseBlock(txt, review){
 
 /* --- the field itself --- */
 function isUrl(v){ return !!v && !/\s/.test(v) && !/[<>{};]/.test(v) && /^(https?:\/\/)?([a-z0-9-]+\.)+[a-z]{2,}(\/\S*)?$/i.test(v); }
+/* Phone menu: one button opens the whole site (search, pages, scan); any choice closes it. */
+function setMenu(open){
+  document.body.classList.toggle('menuopen', open);
+  var b = document.querySelector('.menubtn'); if(b){ b.setAttribute('aria-expanded', open); b.setAttribute('aria-label', open ? 'Close menu' : 'Open menu'); }
+  if(open){ var q = document.getElementById('q'); if(q && window.matchMedia('(hover:hover)').matches) q.focus(); }
+}
+document.addEventListener('click', function(e){
+  if(e.target.closest && e.target.closest('.menubtn')){ setMenu(!document.body.classList.contains('menuopen')); return; }
+  if(document.body.classList.contains('menuopen') && e.target.closest && e.target.closest('.nav a, .nav [data-go]')) setMenu(false);
+});
+document.addEventListener('keydown', function(e){ if(e.key==='Escape' && document.body.classList.contains('menuopen')) setMenu(false); });
+window.addEventListener('hashchange', function(){ setMenu(false); });
 document.addEventListener('click', function(e){
   var t = e.target.closest && e.target.closest('[data-scrollto]'); if(!t) return;
   var el = document.getElementById(t.dataset.scrollto); if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
@@ -11318,7 +11334,7 @@ function buildRail(){
   navIn = document.querySelector('.nav-in');
   if(!navIn || navIn.dataset.railed) return;
   navIn.dataset.railed = '1';
-  var html = '<div class="searchmount"></div><a class="railcta" href="/score">Scan your site</a>'
+  var html = '<div class="searchmount"></div><a class="railcta" href="/score" target="_blank" rel="noopener">Scan your site</a>'
     + '<div class="railnav"><div class="railfill"></div>'
     + '<div class="railhd">Where it shows up</div>'
     + GROUPS.map(function(G){
