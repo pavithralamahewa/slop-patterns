@@ -10431,7 +10431,7 @@ function renderMcp(){
   <div class="ba">
     <div class="bapane">
       <div class="bahd"><span class="tagx no">A1 flagged</span>What it wrote<span class="who">generated</span></div>
-      <div class="snip"><pre>.hero {
+      <div class="snip" tabindex="0"><pre>.hero {
   <span class="k">background</span>: <mark>linear-gradient(135deg,
     #6366F1, #A855F7)</mark>;
   <span class="k">text-align</span>: center;
@@ -10447,7 +10447,7 @@ function renderMcp(){
     </div>
     <div class="bapane">
       <div class="bahd"><span class="tagx yes">resolved</span>What the fix says<span class="who">from the library</span></div>
-      <div class="snip"><pre>.hero {
+      <div class="snip" tabindex="0"><pre>.hero {
   <span class="k">background</span>: <span class="s">var(--brand)</span>;   <span class="c">/* one colour, chosen */</span>
   <span class="k">text-align</span>: start;
 }
@@ -10857,7 +10857,7 @@ function penLoop(cx,cy,rx,ry,seed){ const r=penRng(seed||1), pts=[]; const a0=-2
   return penSmooth(pts); }
 const SPECIMENS = [['three-identical-feature-cards',1],['the-unchosen-gradient',2],['the-pulsing-dot',3]];
 const specimenBoard = () => `<div class="specs" aria-label="Three patterns from the library, marked up in red pen">
-  ${SPECIMENS.map(([id,n],i)=>{ const p=byId[id]; if(!p) return ''; return `<a class="spec s${i+1}" href="#${p.id}" data-go="${p.id}">
+  ${SPECIMENS.map(([id,n],i)=>{ const p=byId[id]; if(!p) return ''; return `<a class="spec s${i+1}" href="#${p.id}" data-go="${p.id}" aria-label="${E(p.code+' '+p.name)}">
     <div class="card"><div class="shot" aria-hidden="true">${art(p.id,'tell')}</div>
       <svg class="ink" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="${penLoop(50,52,43,34,11+i*7)}"/></svg></div>
     <span class="spec-l"><i>${p.code}</i>${E(SC(p.name))}</span></a>`; }).join('')}

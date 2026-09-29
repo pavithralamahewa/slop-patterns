@@ -252,5 +252,9 @@ body.rail.nolib .railnav{visibility:hidden}
 }
 
 /* v2.3 contrast: small labels and terminal text pass WCAG AA */
-.bahd .tagx.no{color:#A83A24}.bahd .tagx.yes{color:#2E6B3C}
+:root:not([data-theme=dark]) .bahd .tagx.no{color:#A83A24}:root:not([data-theme=dark]) .bahd .tagx.yes{color:#2E6B3C}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .bahd .tagx.no{color:#FF8A78}:root:not([data-theme=light]) .bahd .tagx.yes{color:#6FCB8B}
+  :root:not([data-theme=light]) .snip .k{color:#B98BEA}:root:not([data-theme=light]) .snip .s{color:#6AAEF2}}
+:root[data-theme=dark] .bahd .tagx.no{color:#FF8A78}:root[data-theme=dark] .bahd .tagx.yes{color:#6FCB8B}
+:root[data-theme=dark] .snip .k{color:#B98BEA}:root[data-theme=dark] .snip .s{color:#6AAEF2}
 .term-b .dim,.term-bar span{color:#8B93A1}
