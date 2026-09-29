@@ -27,7 +27,7 @@
 /* The Same Page, v2 layout (26 Sep 2026): an editorial feature on the Slop Patterns design system.
    Young Serif display, Instrument Sans reading, IBM Plex Mono data. Pen red is the only colour: AI-era tells.
    Basic defects are ink grey. No boxes: figures sit on the page, separated by hairlines. */
-:root{--ground:#FFFFFF;--ink:#171717;--ink-2:#525252;--ink-3:#737373;--rule:rgba(23,23,23,.12);--grid:rgba(23,23,23,.07);
+:root{--ground:#FFFFFF;--ink:#171717;--ink-2:#525252;--ink-3:#666666;--rule:rgba(23,23,23,.1);--grid:rgba(23,23,23,.07);
   --ai:#C8412B;--q:#8C8C8C;--serif:"Young Serif",Georgia,serif;--sans:"Instrument Sans",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
   --col:640px;--wide:1080px}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--ground:#0B0B0C;--ink:#EDEDED;--ink-2:#A3A3A3;--ink-3:#8A8A8F;--rule:rgba(255,255,255,.12);--grid:rgba(255,255,255,.07);--ai:#FF7A6B;--q:#8A8A8F}}
@@ -49,6 +49,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--ai);outline-offset:
 
 /* page grid: a reading column, a margin for notes, and wide figures that break out */
 .ed{max-width:var(--wide);margin:0 auto;padding:0 24px 120px}
+/* Same page frame as the library: content starts where the library's does, the review block spans the column */
+@media (min-width:1001px){
+  .ed{--wide:1240px;max-width:calc(var(--wide) + 2 * clamp(56px,5.2vw,104px));margin:0;padding-inline:clamp(56px,5.2vw,104px)}
+  .ed .maker{max-width:none;margin-inline:0}
+}
 .row{display:grid;grid-template-columns:minmax(0,var(--col)) minmax(0,1fr);gap:0 64px}
 .row > .mn{grid-column:2}
 @media (max-width:960px){.row{grid-template-columns:minmax(0,1fr)}.row > .mn{grid-column:1}}
