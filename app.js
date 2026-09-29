@@ -10329,10 +10329,11 @@ const MTOOLS = [
 ];
 
 const CLIENTS = [
-  {n:'Claude Code', c:'claude mcp add slop --scope user --transport http '+MCP_ENDPOINT},
-  {n:'Cursor', c:'Settings › MCP › Add server  →  '+MCP_ENDPOINT},
-  {n:'Windsurf', c:'~/.codeium/windsurf/mcp_config.json  →  "slop": { "serverUrl": "'+MCP_ENDPOINT+'" }'},
-  {n:'Claude Desktop', c:'Settings › Developer › Edit config  →  "slop": { "url": "'+MCP_ENDPOINT+'" }'}
+  {n:'Claude Code', w:'Run in a terminal', c:'claude mcp add slop --scope user --transport http '+MCP_ENDPOINT},
+  {n:'Cursor', w:'Add to ~/.cursor/mcp.json', c:'{ "mcpServers": { "slop": { "url": "'+MCP_ENDPOINT+'" } } }'},
+  {n:'VS Code', w:'Add to .vscode/mcp.json', c:'{ "servers": { "slop": { "type": "http", "url": "'+MCP_ENDPOINT+'" } } }'},
+  {n:'Windsurf', w:'Add to ~/.codeium/windsurf/mcp_config.json', c:'{ "mcpServers": { "slop": { "serverUrl": "'+MCP_ENDPOINT+'" } } }'},
+  {n:'Claude Desktop', w:'Settings › Connectors › Add custom connector, then paste', c:MCP_ENDPOINT}
 ];
 
 const FAQ = [
@@ -10372,6 +10373,7 @@ function renderMcp(){
     <button class="cp" data-copy="cmd">Copy</button>
   </div>
   <p class="mfree">No account. No key. No paid plan.</p>
+  <p class="mother">Using Cursor, VS Code, Windsurf or Claude Desktop? <button type="button" class="lnk" data-scrollto="install">Setup for each app</button></p>
 </div>
 
 <div class="term-w">
@@ -10457,12 +10459,12 @@ function renderMcp(){
   </div>
 </section>
 
-<section class="msec">
+<section class="msec" id="install">
   <p class="mlbl">Install</p>
   <h2 class="mh">One line, then it's on.</h2>
   <p class="msub">Remote server: nothing to install, nothing to keep updated. New patterns appear the day they're published.</p>
   <div class="clients">
-    ${CLIENTS.map(c=>`<div class="client"><div class="cn">${E(c.n)}</div><code>${E(c.c)}</code></div>`).join('')}
+    ${CLIENTS.map((c,i)=>`<div class="client"><div class="cn">${E(c.n)}<small>${E(c.w)}</small></div><code id="cl${i}">${E(c.c)}</code><button class="cp" data-copy="cl${i}">Copy</button></div>`).join('')}
   </div>
 </section>
 
@@ -11228,6 +11230,10 @@ function parseBlock(txt, review){
 
 /* --- the field itself --- */
 function isUrl(v){ return !!v && !/\s/.test(v) && !/[<>{};]/.test(v) && /^(https?:\/\/)?([a-z0-9-]+\.)+[a-z]{2,}(\/\S*)?$/i.test(v); }
+document.addEventListener('click', function(e){
+  var t = e.target.closest && e.target.closest('[data-scrollto]'); if(!t) return;
+  var el = document.getElementById(t.dataset.scrollto); if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+});
 document.addEventListener('mousedown', function(e){
   var b = e.target.closest && e.target.closest('[data-ask]'); if(!b) return;
   e.preventDefault(); var i = document.getElementById('q'); if(!i) return;
