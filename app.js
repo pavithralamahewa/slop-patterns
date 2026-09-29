@@ -10397,7 +10397,7 @@ function renderMcp(){
 
 <div class="term-w">
   <div class="term-bar"><i></i><i></i><i></i><span>claude code · slop mcp</span></div>
-<div class="term-b"><span class="dim">&gt;</span> <span class="u">Build the pricing page hero</span>
+<div class="term-b" tabindex="0" aria-label="Example: check_design in Claude Code"><span class="dim">&gt;</span> <span class="u">Build the pricing page hero</span>
 
 <span class="call">→ check_design(code)</span>
 <span class="dim">  4 patterns detected.</span>
@@ -10834,7 +10834,7 @@ const tile = p => `<button class="tile" data-go="${p.id}">
     <span class="acc">${p.code}</span>
     ${p.tier==='needed'?'<span class="tier">Evidence needed</span>':p.tier==='practitioner-observed'?'<span class="tier">Observed</span>':''}
     <span class="peek" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5c-5 0-8.6 4.2-9.8 6.2a1.5 1.5 0 0 0 0 1.6C3.4 14.8 7 19 12 19s8.6-4.2 9.8-6.2a1.5 1.5 0 0 0 0-1.6C20.6 9.2 17 5 12 5Zm0 10.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Z"/></svg></span>
-    <div class="shot">${art(p.id,'tell')}</div>
+    <div class="shot" aria-hidden="true">${art(p.id,'tell')}</div>
   </div>
   <div class="tinfo"><p class="tname">${E(SC(p.name))}</p><p class="tdesc">${E(p.oneLiner)}</p></div>
 </button>`;
@@ -10858,7 +10858,7 @@ function penLoop(cx,cy,rx,ry,seed){ const r=penRng(seed||1), pts=[]; const a0=-2
 const SPECIMENS = [['three-identical-feature-cards',1],['the-unchosen-gradient',2],['the-pulsing-dot',3]];
 const specimenBoard = () => `<div class="specs" aria-label="Three patterns from the library, marked up in red pen">
   ${SPECIMENS.map(([id,n],i)=>{ const p=byId[id]; if(!p) return ''; return `<a class="spec s${i+1}" href="#${p.id}" data-go="${p.id}">
-    <div class="card"><div class="shot">${art(p.id,'tell')}</div>
+    <div class="card"><div class="shot" aria-hidden="true">${art(p.id,'tell')}</div>
       <svg class="ink" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="${penLoop(50,52,43,34,11+i*7)}"/></svg></div>
     <span class="spec-l"><i>${p.code}</i>${E(SC(p.name))}</span></a>`; }).join('')}
   </div>`;
