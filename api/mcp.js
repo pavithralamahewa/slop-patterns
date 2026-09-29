@@ -136,7 +136,10 @@ async function callTool(name, args){
     if (!q.length) return text('Empty query.');
     const scored = PATTERNS.map(p => {
       const hay = [p.name, p.oneLiner, p.looksLike, p.why, p.group, p.theFix].join(' ').toLowerCase();
-      let s = 0; for (const w of q) { if (hay.includes(w)) s++; if (p.name.toLowerCase().includes(w)) s += 2; }
+      const head = (p.name + ' ' + p.oneLiner).toLowerCase();
+      let s = 0; for (const w of q) { if (hay.includes(w)) s++; if (head.includes(w)) s++; if (p.name.toLowerCase().includes(w)) s += 2; }
+      // Whole phrases from the query ("dark mode") count most when the headline says them.
+      for (let k = 0; k + 1 < q.length; k++) if (head.includes(q[k] + ' ' + q[k + 1])) s += 3;
       return {p, s};
     }).filter(x=>x.s>0).sort((a,b)=>b.s-a.s).slice(0,8);
     if (!scored.length) return text('No match. Try list_patterns for the full taxonomy.');
