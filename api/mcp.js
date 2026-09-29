@@ -85,6 +85,9 @@ async function callTool(name, args){
       return { content:[{type:'text', text:'report_pattern needs at least name and description.'}], isError:true };
     if (!process.env.DATABASE_URL)
       return text('The report queue is not reachable right now. Please submit it at https://sloppatterns.com/#submit instead.');
+    // A ceiling on reports per hour keeps the review queue readable if someone scripts it.
+    if (!(await require('./_db.js').allow('report', 'all', 60, 1)))
+      return text('The report queue is full for this hour. Please try again later, or submit it at https://sloppatterns.com/#submit.');
     try {
       const id = await storeReport(args);
       return text('Thank you — report #' + id + ' is in the review queue.\n\n'
