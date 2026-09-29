@@ -268,3 +268,4 @@ body.rail.nolib .railnav{visibility:hidden}
 .ghtop:hover{background:var(--fill)}.ghtop:focus-visible{outline:2px solid var(--ink);outline-offset:2px}.ghtop svg{flex:none;display:block}
 body.rail .railtop .lgh{display:none!important}}
 @media (max-width:1000px){body.menuopen .nav .railtop .lgh{align-items:center}body.menuopen .nav .railtop .lgh svg{margin-left:auto;opacity:.5}}
+@media (min-width:1001px){body.rail .hero.hero2{padding-top:96px}}
