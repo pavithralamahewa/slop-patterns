@@ -10329,12 +10329,36 @@ const MTOOLS = [
 ];
 
 const CLIENTS = [
-  {n:'Claude Code', w:'Run in a terminal', c:'claude mcp add slop --scope user --transport http '+MCP_ENDPOINT},
-  {n:'Cursor', w:'Add to ~/.cursor/mcp.json', c:'{ "mcpServers": { "slop": { "url": "'+MCP_ENDPOINT+'" } } }'},
-  {n:'VS Code', w:'Add to .vscode/mcp.json', c:'{ "servers": { "slop": { "type": "http", "url": "'+MCP_ENDPOINT+'" } } }'},
-  {n:'Windsurf', w:'Add to ~/.codeium/windsurf/mcp_config.json', c:'{ "mcpServers": { "slop": { "serverUrl": "'+MCP_ENDPOINT+'" } } }'},
-  {n:'Claude Desktop', w:'Settings › Connectors › Add custom connector, then paste', c:MCP_ENDPOINT}
+  {id:'all', logo:'mcp', mono:1, n:'Every agent', how:'Finds the coding agents on your machine and adds it to each one.', c:'npx add-mcp '+MCP_ENDPOINT},
+  {id:'claude', logo:'claude-code', n:'Claude Code', how:'Run in your terminal.', c:'claude mcp add --scope user --transport http slop-patterns '+MCP_ENDPOINT},
+  {id:'cursor', logo:'cursor', mono:1, n:'Cursor', how:'Add to your MCP settings.', file:'~/.cursor/mcp.json', c:JSON.stringify({mcpServers:{'slop-patterns':{url:MCP_ENDPOINT}}},null,2)},
+  {id:'codex', logo:'openai', mono:1, n:'Codex', how:'Run in your terminal.', c:'codex mcp add slop-patterns --url '+MCP_ENDPOINT},
+  {id:'vscode', logo:'vscode', n:'VS Code', how:'Add to your project, or run “MCP: Add Server”.', file:'.vscode/mcp.json', c:JSON.stringify({servers:{'slop-patterns':{type:'http',url:MCP_ENDPOINT}}},null,2)},
+  {id:'windsurf', logo:'windsurf', mono:1, n:'Windsurf', how:'Add to your MCP settings.', file:'~/.codeium/windsurf/mcp_config.json', c:JSON.stringify({mcpServers:{'slop-patterns':{serverUrl:MCP_ENDPOINT}}},null,2)},
+  {id:'gemini', logo:'gemini', n:'Gemini CLI', how:'Run in your terminal.', c:'npx add-mcp '+MCP_ENDPOINT+' --agent gemini-cli'},
+  {id:'desktop', logo:'claude', n:'Claude app', how:'Settings → Connectors → Add custom connector, then paste this address.', c:MCP_ENDPOINT},
+  {id:'other', n:'Other', how:'Any agent that runs MCP servers as a command.', c:'npx -y mcp-remote '+MCP_ENDPOINT}
 ];
+/* One box, a tab per agent. Same list and wording as the install box on /score. */
+function instBody(c){
+  return '<p class="inst-how">'+E(c.how)+(c.file?' <code>'+E(c.file)+'</code>':'')+'</p>'
+    + '<div class="inst-code"><pre id="instcode">'+E(c.c)+'</pre><button type="button" class="inst-copy" data-copy="instcode">Copy</button></div>'
+    + '<p class="inst-note">No account or key needed. Works with any agent that supports MCP.</p>';
+}
+function instBox(){
+  return '<div class="inst"><div class="inst-tabs" role="tablist" aria-label="Your coding agent">'
+    + CLIENTS.map(function(x,i){ return '<button type="button" role="tab" data-inst="'+x.id+'" aria-selected="'+(i===0)+'" class="'+(i===0?'on':'')+'">'
+      + (x.logo ? '<img src="/score/agents/'+x.logo+'.svg" alt="" width="16" height="16"'+(x.mono?' class="mono"':'')+'>'
+                : '<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3 4.5 6.5 8 3 11.5M8 12h5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+      + E(x.n)+'</button>'; }).join('')
+    + '</div><div class="inst-body" role="tabpanel">'+instBody(CLIENTS[0])+'</div></div>';
+}
+document.addEventListener('click', function(e){
+  var t = e.target.closest && e.target.closest('[data-inst]'); if(!t) return;
+  var box = t.closest('.inst'), c = CLIENTS.filter(function(x){ return x.id===t.dataset.inst; })[0]; if(!box||!c) return;
+  box.querySelectorAll('[data-inst]').forEach(function(b){ var on=b===t; b.classList.toggle('on',on); b.setAttribute('aria-selected',on); });
+  box.querySelector('.inst-body').innerHTML = instBody(c);
+});
 
 const FAQ = [
   {q:'How is this different from a linter?',
@@ -10369,11 +10393,11 @@ function renderMcp(){
   <h1 class="mtitle">Your AI has seen a lot of the same designs. Help it skip the wrong ones.</h1>
   <p class="mlede">Slop Patterns MCP connects your AI agents to <b>235 documented AI design failures</b> and checks what they generate against them, so the slop gets caught where it's made.</p>
   <div class="cmdbox">
-    <code id="cmd">claude mcp add slop --scope user --transport http ${MCP_ENDPOINT}</code>
+    <code id="cmd">claude mcp add --scope user --transport http slop-patterns ${MCP_ENDPOINT}</code>
     <button class="cp" data-copy="cmd">Copy</button>
   </div>
   <p class="mfree">No account. No key. No paid plan.</p>
-  <p class="mother">Using Cursor, VS Code, Windsurf or Claude Desktop? <button type="button" class="lnk" data-scrollto="install">Setup for each app</button></p>
+  <p class="mother">Using Cursor, Codex, VS Code, Windsurf, Gemini or the Claude app? <button type="button" class="lnk" data-scrollto="install">Setup for each agent</button></p>
 </div>
 
 <div class="term-w">
@@ -10463,9 +10487,7 @@ function renderMcp(){
   <p class="mlbl">Install</p>
   <h2 class="mh">One line, then it's on.</h2>
   <p class="msub">Remote server: nothing to install, nothing to keep updated. New patterns appear the day they're published.</p>
-  <div class="clients">
-    ${CLIENTS.map((c,i)=>`<div class="client"><div class="cn">${E(c.n)}<small>${E(c.w)}</small></div><code id="cl${i}">${E(c.c)}</code><button class="cp" data-copy="cl${i}">Copy</button></div>`).join('')}
-  </div>
+  ${instBox()}
 </section>
 
 <section class="msec">

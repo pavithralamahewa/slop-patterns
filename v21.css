@@ -198,3 +198,21 @@ h1.pat span{letter-spacing:-.01em}
 /* v2.3 every page ends with room below it; related patterns line up with the entry above */
 @media (min-width:1001px){#app{padding-bottom:clamp(64px,8vw,120px)}}
 .rel{max-width:1100px}
+
+/* v2.3 install box: a tab per agent, same as /score */
+.inst{border:1px solid var(--hair);border-radius:14px;background:var(--ground);overflow:hidden;margin:28px 0 0;max-width:880px}
+.inst-tabs{display:flex;flex-wrap:wrap;gap:2px;padding:6px;border-bottom:1px solid var(--hair);background:var(--fill)}
+.inst-tabs button{display:inline-flex;align-items:center;gap:7px;height:34px;padding:0 12px 0 10px;border:0;border-radius:7px;background:transparent;color:var(--ink-mid);font:inherit;font-size:14px;cursor:pointer;white-space:nowrap}
+.inst-tabs button:hover{color:var(--ink)}
+.inst-tabs button.on{background:var(--ground);color:var(--ink);font-weight:600;box-shadow:0 0 0 1px var(--hair)}
+.inst-tabs img,.inst-tabs svg{width:16px;height:16px;flex:none;display:block}
+.inst-body{padding:18px 18px 16px}
+.inst-how{margin:0 0 12px;font-size:15px;line-height:22px;color:var(--ink-mid)}
+.inst-how code{font:13px/20px var(--mono);color:var(--ink);background:var(--fill);padding:2px 6px;border-radius:5px;white-space:nowrap}
+.inst-code{position:relative;border-radius:10px;background:#141414}
+.inst-code pre{margin:0;padding:16px 92px 16px 16px;background:none;color:#EDEDED;font:13px/21px var(--mono);white-space:pre;overflow-x:auto;border-radius:10px}
+.inst-copy{position:absolute;top:10px;right:10px;height:32px;padding:0 12px;border:0;border-radius:7px;background:#fff;color:#141414;font:inherit;font-size:13px;font-weight:600;cursor:pointer}
+.inst-copy.done{background:#3C7A4A;color:#fff}
+.inst-note{margin:12px 0 0;font-size:13px;line-height:20px;color:var(--ink-dim)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .inst-tabs img.mono{filter:invert(1)}}
+:root[data-theme=dark] .inst-tabs img.mono{filter:invert(1)}
