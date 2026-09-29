@@ -261,3 +261,10 @@ body.rail.nolib .railnav{visibility:hidden}
 
 /* v2.3 keyboard: the search hints show where focus is */
 .askhint button:focus-visible{outline:2px solid var(--pen,#C8412B);outline-offset:-2px;border-radius:6px}
+
+/* GitHub: top-right pill on desktop, a row in the phone menu */
+.ghtop{display:none}
+@media (min-width:1001px){.ghtop{position:absolute;z-index:5;top:21px;right:clamp(56px,5.2vw,104px);display:inline-flex;align-items:center;gap:7px;height:32px;padding:0 12px;border:1px solid var(--hair);border-radius:999px;background:var(--ground);color:var(--ink)!important;font:600 13px/1 "Instrument Sans",-apple-system,"Helvetica Neue",Arial,sans-serif;letter-spacing:.1px;text-decoration:none;transition:background var(--fast,150ms) var(--ease,ease)}
+.ghtop:hover{background:var(--fill)}.ghtop:focus-visible{outline:2px solid var(--ink);outline-offset:2px}.ghtop svg{flex:none;display:block}
+body.rail .railtop .lgh{display:none!important}}
+@media (max-width:1000px){body.menuopen .nav .railtop .lgh{align-items:center}body.menuopen .nav .railtop .lgh svg{margin-left:auto;opacity:.5}}
