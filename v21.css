@@ -258,3 +258,6 @@ body.rail.nolib .railnav{visibility:hidden}
 :root[data-theme=dark] .bahd .tagx.no{color:#FF8A78}:root[data-theme=dark] .bahd .tagx.yes{color:#6FCB8B}
 :root[data-theme=dark] .snip .k{color:#B98BEA}:root[data-theme=dark] .snip .s{color:#6AAEF2}
 .term-b .dim,.term-bar span{color:#8B93A1}
+
+/* v2.3 keyboard: the search hints show where focus is */
+.askhint button:focus-visible{outline:2px solid var(--pen,#C8412B);outline-offset:-2px;border-radius:6px}

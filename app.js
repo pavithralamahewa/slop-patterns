@@ -4378,8 +4378,8 @@ const DATA=[
   "tier": "sourced",
   "sources": [
    {
-    "t": "Emotional Manipulation by AI Companions (arXiv HTML v3)",
-    "u": "https://arxiv.org/html/2508.19258v3"
+    "t": "Emotional Manipulation by AI Companions (arXiv 2508.19258v3)",
+    "u": "https://arxiv.org/abs/2508.19258v3"
    },
    {
     "t": "Harvard Gazette: 'I exist solely for you, remember?'",
@@ -4416,8 +4416,8 @@ const DATA=[
   "tier": "sourced",
   "sources": [
    {
-    "t": "Emotional Manipulation by AI Companions (arXiv HTML v3)",
-    "u": "https://arxiv.org/html/2508.19258v3"
+    "t": "Emotional Manipulation by AI Companions (arXiv 2508.19258v3)",
+    "u": "https://arxiv.org/abs/2508.19258v3"
    },
    {
     "t": "The Register: AI companion bots use emotional manipulation to boost usage",
