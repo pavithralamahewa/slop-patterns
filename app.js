@@ -10889,7 +10889,7 @@ function renderIndex(){
     <div class="cta"><a class="btn btn-a" href="/score" target="_blank" rel="noopener">Scan your site</a><button class="btn btn-b" data-scroll="1">Browse the library</button></div>
     <p class="byline">By <a href="#p0" data-go="p0">Pavithra Lamahewa</a>, Co-founder and UX Director at Precious Studio. 235 patterns, every one read and checked by hand.</p>
     <p class="reviewline"><a href="#review" data-go="review">Get a review</a> from the designer behind this research.</p>
-    <p class="newnote"><a href="/research/the-same-page">New research: The Same Page. AI-era design tells on 4,725 launch pages, 2016 to 2026 →</a></p>
+    <p class="newnote"><a href="/research/half-the-hunt">New research: Half the Hunt. 54% of top Product Hunt launches carry an AI-era design tell →</a></p>
     </div>
     ${specimenBoard()}
   </header>
