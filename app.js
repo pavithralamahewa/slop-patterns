@@ -10885,7 +10885,7 @@ function renderIndex(){
   <header class="hero hero2">
     <div class="hero-t">
     <h1 class="big">AI design fails in <span class="penword">patterns,<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="${penLoop(50,20,46,17,5)}"/></svg></span> not accidents.</h1>
-    <p class="lede">A public library of the failures in AI products: what they look like, why the tools produce them, and what to do instead.</p>
+    <p class="lede">The field guide to AI tells. We measure what AI tools actually ship, explain why it happens, and show what to do instead.</p>
     <div class="cta"><a class="btn btn-a" href="/score" target="_blank" rel="noopener">Scan your site</a><button class="btn btn-b" data-scroll="1">Browse the library</button></div>
     <p class="byline">By <a href="#p0" data-go="p0">Pavithra Lamahewa</a>, Co-founder and UX Director at Precious Studio. 235 patterns, every one read and checked by hand.</p>
     <p class="reviewline"><a href="#review" data-go="review">Get a review</a> from the designer behind this research.</p>
