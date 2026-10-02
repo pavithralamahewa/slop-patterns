@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /score/inbox
 Disallow: /api/
+Disallow: /team
 
 Sitemap: https://sloppatterns.com/sitemap.xml

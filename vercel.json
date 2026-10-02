@@ -57,6 +57,14 @@
   ],
   "rewrites": [
     {
+      "source": "/team",
+      "destination": "https://slop-team.vercel.app/"
+    },
+    {
+      "source": "/team/:path*",
+      "destination": "https://slop-team.vercel.app/:path*"
+    },
+    {
       "source": "/api/patterns",
       "destination": "/patterns.json"
     },
