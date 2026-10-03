@@ -29,31 +29,28 @@
       + '<p class="who-name"><b>Pavithra Lamahewa</b>, Co-founder and UX Director at <a href="https://precious.studio/" target="_blank" rel="noopener">Precious Studio</a>. 13 years designing products.</p>'
       + '<p class="who-body">Slop Patterns is built from 4,725 archived Show HN launch pages and 235 documented patterns, each with its sources. The nine rules counted in the research were checked by hand before anything was counted.</p>'
       + '<p class="who-links"><a href="/#p0" data-go="p0">How the library is made</a><a href="/research/the-same-page#audit">Research method</a><a href="https://www.linkedin.com/in/pavithralamahewa/" target="_blank" rel="noopener">LinkedIn</a><a href="https://precious.studio/" target="_blank" rel="noopener">precious.studio</a></p>'
-      /* SAMPLE REVIEW SLOT: one redacted sample review goes here. Remove `hidden` once it is added. */
-      + '<figure class="who-sample" data-slot="sample-review" hidden></figure>'
+      + '<figure class="who-sample" data-slot="sample-review"><a href="/review-sample.jpg" target="_blank" rel="noopener"><img src="/review-sample.jpg" width="1200" height="760" loading="lazy" alt="A sample design review of our demo page, Plotline: three changes circled in red pen, listed in order of impact with the time each takes."></a><figcaption>What a review looks like. A sample, on our demo page.</figcaption></figure>'
       + '</div>'
       + '<h2 class="maker-h">Reviews and design help from Precious Studio</h2>'
       + '<div class="offers">'
-      + row('First look', 'Free',
-          'Three notes from Pavithra on your page, by email. Five a week.',
-          '<button type="button" class="of-btn ghost" data-offer="ask" aria-expanded="false">Ask for a first look</button>',
-          '<form class="of-form" hidden novalidate>'
-            + '<label>Page<input name="url" type="text" inputmode="url" required placeholder="yoursite.com" autocomplete="url"></label>'
-            + '<label>Email<input name="email" type="email" required placeholder="you@company.com" autocomplete="email" aria-describedby="of-priv"><small class="of-priv" id="of-priv">Used only to send your notes. No marketing list.</small></label>'
-            + '<label class="wide">What are you launching? <em>Optional</em><input name="note" type="text" maxlength="300" placeholder="A sentence is plenty"></label>'
-            + '<input name="company" type="text" tabindex="-1" autocomplete="off" class="of-hp" aria-hidden="true">'
-            + '<div class="of-send"><button type="submit" class="of-btn">Send</button><p class="of-note" role="status"></p></div>'
-          + '</form>')
       + row('Design review', '$349',
-          'One page, reviewed by hand by a senior designer. You get your three highest-impact changes, annotated screenshots, and a written review within ' + REVIEW_TURNAROUND + '. The $349 comes off a Feel Pack or subscription started within 30 days.',
+          'Starts from a Slop Score scan of your page. A senior designer reviews it by hand, ranks your tells, and shows the fix for each: your three highest-impact changes, annotated, within ' + REVIEW_TURNAROUND + '. If they are not worth making, you get a full refund. The $349 comes off a Feel Pack or subscription started within 30 days.',
           '<a class="of-btn" data-cta="review" href="' + pay('review', m) + '">Book a review</a>')
       + row('Feel Pack', '$2,500 · 5 days',
-          'Up to 3 screens on one key flow, or one landing page. Includes a kickoff call, Figma files, one round of revisions, and a dev-ready handoff, delivered in 5 business days. If you already bought the $349 review, it comes off the price.',
-          '<a class="of-btn" data-cta="feelpack" href="' + cal('feelpack', m) + '">Talk through a Feel Pack</a>')
+          '<b class="of-lead">Your landing page, redesigned in 5 days.</b> Or up to 3 screens on one key flow. Kickoff call, Figma files, one round of revisions, and a dev-ready handoff. Your $349 review counts toward this.',
+          '<a class="of-btn ghost" data-cta="feelpack" href="' + cal('feelpack', m) + '">Start a Feel Pack</a>')
       + row('Design subscription', 'from $4,500/mo',
-          'A dedicated senior designer from Precious Studio on your product, without hiring or a long commitment. AI does the heavy lift; a designer locks taste. <button type="button" class="of-more" data-offer="more" aria-expanded="false">How it works</button>',
+          'A dedicated senior designer from Precious Studio on your product, without hiring or a long commitment. The same named person every month, inside your tools. <button type="button" class="of-more" data-offer="more" aria-expanded="false">How it works</button>',
           '<a class="of-btn ghost" data-cta="subscription" href="' + cal('subscription', m) + '">Book a 15-minute call</a>',
           how())
+      + row('Newsletter', 'Free · monthly',
+          'Not ready yet? One email a month: the AI tells we saw most, and how to fix them.',
+          '<button type="button" class="of-btn ghost" data-offer="news" aria-expanded="false">Subscribe</button>',
+          '<form class="of-form of-news" hidden novalidate>'
+            + '<label>Email<input name="email" type="email" required placeholder="you@company.com" autocomplete="email"></label>'
+            + '<input name="website" type="text" tabindex="-1" autocomplete="off" class="of-hp" aria-hidden="true">'
+            + '<div class="of-send"><button type="submit" class="of-btn">Subscribe</button><p class="of-note" role="status"></p></div>'
+          + '</form>')
       + '</div></section>';
   };
 
@@ -93,13 +90,13 @@
       if (name) window.trackOffer(name);
     }
 
-    var ask = e.target.closest && e.target.closest('[data-offer="ask"]');
+    var ask = e.target.closest && e.target.closest('[data-offer="news"]');
     if (ask) {
       e.preventDefault();
       var form = ask.closest('.of-row').querySelector('.of-form');
       var open = form.hasAttribute('hidden');
-      if (open) { form.removeAttribute('hidden'); ask.textContent = 'Close'; }
-      else { form.setAttribute('hidden', ''); ask.textContent = 'Ask for a first look'; }
+      if (open) { form.removeAttribute('hidden'); ask.textContent = 'Close'; var em = form.querySelector('[name=email]'); if (em) em.focus(); }
+      else { form.setAttribute('hidden', ''); ask.textContent = 'Subscribe'; }
       ask.setAttribute('aria-expanded', open ? 'true' : 'false');
       return;
     }
@@ -116,40 +113,34 @@
   });
 
   document.addEventListener('submit', function (e) {
-    var f = e.target.closest ? e.target.closest('.of-form') : null;
+    var f = e.target.closest ? e.target.closest('.of-news') : null;
     if (!f) return;
     e.preventDefault();
     var note = f.querySelector('.of-note');
     var btn = f.querySelector('button[type="submit"]');
     var email = (f.querySelector('[name=email]').value || '').trim();
-    var url = (f.querySelector('[name=url]').value || '').trim();
-    if (!url) { note.textContent = 'Add the page you want looked at.'; note.className = 'of-note err'; return; }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
       note.textContent = 'That does not look like an email address.'; note.className = 'of-note err'; return;
     }
-    window.trackOffer('cta_firstlook');
     btn.disabled = true;
     note.className = 'of-note';
     note.textContent = 'Sending…';
-    var body = {};
-    new FormData(f).forEach(function (v, k) { body[k] = v; });
-    fetch('/score/api/review', {
+    fetch('/api/subscribe', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(body)
+      body: JSON.stringify({ email: email, website: f.querySelector('[name=website]').value })
     }).then(function (r) {
-      return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, status: r.status, j: j }; });
+      return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, j: j }; });
     }).then(function (x) {
       btn.disabled = false;
       if (x.ok) {
         f.setAttribute('hidden', '');
-        var act = f.parentNode.querySelector('.of-act');
-        act.innerHTML = '<span class="of-ok">Got it. Your notes will come by email.</span>';
+        f.parentNode.querySelector('.of-act').innerHTML = '<span class="of-ok">Check your inbox. One click to confirm.</span>';
+        window.trackOffer('newsletter_signup');
         return;
       }
       note.className = 'of-note err';
-      if (x.status === 429) note.textContent = (x.j && x.j.error) || 'This week’s five are taken. The paid review has no wait.';
-      else note.textContent = (x.j && x.j.error) || 'That did not go through. Try again in a minute.';
+      note.textContent = (x.j && x.j.error) || 'That did not go through. Try again in a minute.';
     }).catch(function () {
       btn.disabled = false;
       note.className = 'of-note err';

@@ -148,3 +148,12 @@
 .maker .who-links{display:flex;flex-wrap:wrap;gap:6px 20px;margin:0;font-size:14px}
 .maker .who-links a{color:var(--of-ink);text-underline-offset:3px}
 .maker .of-priv{display:block;margin-top:6px;font-size:12.5px;line-height:18px;color:var(--of-dim);font-weight:400}
+
+/* Hidden details stay hidden until asked for (the form and "How it works" were showing open). */
+.maker .of-form[hidden],.maker .of-sub[hidden]{display:none!important}
+/* The sample review, in the slot beside "Who made this". */
+.who-sample{margin:24px 0 0;max-width:460px}
+.who-sample img{display:block;width:100%;height:auto;border:1px solid var(--of-rule);border-radius:10px}
+.who-sample figcaption{margin-top:8px;font-size:13px;line-height:20px;color:var(--of-dim)}
+.of-lead{font-weight:600;color:var(--of-ink,inherit)}
+.of-news{grid-template-columns:minmax(0,320px)}
