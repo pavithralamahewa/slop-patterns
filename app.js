@@ -10418,7 +10418,8 @@ function renderMcp(){
 <span class="dim">     outline:none, no ring put back</span>
 <span class="dim">     →</span> :focus-visible is not optional.
 
-<span class="warn">⚠</span> <span class="dim">${DETECTED.length} of ${DATA.length} can be checked in code. The other ${DATA.length-DETECTED.length} need a human.</span>
+<span class="warn">⚠</span> <span class="dim">${DETECTED.length} of ${DATA.length} can be checked in code.
+  The other ${DATA.length-DETECTED.length} need a person.</span>
 
 <span class="dim">&gt;</span> <span class="cur"></span></div>
 </div>
