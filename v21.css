@@ -269,3 +269,21 @@ body.rail.nolib .railnav{visibility:hidden}
 body.rail .railtop .lgh{display:none!important}}
 @media (max-width:1000px){body.menuopen .nav .railtop .lgh{align-items:center}body.menuopen .nav .railtop .lgh svg{margin-left:auto;opacity:.5}}
 @media (min-width:1001px){body.rail .hero.hero2{padding-top:96px}}
+
+/* For agents: same type as the rest of the site, and no fake window chrome.
+   The three coloured dots were our own pattern, the traffic-light terminal. */
+.mtitle{font-family:var(--serif);font-weight:400;letter-spacing:-.02em;font-size:clamp(36px,4.6vw,60px);line-height:1.06}
+.mkick{font-family:var(--mono);font-weight:400;font-size:12px;letter-spacing:.02em;color:var(--ink-dim)}
+.mkick i{display:none}
+.term-w{background:var(--card);box-shadow:none;border:1px solid var(--hair);border-radius:12px}
+.term-w::after{display:none}
+.term-bar{background:transparent;border-bottom:1px solid var(--hair);padding:12px 18px}
+.term-bar i{display:none}
+.term-bar span{margin-left:0;color:var(--ink-dim);font-family:var(--mono)}
+.term-b{color:var(--ink-mid);font-family:var(--mono)}
+.term-b .u{color:var(--ink)}
+.term-b .dim{color:var(--ink-dim)}
+.term-b .call{color:var(--ink);font-weight:600}
+.term-b .flag{color:var(--pen)}
+.term-b .warn{color:var(--ink-mid)}
+.term-b .cur{background:var(--ink)}
