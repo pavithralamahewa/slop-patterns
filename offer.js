@@ -29,13 +29,22 @@
       + '<p class="who-name"><b>Pavithra Lamahewa</b>, Co-founder and UX Director at <a href="https://precious.studio/" target="_blank" rel="noopener">Precious Studio</a>. 13 years designing products.</p>'
       + '<p class="who-body">Slop Patterns is built from 4,725 archived Show HN launch pages and 235 documented patterns, each with its sources. The nine rules counted in the research were checked by hand before anything was counted.</p>'
       + '<p class="who-links"><a href="/#p0" data-go="p0">How the library is made</a><a href="/research/the-same-page#audit">Research method</a><a href="https://www.linkedin.com/in/pavithralamahewa/" target="_blank" rel="noopener">LinkedIn</a><a href="https://precious.studio/" target="_blank" rel="noopener">precious.studio</a></p>'
-      /* SAMPLE REVIEW SLOT: one redacted sample review goes here. Remove `hidden` once it is added. */
-      + '<figure class="who-sample" data-slot="sample-review" hidden></figure>'
+      + '<figure class="who-sample" data-slot="sample-review"><a href="/review-sample.jpg" target="_blank" rel="noopener"><img src="/review-sample.jpg" width="1200" height="760" loading="lazy" alt="A sample design review of our demo page, Plotline: three changes circled in red pen, listed in order of impact with the time each takes."></a><figcaption>What a review looks like. A sample, on our demo page.</figcaption></figure>'
       + '</div>'
       + '<h2 class="maker-h">Reviews and design help from Precious Studio</h2>'
       + '<div class="offers">'
+      + row('Design review', '$349',
+          'One page, reviewed by hand by a senior designer. You get your three highest-impact changes, annotated screenshots, and a written review within ' + REVIEW_TURNAROUND + '. The $349 comes off a Feel Pack or subscription started within 30 days.',
+          '<a class="of-btn" data-cta="review" href="' + pay('review', m) + '">Book a review</a>')
+      + row('Feel Pack', '$2,500 · 5 days',
+          'Up to 3 screens on one key flow, or one landing page. Includes a kickoff call, Figma files, one round of revisions, and a dev-ready handoff, delivered in 5 business days. If you already bought the $349 review, it comes off the price.',
+          '<a class="of-btn ghost" data-cta="feelpack" href="' + cal('feelpack', m) + '">Talk through a Feel Pack</a>')
+      + row('Design subscription', 'from $4,500/mo',
+          'A dedicated senior designer from Precious Studio on your product, without hiring or a long commitment. The same named person every month, inside your tools. <button type="button" class="of-more" data-offer="more" aria-expanded="false">How it works</button>',
+          '<a class="of-btn ghost" data-cta="subscription" href="' + cal('subscription', m) + '">Book a 15-minute call</a>',
+          how())
       + row('First look', 'Free',
-          'Three notes from Pavithra on your page, by email. Five a week.',
+          'Not ready yet? Three short notes from Pavithra on your page, by email. Five a week.',
           '<button type="button" class="of-btn ghost" data-offer="ask" aria-expanded="false">Ask for a first look</button>',
           '<form class="of-form" hidden novalidate>'
             + '<label>Page<input name="url" type="text" inputmode="url" required placeholder="yoursite.com" autocomplete="url"></label>'
@@ -44,16 +53,6 @@
             + '<input name="company" type="text" tabindex="-1" autocomplete="off" class="of-hp" aria-hidden="true">'
             + '<div class="of-send"><button type="submit" class="of-btn">Send</button><p class="of-note" role="status"></p></div>'
           + '</form>')
-      + row('Design review', '$349',
-          'One page, reviewed by hand by a senior designer. You get your three highest-impact changes, annotated screenshots, and a written review within ' + REVIEW_TURNAROUND + '. The $349 comes off a Feel Pack or subscription started within 30 days.',
-          '<a class="of-btn" data-cta="review" href="' + pay('review', m) + '">Book a review</a>')
-      + row('Feel Pack', '$2,500 · 5 days',
-          'Up to 3 screens on one key flow, or one landing page. Includes a kickoff call, Figma files, one round of revisions, and a dev-ready handoff, delivered in 5 business days. If you already bought the $349 review, it comes off the price.',
-          '<a class="of-btn" data-cta="feelpack" href="' + cal('feelpack', m) + '">Talk through a Feel Pack</a>')
-      + row('Design subscription', 'from $4,500/mo',
-          'A dedicated senior designer from Precious Studio on your product, without hiring or a long commitment. AI does the heavy lift; a designer locks taste. <button type="button" class="of-more" data-offer="more" aria-expanded="false">How it works</button>',
-          '<a class="of-btn ghost" data-cta="subscription" href="' + cal('subscription', m) + '">Book a 15-minute call</a>',
-          how())
       + '</div></section>';
   };
 
