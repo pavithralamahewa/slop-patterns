@@ -155,3 +155,5 @@
 .who-sample{margin:24px 0 0;max-width:460px}
 .who-sample img{display:block;width:100%;height:auto;border:1px solid var(--of-rule);border-radius:10px}
 .who-sample figcaption{margin-top:8px;font-size:13px;line-height:20px;color:var(--of-dim)}
+.of-lead{font-weight:600;color:var(--of-ink,inherit)}
+.of-news{grid-template-columns:minmax(0,320px)}
