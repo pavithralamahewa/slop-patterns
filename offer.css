@@ -157,3 +157,4 @@
 .who-sample figcaption{margin-top:8px;font-size:13px;line-height:20px;color:var(--of-dim)}
 .of-lead{font-weight:600;color:var(--of-ink,inherit)}
 .of-news{grid-template-columns:minmax(0,320px)}
+.maker .of-more-studio{margin:18px 0 0;font-size:14px;line-height:21px;color:var(--of-dim)}.maker .of-more-studio a{color:var(--of-ink)}

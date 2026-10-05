@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Numbers · Slop Patterns</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="How Slop Patterns is used, with where each number comes from.">
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&family=Young+Serif&family=IBM+Plex+Mono&display=swap">
+<style>
+:root{--ground:#FBFAF7;--ink:#141414;--mid:#555;--rule:#E6E2DA;--pen:#C8412B}
+@media (prefers-color-scheme:dark){:root{--ground:#0F0F10;--ink:#F2F0EC;--mid:#A7A39C;--rule:#2A2926}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font:400 17px/1.6 "Instrument Sans",-apple-system,Helvetica,Arial,sans-serif}
+main{max-width:760px;margin:0 auto;padding:56px 20px 80px}
+a{color:inherit;text-underline-offset:3px}
+.top{font-size:15px;margin-bottom:48px}.top a{text-decoration:none;font-family:"Young Serif",Georgia,serif;font-size:20px}
+h1{font:400 clamp(34px,5vw,46px)/1.1 "Young Serif",Georgia,serif;letter-spacing:-.02em;margin:0 0 12px}
+.lede{color:var(--mid);margin:0 0 40px}
+h2{font:600 17px/1.4 "Instrument Sans",sans-serif;margin:40px 0 4px;padding-top:24px;border-top:1px solid var(--rule)}
+.note{color:var(--mid);font-size:15px;margin:0 0 16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px 28px}
+.n b{display:block;font:400 40px/1.1 "Young Serif",Georgia,serif;letter-spacing:-.01em}
+.n span{display:block;font-size:15px;margin-top:4px}
+.n small{display:block;color:var(--mid);font-size:13px;line-height:19px;margin-top:4px}
+.n small a{color:var(--mid)}
+.asof{font:13px/20px "IBM Plex Mono",ui-monospace,monospace;color:var(--mid)}
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);color:var(--mid);font-size:14px}
+</style>
+</head>
+<body>
+<main>
+<div class="top"><a href="/">slop patterns</a></div>
+<h1>Numbers</h1>
+<p class="lede">How Slop Patterns is used. Every number says where it comes from, so anyone can check it. We archive this page every month.</p>
+
+<h2>Counted by others</h2>
+<p class="note">GitHub and npm publish these. We only display them.</p>
+<div class="grid">
+  <div class="n"><b data-k="stars">…</b><span>GitHub stars</span><small>Source: <a href="https://github.com/pavithralamahewa/slop-patterns">GitHub</a></small></div>
+  <div class="n"><b data-k="forks">…</b><span>GitHub forks</span><small>Copies of the library people made to change or reuse it. Source: <a href="https://github.com/pavithralamahewa/slop-patterns/forks">GitHub</a></small></div>
+  <div class="n"><b data-k="npm">…</b><span>Command-line downloads, last 30 days</span><small>Source: <a href="https://www.npmjs.com/package/slop-patterns">npm</a>. Includes automated installs, so read it as a trend.</small></div>
+</div>
+
+<h2>Counted by us</h2>
+<p class="note">From our own records, with what each number means.</p>
+<div class="grid">
+  <div class="n"><b data-k="scans">…</b><span>Completed scans</span><small data-d="scans"></small></div>
+  <div class="n"><b data-k="pagesScanned">…</b><span>Pages scanned</span><small data-d="pagesScanned"></small></div>
+  <div class="n"><b data-k="changesReported">…</b><span>Changes reported by site owners</span><small data-d="changesReported"></small></div>
+</div>
+
+<h2>The library</h2>
+<div class="grid">
+  <div class="n"><b>235</b><span>Documented patterns</span><small>Each with sources. <a href="/taxonomy.json">Download as data</a></small></div>
+  <div class="n"><b>63</b><span>Checked automatically</span><small>The rest need a person.</small></div>
+  <div class="n"><b>4,725</b><span>Launch pages in the research</span><small><a href="/research/the-same-page">The Same Page</a></small></div>
+</div>
+
+<p class="asof" id="asof"></p>
+<footer>Slop Patterns is made by Pavithra Lamahewa at Precious Studio. <a href="https://web.archive.org/web/*/sloppatterns.com/numbers*">Archived copies of this page</a>.</footer>
+</main>
+<script>
+(function () {
+  var set = function (k, v) { var el = document.querySelector('[data-k="' + k + '"]'); if (el) el.textContent = (v == null ? 'n/a' : Number(v).toLocaleString('en-US')); };
+  fetch('https://api.github.com/repos/pavithralamahewa/slop-patterns').then(function (r) { return r.json(); })
+    .then(function (d) { set('stars', d.stargazers_count); set('forks', d.forks_count); }).catch(function () { set('stars'); set('forks'); });
+  fetch('https://api.npmjs.org/downloads/point/last-month/slop-patterns').then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) { set('npm', d ? d.downloads : 0); }).catch(function () { set('npm'); });
+  fetch('/score/api/numbers').then(function (r) { return r.json(); }).then(function (d) {
+    ['scans', 'pagesScanned', 'changesReported'].forEach(function (k) {
+      set(k, d[k]); var s = document.querySelector('[data-d="' + k + '"]'); if (s && d.definitions) s.textContent = d.definitions[k] + (d.since ? ' Since ' + d.since + '.' : '');
+    });
+    document.getElementById('asof').textContent = 'As of ' + d.asOf.slice(0, 16).replace('T', ' ') + ' UTC.';
+  }).catch(function () { ['scans', 'pagesScanned', 'changesReported'].forEach(function (k) { set(k); }); });
+})();
+</script>
+</body>
+</html>

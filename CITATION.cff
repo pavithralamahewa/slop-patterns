@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+title: "Slop Patterns: a taxonomy of recurring design failures in AI-generated interfaces"
+message: "If you use this taxonomy, the rules or the research, please cite it as below."
+type: dataset
+authors:
+  - family-names: Lamahewa
+    given-names: Pavithra
+    affiliation: Precious Studio
+repository-code: "https://github.com/pavithralamahewa/slop-patterns"
+url: "https://sloppatterns.com"
+license: MIT
+version: "1.0.0"
+date-released: "2026-10-05"
+keywords:
+  - design quality
+  - AI-generated interfaces
+  - accessibility
+  - usability
+  - user interface patterns
+abstract: >-
+  235 documented patterns that AI site and app builders repeatedly ship, each with why it
+  happens, who it hurts, the fix and sources. 63 can be checked automatically from a page;
+  the rest need a person. Every pattern has a stable code (for example A10) and a stable URL.

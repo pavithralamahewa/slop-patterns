@@ -34,11 +34,8 @@
       + '<h2 class="maker-h">Reviews and design help from Precious Studio</h2>'
       + '<div class="offers">'
       + row('Design review', '$349',
-          'Starts from a Slop Score scan of your page. A senior designer reviews it by hand, ranks your tells, and shows the fix for each: your three highest-impact changes, annotated, within ' + REVIEW_TURNAROUND + '. If they are not worth making, you get a full refund. The $349 comes off a Feel Pack or subscription started within 30 days.',
+          'Starts from a Slop Score scan of your page. A senior designer reviews it by hand, ranks your tells, and shows the fix for each: your three highest-impact changes, annotated, within ' + REVIEW_TURNAROUND + '. If they are not worth making, you get a full refund. The $349 comes off any Precious Studio project started within 30 days.',
           '<a class="of-btn" data-cta="review" href="' + pay('review', m) + '">Book a review</a>')
-      + row('Feel Pack', '$2,500 · 5 days',
-          '<b class="of-lead">Your landing page, redesigned in 5 days.</b> Or up to 3 screens on one key flow. Kickoff call, Figma files, one round of revisions, and a dev-ready handoff. Your $349 review counts toward this.',
-          '<a class="of-btn ghost" data-cta="feelpack" href="' + cal('feelpack', m) + '">Start a Feel Pack</a>')
       + row('Design subscription', 'from $4,500/mo',
           'A dedicated senior designer from Precious Studio on your product, without hiring or a long commitment. The same named person every month, inside your tools. <button type="button" class="of-more" data-offer="more" aria-expanded="false">How it works</button>',
           '<a class="of-btn ghost" data-cta="subscription" href="' + cal('subscription', m) + '">Book a 15-minute call</a>',
@@ -51,7 +48,9 @@
             + '<input name="website" type="text" tabindex="-1" autocomplete="off" class="of-hp" aria-hidden="true">'
             + '<div class="of-send"><button type="submit" class="of-btn">Subscribe</button><p class="of-note" role="status"></p></div>'
           + '</form>')
-      + '</div></section>';
+      + '</div>'
+      + '<p class="of-more-studio">Need more than a review? <a href="https://precious.studio/" target="_blank" rel="noopener">Precious Studio</a> also redesigns single pages and key flows.</p>'
+      + '</section>';
   };
 
   function row(name, price, what, act, extra) {
