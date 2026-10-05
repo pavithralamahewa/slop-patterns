@@ -36,6 +36,10 @@
       + row('Design review', '$349',
           'Starts from a Slop Score scan of your page. A senior designer reviews it by hand, ranks your tells, and shows the fix for each: your three highest-impact changes, annotated, within ' + REVIEW_TURNAROUND + '. If they are not worth making, you get a full refund. The $349 comes off any Precious Studio project started within 30 days.',
           '<a class="of-btn" data-cta="review" href="' + pay('review', m) + '">Book a review</a>')
+      + row('Design subscription', 'from $4,500/mo',
+          'A dedicated senior designer from Precious Studio on your product, without hiring or a long commitment. The same named person every month, inside your tools. <button type="button" class="of-more" data-offer="more" aria-expanded="false">How it works</button>',
+          '<a class="of-btn ghost" data-cta="subscription" href="' + cal('subscription', m) + '">Book a 15-minute call</a>',
+          how())
       + row('Newsletter', 'Free · monthly',
           'Not ready yet? One email a month: the AI tells we saw most, and how to fix them.',
           '<button type="button" class="of-btn ghost" data-offer="news" aria-expanded="false">Subscribe</button>',
@@ -45,7 +49,7 @@
             + '<div class="of-send"><button type="submit" class="of-btn">Subscribe</button><p class="of-note" role="status"></p></div>'
           + '</form>')
       + '</div>'
-      + '<p class="of-more-studio">Need more than a review? <a href="https://precious.studio/" target="_blank" rel="noopener">Precious Studio</a> also redesigns pages and works with teams month to month.</p>'
+      + '<p class="of-more-studio">Need more than a review? <a href="https://precious.studio/" target="_blank" rel="noopener">Precious Studio</a> also redesigns single pages and key flows.</p>'
       + '</section>';
   };
 
