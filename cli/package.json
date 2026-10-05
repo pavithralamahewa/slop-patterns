@@ -1,0 +1,14 @@
+{
+  "name": "slop-patterns",
+  "version": "1.0.0",
+  "description": "Check web pages for the design patterns AI site builders keep shipping. Same rules as the Slop Patterns scanner and MCP server.",
+  "bin": { "slop-patterns": "index.js" },
+  "files": ["index.js", "rules.js", "patterns.json", "README.md"],
+  "scripts": { "prepack": "cp ../api/rules.js ./rules.js && cp ../patterns.json ./patterns.json" },
+  "engines": { "node": ">=18" },
+  "keywords": ["design", "ui", "lint", "ai", "accessibility", "design-quality", "mcp"],
+  "homepage": "https://sloppatterns.com",
+  "repository": { "type": "git", "url": "git+https://github.com/pavithralamahewa/slop-patterns.git", "directory": "cli" },
+  "author": "Pavithra Lamahewa, Precious Studio",
+  "license": "MIT"
+}

@@ -8,3 +8,12 @@ A public library of AI design anti-patterns: what they look like, why the tools 
 - **The research note**, The Same Page, is in `research/`.
 
 Maintained by Pavithra Lamahewa at [Precious Studio](https://precious.studio). Suggest a pattern from the site, or open an issue.
+
+## Use the taxonomy
+
+Every pattern has a stable code (for example `A10`) and a stable URL (`https://sloppatterns.com/#gradient-text-headline`). Codes never change meaning; when an entry is revised, its `version` and `updated` fields change.
+
+- **All 235 patterns as data:** [`taxonomy.json`](https://sloppatterns.com/taxonomy.json). Each entry says whether it is checked automatically (63 are; 5 of those set the scanner's grade) or needs a person.
+- **Command line:** `npx slop-patterns check ./dist` or `npx slop-patterns scan example.com`. See [`cli/`](cli/).
+- **One rule set:** the scanner, the MCP server and the command line run the same `rules.js`, so they never disagree.
+- **Cite it:** see [`CITATION.cff`](CITATION.cff). GitHub shows a "Cite this repository" button from it.
