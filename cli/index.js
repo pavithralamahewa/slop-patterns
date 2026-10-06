@@ -6,7 +6,7 @@
    Options: --json  machine-readable output   --strict  exit 1 when a graded pattern is found */
 const fs = require('fs');
 const path = require('path');
-const { checkDesign } = require('./rules.js');
+const { checkDesign, RULES } = require('./rules.js');
 const PATTERNS = require('./patterns.json');
 
 const GRADED = ['A3', 'A10', 'A15', 'A23', 'A36'];          // the five hand-checked patterns that set the scanner's grade
@@ -52,7 +52,7 @@ function check(target) {
       out(`    ${link(h.code)}`);
     }
   }
-  if (!flag('--json')) out(`\n● graded pattern  ○ worth a look. These are the ${63} code rules; a full scan also checks motion and phones: npx slop-patterns scan <url>`);
+  if (!flag('--json')) out(`\n● graded pattern  ○ worth a look. These are the ${RULES.length} code rules; a full scan also checks motion and phones: npx slop-patterns scan <url>`);
   const graded = results.some((r) => r.hits.some((h) => GRADED.includes(h.code)));
   process.exit(flag('--strict') && graded ? 1 : 0);
 }

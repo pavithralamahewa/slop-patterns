@@ -1,12 +1,61 @@
 # Slop Patterns — changelog
 
-Current: **v1.1.1** (2026-09-23). Machine-readable: `/library.json`. Also available from the MCP server as the `changelog` tool.
+Current: **v1.2.0** (2026-10-06). Machine-readable: `/library.json`. Also available from the MCP server as the `changelog` tool.
 
 ## How versions work
 
 - **Library:** Semantic. MAJOR when a pattern is removed or its id changes. MINOR when patterns or detectors are added. PATCH for wording, sources and fixes to existing detectors.
 - **Entries:** Each entry carries version, added and updated. The entry version goes up by 0.1 when its definition, fix or detection changes; wording and source fixes update the date only.
 - **IDs:** Pattern ids and codes are permanent. A retired pattern keeps its code and is marked retired, never reused.
+
+## v1.2.0 — 2026-10-06
+
+**Added**
+
+- A73 The Lucide House Style
+- A74 The Untouched Component Theme
+- A75 One Radius For Everything
+- A76 Arrow On Every Button
+- A77 Decorative 01 02 03
+- A78 Cursor On A Page You Can't Type In
+- A79 The Billboard Headline
+- A80 Hand-Coded SVG Filler
+- A81 The Dimmed Hero Photo
+- A82 The Memorised Stock Photo
+- A83 Centred Paragraphs
+- A84 Text To The Glass
+- A85 The Orphaned Heading
+- A86 Lopsided Opening Columns
+- A87 Half-Dark Mode
+- A88 Nameless Icon Buttons
+- A89 Links You Can't See
+- A90 Placeholder As Label
+- A91 Inputs With No Edge
+- A92 The Floating Pill Navbar
+- A93 Badge Confetti
+- B164 Title Case Every Heading
+- B165 Colon-Split Headings
+- B166 Bold-Label Bullets
+- B167 Whether You're A
+- B168 The Conclusion Heading
+- B169 Markdown Showing Through
+- B173 Compliance Badge Cosplay
+- B174 The Unbacked Superlative
+- B175 The Generated Privacy Policy
+- B177 The Raw Error Leak
+- B181 The Untitled Dialog
+- B182 Wrong Page Language
+- B183 The Token Firehose
+- B184 Enter Sends Mid-Word
+- B185 Scroll Hijacked By The Stream
+- B186 The Eaten Prompt
+
+**Changed**
+
+- Automated detection added for 19 existing patterns (entry version +0.1 each): A5, A9, A11, A13, A14, A21, A26, A27, A28, A29, A30, A35, A41, A42, A67, B89, B104, B109, B125
+- check_design now runs 104 code rules, shared by the scanner, the MCP server and the command line
+
+Every source on the new entries was opened and read before release; claims a source did not support were cut.
 
 ## v1.1.1 — 2026-09-23
 
