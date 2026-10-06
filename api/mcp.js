@@ -6,6 +6,7 @@ const PATTERNS = require('./patterns.json');
 
 const byId = Object.fromEntries(PATTERNS.map(p => [p.id, p]));
 const byCode = Object.fromEntries(PATTERNS.map(p => [p.code.toLowerCase(), p]));
+const CHECKED = PATTERNS.filter(p => RULES.some(r => r.code === p.code)).length;   // library patterns that have a rule
 const find = k => byId[String(k||'').toLowerCase()] || byCode[String(k||'').toLowerCase()] || null;
 
 const SERVER = { name: 'slop-patterns', title: 'Slop Patterns', version: '1.2.1',
@@ -104,11 +105,11 @@ async function callTool(name, args){
     const hits = checkDesign(code);
     if (args.shareStats === true || process.env.SLOP_SHARE_STATS === '1')
       await record(hits.map(h => h.code), hits.length === 0);
-    if (!hits.length) return text(`No documented slop patterns detected.\n\nChecked against the ${RULES.length} patterns with mechanical tells (Slop Patterns v${LIB.version}). This is not a clean bill of health — ${PATTERNS.length - RULES.length} of the ${PATTERNS.length} patterns in the library need a rendered page or a human read and are never flagged here.`);
+    if (!hits.length) return text(`No documented slop patterns detected.\n\nChecked against the ${RULES.length} patterns with mechanical tells (Slop Patterns v${LIB.version}). This is not a clean bill of health — ${PATTERNS.length - CHECKED} of the ${PATTERNS.length} patterns in the library need a rendered page or a human read and are never flagged here.`);
     const fmt = h => `${h.code}  ${h.name}\n  Found: ${h.evidence.join('\n         ')}\n  Fix:   ${h.fix}\n  More:  https://sloppatterns.com/#${h.id}`;
     const sure = hits.filter(h => h.confidence !== 'review'), maybe = hits.filter(h => h.confidence === 'review');
     const body = sure.map(fmt).join('\n\n') + (maybe.length ? `${sure.length ? '\n\n' : ''}WORTH A LOOK (this is a whole page; these rules have not yet passed our hand audit on whole pages, so check before acting)\n\n` + maybe.map(fmt).join('\n\n') : '');
-    return text(`${sure.length} pattern${sure.length===1?'':'s'} detected${maybe.length ? `, ${maybe.length} more worth a look` : ''}.\n\n${body}\n\n---\nChecked against ${RULES.length} of ${PATTERNS.length} documented patterns (the ones with a mechanical tell), Slop Patterns v${LIB.version}. The other ${PATTERNS.length - RULES.length} need a rendered page or human judgement.`);
+    return text(`${sure.length} pattern${sure.length===1?'':'s'} detected${maybe.length ? `, ${maybe.length} more worth a look` : ''}.\n\n${body}\n\n---\nChecked against ${CHECKED} of ${PATTERNS.length} documented patterns (the ones with a mechanical tell), Slop Patterns v${LIB.version}. The other ${PATTERNS.length - CHECKED} need a rendered page or human judgement.`);
   }
   if (name === 'list_patterns') {
     const list = PATTERNS.filter(p => !args.track || p.track === args.track);

@@ -208,10 +208,10 @@ const DATA=[
   ],
   "tier": "needed",
   "observed": "",
-  "version": "1.0",
+  "version": "1.1",
   "added": "2026-09-17",
-  "updated": "2026-09-17",
-  "detect": "judgement"
+  "updated": "2026-10-06",
+  "detect": "code"
  },
  {
   "id": "no-undo",
@@ -494,10 +494,10 @@ const DATA=[
   ],
   "tier": "needed",
   "observed": "",
-  "version": "1.0",
+  "version": "1.1",
   "added": "2026-09-17",
-  "updated": "2026-09-17",
-  "detect": "judgement"
+  "updated": "2026-10-06",
+  "detect": "code"
  },
  {
   "id": "gradient-text-headline",
@@ -578,10 +578,10 @@ const DATA=[
   ],
   "tier": "needed",
   "observed": "",
-  "version": "1.0",
+  "version": "1.1",
   "added": "2026-09-17",
-  "updated": "2026-09-17",
-  "detect": "judgement"
+  "updated": "2026-10-06",
+  "detect": "code"
  },
  {
   "id": "the-bento-reflex",
@@ -662,10 +662,10 @@ const DATA=[
   ],
   "tier": "needed",
   "observed": "",
-  "version": "1.0",
+  "version": "1.1",
   "added": "2026-09-17",
-  "updated": "2026-09-17",
-  "detect": "judgement"
+  "updated": "2026-10-06",
+  "detect": "code"
  },
  {
   "id": "trusted-by-nobody",
@@ -704,10 +704,10 @@ const DATA=[
   ],
   "tier": "needed",
   "observed": "",
-  "version": "1.0",
+  "version": "1.1",
   "added": "2026-09-17",
-  "updated": "2026-09-17",
-  "detect": "judgement"
+  "updated": "2026-10-06",
+  "detect": "code"
  },
  {
   "id": "emoji-as-icons",
@@ -2414,10 +2414,10 @@ const DATA=[
    "aurora-blob-backdrop"
   ],
   "code": "A21",
-  "version": "1.0",
+  "version": "1.1",
   "added": "2026-09-17",
-  "updated": "2026-09-17",
-  "detect": "judgement"
+  "updated": "2026-10-06",
+  "detect": "code"
  },
  {
   "id": "crushed-headline-tracking",
@@ -2620,10 +2620,10 @@ const DATA=[
    "one-two-three-steps"
   ],
   "code": "A26",
-  "version": "1.0",
+  "version": "1.1",
   "added": "2026-09-17",
-  "updated": "2026-09-17",
-  "detect": "judgement"
+  "updated": "2026-10-06",
+  "detect": "code"
  },
  {
   "id": "one-two-three-steps",
@@ -2658,10 +2658,10 @@ const DATA=[
    "pill-above-the-headline"
   ],
   "code": "A27",
-  "version": "1.0",
+  "version": "1.1",
   "added": "2026-09-17",
-  "updated": "2026-09-17",
-  "detect": "judgement"
+  "updated": "2026-10-06",
+  "detect": "code"
  },
  {
   "id": "three-tiers-middle-glowing",
@@ -2696,10 +2696,10 @@ const DATA=[
    "pill-above-the-headline"
   ],
   "code": "A28",
-  "version": "1.0",
+  "version": "1.1",
   "added": "2026-09-17",
-  "updated": "2026-09-17",
-  "detect": "judgement"
+  "updated": "2026-10-06",
+  "detect": "code"
  },
  {
   "id": "gradient-initial-avatars",
@@ -2734,10 +2734,10 @@ const DATA=[
    "sparkles-means-magic"
   ],
   "code": "A29",
-  "version": "1.0",
+  "version": "1.1",
   "added": "2026-09-17",
-  "updated": "2026-09-17",
-  "detect": "judgement"
+  "updated": "2026-10-06",
+  "detect": "code"
  },
  {
   "id": "the-traffic-light-terminal",
@@ -2772,10 +2772,10 @@ const DATA=[
    "pill-above-the-headline"
   ],
   "code": "A30",
-  "version": "1.0",
+  "version": "1.1",
   "added": "2026-09-17",
-  "updated": "2026-09-17",
-  "detect": "judgement"
+  "updated": "2026-10-06",
+  "detect": "code"
  },
  {
   "id": "the-fake-dashboard",
@@ -2978,10 +2978,10 @@ const DATA=[
    "the-megabyte-bundle"
   ],
   "code": "A35",
-  "version": "1.0",
+  "version": "1.1",
   "added": "2026-09-17",
-  "updated": "2026-09-17",
-  "detect": "judgement"
+  "updated": "2026-10-06",
+  "detect": "code"
  },
  {
   "id": "the-pulsing-dot",
@@ -3226,10 +3226,10 @@ const DATA=[
    "placeholder-testimonials"
   ],
   "code": "A41",
-  "version": "1.0",
+  "version": "1.1",
   "added": "2026-09-17",
-  "updated": "2026-09-17",
-  "detect": "judgement"
+  "updated": "2026-10-06",
+  "detect": "code"
  },
  {
   "id": "tricolon-everything",
@@ -3268,10 +3268,10 @@ const DATA=[
    "placeholder-testimonials"
   ],
   "code": "A42",
-  "version": "1.0",
+  "version": "1.1",
   "added": "2026-09-17",
-  "updated": "2026-09-17",
-  "detect": "judgement"
+  "updated": "2026-10-06",
+  "detect": "code"
  },
  {
   "id": "em-dash-cadence",
@@ -4177,10 +4177,10 @@ const DATA=[
   ],
   "tier": "practitioner-observed",
   "observed": "",
-  "detect": "render",
-  "version": "1.0",
+  "detect": "code",
+  "version": "1.1",
   "added": "2026-09-22",
-  "updated": "2026-09-22"
+  "updated": "2026-10-06"
  },
  {
   "id": "text-under-another-layer",
@@ -6242,10 +6242,10 @@ const DATA=[
    "placeholder-testimonials"
   ],
   "code": "B89",
-  "version": "1.0",
+  "version": "1.1",
   "added": "2026-09-17",
-  "updated": "2026-09-17",
-  "detect": "judgement"
+  "updated": "2026-10-06",
+  "detect": "code"
  },
  {
   "id": "opt-out-by-email",
@@ -6792,10 +6792,10 @@ const DATA=[
    "summary-eats-the-source"
   ],
   "code": "B104",
-  "version": "1.0",
+  "version": "1.1",
   "added": "2026-09-17",
-  "updated": "2026-09-17",
-  "detect": "judgement"
+  "updated": "2026-10-06",
+  "detect": "code"
  },
  {
   "id": "machine-translated-everything",
@@ -6966,10 +6966,10 @@ const DATA=[
    "machine-translated-everything"
   ],
   "code": "B109",
-  "version": "1.0",
+  "version": "1.1",
   "added": "2026-09-17",
-  "updated": "2026-09-17",
-  "detect": "judgement"
+  "updated": "2026-10-06",
+  "detect": "code"
  },
  {
   "id": "help-docs-that-say-nothing",
@@ -7554,10 +7554,10 @@ const DATA=[
    "ambiguous-wait"
   ],
   "code": "B125",
-  "version": "1.0",
+  "version": "1.1",
   "added": "2026-09-17",
-  "updated": "2026-09-17",
-  "detect": "judgement"
+  "updated": "2026-10-06",
+  "detect": "code"
  },
  {
   "id": "the-tour-that-explains-nothing",
@@ -8882,6 +8882,1536 @@ const DATA=[
   "version": "1.0",
   "added": "2026-09-17",
   "updated": "2026-09-17",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-lucide-house-style",
+  "name": "The Lucide House Style",
+  "track": "surface",
+  "group": "Imagery & icons",
+  "category": "Iconography",
+  "harm": "Credibility",
+  "origin": "Tool default",
+  "oneLiner": "Every icon on the page is an untouched Lucide glyph, usually Zap, Shield, Sparkles, Check and ArrowRight.",
+  "looksLike": "Thin 2px-stroke, round-capped outline icons at 16-24px, all from one open-source set, all in the same weight regardless of the brand. The same five or six glyphs recur from site to site: a lightning bolt for speed, a shield for security, a bar chart for analytics, a check for features, an arrow for the CTA. In the DOM they carry class names like 'lucide lucide-zap'.",
+  "why": "In November 2024 shadcn/ui made Lucide the default icon set for new projects, and AI app builders scaffold on shadcn, so 'import { Zap } from \"lucide-react\"' is the statistically likely line. The model then picks the icon whose name most literally matches the feature noun, so the mapping (speed = Zap, security = Shield) repeats from site to site.",
+  "who": "Visitors, who have seen the same bolt, shield and sparkle on the last ten sites and read the page as a template; the brand, which gets no visual voice of its own.",
+  "theFix": "Choose an icon set on purpose (Phosphor, Iconoir, a custom set, or none) and set its weight, corner style and size to match the type. Ask whether each feature needs an icon at all; many read better as a product screenshot or a plain heading. Never use the literal-noun mapping (Zap for fast).",
+  "heur": "Inline <svg> elements with class 'lucide' or 'lucide-*' (lucide-react output), or the Lucide default attributes stroke-width=2, stroke-linecap=round, viewBox 0 0 24 24 on 80%+ of icons; stronger when 3+ of Zap, Shield, Sparkles, BarChart3, Check and ArrowRight are present. Hand-built shadcn sites share the set, so this is a default, not proof of authorship.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Tomilola on X: 3 ways to make your website look less vibe coded",
+    "u": "https://x.com/tomilola_ng/status/2080615247686017170"
+   },
+   {
+    "t": "shadcn on X: new-york style now uses Lucide as the default icon set",
+    "u": "https://x.com/shadcn/status/1853902179041702169"
+   },
+   {
+    "t": "AI Slop in 2026: The State of the AI-Generated Web",
+    "u": "https://www.sailop.com/blog/ai-slop-2026-state-of-the-ai-generated-web"
+   },
+   {
+    "t": "avoid-ai-design: audits AI-generated frontend (GitHub README)",
+    "u": "https://github.com/funboy322/avoid-ai-design"
+   },
+   {
+    "t": "How to Tell if a Website Is Vibe Coded (7 Signs)",
+    "u": "https://www.vibe0.com.au/blog/how-to-tell-if-a-website-is-vibe-coded"
+   },
+   {
+    "t": "Is That Vibe Coded? detector signals",
+    "u": "https://isthatvibecoded.com/"
+   }
+  ],
+  "code": "A73",
+  "rel": [
+   "icon-in-a-tinted-tile",
+   "sparkles-means-magic",
+   "emoji-as-icons"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "code"
+ },
+ {
+  "id": "the-untouched-component-theme",
+  "name": "The Untouched Component Theme",
+  "track": "surface",
+  "group": "Colour & type",
+  "category": "Colour",
+  "harm": "Credibility",
+  "origin": "Tool default",
+  "oneLiner": "The shadcn/Tailwind starter palette shipped as the brand: zinc greys, a near-black primary button, and nothing else.",
+  "looksLike": "White or zinc-950 page, borders in zinc-200, muted text in zinc-500, primary buttons near-black (#18181B) with white text, or stock blue-600 (#2563EB) when a colour was asked for. Every surface is grey-on-grey; no colour belongs to the product. Shows up in landing pages and in apps alike.",
+  "why": "shadcn/ui's init writes a neutral token set (zinc, slate or neutral) into globals.css, and AI builders run init and rarely revisit it. When the model does add colour it reaches for Tailwind's named defaults (blue-600, indigo-600, emerald-500) because those class names are everywhere in its training data.",
+  "who": "Visitors, who cannot tell this product from the last starter they saw; the team, whose product has no colour to be recognised by.",
+  "theFix": "Replace the generated CSS variables with a real palette before building screens: one brand primary, a tinted neutral ramp derived from it, and semantic colours tuned to it. Ban raw Tailwind named colours in components so everything flows through tokens.",
+  "heur": "Computed --primary, --background and --border variables equal to the shadcn defaults (for example --primary: 240 5.9% 10% or oklch(0.205 0 0); --border: 240 5.9% 90%), or a primary CTA background of exactly #18181B, #09090B or #2563EB.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Tomilola on X: 3 ways to make your website look less vibe coded",
+    "u": "https://x.com/tomilola_ng/status/2080615247686017170"
+   },
+   {
+    "t": "avoid-ai-design: audits AI-generated frontend (GitHub README)",
+    "u": "https://github.com/funboy322/avoid-ai-design"
+   },
+   {
+    "t": "AI Slop in 2026: The State of the AI-Generated Web",
+    "u": "https://www.sailop.com/blog/ai-slop-2026-state-of-the-ai-generated-web"
+   },
+   {
+    "t": "How to fix the 'AI-generated' look in your frontend",
+    "u": "https://dev.to/alanwest/how-to-fix-the-ai-generated-look-in-your-frontend-1ahh"
+   }
+  ],
+  "code": "A74",
+  "rel": [
+   "the-unchosen-gradient",
+   "inter-for-everything",
+   "the-builder-s-watermark"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "code"
+ },
+ {
+  "id": "one-radius-for-everything",
+  "name": "One Radius For Everything",
+  "track": "surface",
+  "group": "Components",
+  "category": "Components",
+  "harm": "Clarity",
+  "origin": "Tool default",
+  "oneLiner": "Cards, buttons, inputs, images and badges all share the same big rounded-2xl corner and soft shadow.",
+  "looksLike": "A 16px (or larger) corner radius on every container regardless of size, pill-shaped buttons, and a soft shadow under each card. Small chips and full-width sections end up equally soft, so nothing reads as more solid or more important than anything else; large radii on small cards squeeze the content into blobs.",
+  "why": "'rounded-2xl shadow-lg p-6' is the class string practitioners single out in AI-generated components, and shadcn themes apply one --radius token to every component unless someone changes it. Radius is never tied to element size or nesting depth because the model has a habit, not a system.",
+  "who": "Users, who lose the cue that tells a control from a container; visitors, who read the soft uniform blobs as a template.",
+  "theFix": "Define a radius scale tied to size and nesting (small controls 4-6px, cards 8-12px, inner radius = outer minus padding) and use square or near-square corners somewhere on purpose. Reserve shadows for things that actually float (menus, dialogs).",
+  "heur": "Needs computed styles: 80%+ of visible bordered or filled containers share one border-radius of 16px or more, buttons have radius of at least half their height, and most cards carry a box-shadow with 15px+ blur.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "AI Slop Web Design: Complete Guide to Spotting and Fixing Generic Websites",
+    "u": "https://www.925studios.co/blog/ai-slop-web-design-guide"
+   },
+   {
+    "t": "How to fix the 'AI-generated' look in your frontend",
+    "u": "https://dev.to/alanwest/how-to-fix-the-ai-generated-look-in-your-frontend-1ahh"
+   },
+   {
+    "t": "AI Slop in 2026: The State of the AI-Generated Web",
+    "u": "https://www.sailop.com/blog/ai-slop-2026-state-of-the-ai-generated-web"
+   },
+   {
+    "t": "avoid-ai-design: AI design tells catalog",
+    "u": "https://github.com/funboy322/avoid-ai-design/blob/main/references/ai-tells-catalog.md"
+   },
+   {
+    "t": "frontend-design skill (anthropics/skills)",
+    "u": "https://github.com/anthropics/skills/tree/main/skills/frontend-design"
+   },
+   {
+    "t": "The missing design vocabulary for agents (Impeccable slop catalog)",
+    "u": "https://impeccable.style/slop/"
+   },
+   {
+    "t": "vibecoded-design-tells: Reddit-mined ranking of the visual tells of AI-built sites",
+    "u": "https://github.com/JCarterJohnson/vibecoded-design-tells"
+   }
+  ],
+  "code": "A75",
+  "rel": [
+   "ghost-card",
+   "cards-inside-cards",
+   "three-identical-feature-cards"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "render"
+ },
+ {
+  "id": "arrow-on-every-button",
+  "name": "Arrow On Every Button",
+  "track": "surface",
+  "group": "Components",
+  "category": "Components",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "Every call to action ends in a right arrow that slides a few pixels on hover.",
+  "looksLike": "'Get started ->', 'Learn more ->', 'See pricing ->', 'Contact us ->': each button or link carries an ArrowRight icon or an arrow glyph, often with a small hover nudge. Primary, secondary and inline links all get it, so the arrow no longer signals 'go somewhere'.",
+  "why": "Component galleries and starter blocks commonly pair buttons with an ArrowRight icon, and models copy the pairing as part of what 'a CTA' is. It costs one token and makes a static mock feel interactive.",
+  "who": "Visitors, who can no longer tell which action takes them forward; the page, which spends its one directional cue on everything.",
+  "theFix": "Use an arrow only where the action navigates forward (next step, external link) and only on one level of the hierarchy. Let the label carry the meaning.",
+  "heur": "3+ buttons or CTA links whose text ends in an arrow glyph (->, →), or that contain an svg with class lucide-arrow-right or lucide-move-right, especially with a hover translate on the icon.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "avoid-ai-design: audits AI-generated frontend (GitHub README)",
+    "u": "https://github.com/funboy322/avoid-ai-design"
+   },
+   {
+    "t": "avoid-ai-design: AI design tells catalog",
+    "u": "https://github.com/funboy322/avoid-ai-design/blob/main/references/ai-tells-catalog.md"
+   },
+   {
+    "t": "AI Slop in 2026: The State of the AI-Generated Web",
+    "u": "https://www.sailop.com/blog/ai-slop-2026-state-of-the-ai-generated-web"
+   }
+  ],
+  "code": "A76",
+  "rel": [
+   "get-started-learn-more",
+   "the-lucide-house-style",
+   "em-dash-cadence"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "code"
+ },
+ {
+  "id": "decorative-01-02-03",
+  "name": "Decorative 01 02 03",
+  "track": "surface",
+  "group": "Layout",
+  "category": "Typography",
+  "harm": "Clarity",
+  "origin": "Training data",
+  "oneLiner": "Zero-padded numbers stamped on sections, cards and list items whose order means nothing.",
+  "looksLike": "Tiny '01', '02', '03' labels (often in a mono font or the accent colour) beside section headings, in the corner of feature cards, or above testimonial blocks. The content is not a sequence; you could shuffle the cards and nothing would change.",
+  "why": "Editorial and agency templates use numbered sections as a style flourish, and models reproduce the flourish without the reason. It also fills empty space in a card and makes a list of unrelated items look structured.",
+  "who": "Readers, who look for an order that is not there; anyone scanning, who reads the numbers as steps.",
+  "theFix": "Number things only when order matters (steps a user must follow, ranked items). Otherwise remove the numbers and let headings do the work.",
+  "heur": "Three or more sibling elements whose full visible text is a zero-padded number (^0[1-9]\\.?$ or '/01'), placed in cards or beside headings, and not inside an <ol> of procedural steps.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "AI slop: 8 signs a website was generated by AI (TeneX Studio)",
+    "u": "https://tenex.studio/en/blog/ai-slop-ui-8-signes/"
+   },
+   {
+    "t": "The missing design vocabulary for agents (Impeccable slop catalog)",
+    "u": "https://impeccable.style/slop/"
+   },
+   {
+    "t": "frontend-design skill (anthropics/skills)",
+    "u": "https://github.com/anthropics/skills/tree/main/skills/frontend-design"
+   },
+   {
+    "t": "Hacker News discussion: Scoring Show HN submissions for AI design patterns",
+    "u": "https://news.ycombinator.com/item?id=47864393"
+   }
+  ],
+  "code": "A77",
+  "rel": [
+   "one-two-three-steps",
+   "shouting-section-labels",
+   "three-identical-feature-cards"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "code"
+ },
+ {
+  "id": "cursor-on-a-page-you-cant-type-in",
+  "name": "Cursor On A Page You Can't Type In",
+  "track": "surface",
+  "group": "Motion & performance",
+  "category": "Motion",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "A blinking text cursor at the end of a static headline, pretending something is being typed.",
+  "looksLike": "A thin vertical bar or block after the H1 or a 'terminal' line, blinking forever on copy that is not editable; often paired with a typewriter effect that types out the headline once.",
+  "why": "Typewriter and blinking-caret effects are stock components in animation libraries and a cheap way to signal 'AI' or 'developer tool'. Models add them when asked for 'something dynamic' in the hero.",
+  "who": "Visitors, who try to click into text that is not a field; people sensitive to motion, who get an animation that never stops.",
+  "theFix": "Remove the caret. If the product genuinely types or streams, show the real product doing it in a demo, not a decoration on the headline. Respect prefers-reduced-motion.",
+  "heur": "An element after or inside the H1 or hero text with an infinite opacity keyframe animation (step-end or about 1s) and content '|', '▍', '_' or a 1-3px-wide block, or class names like animate-blink, cursor or caret; not inside an input or contenteditable.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "The missing design vocabulary for agents (Impeccable slop catalog)",
+    "u": "https://impeccable.style/slop/"
+   }
+  ],
+  "code": "A78",
+  "rel": [
+   "the-pulsing-dot",
+   "the-traffic-light-terminal",
+   "theatrical-streaming"
+  ],
+  "tier": "practitioner-observed",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "code"
+ },
+ {
+  "id": "the-billboard-headline",
+  "name": "The Billboard Headline",
+  "track": "surface",
+  "group": "Colour & type",
+  "category": "Typography",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "A long, ten-word headline set at 72px+ so it fills the whole first screen by itself.",
+  "looksLike": "The H1 runs to four or five lines at display size; on a laptop the subhead and button are pushed below the fold, and on a phone the headline alone takes two screens. The words are generic enough that the size is doing all the work.",
+  "why": "Generators default to very large H1 sizes because hero templates do, but they also write long, sentence-length headlines. A template size plus generated sentence-length copy equals a wall.",
+  "who": "Visitors, who have to scroll before they learn what to do; phone users most of all.",
+  "theFix": "Size the headline to its length: short lines can go big, a sentence cannot. Cap the H1 at a measure (around 12-20ch for display sizes) and keep the primary action visible in the first viewport at 1280x720 and 390x844.",
+  "heur": "H1 with computed font-size of 72px or more and 40 or more characters; or an H1 whose box is taller than 60% of the viewport at 1280x720, or the whole viewport at 390px.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "The missing design vocabulary for agents (Impeccable slop catalog)",
+    "u": "https://impeccable.style/slop/"
+   },
+   {
+    "t": "slop-detect: AI design slop fingerprint (rule 24, long headline at display size)",
+    "u": "https://github.com/ravidsrk/slop-detect"
+   },
+   {
+    "t": "Signs of AI design: a field guide to the visual tells of AI-generated design",
+    "u": "https://github.com/febbhav/signs-of-ai-design"
+   }
+  ],
+  "code": "A79",
+  "rel": [
+   "crushed-headline-tracking",
+   "centred-hero-one-button",
+   "the-weightless-headline"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "code"
+ },
+ {
+  "id": "hand-coded-svg-filler",
+  "name": "Hand-Coded SVG Filler",
+  "track": "surface",
+  "group": "Imagery & icons",
+  "category": "Imagery",
+  "harm": "Credibility",
+  "origin": "Model",
+  "oneLiner": "Illustrations the model drew itself in SVG: circles, rounded rectangles and a wobbly mascot that look unfinished.",
+  "looksLike": "Inline SVG 'illustrations' made of a few primitive shapes: a phone outline with three grey bars as text, a stick-figure or blob mascot, overlapping circles labelled 'AI', a flowchart whose arrows miss their boxes. Proportions are off and labels collide, so a polished page has a sketch in the middle of it.",
+  "why": "Coding agents that cannot fetch or generate raster art write SVG by hand when asked for 'an illustration'. Language models predict tokens, not pixels, so spatial layout (overlap, alignment, proportion) is where they fail.",
+  "who": "Visitors, who read the crude drawing as unfinished work and discount the rest of the page.",
+  "theFix": "Use a real product screenshot, a commissioned or stock illustration, or nothing. If a diagram is needed, have the model describe nodes and edges and let a layout engine (or a designer) place them.",
+  "heur": "Judged from a screenshot: hero or feature artwork built from flat primitive shapes with placeholder bars for text, misaligned or overlapping labels, or a crude mascot. Code can assist: an inline <svg> wider than 150px made mostly of <circle>, <rect> and <ellipse> with few complex <path> elements.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "The missing design vocabulary for agents (Impeccable slop catalog)",
+    "u": "https://impeccable.style/slop/"
+   },
+   {
+    "t": "Signs of AI design: a field guide to the visual tells of AI-generated design",
+    "u": "https://github.com/febbhav/signs-of-ai-design"
+   },
+   {
+    "t": "Hallmark: anti-patterns reference",
+    "u": "https://github.com/Nutlope/hallmark/blob/main/skills/hallmark/references/anti-patterns.md"
+   }
+  ],
+  "code": "A80",
+  "rel": [
+   "floating-3d-nothing",
+   "broken-or-placeholder-image",
+   "uncanny-stock-humans"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-dimmed-hero-photo",
+  "name": "The Dimmed Hero Photo",
+  "track": "surface",
+  "group": "Imagery & icons",
+  "category": "Imagery",
+  "harm": "Credibility",
+  "origin": "Model",
+  "oneLiner": "A stock photo behind the headline, darkened with a heavy black overlay until it is just texture.",
+  "looksLike": "A full-bleed image (city skyline, office, laptop, mountains) under a semi-transparent black or gradient scrim so white text stays legible. You can barely make out what the photo is, and it would not matter if it were a different photo.",
+  "why": "'Hero with background image' plus a contrast requirement produces the overlay recipe (an absolute inset layer at 50-80% black) every time. The model picks an image by keyword, then has to hide it to make the text work.",
+  "who": "Visitors, who download a large image they cannot see; the brand, which spends its first screen on texture.",
+  "theFix": "If the image matters, give it room: put text beside or below it, or choose a photo with natural empty space. If it does not matter, drop it and use a solid colour.",
+  "heur": "A hero element with a background image or <img> covered by a sibling or pseudo-element of the same size with background rgba(0,0,0,0.5) or darker, or a dark gradient, and white H1 text on top.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "How to tell if a website was AI generated: 9 visible signs",
+    "u": "https://uxskill.laithjunaidy.com/how-to-tell-if-a-website-was-ai-generated.html"
+   }
+  ],
+  "code": "A81",
+  "rel": [
+   "text-under-another-layer",
+   "uncanny-stock-humans",
+   "the-memorised-stock-photo"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "code"
+ },
+ {
+  "id": "the-memorised-stock-photo",
+  "name": "The Memorised Stock Photo",
+  "track": "surface",
+  "group": "Imagery & icons",
+  "category": "Imagery",
+  "harm": "Credibility",
+  "origin": "Training data",
+  "oneLiner": "Unsplash photos hotlinked by ID straight from the model's memory: a laptop with charts, a team round a table.",
+  "looksLike": "Images load from images.unsplash.com/photo-<id> with ?w=800&q=80 style parameters. The pictures are generic (analytics on a laptop, a diverse group in a bright office, a coffee cup by a keyboard) and often only loosely related to what the section says.",
+  "why": "App builders let the model write image URLs directly, and the model reproduces Unsplash URLs it saw in training data rather than searching. When an ID has gone stale the image breaks; when it works it is a picture chosen by keyword, not by anyone looking at it.",
+  "who": "Visitors, who see a stock scene that says nothing about the product; the team, whose page breaks when a remembered ID disappears.",
+  "theFix": "Use your own product screenshots and photos. If stock is unavoidable, choose it by hand, download and host it, and check it depicts what the section says.",
+  "heur": "<img> or background-image URLs on images.unsplash.com/photo-* in hero and feature sections (source.unsplash.com and placeholder services are covered by A69).",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Fix placeholder images in Bolt-generated pages",
+    "u": "https://tteg.kushalsm.com/fix/bolt"
+   },
+   {
+    "t": "AI Slop Web Design: Complete Guide to Spotting and Fixing Generic Websites",
+    "u": "https://www.925studios.co/blog/ai-slop-web-design-guide"
+   },
+   {
+    "t": "How to Tell If a Website Was Vibe Coded: A Developer's Detection Guide",
+    "u": "https://www.hustletoai.com/blog/programming-7/how-to-tell-if-a-website-is-vibe-coded-120"
+   },
+   {
+    "t": "avoid-ai-design: AI design tells catalog",
+    "u": "https://github.com/funboy322/avoid-ai-design/blob/main/references/ai-tells-catalog.md"
+   }
+  ],
+  "code": "A82",
+  "rel": [
+   "broken-or-placeholder-image",
+   "uncanny-stock-humans",
+   "the-dimmed-hero-photo"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "code"
+ },
+ {
+  "id": "centred-paragraphs",
+  "name": "Centred Paragraphs",
+  "track": "surface",
+  "group": "Layout",
+  "category": "Typography",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "Not just the hero: every heading, paragraph and list down the page is centre-aligned.",
+  "looksLike": "Section after section stacks a centred heading, a centred two- to four-line paragraph, and centred cards with centred text inside. Each line starts at a different x position, so the eye has to hunt for the next line, and long paragraphs become ragged diamonds.",
+  "why": "Centred alignment is the safest symmetric layout and needs no decisions about grids or columns; once the hero is centred, models repeat 'text-center mx-auto max-w-2xl' for every section.",
+  "who": "Readers, who lose the fixed left edge that lets the eye find the next line; people with dyslexia or low vision most of all.",
+  "theFix": "Left-align any text longer than two lines. Use a left-aligned grid with a clear starting edge and keep centring for short, single-line moments.",
+  "heur": "Paragraphs with computed text-align:center that wrap to 3+ lines at 1280px, in 3+ sections; or more than 70% of visible body text nodes centre-aligned.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "How to tell if a website was AI generated: 9 visible signs",
+    "u": "https://uxskill.laithjunaidy.com/how-to-tell-if-a-website-was-ai-generated.html"
+   },
+   {
+    "t": "How to fix an AI slop website (Rottoways)",
+    "u": "https://rottoways.com/blog/fix-ai-slop-website"
+   },
+   {
+    "t": "Hallmark: anti-patterns reference",
+    "u": "https://github.com/Nutlope/hallmark/blob/main/skills/hallmark/references/anti-patterns.md"
+   },
+   {
+    "t": "Why You Should Never Center Align Paragraph Text (UX Movement)",
+    "u": "https://uxmovement.com/content/why-you-should-never-center-align-paragraph-text/"
+   },
+   {
+    "t": "Avoid centered text (Pimp my Type)",
+    "u": "https://pimpmytype.com/avoid-centered-text/"
+   }
+  ],
+  "code": "A83",
+  "rel": [
+   "centred-hero-one-button",
+   "lines-too-long-to-read",
+   "justified-without-hyphens"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "code"
+ },
+ {
+  "id": "text-to-the-glass",
+  "name": "Text To The Glass",
+  "track": "surface",
+  "group": "Layout",
+  "category": "Responsive",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "On a phone, paragraphs and buttons run right to the edge of the screen with no side margin.",
+  "looksLike": "At 390px wide, body text, card edges or full-width buttons touch the left and right edges of the viewport, or sit a few pixels from them; letters at the line ends nearly fall off the glass. Desktop looks fine because a max-width container hides it.",
+  "why": "Generated layouts rely on a centred max-width container for desktop and forget horizontal padding on the container or on sections that break out of it. Builders preview at desktop width, so it is never seen.",
+  "who": "Phone users, who read text jammed against the bezel and miss taps at the edge.",
+  "theFix": "Put consistent side padding (16-24px) on the page container and on every full-bleed section's inner wrapper; check every section at 360-390px.",
+  "heur": "Needs a rendered page at 390px: any visible text node or button whose box starts less than 8px from the left edge or ends less than 8px from the right edge, excluding intentionally full-bleed images and backgrounds.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "The missing design vocabulary for agents (Impeccable slop catalog)",
+    "u": "https://impeccable.style/slop/"
+   }
+  ],
+  "code": "A84",
+  "rel": [
+   "content-flush-to-its-border",
+   "the-980px-phone",
+   "uniform-section-rhythm"
+  ],
+  "tier": "practitioner-observed",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "render"
+ },
+ {
+  "id": "the-orphaned-heading",
+  "name": "The Orphaned Heading",
+  "track": "surface",
+  "group": "Layout",
+  "category": "Spacing",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "A section heading sits closer to the section above it than to the content it introduces.",
+  "looksLike": "Little space above the heading and a large margin below it (or equal section padding plus a big heading margin-bottom), so the title visually attaches to the previous block. Scanning, you read the heading as the end of one section rather than the start of the next.",
+  "why": "Models assemble spacing from per-component utilities (a big margin under every heading, the same padding on every section) without reasoning about proximity between groups. NN/g found AI prototyping tools produced 'a lack of visual hierarchy or grouping among related elements'.",
+  "who": "Readers scanning the page, who group the heading with the wrong content.",
+  "theFix": "Space by relationship: the gap above a heading should be clearly larger (roughly 2x) than the gap between the heading and its content.",
+  "heur": "Needs a rendered page: for section headings (h2/h3), the vertical distance to the previous visible block is less than or equal to the distance to the next visible element, measured from bounding boxes.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "The missing design vocabulary for agents (Impeccable slop catalog)",
+    "u": "https://impeccable.style/slop/"
+   },
+   {
+    "t": "AI Prototyping in Real Design Contexts (NN/g)",
+    "u": "https://www.nngroup.com/articles/ai-prototyping/"
+   }
+  ],
+  "code": "A85",
+  "rel": [
+   "uniform-section-rhythm",
+   "content-flush-to-its-border",
+   "skipped-heading-level"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "render"
+ },
+ {
+  "id": "lopsided-opening-columns",
+  "name": "Lopsided Opening Columns",
+  "track": "surface",
+  "group": "Layout",
+  "category": "Layout",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "A two-column hero where one side is a short headline and the other is a tall image, leaving a big empty hole.",
+  "looksLike": "Text on the left ends halfway down while the right-hand image or form continues far below it (or the reverse), so the first screen has a large dead area and the button floats high in empty space.",
+  "why": "Split-hero templates assume balanced content; the model fills each column independently (a short headline, a tall portrait image or a long form) and never compares heights or sets vertical alignment.",
+  "who": "Visitors, who see a half-empty first screen and a button stranded away from what it refers to.",
+  "theFix": "Balance the columns by content, align the shorter one to the centre or the bottom of the taller one, or switch to a stacked layout when one side is much taller.",
+  "heur": "Needs a rendered page at 1280px: in the first two-column section, one column's content height is under 60% of the other's, leaving a visible empty block (sibling grid or flex columns with align-items:start).",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "The missing design vocabulary for agents (Impeccable slop catalog)",
+    "u": "https://impeccable.style/slop/"
+   }
+  ],
+  "code": "A86",
+  "rel": [
+   "centred-hero-one-button",
+   "the-billboard-headline",
+   "uniform-section-rhythm"
+  ],
+  "tier": "practitioner-observed",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "render"
+ },
+ {
+  "id": "half-dark-mode",
+  "name": "Half-Dark Mode",
+  "track": "surface",
+  "group": "Colour & type",
+  "category": "Colour",
+  "harm": "Accessibility",
+  "origin": "Model",
+  "oneLiner": "Flip the theme and half the page follows; the other half stays white or stays dark.",
+  "looksLike": "A theme toggle (or the OS dark setting) turns the background dark but cards, modals, code blocks or form fields stay bright white with dark-grey text, or white text lands on a light surface and vanishes. Icons and logos made for one background disappear on the other.",
+  "why": "Token-based themes (shadcn switches a set of CSS variables under a .dark class) only reach elements that use the tokens. Generated components mix tokens with hardcoded utility colours (bg-white, text-gray-900, text-white), and only the tokenised elements respond to the toggle. Checklists for reviewing AI-generated Tailwind UI include 'all text, background, and border colors have dark: variants' for this reason.",
+  "who": "Users who switch themes, often for comfort or low vision, who get unreadable text and glaring panels.",
+  "theFix": "Ban raw colour utilities in components and route every surface and text colour through tokens; test every page in both modes, including modals, menus and empty states.",
+  "heur": "Needs a rendered page in both modes (prefers-color-scheme: dark and the site's .dark class if present): flag large surfaces whose background stays at 90%+ lightness while the page background is dark, or the reverse, or text whose contrast drops below 3:1 after the switch.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Checklist for Reviewing AI-Generated Tailwind UI (PasteCode)",
+    "u": "https://pastecode.xyz/checklists/review-ai-generated-tailwind-ui"
+   },
+   {
+    "t": "shadcn/ui: Theming",
+    "u": "https://ui.shadcn.com/docs/theming"
+   },
+   {
+    "t": "Theme toggle leaves the app dark in light mode (vibe-glossary #54)",
+    "u": "https://github.com/planetoftheweb/vibe-glossary/issues/54"
+   }
+  ],
+  "code": "A87",
+  "rel": [
+   "permanent-midnight",
+   "contrast-below-the-floor",
+   "the-untouched-component-theme"
+  ],
+  "tier": "practitioner-observed",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "render"
+ },
+ {
+  "id": "nameless-icon-buttons",
+  "name": "Nameless Icon Buttons",
+  "track": "surface",
+  "group": "Accessibility",
+  "category": "Accessibility",
+  "harm": "Accessibility",
+  "origin": "Model",
+  "oneLiner": "Icon-only buttons and links (menu, close, social, copy) with no text a screen reader can announce.",
+  "looksLike": "A hamburger, an X, social icons in the footer, a copy button: each is an <svg> inside a <button> or <a> with no aria-label, no visually hidden text and no title. Screen readers say 'button' or read out the URL.",
+  "why": "Icon libraries render decorative SVGs with aria-hidden, and models drop the icon into a button without adding a name because nothing visible is missing. WebAIM's 2026 Million found empty links on 46.3% and empty buttons on 30.6% of home pages (both up from 2025), and says the worsening likely reflects heavier framework use and AI-assisted 'vibe coding'.",
+  "who": "Screen reader and voice-control users, who cannot find or name the control.",
+  "theFix": "Every icon-only control gets an accessible name (aria-label or sr-only text) describing the action, not the icon ('Open menu', not 'hamburger'). Lint for it in CI.",
+  "heur": "<button> or <a href> whose accessible name computes to empty (no text content, aria-label, aria-labelledby, title or img alt), typically containing only an <svg>.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "The WebAIM Million: 2026 report",
+    "u": "https://webaim.org/projects/million/"
+   },
+   {
+    "t": "AI-Generated UI Is Inaccessible by Default (Frontend Masters blog)",
+    "u": "https://frontendmasters.com/blog/ai-generated-ui-is-inaccessible-by-default/"
+   },
+   {
+    "t": "Checklist for Reviewing AI-Generated Tailwind UI (PasteCode)",
+    "u": "https://pastecode.xyz/checklists/review-ai-generated-tailwind-ui"
+   }
+  ],
+  "code": "A88",
+  "rel": [
+   "the-clickable-div",
+   "nowhere-to-focus",
+   "landmark-free-page"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "code"
+ },
+ {
+  "id": "links-you-cant-see",
+  "name": "Links You Can't See",
+  "track": "surface",
+  "group": "Accessibility",
+  "category": "Accessibility",
+  "harm": "Accessibility",
+  "origin": "Tool default",
+  "oneLiner": "Links inside paragraphs look exactly like the surrounding text: no underline, same or near-same colour.",
+  "looksLike": "Body copy and FAQ answers contain links that can only be found by hovering, or by a colour difference too small to notice (a slightly darker grey). Users do not know there is a link to click; colour-blind users have no chance.",
+  "why": "Tailwind's Preflight reset removes link underlines and makes links inherit the surrounding text colour, and the maintainers declined a 2025 request to restore browser defaults. Untouched Tailwind and shadcn defaults are the most-cited tell of AI-built sites, and generated code rarely adds the underline back.",
+  "who": "Readers who rely on more than colour to find links, including colour-blind and low-vision users; everyone else, who misses the link.",
+  "theFix": "Underline links in running text (with a sensible offset and thickness), or give them 3:1 contrast against the surrounding text plus a non-colour cue on hover and focus.",
+  "heur": "<a href> inside <p> or <li> text with computed text-decoration none and colour contrast under 3:1 against the surrounding text colour (WCAG failure F73).",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Revert to browser behaviour for underlined links (tailwindcss #18165)",
+    "u": "https://github.com/tailwindlabs/tailwindcss/issues/18165"
+   },
+   {
+    "t": "WCAG F73: links not visually evident without colour vision",
+    "u": "https://www.w3.org/WAI/WCAG22/Techniques/failures/F73"
+   },
+   {
+    "t": "vibecoded-design-tells: Reddit-mined ranking of the visual tells of AI-built sites",
+    "u": "https://github.com/JCarterJohnson/vibecoded-design-tells"
+   }
+  ],
+  "code": "A89",
+  "rel": [
+   "colour-only-status",
+   "contrast-below-the-floor",
+   "the-untouched-component-theme"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "code"
+ },
+ {
+  "id": "placeholder-as-label",
+  "name": "Placeholder As Label",
+  "track": "surface",
+  "group": "Accessibility",
+  "category": "Forms",
+  "harm": "Accessibility",
+  "origin": "Model",
+  "oneLiner": "Form fields with grey hint text inside and no label outside, so the label disappears as soon as you type.",
+  "looksLike": "Sign-up, contact and waitlist forms where 'Email', 'Full name' and 'Message' exist only as placeholder text. Once filled, nothing on screen says which field is which; placeholder grey is also usually below contrast minimums.",
+  "why": "Compact placeholder-only forms are common in design shots and landing-page templates, and models optimise for the clean look. WebAIM's 2026 Million found missing form input labels on 51% of home pages, up from 2025; it links the worsening partly to AI-assisted coding, though it does not isolate placeholder-only fields.",
+  "who": "Anyone checking what they typed, people with memory or attention difficulties, and screen reader users when no accessible name is set.",
+  "theFix": "Give every input a visible <label> above it; keep placeholder for an example format only, at accessible contrast.",
+  "heur": "<input> or <textarea> (not hidden or submit) with a placeholder attribute and no associated <label for>, wrapping <label>, aria-labelledby or aria-label.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Placeholders in Form Fields Are Harmful (NN/g)",
+    "u": "https://www.nngroup.com/articles/form-design-placeholders/"
+   },
+   {
+    "t": "The WebAIM Million: 2026 report",
+    "u": "https://webaim.org/projects/million/"
+   }
+  ],
+  "code": "A90",
+  "rel": [
+   "errors-nobody-announces",
+   "validation-that-lies",
+   "inputs-with-no-edge"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "code"
+ },
+ {
+  "id": "inputs-with-no-edge",
+  "name": "Inputs With No Edge",
+  "track": "surface",
+  "group": "Accessibility",
+  "category": "Forms",
+  "harm": "Accessibility",
+  "origin": "Tool default",
+  "oneLiner": "Text fields whose border and fill are so close to the background that you can't see where to type.",
+  "looksLike": "On light themes, a field with a pale grey border on a white card; on dark themes, a near-black field on a near-black card with a border at 10-15% white. The field is invisible until focused.",
+  "why": "shadcn's default theme sets the input border to oklch(0.922 0 0) on a white background in light mode and to white at 15% opacity in dark mode, both far below the 3:1 non-text contrast WCAG asks for a control's boundary. Untouched shadcn defaults are among the most-cited tells of AI-built sites, and contrast for component boundaries is never checked in generation.",
+  "who": "Low-vision users and anyone on a dim or glare-washed screen, who cannot find the field.",
+  "theFix": "Give input boundaries at least 3:1 contrast against the adjacent surface (border or fill), and check inputs on every surface they appear on, in both themes.",
+  "heur": "Needs computed styles: a visible <input>, <textarea> or <select> where neither the border colour nor the background colour reaches 3:1 contrast against the parent's effective background.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "WCAG 2.2 Understanding SC 1.4.11 Non-text Contrast",
+    "u": "https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html"
+   },
+   {
+    "t": "shadcn/ui: Theming",
+    "u": "https://ui.shadcn.com/docs/theming"
+   },
+   {
+    "t": "avoid-ai-design: AI design tells catalog",
+    "u": "https://github.com/funboy322/avoid-ai-design/blob/main/references/ai-tells-catalog.md"
+   }
+  ],
+  "code": "A91",
+  "rel": [
+   "contrast-below-the-floor",
+   "placeholder-as-label",
+   "the-untouched-component-theme"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "render"
+ },
+ {
+  "id": "the-floating-pill-navbar",
+  "name": "The Floating Pill Navbar",
+  "track": "surface",
+  "group": "Components",
+  "category": "Navigation",
+  "harm": "Clarity",
+  "origin": "Tool default",
+  "oneLiner": "A detached, rounded, frosted-glass nav bar hovering a few pixels below the top of the screen.",
+  "looksLike": "The header is a centred capsule (fully rounded, capped width, backdrop blur, translucent background, thin border) that floats over the content with a gap above it. It holds four links and a CTA; on scroll, content slides under it and anchor links land beneath it.",
+  "why": "Floating pill navbars are stock blocks in shadcn block libraries, and practitioners list 'a glassy navbar' among the defaults AI tools return when asked for a landing page. The form needs blur that repaints on every scroll frame, scroll-margin for anchors, and only fits about four destinations, none of which generators handle.",
+  "who": "Visitors whose anchor targets land under the bar, and people on low-end phones, who pay for the blur on every scroll.",
+  "theFix": "Use a normal full-width header unless the floating form earns its place. If you keep it, add scroll-margin-top to anchor targets, drop the blur on low-end devices, and plan where links five and six go.",
+  "heur": "A position:fixed or sticky <header> or <nav> near the top with border-radius of 24px or more (or at least half its height), width under 90% of the viewport, a visible top offset above 0, and backdrop-filter: blur().",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Floating Navbars: The Pill and Its Three Problems (21st.dev)",
+    "u": "https://21st.dev/blog/react-floating-navbar-components"
+   },
+   {
+    "t": "Floating rounded navbar block (shadcnblocks navbar6)",
+    "u": "https://www.shadcnblocks.com/block/navbar6"
+   },
+   {
+    "t": "avoid-ai-design: audits AI-generated frontend (GitHub README)",
+    "u": "https://github.com/funboy322/avoid-ai-design"
+   }
+  ],
+  "code": "A92",
+  "rel": [
+   "frosted-glass-cards",
+   "text-under-another-layer",
+   "the-untouched-component-theme"
+  ],
+  "tier": "practitioner-observed",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "code"
+ },
+ {
+  "id": "badge-confetti",
+  "name": "Badge Confetti",
+  "track": "surface",
+  "group": "Components",
+  "category": "Components",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "Little pills and tags on every card: 'New', 'Popular', 'AI', 'Beta', 'Pro', until none of them mean anything.",
+  "looksLike": "Feature cards, pricing rows, nav items and list entries each carry one or more small rounded badges, often in different tint colours. Several badges say the same thing, and no badge leads to any action or filter.",
+  "why": "Badges are cheap visual interest in component libraries, and models add them to make a uniform card grid look varied. A practitioner on Hacker News (April 2026) reported that AI 'does seem to want to add coloured left borders, tags and superfluous numbers all over the place' unless told not to.",
+  "who": "Users, who stop seeing the one badge that marks a real state.",
+  "theFix": "Use a badge only for a state the user must notice (new, beta, sold out) and only on the items it applies to. If everything is tagged, tag nothing.",
+  "heur": "Judged from a screenshot: badges or chips on most cards in a grid or most nav items, with repeated labels. Code can assist: 6+ small (under 28px tall) rounded-full elements with tinted backgrounds and 1-2 word text across the page, outside filter controls.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "avoid-ai-design: AI design tells catalog",
+    "u": "https://github.com/funboy322/avoid-ai-design/blob/main/references/ai-tells-catalog.md"
+   },
+   {
+    "t": "How to Avoid Building Apps That Look Vibe Coded (VibeMole)",
+    "u": "https://vibemole.com/resources/avoid-vibecoded-app-design"
+   },
+   {
+    "t": "Hacker News discussion: Scoring Show HN submissions for AI design patterns",
+    "u": "https://news.ycombinator.com/item?id=47864393"
+   }
+  ],
+  "code": "A93",
+  "rel": [
+   "pill-above-the-headline",
+   "the-accent-stripe",
+   "decorative-01-02-03"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "judgement"
+ },
+ {
+  "id": "title-case-every-heading",
+  "name": "Title Case Every Heading",
+  "track": "behavioral",
+  "group": "Copy",
+  "category": "Copy",
+  "harm": "Credibility",
+  "origin": "Training data",
+  "oneLiner": "Every heading, card title and button capitalises Every Word, Like A Blog Title From 2012.",
+  "looksLike": "Section headings read 'Powerful Features For Modern Teams', card titles 'Real-Time Collaboration Made Easy', buttons 'Start Your Free Trial'. Small words like 'for', 'and', 'with' are capitalised too. The product's own docs or app UI, if hand-written, use sentence case, so the marketing page is the odd one out.",
+  "why": "Chat models strongly tend to capitalise all main words in headings; Wikipedia's AI-cleanup editors list it as a sign of AI writing. Builders paste the output straight into heading and card-title slots.",
+  "who": "Readers, for whom uniform title case is slower to scan; the brand, whose voice reads as machine-made.",
+  "theFix": "Pick one case style for the product (sentence case for UI and most headings) and state it in the prompt or style guide. Lowercase everything except the first word and proper nouns, and keep capitals for features that really are names.",
+  "heur": "For each h1-h4, button and card title of 3+ words, flag if every word including short function words (for, and, with, your, the) starts with a capital; fire when 70% or more of headings on the page match.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Wikipedia: Signs of AI writing (editor guide)",
+    "u": "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing"
+   },
+   {
+    "t": "avoid-ai-design: AI design tells catalog",
+    "u": "https://github.com/funboy322/avoid-ai-design/blob/main/references/ai-tells-catalog.md"
+   },
+   {
+    "t": "Signs of AI design: a field guide to the visual tells of AI-generated design",
+    "u": "https://github.com/febbhav/signs-of-ai-design"
+   },
+   {
+    "t": "Title Case is your accidental AI tell (Deborah MT)",
+    "u": "https://deborahmt.medium.com/title-case-is-your-accidental-ai-tell-2e83bbe46fe3"
+   }
+  ],
+  "code": "B164",
+  "rel": [
+   "shouting-section-labels",
+   "colon-split-headings",
+   "verb-cosplay"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "code"
+ },
+ {
+  "id": "colon-split-headings",
+  "name": "Colon-Split Headings",
+  "track": "behavioral",
+  "group": "Copy",
+  "category": "Copy",
+  "harm": "Credibility",
+  "origin": "Training data",
+  "oneLiner": "'Smart Scheduling: Plan Your Week In Seconds.' Every heading is a label, a colon, then a slogan.",
+  "looksLike": "Feature cards, blog titles and section headers follow 'Noun Phrase: Benefit Phrase'. 'Seamless Integration: Connect Your Favourite Tools', 'Enterprise Security: Your Data, Protected'. Often four or more headings on one page share the shape, frequently combined with title case.",
+  "why": "ChatGPT in particular leans on colon titles because SEO headlines and academic titles, both colon-heavy, are well represented in its training data. Asked for 'feature names with a short description', it fuses both into one line.",
+  "who": "Readers, who get two half-headings instead of one clear one; the brand, whose copy reads as generated.",
+  "theFix": "Write a heading that says one thing. Either name the feature or state the benefit; put the other in the body. Ban colons in headings in the copy brief and rewrite any that survive.",
+  "heur": "Count h2, h3 and card titles matching /^[A-Z][^:]{2,40}:\\s+\\S/; flag when 3+ headings on a page use the colon split.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Why Does AI Only Write Headlines With Colons? (Zulie Writes)",
+    "u": "https://www.zuliewrites.com/blog/annoying-and-cliched-why-chatgpt-only-creates-titles-with-colons"
+   },
+   {
+    "t": "8 Clear Cut Ways To Tell If The Blog You're Reading Was Written By ChatGPT",
+    "u": "https://dealerknows.com/8-clear-cut-ways-to-tell-if-the-blog-youre-reading-was-written-by-chatgpt/"
+   }
+  ],
+  "code": "B165",
+  "rel": [
+   "title-case-every-heading",
+   "the-weightless-headline",
+   "bold-label-bullets"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "judgement"
+ },
+ {
+  "id": "bold-label-bullets",
+  "name": "Bold-Label Bullets",
+  "track": "behavioral",
+  "group": "Copy",
+  "category": "Copy",
+  "harm": "Credibility",
+  "origin": "Model",
+  "oneLiner": "Every list item starts with a bolded label and a colon, then a sentence that repeats the label.",
+  "looksLike": "'Speed: Our platform is incredibly fast.' 'Security: Your data is kept secure.' with the label in bold. Feature lists, FAQ answers, About pages and pricing descriptions all use the same inline-header bullet. The sentence after the colon rarely adds anything the label did not say.",
+  "why": "This is the house style of chat assistant answers: bulleted lists with bolded lead-ins. Wikipedia's AI-cleanup editors list 'inline-header vertical lists' as a sign of AI writing, and the pattern is virtually absent from Wikipedia's own prose. Copy generated in chat keeps the shape when pasted into a page.",
+  "who": "Readers, who read every point twice; the brand, whose page reads like a chat transcript.",
+  "theFix": "Write lists as plain items that each carry one fact, or as short paragraphs. If a label is genuinely needed, make it a real heading or a definition list, and delete any sentence that only restates its label.",
+  "heur": "<li> elements (or <p> in a list-like run) whose first child is <strong> or <b> ending with ':'; flag when 4+ consecutive items, or 60%+ of list items on the page, follow the pattern.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Don't Write Like AI: 10 Takeaways from Wikipedia's Signs of AI Writing (Blake Stockton)",
+    "u": "https://www.blakestockton.com/p/takeaways-from-wikipedias-signs-of-ai-writing-2"
+   },
+   {
+    "t": "Wikipedia: Signs of AI writing (editor guide)",
+    "u": "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing"
+   }
+  ],
+  "code": "B166",
+  "rel": [
+   "emoji-bullets",
+   "tricolon-everything",
+   "colon-split-headings"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "code"
+ },
+ {
+  "id": "whether-youre-a",
+  "name": "Whether You're A",
+  "track": "behavioral",
+  "group": "Copy",
+  "category": "Copy",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "'Whether you're a solo founder or a global enterprise, X has you covered.'",
+  "looksLike": "A subhead or intro sentence names two opposite audiences joined by 'whether you're a ... or a ...', followed by a promise that the product suits both. Variants: 'From startups to Fortune 500s', 'Perfect for beginners and pros alike'. It usually sits directly under the hero or opens the features section.",
+  "why": "When the prompt does not name an audience, models widen it to everyone, and the construction is one of the stock openers in lists of overused ChatGPT phrases ('Whether you're a beginner or an expert...').",
+  "who": "Visitors, who cannot tell whether the product is for them; the business, whose positioning disappears.",
+  "theFix": "Name the one audience the product is actually built for and the situation they are in. If it truly serves two groups, give each its own section with a concrete reason.",
+  "heur": "Visible text matching /whether you'?re (a|an)\\b.{3,60}\\bor (a|an)\\b/i, or 'from X to Y' and 'alike' audience pairings within the first two screens.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "ChatGPT Most Overused Words & Expressions (Intellectual Lead)",
+    "u": "https://intellectualead.com/chatgpt-most-overused-words/"
+   },
+   {
+    "t": "8 Clear Cut Ways To Tell If The Blog You're Reading Was Written By ChatGPT",
+    "u": "https://dealerknows.com/8-clear-cut-ways-to-tell-if-the-blog-youre-reading-was-written-by-chatgpt/"
+   }
+  ],
+  "code": "B167",
+  "rel": [
+   "not-x-but-y",
+   "the-weightless-headline",
+   "verb-cosplay"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-conclusion-heading",
+  "name": "The Conclusion Heading",
+  "track": "behavioral",
+  "group": "Generated content",
+  "category": "Content",
+  "harm": "Credibility",
+  "origin": "Model",
+  "oneLiner": "Every blog post and guide ends with an H2 called 'Conclusion' that starts 'In conclusion'.",
+  "looksLike": "The site's blog or resources section: each article has an intro that opens with 'In today's fast-paced world', five or six title-cased H2s, and a final H2 'Conclusion' (or 'Final Thoughts', 'Key Takeaways') whose paragraph restates the intro and ends with a call to action.",
+  "why": "This is the school-essay and SEO-article template common in training data; asked for 'a blog post about X', models reproduce it, though Wikipedia's editors note the 'Conclusion' section is most typical of older models. When a site's posts are generated in a batch, every post shares the same skeleton.",
+  "who": "Readers, who scroll to a summary of what they just read; the site, whose articles read as filler.",
+  "theFix": "End an article where the last useful point ends. If a summary is needed, put it at the top as a short answer. Rewrite openings to start with the specific problem, not the state of the world.",
+  "heur": "Article pages where the last h2 or h3 is one of Conclusion, In Conclusion, Final Thoughts, Key Takeaways or Wrapping Up, or the final section's first paragraph starts 'In conclusion' or 'In summary'; stronger with 'In today's fast-paced' in the first paragraph.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Wikipedia: Signs of AI writing (editor guide)",
+    "u": "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing"
+   },
+   {
+    "t": "ChatGPT Most Overused Words & Expressions (Intellectual Lead)",
+    "u": "https://intellectualead.com/chatgpt-most-overused-words/"
+   },
+   {
+    "t": "8 Clear Cut Ways To Tell If The Blog You're Reading Was Written By ChatGPT",
+    "u": "https://dealerknows.com/8-clear-cut-ways-to-tell-if-the-blog-youre-reading-was-written-by-chatgpt/"
+   }
+  ],
+  "code": "B168",
+  "rel": [
+   "scaled-search-slop",
+   "same-words-twice",
+   "title-case-every-heading"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "code"
+ },
+ {
+  "id": "markdown-showing-through",
+  "name": "Markdown Showing Through",
+  "track": "behavioral",
+  "group": "Generated content",
+  "category": "Content",
+  "harm": "Credibility",
+  "origin": "Model",
+  "oneLiner": "Literal **asterisks**, ## hashes and [brackets](links) printed on the page as text.",
+  "looksLike": "A product description reads '**Fast setup** in minutes'; a heading begins '### Features'; a bullet list is a paragraph of '- item - item'. Inside AI products the same thing happens when a reply renders in a plain text node: raw markdown tables, backticks and asterisks instead of formatting.",
+  "why": "Chat models format their output in Markdown by default. When that output is pasted into a CMS field, an email template or a component that does not parse Markdown, the syntax survives as literal characters. Wikipedia's AI-cleanup editors list Markdown presence among the most common signs of newly AI-generated text.",
+  "who": "Readers, who see broken formatting; the business, whose page announces it was pasted from a chat window.",
+  "theFix": "Either render Markdown deliberately with a sanitising parser, or ask the model for plain text and strip Markdown before saving. Add a pre-publish check that fails on '**', a leading '#' or '](' in visible text.",
+  "heur": "Visible text (not inside code or pre) matching /\\*\\*[^*]{2,60}\\*\\*/, /^#{1,4}\\s/m or /\\[[^\\]]+\\]\\(https?:/; one hit outside code blocks is enough.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Wikipedia: Signs of AI writing (editor guide)",
+    "u": "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing"
+   },
+   {
+    "t": "Why Do Asterisks Appear When I Paste from ChatGPT? (Unmarkdown)",
+    "u": "https://unmarkdown.com/blog/why-do-asterisks-appear-when-i-paste-from-chatgpt"
+   }
+  ],
+  "code": "B169",
+  "rel": [
+   "refusal-text-goes-live",
+   "leftover-lorem",
+   "bold-label-bullets"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "code"
+ },
+ {
+  "id": "compliance-badge-cosplay",
+  "name": "Compliance Badge Cosplay",
+  "track": "behavioral",
+  "group": "Provenance",
+  "category": "Trust",
+  "harm": "Trust",
+  "origin": "Model",
+  "oneLiner": "SOC 2, HIPAA, GDPR and ISO badges in the footer of a product with no report behind any of them.",
+  "looksLike": "A row of shield-shaped badges, 'SOC 2 Type II', 'HIPAA Compliant', 'GDPR Ready', 'ISO 27001', plus 'bank-level encryption' copy. There is no trust centre, no auditor named, no date and no way to request a report.",
+  "why": "Builders ask for an 'enterprise-ready' look and models add compliance badges as decoration, because trust chrome is part of the learned SaaS template and is generated whether or not the facts are true. Practitioner catalogs of AI design tells list 'invented compliance badges' and 'compliance badges for audits that never happened'.",
+  "who": "Buyers and their security reviewers, who rely on the marks; the company, which takes on legal risk for claims it cannot back.",
+  "theFix": "Show a compliance mark only when you hold a current, clean report and are entitled to the logo; link to a trust page that names the auditor and report date. Otherwise describe your actual security practices in plain words.",
+  "heur": "Images, alt text or visible text matching SOC 2, HIPAA, ISO 27001, 'GDPR compliant' or PCI badges, with no link to a trust or security page that names an auditor or report date.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "avoid-ai-design: AI design tells catalog",
+    "u": "https://github.com/funboy322/avoid-ai-design/blob/main/references/ai-tells-catalog.md"
+   },
+   {
+    "t": "Signs of AI design: a field guide to the visual tells of AI-generated design",
+    "u": "https://github.com/febbhav/signs-of-ai-design"
+   },
+   {
+    "t": "Can you put a SOC 2 logo on your website? (Probo)",
+    "u": "https://www.probo.com/blog/2026-05-04-are-you-allowed-to-put-soc-2-logo-on-website"
+   }
+  ],
+  "code": "B173",
+  "rel": [
+   "trusted-by-nobody",
+   "the-invented-stat-row",
+   "accuracy-number-nobody-tested"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-unbacked-superlative",
+  "name": "The Unbacked Superlative",
+  "track": "behavioral",
+  "group": "Copy",
+  "category": "Marketing",
+  "harm": "Trust",
+  "origin": "Model",
+  "oneLiner": "'The world's first', 'the #1 AI platform', '10x faster', with nothing behind the number.",
+  "looksLike": "Hero and feature copy claims rank or multiplier outcomes: '#1 AI tool for recruiters', 'World's first AI-native CRM', 'Save 10 hours a week', '10x your output'. No footnote, benchmark, survey or ranking source.",
+  "why": "Asked to make copy compelling, models reach for a number the user never supplied ('10x faster', 'saves 5 hours per week') to fill the slot, and they cannot tell whether the claim is true. The FTC has warned AI marketers specifically about exaggerating what a product can do and claiming it beats non-AI alternatives without proof.",
+  "who": "Buyers, who are misled; the company, which carries the substantiation duty for every claim on the page.",
+  "theFix": "Remove any rank, 'first' or multiplier you cannot cite. Replace it with a specific, checkable outcome from a named customer or your own measured benchmark, and link the method.",
+  "heur": "Visible text matching #1, number one, world's first, first-ever, \\d+x (faster|better|more) or save \\d+ hours, with no footnote marker, link or source within the same block.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Hallmark: anti-patterns reference",
+    "u": "https://github.com/Nutlope/hallmark/blob/main/skills/hallmark/references/anti-patterns.md"
+   },
+   {
+    "t": "FTC Warns to 'Keep Your AI Claims in Check' in New AI Guidance (Cooley)",
+    "u": "https://cdp.cooley.com/ftc-warns-to-keep-your-ai-claims-in-check-in-new-ai-guidance/"
+   }
+  ],
+  "code": "B174",
+  "rel": [
+   "the-invented-stat-row",
+   "accuracy-number-nobody-tested",
+   "verb-cosplay"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-generated-privacy-policy",
+  "name": "The Generated Privacy Policy",
+  "track": "behavioral",
+  "group": "Data & consent",
+  "category": "Trust",
+  "harm": "Privacy",
+  "origin": "Model",
+  "oneLiner": "A privacy policy that exists, sounds legal, and describes a generic company's data practices.",
+  "looksLike": "The /privacy page is long and fluent but generic: it says 'we do not use third-party tracking' while analytics and pixels load, names no legal entity or address, cites no jurisdiction or the wrong one, lists no processors, and may still contain '[Company]' or 'Effective date: [Date]'.",
+  "why": "Builders ask the model to 'add a privacy policy' and it writes one from the average of policies online. A 2025 test by a privacy expert found ChatGPT-generated policies could not define their legal scope and omitted required GDPR disclosures. The model cannot know what the app actually collects or which vendors process it, so it fills the gaps with plausible defaults.",
+  "who": "Users, who consent on false information; the company, whose public policy contradicts what it actually does.",
+  "theFix": "Inventory what the app collects, where it goes and which vendors process it, then write or generate the policy from that list with the real legal entity, contact and jurisdiction. Re-check it whenever a tracking script or AI vendor is added.",
+  "heur": "On the linked privacy page: no legal entity name or address, no processor names, bracket placeholders, or statements denying tracking or cookies while the site's network log shows analytics or ad pixels.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "AI Generated Privacy Policy Examined: Should You Use ChatGPT? (Termly)",
+    "u": "https://termly.io/resources/articles/ai-privacy-policy-examined/"
+   },
+   {
+    "t": "AI Wrote Your Privacy Policy. Who Checks It? (Janus Compliance)",
+    "u": "https://www.januscompliance.co.uk/blog/ai-wrote-your-privacy-policy-who-checks-it"
+   }
+  ],
+  "code": "B175",
+  "rel": [
+   "banner-without-consent",
+   "leftover-lorem",
+   "refusal-text-goes-live"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-raw-error-leak",
+  "name": "The Raw Error Leak",
+  "track": "behavioral",
+  "group": "Input & feedback",
+  "category": "Error-handling",
+  "harm": "Safety",
+  "origin": "Model",
+  "oneLiner": "'duplicate key value violates unique constraint \"users_email_key\"' shown to the customer in a toast.",
+  "looksLike": "A sign-up form or settings save fails and the UI displays the backend's raw message: a Postgres constraint name, 'TypeError: Cannot read properties of undefined', a JWT error, a JSON blob or a stack trace. Often in a red toast that disappears in three seconds.",
+  "why": "Generated handlers commonly pass the caught error straight to the screen: it compiles, it 'handles' the error, and nothing maps error codes to human messages. Backend-as-a-service clients return detailed database messages, so they flow straight through. Security reviews of AI-generated code flag exactly this exposure of database errors and stack traces; it is the classic CWE-209.",
+  "who": "Users, who get a message they cannot act on; the company, whose schema and stack are shown to anyone probing the form.",
+  "theFix": "Map known error codes to plain messages that say what happened and what to do ('That email already has an account. Sign in instead.'). Log the raw error server-side; never render error.message from a database or SDK to users.",
+  "heur": "Needs a failing flow. In code: a toast, alert or setError fed directly from error.message or err.toString(). In the UI: text matching SQL constraint names, 'TypeError', 'undefined', stack frames or JSON braces.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "CWE-209: Generation of Error Message Containing Sensitive Information (MITRE)",
+    "u": "https://cwe.mitre.org/data/definitions/209.html"
+   },
+   {
+    "t": "AI Code Security Review: Where Vibe-Coded Apps Commonly Fail (Canary Trap)",
+    "u": "https://canarytrap.com/resources/ai-generated-code-security-review/"
+   }
+  ],
+  "code": "B177",
+  "rel": [
+   "validation-that-lies",
+   "the-spinner-that-never-fails",
+   "console-confetti"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-untitled-dialog",
+  "name": "The Untitled Dialog",
+  "track": "behavioral",
+  "group": "Accessibility",
+  "category": "Accessibility",
+  "harm": "Accessibility",
+  "origin": "Tool default",
+  "oneLiner": "Mobile menus and modals open as dialogs with no title, so screen readers announce just 'dialog'.",
+  "looksLike": "On a phone, the hamburger opens a sheet; the cookie or sign-up modal opens; a screen reader announces 'dialog' with no name. In development the console shows 'DialogContent requires a DialogTitle for the component to be accessible'; the warning shipped anyway.",
+  "why": "shadcn Sheet and Dialog are built on Radix, which warns when a dialog has no title. Generated modals often skip a label entirely, and shadcn's own Sidebar block was reported in December 2024 to open its mobile sheet without one. Builders treat the console warning as noise because nothing looks wrong.",
+  "who": "Screen reader users, who land in an unnamed dialog with no idea what it is for.",
+  "theFix": "Give every dialog and sheet a DialogTitle or SheetTitle (visually hidden if the design has none) and a description where useful. Treat Radix accessibility warnings as build failures.",
+  "heur": "At 390px, open menu and modal triggers; flag [role=dialog] or [role=alertdialog] without aria-labelledby or aria-label resolving to non-empty text, or a console message containing 'requires a `DialogTitle`'.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "DialogContent requires a DialogTitle with new Sidebar blocks (shadcn-ui/ui #5983)",
+    "u": "https://github.com/shadcn-ui/ui/issues/5983"
+   },
+   {
+    "t": "Sheet error for screen reader users (shadcn-ui/ui #4302)",
+    "u": "https://github.com/shadcn-ui/ui/issues/4302"
+   },
+   {
+    "t": "AI-Generated UI Is Inaccessible by Default (Frontend Masters blog)",
+    "u": "https://frontendmasters.com/blog/ai-generated-ui-is-inaccessible-by-default/"
+   }
+  ],
+  "code": "B181",
+  "rel": [
+   "nameless-icon-buttons",
+   "landmark-free-page",
+   "nowhere-to-focus"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "code"
+ },
+ {
+  "id": "wrong-page-language",
+  "name": "Wrong Page Language",
+  "track": "behavioral",
+  "group": "Accessibility",
+  "category": "Accessibility",
+  "harm": "Accessibility",
+  "origin": "Tool default",
+  "oneLiner": "A Spanish, German or Sinhala site whose HTML still declares lang=\"en\".",
+  "looksLike": "All visible copy is in one language but <html lang=\"en\"> comes from the starter template. Screen readers read the text with English pronunciation rules, browsers offer to translate from English, and hyphenation and quotes are wrong.",
+  "why": "Vite and create-next-app templates hardcode lang=\"en\" in index.html or the root layout, and many AI builder starters build on them. The model writes the copy in the requested language but never touches the document shell, which it may not even regenerate.",
+  "who": "Screen reader users, who hear their own language mispronounced; search engines and translation tools, which misread the page.",
+  "theFix": "Set lang to the page's actual language in the root layout (and per page for multilingual sites); mark inline foreign phrases with their own lang. Add a check that compares the declared language with the detected language of the body text.",
+  "heur": "The primary subtag of html[lang] differs from the language detected in visible body text (200+ characters, confidence 0.9 or higher).",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Understanding SC 3.1.1 Language of Page (W3C WCAG 2.2)",
+    "u": "https://www.w3.org/WAI/WCAG22/Understanding/language-of-page.html"
+   },
+   {
+    "t": "create-vite React template index.html (vitejs/vite)",
+    "u": "https://github.com/vitejs/vite/blob/main/packages/create-vite/template-react-ts/index.html"
+   },
+   {
+    "t": "The WebAIM Million: 2026 report",
+    "u": "https://webaim.org/projects/million/"
+   }
+  ],
+  "code": "B182",
+  "rel": [
+   "blank-tab-blank-preview",
+   "machine-translated-everything",
+   "landmark-free-page"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "code"
+ },
+ {
+  "id": "the-token-firehose",
+  "name": "The Token Firehose",
+  "track": "behavioral",
+  "group": "Accessibility",
+  "category": "Accessibility",
+  "harm": "Accessibility",
+  "origin": "Tool default",
+  "oneLiner": "A streaming AI answer is announced to screen readers over and over as it grows, or not at all.",
+  "looksLike": "With a screen reader, the reply region re-reads the whole accumulated answer each time new tokens land, or stays silent until the user hunts for it. There is no announcement that generation started, stopped or failed.",
+  "why": "Chat UIs are built for sighted streaming: a growing text node inside a live region (or none). aria-atomic='true' makes the whole response re-announce on every token; leaving it off lets screen readers drop content under fast updates.",
+  "who": "Screen reader users, who get noise or silence instead of the answer.",
+  "theFix": "Announce state, not tokens: a polite live message 'Generating' then 'Response ready' (or the full reply once complete), with focus or a shortcut to jump to it. Never put the streaming node itself in an atomic live region.",
+  "heur": "Needs a chat session. In the DOM: a streaming message container with aria-live and aria-atomic=true, or no live or status region anywhere around the response list.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "The Accessibility Gap in AI Interfaces Nobody Is Shipping Around (Tian Pan)",
+    "u": "https://tianpan.co/blog/2026/04/17/ai-accessibility-streaming-screen-readers"
+   },
+   {
+    "t": "Best practices for a chatbot (Orange digital accessibility guidelines)",
+    "u": "https://a11y-guidelines.orange.com/en/articles/chatbot/"
+   }
+  ],
+  "code": "B183",
+  "rel": [
+   "ambiguous-wait",
+   "errors-nobody-announces",
+   "theatrical-streaming"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "judgement"
+ },
+ {
+  "id": "enter-sends-mid-word",
+  "name": "Enter Sends Mid-Word",
+  "track": "behavioral",
+  "group": "Accessibility",
+  "category": "Forms",
+  "harm": "Accessibility",
+  "origin": "Tool default",
+  "oneLiner": "Typing Japanese, Chinese or Korean in the AI chat box sends a half-composed message on Enter.",
+  "looksLike": "A user composing with an input method editor presses Enter to confirm a character conversion, and the chat input submits the unfinished text; sometimes the last character is then sent again as a second message.",
+  "why": "Chat composers bind Enter to submit without checking event.isComposing (or keyCode 229). English-only testing never triggers it, and the same one-line handler recurs across AI chat interfaces: bug reports and fixes for it appear in several open-source AI chat projects.",
+  "who": "Everyone who types with an input method editor, including many people writing Japanese, Chinese and Korean.",
+  "theFix": "Ignore Enter while event.isComposing is true (and on keyCode 229 for Safari), and test the composer with at least one IME. Offer Shift+Enter or a setting for Enter behaviour.",
+  "heur": "In chat input handler code: a keydown listener that submits on key === 'Enter' without an isComposing or keyCode 229 guard.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Enter key during Japanese IME composition sends message in Chat UI (jupyterlab/jupyter-ai #1534)",
+    "u": "https://github.com/jupyterlab/jupyter-ai/issues/1534"
+   },
+   {
+    "t": "Chat input sends the message mid-IME-composition (OpenSearch Dashboards #12794)",
+    "u": "https://github.com/opensearch-project/OpenSearch-Dashboards/issues/12794"
+   },
+   {
+    "t": "Prevent message submission during IME composition (OpenHands #6025)",
+    "u": "https://github.com/OpenHands/OpenHands/pull/6025"
+   }
+  ],
+  "code": "B184",
+  "rel": [
+   "regression-on-every-prompt",
+   "validation-that-lies",
+   "the-eaten-prompt"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "judgement"
+ },
+ {
+  "id": "scroll-hijacked-by-the-stream",
+  "name": "Scroll Hijacked By The Stream",
+  "track": "behavioral",
+  "group": "Input & feedback",
+  "category": "Conversation",
+  "harm": "Productivity",
+  "origin": "Tool default",
+  "oneLiner": "You scroll up to read the start of the answer, and the view keeps following the newest line.",
+  "looksLike": "While a long AI response streams, the view is pinned to the newest text. Scrolling up works for a moment, then snaps down again as tokens arrive. Users wait for generation to finish before they can read the beginning.",
+  "why": "The simplest streaming implementation scrolls to the bottom on every chunk. Telling a user's scroll apart from a scroll event caused by the growing message takes extra work that templates skip, and users of major assistants have asked for a way to turn it off.",
+  "who": "Readers of long answers, who lose control of their own view and lose the advantage of streaming.",
+  "theFix": "Follow the stream only while the user is already at the bottom; stop on any wheel, touch or key scroll and show a 'Jump to latest' button. Consider anchoring the start of the response at the top of the viewport instead.",
+  "heur": "Needs a chat session: during streaming, scroll up 300px and check whether the view returns to the bottom within a second.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Option to stop auto-scrolling while ChatGPT is responding (OpenAI Developer Community)",
+    "u": "https://community.openai.com/t/option-to-stop-auto-scrolling-while-chatgpt-is-responding/1397872"
+   },
+   {
+    "t": "Streaming output auto-scroll makes responses unreadable while they generate (anthropics/claude-code #56525)",
+    "u": "https://github.com/anthropics/claude-code/issues/56525"
+   },
+   {
+    "t": "The scroll problem nobody talks about when building AI chat interface (Medium)",
+    "u": "https://medium.com/@disgcfrguy/the-scroll-problem-nobody-talks-about-when-building-ai-chat-interface-987c223cafc0"
+   }
+  ],
+  "code": "B185",
+  "rel": [
+   "theatrical-streaming",
+   "no-steering-wheel",
+   "no-point-to-select"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-eaten-prompt",
+  "name": "The Eaten Prompt",
+  "track": "behavioral",
+  "group": "Input & feedback",
+  "category": "Error-handling",
+  "harm": "Productivity",
+  "origin": "Tool default",
+  "oneLiner": "A long prompt fails to send, and the text box comes back empty.",
+  "looksLike": "The user writes several paragraphs, hits send, and gets 'Something went wrong', a usage-limit notice or a login wall. The composer is cleared and the message is not in the thread; the only option is to retype from memory.",
+  "why": "Chat composers clear the input optimistically on submit, before the request succeeds, because that makes the UI feel fast. The error path then has nothing to restore. Limit and sign-in interruptions are often separate screens that discard component state; both have been reported against a major assistant's own apps.",
+  "who": "Users who wrote long, careful prompts, who lose the work.",
+  "theFix": "Clear the composer only after the server accepts the message; on any failure restore the text and attachments. Persist drafts locally per conversation so reloads, sign-ins and limits do not lose them.",
+  "heur": "Needs a flow: block the send request (offline or 429) and check whether the composer still holds the typed text.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Conversation prompt text lost when message limit reached (anthropics/claude-code #31393)",
+    "u": "https://github.com/anthropics/claude-code/issues/31393"
+   },
+   {
+    "t": "Long prompt lost: vanished when I had to log in (anthropics/claude-code #20523)",
+    "u": "https://github.com/anthropics/claude-code/issues/20523"
+   }
+  ],
+  "code": "B186",
+  "rel": [
+   "the-optimistic-delete",
+   "regenerate-overwrite",
+   "the-spinner-that-never-fails"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-06",
+  "updated": "2026-10-06",
   "detect": "judgement"
  }
 ];
@@ -10315,9 +11845,11 @@ Object.assign(ART, {
 /* ===== MCP landing page ===== */
 const MCP_ENDPOINT = 'https://sloppatterns.com/mcp';
 
-const LIB_VERSION = '1.1.1';
+const LIB_VERSION = '1.2.0';
 const dmy = s => { const M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; const [y,m,d]=String(s).split('-'); return (+d)+' '+M[+m-1]+' '+y; };
-const DETECTED = ['a1','a2','a3','a6','a7','a8','a10','a12','a15','a16','a18','a19','b31','b32','b34','a20','a22','a25','a36','a37','a40','a43','a44','a45','a46','a47','a48','b118','b122','b123','b115','b117','b119','b124','b134','b135','b137','b131','b133','a32','a23','a24','a38','a49','a50','a51','a52','a53','a54','a55','a56','a57','a58','a59','a60','a61','a62','a63','a64','a65','a66','a69','a71'];
+const DETECTED = ['a1','a2','a3','a6','a7','a8','a10','a12','a15','a16','a18','a19','b31','b32','b34','a20','a22','a25','a36','a37','a40','a43','a44','a45','a46','a47','a48','b118','b122','b123','b115','b117','b119','b124','b134','b135','b137','b131','b133','a32','a23','a24','a38','a49','a50','a51','a52','a53','a54','a55','a56','a57','a58','a59','a60','a61','a62','a63','a64','a65','a66','a69','a71','a9','a26','a11','a27','a28','a29','a30','a35','a67','a21','a13','a5','a41','a42','a14','b89','b104','b109','b125','b169','b182','a73','a74','a76','a77','a78','a79','a81','a82','a83','a88','a90','a92','b164','a89','b166','b168','b170','b179','b180','b181'];
+/* rules whose pattern is in this library; counts of patterns use this, counts of rules use DETECTED */
+const LIB_DETECTED = DETECTED.filter(c => DATA.some(p => p.code.toLowerCase() === c));
 
 const MTOOLS = [
   {n:'check_design(code)', hero:true, tag:'the one that matters',
@@ -10365,14 +11897,14 @@ const FAQ = [
    a:['A linter checks whether code is valid. This checks whether the design is generic. ESLint has no opinion about a purple-to-blue gradient, three equal feature cards, or a dark mode with no light option: every one of those is syntactically perfect and visually indistinguishable from the last forty AI-built products.',
       'The rules here come from a documented library with sources, not from style preferences.']},
   {q:'Why not just put this in the prompt?',
-   a:['You can, and for one or two patterns you should. It stops working at scale: a system prompt listing 235 anti-patterns eats context on every request, drifts as the conversation gets long, and is silently ignored the moment the model is optimising for something else.',
+   a:['You can, and for one or two patterns you should. It stops working at scale: a system prompt listing '+DATA.length+' anti-patterns eats context on every request, drifts as the conversation gets long, and is silently ignored the moment the model is optimising for something else.',
       'A tool call returns the same answer on turn one and turn ninety.']},
   {q:'Does my code leave my machine?',
    a:['The snippet you pass to check_design is sent to the server, matched against the rules, and discarded. Nothing is stored, logged against you, or used for training. If that is still too much, the whole rule set is open: run it locally.']},
   {q:'Is it free?',
    a:['Yes, and it stays free. The library is MIT on GitHub and the server has no account, no key and no plan. A reference that charges for access does not get cited, and citation is the entire point.']},
-  {q:'Why only 63 of the 235?',
-   a:['Because the other 172 need judgement. "Confident Fabrication" and "The Validation Spiral" are real, documented, and genuinely harmful, and no rule reading a code snippet can tell you whether an assistant is being sycophantic.',
+  {q:'Why only '+LIB_DETECTED.length+' of the '+DATA.length+'?',
+   a:['Because the other '+(DATA.length-LIB_DETECTED.length)+' need judgement. "Confident Fabrication" and "The Validation Spiral" are real, documented, and genuinely harmful, and no rule reading a code snippet can tell you whether an assistant is being sycophantic.',
       'A checker that claimed all '+DATA.length+' would be guessing on most of them. On a library about AI slop, that would be a little on the nose.']},
   {q:'Can I add a pattern?',
    a:['Yes. Submissions go through the same review as everything else in the library: observable evidence, a capture date, and a description of what the design does rather than what you think the company intended.']}
@@ -10391,7 +11923,7 @@ function renderMcp(){
 <header class="mhero withterm"><div>
   <p class="mkick"><i></i>Model Context Protocol server</p>
   <h1 class="mtitle">Your AI has seen a lot of the same designs. Help it skip the wrong ones.</h1>
-  <p class="mlede">Slop Patterns MCP connects your AI agents to <b>235 documented AI design failures</b> and checks what they generate against them, so the slop gets caught where it's made.</p>
+  <p class="mlede">Slop Patterns MCP connects your AI agents to <b>${DATA.length} documented AI design failures</b> and checks what they generate against them, so the slop gets caught where it's made.</p>
   <div id="install">${instBox()}</div>
 </div>
 
@@ -10418,8 +11950,8 @@ function renderMcp(){
 <span class="dim">     outline:none, no ring put back</span>
 <span class="dim">     →</span> :focus-visible is not optional.
 
-<span class="warn">⚠</span> <span class="dim">${DETECTED.length} of ${DATA.length} can be checked in code.
-  The other ${DATA.length-DETECTED.length} need a person.</span>
+<span class="warn">⚠</span> <span class="dim">${LIB_DETECTED.length} of ${DATA.length} can be checked in code.
+  The other ${DATA.length-LIB_DETECTED.length} need a person.</span>
 
 <span class="dim">&gt;</span> <span class="cur"></span></div>
 </div>
@@ -10482,14 +12014,14 @@ function renderMcp(){
 
 <section class="msec">
   <p class="mlbl">Coverage, stated straight</p>
-  <h2 class="mh">235 documented. 63 automatically detected.</h2>
+  <h2 class="mh">${DATA.length} documented. ${LIB_DETECTED.length} automatically detected.</h2>
   <div class="cov">
-    <div><b>235</b><em>patterns in the library</em></div>
-    <div><b>63</b><em>with mechanical tells</em></div>
-    <div><b>172</b><em>readable, not checkable</em></div>
+    <div><b>${DATA.length}</b><em>patterns in the library</em></div>
+    <div><b>${LIB_DETECTED.length}</b><em>with mechanical tells</em></div>
+    <div><b>${DATA.length-LIB_DETECTED.length}</b><em>readable, not checkable</em></div>
   </div>
   <ul class="covlist">${det}</ul>
-  <p class="covnote">These ${DETECTED.length} have a tell a rule can see in code: a hex ramp, a font stack, a column count, a missing focus ring. The rest are real failures that need a human read. <code style="font-family:'JetBrains Mono',monospace;font-size:.92em">check_design</code> will never claim one of those. All 235 stay readable through the other four tools.</p>
+  <p class="covnote">These ${LIB_DETECTED.length} have a tell a rule can see in code: a hex ramp, a font stack, a column count, a missing focus ring. The rest are real failures that need a human read. <code style="font-family:'JetBrains Mono',monospace;font-size:.92em">check_design</code> will never claim one of those. All ${DATA.length} stay readable through the other four tools.</p>
 </section>
 
 <section class="msec faqwrap">
@@ -10617,7 +12149,7 @@ function p0Tile(){
     + '<span class="peek" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5c-5 0-8.6 4.2-9.8 6.2a1.5 1.5 0 0 0 0 1.6C3.4 14.8 7 19 12 19s8.6-4.2 9.8-6.2a1.5 1.5 0 0 0 0-1.6C20.6 9.2 17 5 12 5Zm0 10.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Z"/></svg></span>'
     + '<div class="p0card"><p class="p0n">Pavithra Lamahewa</p>'
     + '<p class="p0r">Precious Studio · Austin, TX</p>'
-    + '<p class="p0s">235 entries · 467 sources · all read</p></div></div>'
+    + '<p class="p0s">'+DATA.length+' entries · '+DATA.reduce((s,p)=>s+p.sources.length,0)+' sources · all read</p></div></div>'
     + '<div class="tinfo"><p class="tname">' + P0.name + '</p>'
     + '<p class="tdesc">' + P0.oneLiner + '</p></div></button>';
 }
@@ -10773,8 +12305,8 @@ function paintStats(d){
             + '<div class="sbar"><i style="width:' + Math.max(2, r.hits / max * 100).toFixed(1) + '%"></i></div></div>'
             + '<div class="sshare">' + r.share + '%</div></div>'; }).join('')
       + '</div><p class="statnote">Share = the percentage of all checks in which that pattern was found. '
-      + 'Only the '+DETECTED.length+' patterns with a mechanical tell can appear here; the other '
-      + (DATA.length - DETECTED.length) + ' need a human read.</p></section>';
+      + 'Only the '+LIB_DETECTED.length+' patterns with a mechanical tell can appear here; the other '
+      + (DATA.length - LIB_DETECTED.length) + ' need a human read.</p></section>';
   }
 
   app.innerHTML = head + body
@@ -10835,7 +12367,7 @@ const tile = p => `<button class="tile" data-go="${p.id}">
     <span class="acc">${p.code}</span>
     ${p.tier==='needed'?'<span class="tier">Evidence needed</span>':p.tier==='practitioner-observed'?'<span class="tier">Observed</span>':''}
     <span class="peek" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5c-5 0-8.6 4.2-9.8 6.2a1.5 1.5 0 0 0 0 1.6C3.4 14.8 7 19 12 19s8.6-4.2 9.8-6.2a1.5 1.5 0 0 0 0-1.6C20.6 9.2 17 5 12 5Zm0 10.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Z"/></svg></span>
-    <div class="shot" aria-hidden="true">${art(p.id,'tell')}</div>
+    <div class="shot" aria-hidden="true">${ART[p.id] ? art(p.id,'tell') : `<div style="max-width:72%;background:#fff;border-radius:14px;box-shadow:0 1px 3px rgba(0,0,0,.08);padding:22px 26px;text-align:left;font:400 22px/1.2 'Young Serif',Georgia,serif;color:#1b1b1b">${E(SC(p.name))}</div>`}</div>
   </div>
   <div class="tinfo"><p class="tname">${E(SC(p.name))}</p><p class="tdesc">${E(p.oneLiner)}</p></div>
 </button>`;
@@ -10888,7 +12420,7 @@ function renderIndex(){
     <h1 class="big">AI design fails in <span class="penword">patterns,<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="${penLoop(50,20,46,17,5)}"/></svg></span> not accidents.</h1>
     <p class="lede">The field guide to AI tells. We measure what AI tools actually ship, explain why it happens, and show what to do instead.</p>
     <div class="cta"><a class="btn btn-a" href="/score" target="_blank" rel="noopener">Scan your site</a><button class="btn btn-b" data-scroll="1">Browse the library</button></div>
-    <p class="byline">By <a href="#p0" data-go="p0">Pavithra Lamahewa</a>, Co-founder and UX Director at Precious Studio. 235 patterns, every one read and checked by hand.</p>
+    <p class="byline">By <a href="#p0" data-go="p0">Pavithra Lamahewa</a>, Co-founder and UX Director at Precious Studio. ${DATA.length} patterns, every one read and checked by hand.</p>
     <p class="reviewline"><a href="#review" data-go="review">Get a review</a> from the designer behind this research.</p>
     <p class="newnote"><a href="/research/half-the-hunt">New research: Half the Hunt. 54% of top Product Hunt launches carry an AI-era design tell →</a></p>
     </div>
@@ -10971,12 +12503,12 @@ function renderDetail(id){
     </div>
     <pre class="citebox" id="citebox" hidden></pre>
   </header>
-  <section class="ev-grid">
+  ${ART[p.id] ? `<section class="ev-grid">
     <div><div class="ev"><span class="badge tell">The tell</span><div class="frame">${art(p.id,'tell')}</div></div>
       <div class="cap"><div class="n">01</div><div><h3>${E(cap(p.id,'tell','title'))}</h3><p>${E(cap(p.id,'tell','note'))}</p></div></div></div>
     <div><div class="ev"><span class="badge fixb">The fix</span><div class="frame">${art(p.id,'fix')}</div></div>
       <div class="cap"><div class="n">02</div><div><h3>${E(cap(p.id,'fix','title'))}</h3><p>${E(cap(p.id,'fix','note'))}</p></div></div></div>
-  </section>
+  </section>` : ''}
   <section class="split">
     <div><p class="lbl">What it looks like</p><h2>${E(cap(p.id,'tell','title'))}</h2><p>${E(p.looksLike)}</p></div>
     <div class="rule"></div>
@@ -11188,8 +12720,8 @@ function renderCheck(code, out){
     + (err ? E(err)
        : hits.length
          ? 'Each one links to the pattern it belongs to, with the fix.'
-         : 'That is not a clean bill of health. Only '+DETECTED.length+' of the '+DATA.length+' patterns here have a '
-           + 'mechanical tell: the other '+(DATA.length-DETECTED.length)+' need a human read and are never flagged by a machine.')
+         : 'That is not a clean bill of health. Only '+LIB_DETECTED.length+' of the '+DATA.length+' patterns here have a '
+           + 'mechanical tell: the other '+(DATA.length-LIB_DETECTED.length)+' need a human read and are never flagged by a machine.')
     + '</p><div class="cta"><button class="btn btn-b" data-go="index">Back to the library</button></div></header>';
 
   var body = '';

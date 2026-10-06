@@ -27,7 +27,7 @@ module.exports = async (req, res) => {
   <p>You're confirmed. Here's what's worth doing first.</p>
   <p><b>Put the library inside your coding agent.</b> It's a free MCP server, no account:</p>
   <pre style="background:#F3F3F3;border-radius:8px;padding:12px 14px;font-size:13px;overflow-x:auto">${SITE}/mcp</pre>
-  <p>Your agent can then check the UI it writes against 235 documented anti-patterns before it shows you anything.</p>
+  <p>Your agent can then check the UI it writes against 272 documented anti-patterns before it shows you anything.</p>
   <p><b>Three worth reading today:</b></p>
   <ul style="padding-left:18px">
     <li><a href="${SITE}/#the-unchosen-gradient">A1 — The Unchosen Gradient</a></li>

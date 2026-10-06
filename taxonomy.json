@@ -1,12 +1,12 @@
 {
  "name": "Slop Patterns taxonomy",
- "version": "1.0.0",
- "released": "2026-10-05",
+ "version": "1.1.0",
+ "released": "2026-10-06",
  "license": "MIT",
  "url": "https://sloppatterns.com",
  "cite": "https://github.com/pavithralamahewa/slop-patterns/blob/main/CITATION.cff",
- "count": 235,
- "checkedAutomatically": 63,
+ "count": 272,
+ "checkedAutomatically": 101,
  "patterns": [
   {
    "code": "A1",
@@ -48,7 +48,7 @@
    "category": "Typography",
    "track": "surface",
    "harm": "Credibility",
-   "detection": "automated",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#inter-for-everything",
    "version": "1.1",
    "added": "2026-09-17",
@@ -135,11 +135,11 @@
    "category": "Copy",
    "track": "surface",
    "harm": "Trust",
-   "detection": "needs a person",
+   "detection": "automated",
    "url": "https://sloppatterns.com/#the-invented-stat-row",
-   "version": "1.0",
+   "version": "1.1",
    "added": "2026-09-17",
-   "updated": "2026-09-17",
+   "updated": "2026-10-06",
    "oneLiner": "A banner of big round numbers, '10,000+ users, 99.9% uptime, 4.9/5 rating', on a product that launched yesterday.",
    "fix": "Publish only numbers you can defend, with a unit, a date and where possible a link. If you have no numbers yet, say something true instead: what the product does, for whom, since when.",
    "sources": [
@@ -276,7 +276,7 @@
    "category": "Colour",
    "track": "surface",
    "harm": "Accessibility",
-   "detection": "automated",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#permanent-midnight",
    "version": "1.0",
    "added": "2026-09-17",
@@ -301,7 +301,7 @@
    "category": "Components",
    "track": "surface",
    "harm": "Accessibility",
-   "detection": "automated",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#frosted-glass-cards",
    "version": "1.1",
    "added": "2026-09-17",
@@ -330,11 +330,11 @@
    "category": "Typography",
    "track": "surface",
    "harm": "Credibility",
-   "detection": "needs a person",
+   "detection": "automated",
    "url": "https://sloppatterns.com/#the-italic-serif-wink",
-   "version": "1.0",
+   "version": "1.1",
    "added": "2026-09-17",
-   "updated": "2026-09-17",
+   "updated": "2026-10-06",
    "oneLiner": "One word of the sans-serif headline swapped to italic serif for instant 'editorial' feel.",
    "fix": "If a serif belongs in the brand, give it a real job (all headlines, or all body) and let the pairing carry through the page. Emphasis within a headline should come from the words, not a font swap.",
    "sources": [
@@ -388,11 +388,11 @@
    "category": "Layout",
    "track": "surface",
    "harm": "Credibility",
-   "detection": "needs a person",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#centred-hero-one-button",
-   "version": "1.0",
+   "version": "1.1",
    "added": "2026-09-17",
-   "updated": "2026-09-17",
+   "updated": "2026-10-06",
    "oneLiner": "Big centred headline, one-line subhead, a primary and a ghost button, symmetrical padding, nothing else.",
    "fix": "Anchor the hero with a real product surface, photo or diagram and let the text sit left of it or over it. Use asymmetry deliberately; vary the measure so the headline does not float in the middle of the viewport.",
    "sources": [
@@ -417,7 +417,7 @@
    "category": "Layout",
    "track": "surface",
    "harm": "Clarity",
-   "detection": "automated",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#the-bento-reflex",
    "version": "1.1",
    "added": "2026-09-17",
@@ -446,11 +446,11 @@
    "category": "Layout",
    "track": "surface",
    "harm": "Clarity",
-   "detection": "needs a person",
+   "detection": "automated",
    "url": "https://sloppatterns.com/#the-conveyor-belt-page",
-   "version": "1.0",
+   "version": "1.1",
    "added": "2026-09-17",
-   "updated": "2026-09-17",
+   "updated": "2026-10-06",
    "oneLiner": "Hero, logo row, features, how it works, testimonials, pricing, FAQ, CTA, footer, in that order, every time.",
    "fix": "Write the argument first: what does this buyer need to believe, in what order? Build sections to answer that and cut any block that exists only because templates have it.",
    "sources": [
@@ -475,11 +475,11 @@
    "category": "Branding",
    "track": "surface",
    "harm": "Trust",
-   "detection": "needs a person",
+   "detection": "automated",
    "url": "https://sloppatterns.com/#trusted-by-nobody",
-   "version": "1.0",
+   "version": "1.1",
    "added": "2026-09-17",
-   "updated": "2026-09-17",
+   "updated": "2026-10-06",
    "oneLiner": "A grayscale row of logos under 'Trusted by leading teams' that are placeholders, competitors, or investors.",
    "fix": "Show logos only for paying customers who agreed, and link each to a story. With fewer than three, say something specific instead: 'Used by 14 clinics in Ohio'.",
    "sources": [
@@ -533,7 +533,7 @@
    "category": "Iconography",
    "track": "surface",
    "harm": "Clarity",
-   "detection": "automated",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#sparkles-means-magic",
    "version": "1.0",
    "added": "2026-09-17",
@@ -1340,7 +1340,7 @@
    "category": "Accessibility",
    "track": "behavioral",
    "harm": "Accessibility",
-   "detection": "automated",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#the-clickable-div",
    "version": "1.0",
    "added": "2026-09-17",
@@ -1369,7 +1369,7 @@
    "category": "Accessibility",
    "track": "behavioral",
    "harm": "Accessibility",
-   "detection": "automated",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#nowhere-to-focus",
    "version": "1.0",
    "added": "2026-09-17",
@@ -1427,7 +1427,7 @@
    "category": "Responsive",
    "track": "behavioral",
    "harm": "Accessibility",
-   "detection": "automated",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#the-980px-phone",
    "version": "1.0",
    "added": "2026-09-17",
@@ -1626,11 +1626,11 @@
    "category": "Colour",
    "track": "surface",
    "harm": "Credibility",
-   "detection": "needs a person",
+   "detection": "automated",
    "url": "https://sloppatterns.com/#reflex-cream",
-   "version": "1.0",
+   "version": "1.1",
    "added": "2026-09-17",
-   "updated": "2026-09-17",
+   "updated": "2026-10-06",
    "oneLiner": "Warm off-white page with amber accents, reached for as the 'tasteful' alternative to purple.",
    "fix": "Derive neutrals from the brand's actual hue: tint greys toward the primary colour rather than toward amber by default. Ask what the product's material and audience are before choosing warmth.",
    "sources": [
@@ -1655,7 +1655,7 @@
    "category": "Typography",
    "track": "surface",
    "harm": "Accessibility",
-   "detection": "automated",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#crushed-headline-tracking",
    "version": "1.1",
    "added": "2026-09-17",
@@ -1767,11 +1767,11 @@
    "category": "Components",
    "track": "surface",
    "harm": "Clarity",
-   "detection": "needs a person",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#pill-above-the-headline",
-   "version": "1.0",
+   "version": "1.1",
    "added": "2026-09-17",
-   "updated": "2026-09-17",
+   "updated": "2026-10-06",
    "oneLiner": "A rounded badge reading 'New', 'Now in beta' or 'AI-powered' floating above every H1, often with a pulsing dot.",
    "fix": "Use a badge only when there is actual news with a link. Otherwise remove it and let the headline own the top of the page.",
    "sources": [
@@ -1796,11 +1796,11 @@
    "category": "Components",
    "track": "surface",
    "harm": "Trust",
-   "detection": "needs a person",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#one-two-three-steps",
-   "version": "1.0",
+   "version": "1.1",
    "added": "2026-09-17",
-   "updated": "2026-09-17",
+   "updated": "2026-10-06",
    "oneLiner": "A 'How it works' section that is always exactly three numbered circles: Sign up, Configure, Enjoy.",
    "fix": "Show the actual first-run flow with screenshots, however many steps it has. If it is genuinely three steps, show the screens, not numerals.",
    "sources": [
@@ -1821,11 +1821,11 @@
    "category": "Components",
    "track": "surface",
    "harm": "Trust",
-   "detection": "needs a person",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#three-tiers-middle-glowing",
-   "version": "1.0",
+   "version": "1.1",
    "added": "2026-09-17",
-   "updated": "2026-09-17",
+   "updated": "2026-10-06",
    "oneLiner": "Free, Pro, Enterprise side by side with the middle plan highlighted and a checklist of filler features.",
    "fix": "Price from real packaging decisions and show only plans that exist. Describe what changes between plans in concrete limits (seats, projects, retention), and only highlight a plan if data shows it is the right default.",
    "sources": [
@@ -1846,11 +1846,11 @@
    "category": "Imagery",
    "track": "surface",
    "harm": "Trust",
-   "detection": "needs a person",
+   "detection": "automated",
    "url": "https://sloppatterns.com/#gradient-initial-avatars",
-   "version": "1.0",
+   "version": "1.1",
    "added": "2026-09-17",
-   "updated": "2026-09-17",
+   "updated": "2026-10-06",
    "oneLiner": "Testimonial avatars that are a single letter on a gradient circle because no real person exists.",
    "fix": "Use real photos with permission, or drop avatars entirely and cite the person with a name, role, company and link. A quote with no picture is more credible than a quote with a fake one.",
    "sources": [
@@ -1871,11 +1871,11 @@
    "category": "Components",
    "track": "surface",
    "harm": "Credibility",
-   "detection": "needs a person",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#the-traffic-light-terminal",
-   "version": "1.0",
+   "version": "1.1",
    "added": "2026-09-17",
-   "updated": "2026-09-17",
+   "updated": "2026-10-06",
    "oneLiner": "A dark rectangle with three coloured dots and a fake npm install command, standing in for the product.",
    "fix": "Show the real install command only if it works, or show the product's actual interface. If the product is not a CLI, do not dress it as one.",
    "sources": [
@@ -1921,7 +1921,7 @@
    "category": "Iconography",
    "track": "surface",
    "harm": "Clarity",
-   "detection": "automated",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#icon-in-a-tinted-tile",
    "version": "1.0",
    "added": "2026-09-17",
@@ -2008,11 +2008,11 @@
    "category": "Motion",
    "track": "surface",
    "harm": "Accessibility",
-   "detection": "needs a person",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#fade-up-on-everything",
-   "version": "1.0",
+   "version": "1.1",
    "added": "2026-09-17",
-   "updated": "2026-09-17",
+   "updated": "2026-10-06",
    "oneLiner": "Every section, card and heading enters with the same opacity-plus-translateY reveal on scroll.",
    "fix": "Animate at most one thing per screen with a reason (a chart drawing its line, a product state changing). Respect prefers-reduced-motion and never set initial opacity to 0 on essential content.",
    "sources": [
@@ -2095,7 +2095,7 @@
    "category": "Spacing",
    "track": "surface",
    "harm": "Clarity",
-   "detection": "automated",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#uniform-section-rhythm",
    "version": "1.1",
    "added": "2026-09-17",
@@ -2178,11 +2178,11 @@
    "category": "Copy",
    "track": "surface",
    "harm": "Clarity",
-   "detection": "needs a person",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#not-x-but-y",
-   "version": "1.0",
+   "version": "1.1",
    "added": "2026-09-17",
-   "updated": "2026-09-17",
+   "updated": "2026-10-06",
    "oneLiner": "'It's not a tool. It's a teammate.' The negation pivot that manufactures insight from a contrast.",
    "fix": "Cut the negative half and state the positive claim with evidence. If a contrast genuinely matters, name the specific alternative and the specific difference.",
    "sources": [
@@ -2207,11 +2207,11 @@
    "category": "Copy",
    "track": "surface",
    "harm": "Clarity",
-   "detection": "needs a person",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#tricolon-everything",
-   "version": "1.0",
+   "version": "1.1",
    "added": "2026-09-17",
-   "updated": "2026-09-17",
+   "updated": "2026-10-06",
    "oneLiner": "Fast. Simple. Secure. Every claim arrives in threes, whether there are three things or not.",
    "fix": "List what is true, in whatever number it comes. Vary sentence length deliberately; let one point be long and one be short.",
    "sources": [
@@ -2236,7 +2236,7 @@
    "category": "Copy",
    "track": "surface",
    "harm": "Credibility",
-   "detection": "automated",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#em-dash-cadence",
    "version": "1.0",
    "added": "2026-09-17",
@@ -2265,7 +2265,7 @@
    "category": "Copy",
    "track": "surface",
    "harm": "Credibility",
-   "detection": "automated",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#emoji-bullets",
    "version": "1.0",
    "added": "2026-09-17",
@@ -2290,7 +2290,7 @@
    "category": "Copy",
    "track": "surface",
    "harm": "Clarity",
-   "detection": "automated",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#get-started-learn-more",
    "version": "1.0",
    "added": "2026-09-17",
@@ -2344,7 +2344,7 @@
    "category": "Branding",
    "track": "surface",
    "harm": "Credibility",
-   "detection": "automated",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#blank-tab-blank-preview",
    "version": "1.1",
    "added": "2026-09-17",
@@ -2365,7 +2365,7 @@
    "category": "Layout",
    "track": "surface",
    "harm": "Credibility",
-   "detection": "automated",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#blueprint-grid-wallpaper",
    "version": "1.1",
    "added": "2026-09-17",
@@ -2390,7 +2390,7 @@
    "category": "Motion",
    "track": "surface",
    "harm": "Accessibility",
-   "detection": "automated",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#the-endless-marquee",
    "version": "1.0",
    "added": "2026-09-22",
@@ -2436,7 +2436,7 @@
    "category": "Typography",
    "track": "surface",
    "harm": "Clarity",
-   "detection": "automated",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#wide-tracked-body",
    "version": "1.1",
    "added": "2026-09-22",
@@ -2536,7 +2536,7 @@
    "category": "Accessibility",
    "track": "surface",
    "harm": "Accessibility",
-   "detection": "automated",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#skipped-heading-level",
    "version": "1.0",
    "added": "2026-09-22",
@@ -2582,7 +2582,7 @@
    "category": "Typography",
    "track": "surface",
    "harm": "Accessibility",
-   "detection": "automated",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#small-body-text",
    "version": "1.1",
    "added": "2026-09-22",
@@ -2611,7 +2611,7 @@
    "category": "Typography",
    "track": "surface",
    "harm": "Clarity",
-   "detection": "automated",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#justified-without-hyphens",
    "version": "1.1",
    "added": "2026-09-22",
@@ -2682,7 +2682,7 @@
    "category": "Colour",
    "track": "surface",
    "harm": "Credibility",
-   "detection": "automated",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#radial-halo-ground",
    "version": "1.1",
    "added": "2026-09-22",
@@ -2703,7 +2703,7 @@
    "category": "Motion",
    "track": "surface",
    "harm": "Clarity",
-   "detection": "automated",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#bounce-easing-in-the-interface",
    "version": "1.0",
    "added": "2026-09-22",
@@ -2749,7 +2749,7 @@
    "category": "Accessibility",
    "track": "surface",
    "harm": "Accessibility",
-   "detection": "automated",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#contrast-below-the-floor",
    "version": "1.0",
    "added": "2026-09-22",
@@ -2791,7 +2791,7 @@
    "category": "Performance",
    "track": "surface",
    "harm": "Productivity",
-   "detection": "automated",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#animating-layout-properties",
    "version": "1.1",
    "added": "2026-09-22",
@@ -2816,11 +2816,11 @@
    "category": "States",
    "track": "surface",
    "harm": "Trust",
-   "detection": "needs a person",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#content-stuck-waiting-to-appear",
-   "version": "1.0",
+   "version": "1.1",
    "added": "2026-09-22",
-   "updated": "2026-09-22",
+   "updated": "2026-10-06",
    "oneLiner": "Sections that stay invisible because their entrance animation never fired.",
    "fix": "Make content visible by default and animate it in only as an enhancement. Reveal anything already on screen at load immediately.",
    "sources": [
@@ -4167,11 +4167,11 @@
    "category": "Marketing",
    "track": "behavioral",
    "harm": "Trust",
-   "detection": "needs a person",
+   "detection": "automated",
    "url": "https://sloppatterns.com/#accuracy-number-nobody-tested",
-   "version": "1.0",
+   "version": "1.1",
    "added": "2026-09-17",
-   "updated": "2026-09-17",
+   "updated": "2026-10-06",
    "oneLiner": "A precise-sounding accuracy or hallucination figure is shown on the product page with no methodology behind it.",
    "fix": "Publish the evaluation set, date, conditions and the metric definition next to any claim, or drop the number. The FTC's Workado order (2025) requires competent and reliable evidence for accuracy claims; the Texas AG's Pieces settlement (2024) requires disclosure of how accuracy metrics are calculated.",
    "sources": [
@@ -4522,11 +4522,11 @@
    "category": "Content",
    "track": "behavioral",
    "harm": "Clarity",
-   "detection": "needs a person",
+   "detection": "automated",
    "url": "https://sloppatterns.com/#refusal-text-goes-live",
-   "version": "1.0",
+   "version": "1.1",
    "added": "2026-09-17",
-   "updated": "2026-09-17",
+   "updated": "2026-10-06",
    "oneLiner": "Unreviewed model output, including refusals and placeholder brackets, is published as product copy.",
    "fix": "Add a pre-publish lint that rejects refusal phrases, bracketed placeholders and image-text mismatches, and require a human to approve generated listing copy. Marketplace policies and consumer law on accurate product descriptions apply.",
    "sources": [
@@ -4635,11 +4635,11 @@
    "category": "Content",
    "track": "behavioral",
    "harm": "Clarity",
-   "detection": "needs a person",
+   "detection": "automated",
    "url": "https://sloppatterns.com/#prompt-as-alt-text",
-   "version": "1.0",
+   "version": "1.1",
    "added": "2026-09-17",
-   "updated": "2026-09-17",
+   "updated": "2026-10-06",
    "oneLiner": "Alt attributes are auto-filled with the generation prompt or a generic caption that misdescribes the image.",
    "fix": "Treat generated alt text as a draft requiring human edit, disclose when an image is AI-generated, and describe what matters for the page's purpose. WCAG 1.1.1 requires a text alternative that serves the equivalent purpose; the CHI 2024 study found screen reader users want provenance and aberration information for AI images.",
    "sources": [
@@ -4773,7 +4773,7 @@
    "category": "Accessibility",
    "track": "behavioral",
    "harm": "Accessibility",
-   "detection": "automated",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#landmark-free-page",
    "version": "1.1",
    "added": "2026-09-17",
@@ -5015,11 +5015,11 @@
    "category": "Onboarding",
    "track": "behavioral",
    "harm": "Money",
-   "detection": "needs a person",
+   "detection": "automated",
    "url": "https://sloppatterns.com/#sign-up-to-see-anything",
-   "version": "1.0",
+   "version": "1.1",
    "added": "2026-09-17",
-   "updated": "2026-09-17",
+   "updated": "2026-10-06",
    "oneLiner": "The root route is a login form; there is no way to learn what the product does without creating an account.",
    "fix": "Show value before asking for commitment: a public overview, a demo state, or read-only access; gate only what genuinely needs identity (NN/g login-wall research; Nielsen #3).",
    "sources": [
@@ -5257,7 +5257,7 @@
    "category": "Performance",
    "track": "behavioral",
    "harm": "Accessibility",
-   "detection": "automated",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#unsized-images-shifting-layout",
    "version": "1.1",
    "added": "2026-09-17",
@@ -5311,7 +5311,7 @@
    "category": "Performance",
    "track": "behavioral",
    "harm": "Safety",
-   "detection": "automated",
+   "detection": "automated, graded",
    "url": "https://sloppatterns.com/#console-confetti",
    "version": "1.0",
    "added": "2026-09-17",
@@ -5859,6 +5859,1055 @@
    "oneLiner": "A meeting summarizer assigns a task, owner or deadline that nobody agreed to.",
    "fix": "Link every field to transcript evidence, preserve tentative language, and require the named owner to accept an item before export.",
    "sources": []
+  },
+  {
+   "code": "A73",
+   "id": "the-lucide-house-style",
+   "name": "The Lucide House Style",
+   "category": "Iconography",
+   "track": "surface",
+   "harm": "Credibility",
+   "detection": "automated, graded",
+   "url": "https://sloppatterns.com/#the-lucide-house-style",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "Every icon on the page is an untouched Lucide glyph, usually Zap, Shield, Sparkles, Check and ArrowRight.",
+   "fix": "Choose an icon set on purpose (Phosphor, Iconoir, a custom set, or none) and set its weight, corner style and size to match the type. Ask whether each feature needs an icon at all; many read better as a product screenshot or a plain heading. Never use the literal-noun mapping (Zap for fast).",
+   "sources": [
+    {
+     "t": "Tomilola on X: 3 ways to make your website look less vibe coded",
+     "u": "https://x.com/tomilola_ng/status/2080615247686017170"
+    },
+    {
+     "t": "shadcn on X: new-york style now uses Lucide as the default icon set",
+     "u": "https://x.com/shadcn/status/1853902179041702169"
+    },
+    {
+     "t": "AI Slop in 2026: The State of the AI-Generated Web",
+     "u": "https://www.sailop.com/blog/ai-slop-2026-state-of-the-ai-generated-web"
+    },
+    {
+     "t": "avoid-ai-design: audits AI-generated frontend (GitHub README)",
+     "u": "https://github.com/funboy322/avoid-ai-design"
+    },
+    {
+     "t": "How to Tell if a Website Is Vibe Coded (7 Signs)",
+     "u": "https://www.vibe0.com.au/blog/how-to-tell-if-a-website-is-vibe-coded"
+    },
+    {
+     "t": "Is That Vibe Coded? detector signals",
+     "u": "https://isthatvibecoded.com/"
+    }
+   ]
+  },
+  {
+   "code": "A74",
+   "id": "the-untouched-component-theme",
+   "name": "The Untouched Component Theme",
+   "category": "Colour",
+   "track": "surface",
+   "harm": "Credibility",
+   "detection": "automated",
+   "url": "https://sloppatterns.com/#the-untouched-component-theme",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "The shadcn/Tailwind starter palette shipped as the brand: zinc greys, a near-black primary button, and nothing else.",
+   "fix": "Replace the generated CSS variables with a real palette before building screens: one brand primary, a tinted neutral ramp derived from it, and semantic colours tuned to it. Ban raw Tailwind named colours in components so everything flows through tokens.",
+   "sources": [
+    {
+     "t": "Tomilola on X: 3 ways to make your website look less vibe coded",
+     "u": "https://x.com/tomilola_ng/status/2080615247686017170"
+    },
+    {
+     "t": "avoid-ai-design: audits AI-generated frontend (GitHub README)",
+     "u": "https://github.com/funboy322/avoid-ai-design"
+    },
+    {
+     "t": "AI Slop in 2026: The State of the AI-Generated Web",
+     "u": "https://www.sailop.com/blog/ai-slop-2026-state-of-the-ai-generated-web"
+    },
+    {
+     "t": "How to fix the 'AI-generated' look in your frontend",
+     "u": "https://dev.to/alanwest/how-to-fix-the-ai-generated-look-in-your-frontend-1ahh"
+    }
+   ]
+  },
+  {
+   "code": "A75",
+   "id": "one-radius-for-everything",
+   "name": "One Radius For Everything",
+   "category": "Components",
+   "track": "surface",
+   "harm": "Clarity",
+   "detection": "needs a person",
+   "url": "https://sloppatterns.com/#one-radius-for-everything",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "Cards, buttons, inputs, images and badges all share the same big rounded-2xl corner and soft shadow.",
+   "fix": "Define a radius scale tied to size and nesting (small controls 4-6px, cards 8-12px, inner radius = outer minus padding) and use square or near-square corners somewhere on purpose. Reserve shadows for things that actually float (menus, dialogs).",
+   "sources": [
+    {
+     "t": "AI Slop Web Design: Complete Guide to Spotting and Fixing Generic Websites",
+     "u": "https://www.925studios.co/blog/ai-slop-web-design-guide"
+    },
+    {
+     "t": "How to fix the 'AI-generated' look in your frontend",
+     "u": "https://dev.to/alanwest/how-to-fix-the-ai-generated-look-in-your-frontend-1ahh"
+    },
+    {
+     "t": "AI Slop in 2026: The State of the AI-Generated Web",
+     "u": "https://www.sailop.com/blog/ai-slop-2026-state-of-the-ai-generated-web"
+    },
+    {
+     "t": "avoid-ai-design: AI design tells catalog",
+     "u": "https://github.com/funboy322/avoid-ai-design/blob/main/references/ai-tells-catalog.md"
+    },
+    {
+     "t": "frontend-design skill (anthropics/skills)",
+     "u": "https://github.com/anthropics/skills/tree/main/skills/frontend-design"
+    },
+    {
+     "t": "The missing design vocabulary for agents (Impeccable slop catalog)",
+     "u": "https://impeccable.style/slop/"
+    },
+    {
+     "t": "vibecoded-design-tells: Reddit-mined ranking of the visual tells of AI-built sites",
+     "u": "https://github.com/JCarterJohnson/vibecoded-design-tells"
+    }
+   ]
+  },
+  {
+   "code": "A76",
+   "id": "arrow-on-every-button",
+   "name": "Arrow On Every Button",
+   "category": "Components",
+   "track": "surface",
+   "harm": "Clarity",
+   "detection": "automated, graded",
+   "url": "https://sloppatterns.com/#arrow-on-every-button",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "Every call to action ends in a right arrow that slides a few pixels on hover.",
+   "fix": "Use an arrow only where the action navigates forward (next step, external link) and only on one level of the hierarchy. Let the label carry the meaning.",
+   "sources": [
+    {
+     "t": "avoid-ai-design: audits AI-generated frontend (GitHub README)",
+     "u": "https://github.com/funboy322/avoid-ai-design"
+    },
+    {
+     "t": "avoid-ai-design: AI design tells catalog",
+     "u": "https://github.com/funboy322/avoid-ai-design/blob/main/references/ai-tells-catalog.md"
+    },
+    {
+     "t": "AI Slop in 2026: The State of the AI-Generated Web",
+     "u": "https://www.sailop.com/blog/ai-slop-2026-state-of-the-ai-generated-web"
+    }
+   ]
+  },
+  {
+   "code": "A77",
+   "id": "decorative-01-02-03",
+   "name": "Decorative 01 02 03",
+   "category": "Typography",
+   "track": "surface",
+   "harm": "Clarity",
+   "detection": "automated, graded",
+   "url": "https://sloppatterns.com/#decorative-01-02-03",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "Zero-padded numbers stamped on sections, cards and list items whose order means nothing.",
+   "fix": "Number things only when order matters (steps a user must follow, ranked items). Otherwise remove the numbers and let headings do the work.",
+   "sources": [
+    {
+     "t": "AI slop: 8 signs a website was generated by AI (TeneX Studio)",
+     "u": "https://tenex.studio/en/blog/ai-slop-ui-8-signes/"
+    },
+    {
+     "t": "The missing design vocabulary for agents (Impeccable slop catalog)",
+     "u": "https://impeccable.style/slop/"
+    },
+    {
+     "t": "frontend-design skill (anthropics/skills)",
+     "u": "https://github.com/anthropics/skills/tree/main/skills/frontend-design"
+    },
+    {
+     "t": "Hacker News discussion: Scoring Show HN submissions for AI design patterns",
+     "u": "https://news.ycombinator.com/item?id=47864393"
+    }
+   ]
+  },
+  {
+   "code": "A78",
+   "id": "cursor-on-a-page-you-cant-type-in",
+   "name": "Cursor On A Page You Can't Type In",
+   "category": "Motion",
+   "track": "surface",
+   "harm": "Clarity",
+   "detection": "automated",
+   "url": "https://sloppatterns.com/#cursor-on-a-page-you-cant-type-in",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "A blinking text cursor at the end of a static headline, pretending something is being typed.",
+   "fix": "Remove the caret. If the product genuinely types or streams, show the real product doing it in a demo, not a decoration on the headline. Respect prefers-reduced-motion.",
+   "sources": [
+    {
+     "t": "The missing design vocabulary for agents (Impeccable slop catalog)",
+     "u": "https://impeccable.style/slop/"
+    }
+   ]
+  },
+  {
+   "code": "A79",
+   "id": "the-billboard-headline",
+   "name": "The Billboard Headline",
+   "category": "Typography",
+   "track": "surface",
+   "harm": "Clarity",
+   "detection": "automated",
+   "url": "https://sloppatterns.com/#the-billboard-headline",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "A long, ten-word headline set at 72px+ so it fills the whole first screen by itself.",
+   "fix": "Size the headline to its length: short lines can go big, a sentence cannot. Cap the H1 at a measure (around 12-20ch for display sizes) and keep the primary action visible in the first viewport at 1280x720 and 390x844.",
+   "sources": [
+    {
+     "t": "The missing design vocabulary for agents (Impeccable slop catalog)",
+     "u": "https://impeccable.style/slop/"
+    },
+    {
+     "t": "slop-detect: AI design slop fingerprint (rule 24, long headline at display size)",
+     "u": "https://github.com/ravidsrk/slop-detect"
+    },
+    {
+     "t": "Signs of AI design: a field guide to the visual tells of AI-generated design",
+     "u": "https://github.com/febbhav/signs-of-ai-design"
+    }
+   ]
+  },
+  {
+   "code": "A80",
+   "id": "hand-coded-svg-filler",
+   "name": "Hand-Coded SVG Filler",
+   "category": "Imagery",
+   "track": "surface",
+   "harm": "Credibility",
+   "detection": "needs a person",
+   "url": "https://sloppatterns.com/#hand-coded-svg-filler",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "Illustrations the model drew itself in SVG: circles, rounded rectangles and a wobbly mascot that look unfinished.",
+   "fix": "Use a real product screenshot, a commissioned or stock illustration, or nothing. If a diagram is needed, have the model describe nodes and edges and let a layout engine (or a designer) place them.",
+   "sources": [
+    {
+     "t": "The missing design vocabulary for agents (Impeccable slop catalog)",
+     "u": "https://impeccable.style/slop/"
+    },
+    {
+     "t": "Signs of AI design: a field guide to the visual tells of AI-generated design",
+     "u": "https://github.com/febbhav/signs-of-ai-design"
+    },
+    {
+     "t": "Hallmark: anti-patterns reference",
+     "u": "https://github.com/Nutlope/hallmark/blob/main/skills/hallmark/references/anti-patterns.md"
+    }
+   ]
+  },
+  {
+   "code": "A81",
+   "id": "the-dimmed-hero-photo",
+   "name": "The Dimmed Hero Photo",
+   "category": "Imagery",
+   "track": "surface",
+   "harm": "Credibility",
+   "detection": "automated",
+   "url": "https://sloppatterns.com/#the-dimmed-hero-photo",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "A stock photo behind the headline, darkened with a heavy black overlay until it is just texture.",
+   "fix": "If the image matters, give it room: put text beside or below it, or choose a photo with natural empty space. If it does not matter, drop it and use a solid colour.",
+   "sources": [
+    {
+     "t": "How to tell if a website was AI generated: 9 visible signs",
+     "u": "https://uxskill.laithjunaidy.com/how-to-tell-if-a-website-was-ai-generated.html"
+    }
+   ]
+  },
+  {
+   "code": "A82",
+   "id": "the-memorised-stock-photo",
+   "name": "The Memorised Stock Photo",
+   "category": "Imagery",
+   "track": "surface",
+   "harm": "Credibility",
+   "detection": "automated",
+   "url": "https://sloppatterns.com/#the-memorised-stock-photo",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "Unsplash photos hotlinked by ID straight from the model's memory: a laptop with charts, a team round a table.",
+   "fix": "Use your own product screenshots and photos. If stock is unavoidable, choose it by hand, download and host it, and check it depicts what the section says.",
+   "sources": [
+    {
+     "t": "Fix placeholder images in Bolt-generated pages",
+     "u": "https://tteg.kushalsm.com/fix/bolt"
+    },
+    {
+     "t": "AI Slop Web Design: Complete Guide to Spotting and Fixing Generic Websites",
+     "u": "https://www.925studios.co/blog/ai-slop-web-design-guide"
+    },
+    {
+     "t": "How to Tell If a Website Was Vibe Coded: A Developer's Detection Guide",
+     "u": "https://www.hustletoai.com/blog/programming-7/how-to-tell-if-a-website-is-vibe-coded-120"
+    },
+    {
+     "t": "avoid-ai-design: AI design tells catalog",
+     "u": "https://github.com/funboy322/avoid-ai-design/blob/main/references/ai-tells-catalog.md"
+    }
+   ]
+  },
+  {
+   "code": "A83",
+   "id": "centred-paragraphs",
+   "name": "Centred Paragraphs",
+   "category": "Typography",
+   "track": "surface",
+   "harm": "Clarity",
+   "detection": "automated",
+   "url": "https://sloppatterns.com/#centred-paragraphs",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "Not just the hero: every heading, paragraph and list down the page is centre-aligned.",
+   "fix": "Left-align any text longer than two lines. Use a left-aligned grid with a clear starting edge and keep centring for short, single-line moments.",
+   "sources": [
+    {
+     "t": "How to tell if a website was AI generated: 9 visible signs",
+     "u": "https://uxskill.laithjunaidy.com/how-to-tell-if-a-website-was-ai-generated.html"
+    },
+    {
+     "t": "How to fix an AI slop website (Rottoways)",
+     "u": "https://rottoways.com/blog/fix-ai-slop-website"
+    },
+    {
+     "t": "Hallmark: anti-patterns reference",
+     "u": "https://github.com/Nutlope/hallmark/blob/main/skills/hallmark/references/anti-patterns.md"
+    },
+    {
+     "t": "Why You Should Never Center Align Paragraph Text (UX Movement)",
+     "u": "https://uxmovement.com/content/why-you-should-never-center-align-paragraph-text/"
+    },
+    {
+     "t": "Avoid centered text (Pimp my Type)",
+     "u": "https://pimpmytype.com/avoid-centered-text/"
+    }
+   ]
+  },
+  {
+   "code": "A84",
+   "id": "text-to-the-glass",
+   "name": "Text To The Glass",
+   "category": "Responsive",
+   "track": "surface",
+   "harm": "Clarity",
+   "detection": "needs a person",
+   "url": "https://sloppatterns.com/#text-to-the-glass",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "On a phone, paragraphs and buttons run right to the edge of the screen with no side margin.",
+   "fix": "Put consistent side padding (16-24px) on the page container and on every full-bleed section's inner wrapper; check every section at 360-390px.",
+   "sources": [
+    {
+     "t": "The missing design vocabulary for agents (Impeccable slop catalog)",
+     "u": "https://impeccable.style/slop/"
+    }
+   ]
+  },
+  {
+   "code": "A85",
+   "id": "the-orphaned-heading",
+   "name": "The Orphaned Heading",
+   "category": "Spacing",
+   "track": "surface",
+   "harm": "Clarity",
+   "detection": "needs a person",
+   "url": "https://sloppatterns.com/#the-orphaned-heading",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "A section heading sits closer to the section above it than to the content it introduces.",
+   "fix": "Space by relationship: the gap above a heading should be clearly larger (roughly 2x) than the gap between the heading and its content.",
+   "sources": [
+    {
+     "t": "The missing design vocabulary for agents (Impeccable slop catalog)",
+     "u": "https://impeccable.style/slop/"
+    },
+    {
+     "t": "AI Prototyping in Real Design Contexts (NN/g)",
+     "u": "https://www.nngroup.com/articles/ai-prototyping/"
+    }
+   ]
+  },
+  {
+   "code": "A86",
+   "id": "lopsided-opening-columns",
+   "name": "Lopsided Opening Columns",
+   "category": "Layout",
+   "track": "surface",
+   "harm": "Clarity",
+   "detection": "needs a person",
+   "url": "https://sloppatterns.com/#lopsided-opening-columns",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "A two-column hero where one side is a short headline and the other is a tall image, leaving a big empty hole.",
+   "fix": "Balance the columns by content, align the shorter one to the centre or the bottom of the taller one, or switch to a stacked layout when one side is much taller.",
+   "sources": [
+    {
+     "t": "The missing design vocabulary for agents (Impeccable slop catalog)",
+     "u": "https://impeccable.style/slop/"
+    }
+   ]
+  },
+  {
+   "code": "A87",
+   "id": "half-dark-mode",
+   "name": "Half-Dark Mode",
+   "category": "Colour",
+   "track": "surface",
+   "harm": "Accessibility",
+   "detection": "needs a person",
+   "url": "https://sloppatterns.com/#half-dark-mode",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "Flip the theme and half the page follows; the other half stays white or stays dark.",
+   "fix": "Ban raw colour utilities in components and route every surface and text colour through tokens; test every page in both modes, including modals, menus and empty states.",
+   "sources": [
+    {
+     "t": "Checklist for Reviewing AI-Generated Tailwind UI (PasteCode)",
+     "u": "https://pastecode.xyz/checklists/review-ai-generated-tailwind-ui"
+    },
+    {
+     "t": "shadcn/ui: Theming",
+     "u": "https://ui.shadcn.com/docs/theming"
+    },
+    {
+     "t": "Theme toggle leaves the app dark in light mode (vibe-glossary #54)",
+     "u": "https://github.com/planetoftheweb/vibe-glossary/issues/54"
+    }
+   ]
+  },
+  {
+   "code": "A88",
+   "id": "nameless-icon-buttons",
+   "name": "Nameless Icon Buttons",
+   "category": "Accessibility",
+   "track": "surface",
+   "harm": "Accessibility",
+   "detection": "automated, graded",
+   "url": "https://sloppatterns.com/#nameless-icon-buttons",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "Icon-only buttons and links (menu, close, social, copy) with no text a screen reader can announce.",
+   "fix": "Every icon-only control gets an accessible name (aria-label or sr-only text) describing the action, not the icon ('Open menu', not 'hamburger'). Lint for it in CI.",
+   "sources": [
+    {
+     "t": "The WebAIM Million: 2026 report",
+     "u": "https://webaim.org/projects/million/"
+    },
+    {
+     "t": "AI-Generated UI Is Inaccessible by Default (Frontend Masters blog)",
+     "u": "https://frontendmasters.com/blog/ai-generated-ui-is-inaccessible-by-default/"
+    },
+    {
+     "t": "Checklist for Reviewing AI-Generated Tailwind UI (PasteCode)",
+     "u": "https://pastecode.xyz/checklists/review-ai-generated-tailwind-ui"
+    }
+   ]
+  },
+  {
+   "code": "A89",
+   "id": "links-you-cant-see",
+   "name": "Links You Can't See",
+   "category": "Accessibility",
+   "track": "surface",
+   "harm": "Accessibility",
+   "detection": "automated",
+   "url": "https://sloppatterns.com/#links-you-cant-see",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "Links inside paragraphs look exactly like the surrounding text: no underline, same or near-same colour.",
+   "fix": "Underline links in running text (with a sensible offset and thickness), or give them 3:1 contrast against the surrounding text plus a non-colour cue on hover and focus.",
+   "sources": [
+    {
+     "t": "Revert to browser behaviour for underlined links (tailwindcss #18165)",
+     "u": "https://github.com/tailwindlabs/tailwindcss/issues/18165"
+    },
+    {
+     "t": "WCAG F73: links not visually evident without colour vision",
+     "u": "https://www.w3.org/WAI/WCAG22/Techniques/failures/F73"
+    },
+    {
+     "t": "vibecoded-design-tells: Reddit-mined ranking of the visual tells of AI-built sites",
+     "u": "https://github.com/JCarterJohnson/vibecoded-design-tells"
+    }
+   ]
+  },
+  {
+   "code": "A90",
+   "id": "placeholder-as-label",
+   "name": "Placeholder As Label",
+   "category": "Forms",
+   "track": "surface",
+   "harm": "Accessibility",
+   "detection": "automated, graded",
+   "url": "https://sloppatterns.com/#placeholder-as-label",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "Form fields with grey hint text inside and no label outside, so the label disappears as soon as you type.",
+   "fix": "Give every input a visible <label> above it; keep placeholder for an example format only, at accessible contrast.",
+   "sources": [
+    {
+     "t": "Placeholders in Form Fields Are Harmful (NN/g)",
+     "u": "https://www.nngroup.com/articles/form-design-placeholders/"
+    },
+    {
+     "t": "The WebAIM Million: 2026 report",
+     "u": "https://webaim.org/projects/million/"
+    }
+   ]
+  },
+  {
+   "code": "A91",
+   "id": "inputs-with-no-edge",
+   "name": "Inputs With No Edge",
+   "category": "Forms",
+   "track": "surface",
+   "harm": "Accessibility",
+   "detection": "needs a person",
+   "url": "https://sloppatterns.com/#inputs-with-no-edge",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "Text fields whose border and fill are so close to the background that you can't see where to type.",
+   "fix": "Give input boundaries at least 3:1 contrast against the adjacent surface (border or fill), and check inputs on every surface they appear on, in both themes.",
+   "sources": [
+    {
+     "t": "WCAG 2.2 Understanding SC 1.4.11 Non-text Contrast",
+     "u": "https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html"
+    },
+    {
+     "t": "shadcn/ui: Theming",
+     "u": "https://ui.shadcn.com/docs/theming"
+    },
+    {
+     "t": "avoid-ai-design: AI design tells catalog",
+     "u": "https://github.com/funboy322/avoid-ai-design/blob/main/references/ai-tells-catalog.md"
+    }
+   ]
+  },
+  {
+   "code": "A92",
+   "id": "the-floating-pill-navbar",
+   "name": "The Floating Pill Navbar",
+   "category": "Navigation",
+   "track": "surface",
+   "harm": "Clarity",
+   "detection": "automated",
+   "url": "https://sloppatterns.com/#the-floating-pill-navbar",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "A detached, rounded, frosted-glass nav bar hovering a few pixels below the top of the screen.",
+   "fix": "Use a normal full-width header unless the floating form earns its place. If you keep it, add scroll-margin-top to anchor targets, drop the blur on low-end devices, and plan where links five and six go.",
+   "sources": [
+    {
+     "t": "Floating Navbars: The Pill and Its Three Problems (21st.dev)",
+     "u": "https://21st.dev/blog/react-floating-navbar-components"
+    },
+    {
+     "t": "Floating rounded navbar block (shadcnblocks navbar6)",
+     "u": "https://www.shadcnblocks.com/block/navbar6"
+    },
+    {
+     "t": "avoid-ai-design: audits AI-generated frontend (GitHub README)",
+     "u": "https://github.com/funboy322/avoid-ai-design"
+    }
+   ]
+  },
+  {
+   "code": "A93",
+   "id": "badge-confetti",
+   "name": "Badge Confetti",
+   "category": "Components",
+   "track": "surface",
+   "harm": "Clarity",
+   "detection": "needs a person",
+   "url": "https://sloppatterns.com/#badge-confetti",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "Little pills and tags on every card: 'New', 'Popular', 'AI', 'Beta', 'Pro', until none of them mean anything.",
+   "fix": "Use a badge only for a state the user must notice (new, beta, sold out) and only on the items it applies to. If everything is tagged, tag nothing.",
+   "sources": [
+    {
+     "t": "avoid-ai-design: AI design tells catalog",
+     "u": "https://github.com/funboy322/avoid-ai-design/blob/main/references/ai-tells-catalog.md"
+    },
+    {
+     "t": "How to Avoid Building Apps That Look Vibe Coded (VibeMole)",
+     "u": "https://vibemole.com/resources/avoid-vibecoded-app-design"
+    },
+    {
+     "t": "Hacker News discussion: Scoring Show HN submissions for AI design patterns",
+     "u": "https://news.ycombinator.com/item?id=47864393"
+    }
+   ]
+  },
+  {
+   "code": "B164",
+   "id": "title-case-every-heading",
+   "name": "Title Case Every Heading",
+   "category": "Copy",
+   "track": "behavioral",
+   "harm": "Credibility",
+   "detection": "automated",
+   "url": "https://sloppatterns.com/#title-case-every-heading",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "Every heading, card title and button capitalises Every Word, Like A Blog Title From 2012.",
+   "fix": "Pick one case style for the product (sentence case for UI and most headings) and state it in the prompt or style guide. Lowercase everything except the first word and proper nouns, and keep capitals for features that really are names.",
+   "sources": [
+    {
+     "t": "Wikipedia: Signs of AI writing (editor guide)",
+     "u": "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing"
+    },
+    {
+     "t": "avoid-ai-design: AI design tells catalog",
+     "u": "https://github.com/funboy322/avoid-ai-design/blob/main/references/ai-tells-catalog.md"
+    },
+    {
+     "t": "Signs of AI design: a field guide to the visual tells of AI-generated design",
+     "u": "https://github.com/febbhav/signs-of-ai-design"
+    },
+    {
+     "t": "Title Case is your accidental AI tell (Deborah MT)",
+     "u": "https://deborahmt.medium.com/title-case-is-your-accidental-ai-tell-2e83bbe46fe3"
+    }
+   ]
+  },
+  {
+   "code": "B165",
+   "id": "colon-split-headings",
+   "name": "Colon-Split Headings",
+   "category": "Copy",
+   "track": "behavioral",
+   "harm": "Credibility",
+   "detection": "needs a person",
+   "url": "https://sloppatterns.com/#colon-split-headings",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "'Smart Scheduling: Plan Your Week In Seconds.' Every heading is a label, a colon, then a slogan.",
+   "fix": "Write a heading that says one thing. Either name the feature or state the benefit; put the other in the body. Ban colons in headings in the copy brief and rewrite any that survive.",
+   "sources": [
+    {
+     "t": "Why Does AI Only Write Headlines With Colons? (Zulie Writes)",
+     "u": "https://www.zuliewrites.com/blog/annoying-and-cliched-why-chatgpt-only-creates-titles-with-colons"
+    },
+    {
+     "t": "8 Clear Cut Ways To Tell If The Blog You're Reading Was Written By ChatGPT",
+     "u": "https://dealerknows.com/8-clear-cut-ways-to-tell-if-the-blog-youre-reading-was-written-by-chatgpt/"
+    }
+   ]
+  },
+  {
+   "code": "B166",
+   "id": "bold-label-bullets",
+   "name": "Bold-Label Bullets",
+   "category": "Copy",
+   "track": "behavioral",
+   "harm": "Credibility",
+   "detection": "automated, graded",
+   "url": "https://sloppatterns.com/#bold-label-bullets",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "Every list item starts with a bolded label and a colon, then a sentence that repeats the label.",
+   "fix": "Write lists as plain items that each carry one fact, or as short paragraphs. If a label is genuinely needed, make it a real heading or a definition list, and delete any sentence that only restates its label.",
+   "sources": [
+    {
+     "t": "Don't Write Like AI: 10 Takeaways from Wikipedia's Signs of AI Writing (Blake Stockton)",
+     "u": "https://www.blakestockton.com/p/takeaways-from-wikipedias-signs-of-ai-writing-2"
+    },
+    {
+     "t": "Wikipedia: Signs of AI writing (editor guide)",
+     "u": "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing"
+    }
+   ]
+  },
+  {
+   "code": "B167",
+   "id": "whether-youre-a",
+   "name": "Whether You're A",
+   "category": "Copy",
+   "track": "behavioral",
+   "harm": "Clarity",
+   "detection": "needs a person",
+   "url": "https://sloppatterns.com/#whether-youre-a",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "'Whether you're a solo founder or a global enterprise, X has you covered.'",
+   "fix": "Name the one audience the product is actually built for and the situation they are in. If it truly serves two groups, give each its own section with a concrete reason.",
+   "sources": [
+    {
+     "t": "ChatGPT Most Overused Words & Expressions (Intellectual Lead)",
+     "u": "https://intellectualead.com/chatgpt-most-overused-words/"
+    },
+    {
+     "t": "8 Clear Cut Ways To Tell If The Blog You're Reading Was Written By ChatGPT",
+     "u": "https://dealerknows.com/8-clear-cut-ways-to-tell-if-the-blog-youre-reading-was-written-by-chatgpt/"
+    }
+   ]
+  },
+  {
+   "code": "B168",
+   "id": "the-conclusion-heading",
+   "name": "The Conclusion Heading",
+   "category": "Content",
+   "track": "behavioral",
+   "harm": "Credibility",
+   "detection": "automated",
+   "url": "https://sloppatterns.com/#the-conclusion-heading",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "Every blog post and guide ends with an H2 called 'Conclusion' that starts 'In conclusion'.",
+   "fix": "End an article where the last useful point ends. If a summary is needed, put it at the top as a short answer. Rewrite openings to start with the specific problem, not the state of the world.",
+   "sources": [
+    {
+     "t": "Wikipedia: Signs of AI writing (editor guide)",
+     "u": "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing"
+    },
+    {
+     "t": "ChatGPT Most Overused Words & Expressions (Intellectual Lead)",
+     "u": "https://intellectualead.com/chatgpt-most-overused-words/"
+    },
+    {
+     "t": "8 Clear Cut Ways To Tell If The Blog You're Reading Was Written By ChatGPT",
+     "u": "https://dealerknows.com/8-clear-cut-ways-to-tell-if-the-blog-youre-reading-was-written-by-chatgpt/"
+    }
+   ]
+  },
+  {
+   "code": "B169",
+   "id": "markdown-showing-through",
+   "name": "Markdown Showing Through",
+   "category": "Content",
+   "track": "behavioral",
+   "harm": "Credibility",
+   "detection": "automated",
+   "url": "https://sloppatterns.com/#markdown-showing-through",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "Literal **asterisks**, ## hashes and [brackets](links) printed on the page as text.",
+   "fix": "Either render Markdown deliberately with a sanitising parser, or ask the model for plain text and strip Markdown before saving. Add a pre-publish check that fails on '**', a leading '#' or '](' in visible text.",
+   "sources": [
+    {
+     "t": "Wikipedia: Signs of AI writing (editor guide)",
+     "u": "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing"
+    },
+    {
+     "t": "Why Do Asterisks Appear When I Paste from ChatGPT? (Unmarkdown)",
+     "u": "https://unmarkdown.com/blog/why-do-asterisks-appear-when-i-paste-from-chatgpt"
+    }
+   ]
+  },
+  {
+   "code": "B173",
+   "id": "compliance-badge-cosplay",
+   "name": "Compliance Badge Cosplay",
+   "category": "Trust",
+   "track": "behavioral",
+   "harm": "Trust",
+   "detection": "needs a person",
+   "url": "https://sloppatterns.com/#compliance-badge-cosplay",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "SOC 2, HIPAA, GDPR and ISO badges in the footer of a product with no report behind any of them.",
+   "fix": "Show a compliance mark only when you hold a current, clean report and are entitled to the logo; link to a trust page that names the auditor and report date. Otherwise describe your actual security practices in plain words.",
+   "sources": [
+    {
+     "t": "avoid-ai-design: AI design tells catalog",
+     "u": "https://github.com/funboy322/avoid-ai-design/blob/main/references/ai-tells-catalog.md"
+    },
+    {
+     "t": "Signs of AI design: a field guide to the visual tells of AI-generated design",
+     "u": "https://github.com/febbhav/signs-of-ai-design"
+    },
+    {
+     "t": "Can you put a SOC 2 logo on your website? (Probo)",
+     "u": "https://www.probo.com/blog/2026-05-04-are-you-allowed-to-put-soc-2-logo-on-website"
+    }
+   ]
+  },
+  {
+   "code": "B174",
+   "id": "the-unbacked-superlative",
+   "name": "The Unbacked Superlative",
+   "category": "Marketing",
+   "track": "behavioral",
+   "harm": "Trust",
+   "detection": "needs a person",
+   "url": "https://sloppatterns.com/#the-unbacked-superlative",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "'The world's first', 'the #1 AI platform', '10x faster', with nothing behind the number.",
+   "fix": "Remove any rank, 'first' or multiplier you cannot cite. Replace it with a specific, checkable outcome from a named customer or your own measured benchmark, and link the method.",
+   "sources": [
+    {
+     "t": "Hallmark: anti-patterns reference",
+     "u": "https://github.com/Nutlope/hallmark/blob/main/skills/hallmark/references/anti-patterns.md"
+    },
+    {
+     "t": "FTC Warns to 'Keep Your AI Claims in Check' in New AI Guidance (Cooley)",
+     "u": "https://cdp.cooley.com/ftc-warns-to-keep-your-ai-claims-in-check-in-new-ai-guidance/"
+    }
+   ]
+  },
+  {
+   "code": "B175",
+   "id": "the-generated-privacy-policy",
+   "name": "The Generated Privacy Policy",
+   "category": "Trust",
+   "track": "behavioral",
+   "harm": "Privacy",
+   "detection": "needs a person",
+   "url": "https://sloppatterns.com/#the-generated-privacy-policy",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "A privacy policy that exists, sounds legal, and describes a generic company's data practices.",
+   "fix": "Inventory what the app collects, where it goes and which vendors process it, then write or generate the policy from that list with the real legal entity, contact and jurisdiction. Re-check it whenever a tracking script or AI vendor is added.",
+   "sources": [
+    {
+     "t": "AI Generated Privacy Policy Examined: Should You Use ChatGPT? (Termly)",
+     "u": "https://termly.io/resources/articles/ai-privacy-policy-examined/"
+    },
+    {
+     "t": "AI Wrote Your Privacy Policy. Who Checks It? (Janus Compliance)",
+     "u": "https://www.januscompliance.co.uk/blog/ai-wrote-your-privacy-policy-who-checks-it"
+    }
+   ]
+  },
+  {
+   "code": "B177",
+   "id": "the-raw-error-leak",
+   "name": "The Raw Error Leak",
+   "category": "Error-handling",
+   "track": "behavioral",
+   "harm": "Safety",
+   "detection": "needs a person",
+   "url": "https://sloppatterns.com/#the-raw-error-leak",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "'duplicate key value violates unique constraint \"users_email_key\"' shown to the customer in a toast.",
+   "fix": "Map known error codes to plain messages that say what happened and what to do ('That email already has an account. Sign in instead.'). Log the raw error server-side; never render error.message from a database or SDK to users.",
+   "sources": [
+    {
+     "t": "CWE-209: Generation of Error Message Containing Sensitive Information (MITRE)",
+     "u": "https://cwe.mitre.org/data/definitions/209.html"
+    },
+    {
+     "t": "AI Code Security Review: Where Vibe-Coded Apps Commonly Fail (Canary Trap)",
+     "u": "https://canarytrap.com/resources/ai-generated-code-security-review/"
+    }
+   ]
+  },
+  {
+   "code": "B181",
+   "id": "the-untitled-dialog",
+   "name": "The Untitled Dialog",
+   "category": "Accessibility",
+   "track": "behavioral",
+   "harm": "Accessibility",
+   "detection": "automated, graded",
+   "url": "https://sloppatterns.com/#the-untitled-dialog",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "Mobile menus and modals open as dialogs with no title, so screen readers announce just 'dialog'.",
+   "fix": "Give every dialog and sheet a DialogTitle or SheetTitle (visually hidden if the design has none) and a description where useful. Treat Radix accessibility warnings as build failures.",
+   "sources": [
+    {
+     "t": "DialogContent requires a DialogTitle with new Sidebar blocks (shadcn-ui/ui #5983)",
+     "u": "https://github.com/shadcn-ui/ui/issues/5983"
+    },
+    {
+     "t": "Sheet error for screen reader users (shadcn-ui/ui #4302)",
+     "u": "https://github.com/shadcn-ui/ui/issues/4302"
+    },
+    {
+     "t": "AI-Generated UI Is Inaccessible by Default (Frontend Masters blog)",
+     "u": "https://frontendmasters.com/blog/ai-generated-ui-is-inaccessible-by-default/"
+    }
+   ]
+  },
+  {
+   "code": "B182",
+   "id": "wrong-page-language",
+   "name": "Wrong Page Language",
+   "category": "Accessibility",
+   "track": "behavioral",
+   "harm": "Accessibility",
+   "detection": "automated, graded",
+   "url": "https://sloppatterns.com/#wrong-page-language",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "A Spanish, German or Sinhala site whose HTML still declares lang=\"en\".",
+   "fix": "Set lang to the page's actual language in the root layout (and per page for multilingual sites); mark inline foreign phrases with their own lang. Add a check that compares the declared language with the detected language of the body text.",
+   "sources": [
+    {
+     "t": "Understanding SC 3.1.1 Language of Page (W3C WCAG 2.2)",
+     "u": "https://www.w3.org/WAI/WCAG22/Understanding/language-of-page.html"
+    },
+    {
+     "t": "create-vite React template index.html (vitejs/vite)",
+     "u": "https://github.com/vitejs/vite/blob/main/packages/create-vite/template-react-ts/index.html"
+    },
+    {
+     "t": "The WebAIM Million: 2026 report",
+     "u": "https://webaim.org/projects/million/"
+    }
+   ]
+  },
+  {
+   "code": "B183",
+   "id": "the-token-firehose",
+   "name": "The Token Firehose",
+   "category": "Accessibility",
+   "track": "behavioral",
+   "harm": "Accessibility",
+   "detection": "needs a person",
+   "url": "https://sloppatterns.com/#the-token-firehose",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "A streaming AI answer is announced to screen readers over and over as it grows, or not at all.",
+   "fix": "Announce state, not tokens: a polite live message 'Generating' then 'Response ready' (or the full reply once complete), with focus or a shortcut to jump to it. Never put the streaming node itself in an atomic live region.",
+   "sources": [
+    {
+     "t": "The Accessibility Gap in AI Interfaces Nobody Is Shipping Around (Tian Pan)",
+     "u": "https://tianpan.co/blog/2026/04/17/ai-accessibility-streaming-screen-readers"
+    },
+    {
+     "t": "Best practices for a chatbot (Orange digital accessibility guidelines)",
+     "u": "https://a11y-guidelines.orange.com/en/articles/chatbot/"
+    }
+   ]
+  },
+  {
+   "code": "B184",
+   "id": "enter-sends-mid-word",
+   "name": "Enter Sends Mid-Word",
+   "category": "Forms",
+   "track": "behavioral",
+   "harm": "Accessibility",
+   "detection": "needs a person",
+   "url": "https://sloppatterns.com/#enter-sends-mid-word",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "Typing Japanese, Chinese or Korean in the AI chat box sends a half-composed message on Enter.",
+   "fix": "Ignore Enter while event.isComposing is true (and on keyCode 229 for Safari), and test the composer with at least one IME. Offer Shift+Enter or a setting for Enter behaviour.",
+   "sources": [
+    {
+     "t": "Enter key during Japanese IME composition sends message in Chat UI (jupyterlab/jupyter-ai #1534)",
+     "u": "https://github.com/jupyterlab/jupyter-ai/issues/1534"
+    },
+    {
+     "t": "Chat input sends the message mid-IME-composition (OpenSearch Dashboards #12794)",
+     "u": "https://github.com/opensearch-project/OpenSearch-Dashboards/issues/12794"
+    },
+    {
+     "t": "Prevent message submission during IME composition (OpenHands #6025)",
+     "u": "https://github.com/OpenHands/OpenHands/pull/6025"
+    }
+   ]
+  },
+  {
+   "code": "B185",
+   "id": "scroll-hijacked-by-the-stream",
+   "name": "Scroll Hijacked By The Stream",
+   "category": "Conversation",
+   "track": "behavioral",
+   "harm": "Productivity",
+   "detection": "needs a person",
+   "url": "https://sloppatterns.com/#scroll-hijacked-by-the-stream",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "You scroll up to read the start of the answer, and the view keeps following the newest line.",
+   "fix": "Follow the stream only while the user is already at the bottom; stop on any wheel, touch or key scroll and show a 'Jump to latest' button. Consider anchoring the start of the response at the top of the viewport instead.",
+   "sources": [
+    {
+     "t": "Option to stop auto-scrolling while ChatGPT is responding (OpenAI Developer Community)",
+     "u": "https://community.openai.com/t/option-to-stop-auto-scrolling-while-chatgpt-is-responding/1397872"
+    },
+    {
+     "t": "Streaming output auto-scroll makes responses unreadable while they generate (anthropics/claude-code #56525)",
+     "u": "https://github.com/anthropics/claude-code/issues/56525"
+    },
+    {
+     "t": "The scroll problem nobody talks about when building AI chat interface (Medium)",
+     "u": "https://medium.com/@disgcfrguy/the-scroll-problem-nobody-talks-about-when-building-ai-chat-interface-987c223cafc0"
+    }
+   ]
+  },
+  {
+   "code": "B186",
+   "id": "the-eaten-prompt",
+   "name": "The Eaten Prompt",
+   "category": "Error-handling",
+   "track": "behavioral",
+   "harm": "Productivity",
+   "detection": "needs a person",
+   "url": "https://sloppatterns.com/#the-eaten-prompt",
+   "version": "1.0",
+   "added": "2026-10-06",
+   "updated": "2026-10-06",
+   "oneLiner": "A long prompt fails to send, and the text box comes back empty.",
+   "fix": "Clear the composer only after the server accepts the message; on any failure restore the text and attachments. Persist drafts locally per conversation so reloads, sign-ins and limits do not lose them.",
+   "sources": [
+    {
+     "t": "Conversation prompt text lost when message limit reached (anthropics/claude-code #31393)",
+     "u": "https://github.com/anthropics/claude-code/issues/31393"
+    },
+    {
+     "t": "Long prompt lost: vanished when I had to log in (anthropics/claude-code #20523)",
+     "u": "https://github.com/anthropics/claude-code/issues/20523"
+    }
+   ]
   }
  ]
 }
