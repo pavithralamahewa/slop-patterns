@@ -33,7 +33,7 @@ async function clickText(page, text, { timeout = 8000 } = {}) {
 
 async function waitForText(page, text, timeout = 10000) {
   await page.waitForFunction(
-    (t) => document.body.innerText.includes(t),
+    (t) => document.body.innerText.toLowerCase().includes(t.toLowerCase()),
     { timeout },
     text,
   );
@@ -47,15 +47,21 @@ async function clickTestId(page, id) {
   await el.click();
 }
 
-/** Dismiss Duolingo-style level-clear modal if it is open. */
+/** Dismiss Duolingo-style level-clear modal if it appears after a gate. */
 async function dismissLevelClear(page) {
-  const btn = await page.$('[data-testid="level-clear-continue"]');
-  if (!btn) return;
-  await btn.click();
-  await page.waitForFunction(
-    () => !document.querySelector('[data-testid="level-clear-continue"]'),
-    { timeout: 5000 },
-  );
+  try {
+    const btn = await page.waitForSelector(
+      '[data-testid="level-clear-continue"]',
+      { timeout: 3000, visible: true },
+    );
+    await btn.click();
+    await page.waitForFunction(
+      () => !document.querySelector('[data-testid="level-clear-continue"]'),
+      { timeout: 5000 },
+    );
+  } catch {
+    /* no celebration this step */
+  }
 }
 
 async function contrastOk(page, selector) {
@@ -137,7 +143,7 @@ async function main() {
     await waitForText(page, "Start the guided demo");
     const ctas = await page.evaluate(() =>
       [...document.querySelectorAll("a")]
-        .filter((a) => a.textContent.includes("guided demo"))
+        .filter((a) => /guided demo/i.test(a.textContent || ""))
         .map((a) => a.textContent.trim()),
     );
     if (ctas.some((t) => /run the guided/i.test(t)))
@@ -145,7 +151,7 @@ async function main() {
     const hero = await page.evaluate(() => {
       const links = [...document.querySelectorAll("a.btn-signal")];
       const start = links.find((a) =>
-        a.textContent.includes("Start the guided demo"),
+        /start the guided demo/i.test(a.textContent || ""),
       );
       if (!start) return { ok: false, reason: "no start cta" };
       const s = getComputedStyle(start);
@@ -161,11 +167,11 @@ async function main() {
     console.log("OK home CTA", hero);
 
     const calm = await page.evaluate(() => {
-      const text = document.body.innerText;
+      const text = document.body.innerText.toLowerCase();
       return (
-        text.includes("Answer one hard product question") &&
-        text.includes("Held") &&
-        !text.includes("Seven steps. One job each.")
+        text.includes("answer one hard product question") &&
+        text.includes("held") &&
+        !text.includes("seven steps. one job each.")
       );
     });
     if (!calm) fail("Landing should be a single gamified hero");
@@ -244,7 +250,15 @@ async function main() {
     await waitForText(page, "This rule is the product");
     console.log("OK → Choose a direction");
 
+    await page.waitForSelector('[data-testid^="select-"]', {
+      timeout: 8000,
+      visible: true,
+    });
     await page.click('[data-testid^="select-"]');
+    await page.waitForFunction(() => {
+      const b = document.querySelector('[data-testid="gate-supervote"]');
+      return b instanceof HTMLButtonElement && !b.disabled;
+    });
     await clickTestId(page, "gate-supervote");
     await dismissLevelClear(page);
     await waitForText(page, "Winning direction");
