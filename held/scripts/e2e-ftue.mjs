@@ -51,8 +51,12 @@ async function main() {
     if (!homeCta?.text) throw new Error("Hero CTA missing text");
     console.log("OK home CTA", homeCta);
 
-    await page.evaluate(() => localStorage.clear());
     await page.goto(BASE + "/sprint", { waitUntil: "networkidle0" });
+    await page.evaluate(() => {
+      localStorage.clear();
+      sessionStorage.clear();
+    });
+    await page.reload({ waitUntil: "networkidle0" });
     await waitForText(page, "Welcome to Held");
     await page.screenshot({ path: "/tmp/held-e2e-welcome.png" });
     shots.push("/tmp/held-e2e-welcome.png");

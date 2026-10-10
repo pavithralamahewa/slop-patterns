@@ -80,15 +80,15 @@ export function SprintWorkspace() {
   const [facadeHtml, setFacadeHtml] = useState<string | null>(null);
   const [screener, setScreener] = useState<string | null>(null);
   const [storageLabel, setStorageLabel] = useState("saving…");
-  const [showWelcome, setShowWelcome] = useState(false);
+  const [showWelcome, setShowWelcome] = useState(true);
   const [coachOpen, setCoachOpen] = useState(true);
   const [, startTransition] = useTransition();
 
   useEffect(() => {
     try {
-      setShowWelcome(localStorage.getItem(WELCOME_KEY) !== "1");
+      if (localStorage.getItem(WELCOME_KEY) === "1") setShowWelcome(false);
     } catch {
-      setShowWelcome(true);
+      /* keep welcome open */
     }
   }, []);
 
@@ -178,11 +178,14 @@ export function SprintWorkspace() {
 
   if (!graph) {
     return (
-      <div className="flex min-h-screen flex-col items-center justify-center gap-3 px-6 text-center">
-        <p className="display text-3xl">Held</p>
-        <p className="text-[var(--ink-dim)]">
-          Preparing your guided demo…
-        </p>
+      <div className="relative min-h-screen bg-[var(--ground)]">
+        <WelcomeGate open={showWelcome} onStart={dismissWelcome} />
+        <div className="flex min-h-screen flex-col items-center justify-center gap-3 px-6 text-center">
+          <p className="display text-3xl">Held</p>
+          <p className="text-[var(--ink-dim)]">
+            Preparing your guided demo…
+          </p>
+        </div>
       </div>
     );
   }
@@ -666,8 +669,8 @@ function StatusCard({
   );
 }
 
-/** Sticky primary action so mobile users always see the next gate. */
-function StickyAction({
+/** Primary gate actions — kept in document flow (no sticky overlay). */
+function GateAction({
   children,
   hint,
 }: {
@@ -675,7 +678,7 @@ function StickyAction({
   hint?: string;
 }) {
   return (
-    <div className="sticky bottom-0 z-20 -mx-5 mt-8 border-t border-[var(--line)] bg-[var(--ground)]/95 px-5 py-4 backdrop-blur md:static md:mx-0 md:border-0 md:bg-transparent md:p-0 md:backdrop-blur-none">
+    <div className="mt-8 border-t border-[var(--line)] pt-6">
       {children}
       {hint && (
         <p className="mt-2 text-xs text-[var(--ink-mute)]">{hint}</p>
@@ -777,7 +780,7 @@ function FoundationPhase({
           ))}
         </ul>
       </div>
-      <StickyAction hint="Approving records a permanent decision in the log. You are acting as the Decider.">
+      <GateAction hint="Approving records a permanent decision in the log. You are acting as the Decider.">
         <button
           type="button"
           disabled={busy || !canAdvance(graph, "approve_hypothesis")}
@@ -786,7 +789,7 @@ function FoundationPhase({
         >
           Approve this bet → Focus the week
         </button>
-      </StickyAction>
+      </GateAction>
     </div>
   );
 }
@@ -889,7 +892,7 @@ function MapPhase({
           </ul>
         )}
       </div>
-      <StickyAction>
+      <GateAction>
         <button
           type="button"
           disabled={busy || !canAdvance(graph, "approve_map")}
@@ -898,7 +901,7 @@ function MapPhase({
         >
           Approve this focus → Explore options
         </button>
-      </StickyAction>
+      </GateAction>
     </div>
   );
 }
@@ -970,7 +973,7 @@ function SketchPhase({
           </article>
         ))}
       </div>
-      <StickyAction hint="Need at least one Dot, and the variety check must pass, before you can continue.">
+      <GateAction hint="Need at least one Dot, and the variety check must pass, before you can continue.">
         <button
           type="button"
           disabled={
@@ -983,7 +986,7 @@ function SketchPhase({
         >
           Open Choose a direction
         </button>
-      </StickyAction>
+      </GateAction>
     </div>
   );
 }
@@ -1047,7 +1050,7 @@ function DecidePhase({
           </li>
         ))}
       </ol>
-      <StickyAction
+      <GateAction
         hint={
           graph.winnerSketchId
             ? undefined
@@ -1062,7 +1065,7 @@ function DecidePhase({
         >
           Cast supervote → Fake the product
         </button>
-      </StickyAction>
+      </GateAction>
     </div>
   );
 }
@@ -1121,7 +1124,7 @@ function PrototypePhase({
           ))}
         </ol>
       </div>
-      <StickyAction>
+      <GateAction>
         <div className="flex flex-wrap gap-3">
           <button
             type="button"
@@ -1140,7 +1143,7 @@ function PrototypePhase({
             Accept fake product → Watch real people
           </button>
         </div>
-      </StickyAction>
+      </GateAction>
       {facadeHtml && (
         <div>
           <p className="mono mb-2 text-xs text-[var(--ink-mute)]">
