@@ -52,6 +52,7 @@ export function WelcomeGate({ open, onStart }: Props) {
         <button
           type="button"
           autoFocus
+          data-testid="welcome-start"
           onClick={onStart}
           className="btn-signal mt-8 w-full rounded-md px-5 py-3.5 text-center font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--signal)]"
         >

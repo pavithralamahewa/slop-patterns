@@ -59,6 +59,16 @@ const DECIDER = "You (the Decider)";
 const WELCOME_KEY = "held.welcome.seen.v1";
 const adapters = createLocalRegistry();
 
+function fresherGraph(
+  local: SprintGraph | null,
+  remote: SprintGraph | null,
+): SprintGraph | null {
+  if (!local) return remote;
+  if (!remote) return local;
+  if (local.id !== remote.id) return remote;
+  return local.gates.length >= remote.gates.length ? local : remote;
+}
+
 function Term({ term }: { term: keyof typeof GLOSSARY | string }) {
   const tip = GLOSSARY[term];
   if (!tip) return <span>{term}</span>;
@@ -95,13 +105,19 @@ export function SprintWorkspace() {
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const activeId = getActiveSprintId();
+      const local = loadGraph();
+      const activeId = getActiveSprintId() ?? local?.id ?? null;
       if (activeId) {
         const remote = await apiGetSprint(activeId);
-        if (!cancelled && remote) {
-          setGraph(remote);
-          saveGraph(remote);
-          setStorageLabel("saved");
+        const chosen = fresherGraph(local, remote);
+        if (!cancelled && chosen) {
+          setGraph(chosen);
+          saveGraph(chosen);
+          setActiveSprintId(chosen.id);
+          setStorageLabel(remote ? "saved" : "on this device");
+          if (local && remote && local.gates.length > remote.gates.length) {
+            void apiSaveSprint(local);
+          }
           return;
         }
       }
@@ -113,8 +129,7 @@ export function SprintWorkspace() {
         setStorageLabel("saved");
         return;
       }
-      const existing = loadGraph();
-      const g = existing ?? createHeldSprintZero();
+      const g = local ?? createHeldSprintZero();
       if (!cancelled) {
         setGraph(g);
         saveGraph(g);
@@ -146,15 +161,14 @@ export function SprintWorkspace() {
 
   const adapterLines = useMemo(() => describeAdapters(adapters), []);
 
-  function commit(next: SprintGraph) {
+  async function commit(next: SprintGraph) {
     setGraph(next);
     saveGraph(next);
-    void apiSaveSprint(next).then((saved) => {
-      if (saved) {
-        setActiveSprintId(saved.id);
-        setStorageLabel("saved");
-      }
-    });
+    const saved = await apiSaveSprint(next);
+    if (saved) {
+      setActiveSprintId(saved.id);
+      setStorageLabel("saved");
+    }
   }
 
   function runAgents(ms: number, fn: () => void) {
@@ -165,6 +179,10 @@ export function SprintWorkspace() {
         setBusy(false);
       });
     }, ms);
+  }
+
+  function lockGate(fn: () => void) {
+    startTransition(fn);
   }
 
   function dismissWelcome() {
@@ -216,6 +234,7 @@ export function SprintWorkspace() {
             )}
             <button
               type="button"
+              data-testid="toggle-coach"
               className="mono text-[10px] uppercase tracking-wider text-[var(--ink-mute)] hover:text-[var(--ink)]"
               onClick={() => setCoachOpen((v) => !v)}
             >
@@ -223,6 +242,7 @@ export function SprintWorkspace() {
             </button>
             <button
               type="button"
+              data-testid="start-over"
               className="mono text-[10px] uppercase tracking-wider text-[var(--ink-mute)] hover:text-[var(--ink)]"
               onClick={() => {
                 clearGraph();
@@ -257,9 +277,36 @@ export function SprintWorkspace() {
         </div>
       </header>
 
-      <div className="mx-auto grid max-w-7xl gap-6 px-5 py-6 md:grid-cols-[220px_1fr_280px] md:px-8 md:py-8">
-        {/* Phase checklist rail */}
-        <aside>
+      <div className="mx-auto grid max-w-7xl gap-6 px-5 py-6 md:grid-cols-[220px_1fr] lg:grid-cols-[220px_1fr_280px] md:px-8 md:py-8">
+        {/* Phase checklist rail — compact on mobile, full on desktop */}
+        <aside className="md:sticky md:top-4 md:self-start">
+          <div className="md:hidden">
+            <p className="mono text-[10px] uppercase tracking-[0.16em] text-[var(--ink-mute)]">
+              Your week · {idx + 1} of {PHASE_ORDER.length}
+            </p>
+            <ol className="mt-2 flex gap-1" aria-label="Sprint progress">
+              {PHASE_ORDER.map((p, i) => {
+                const active = p === graph.phase;
+                const done = i < idx;
+                return (
+                  <li key={p} className="flex-1">
+                    <span
+                      title={PHASE_GUIDE[p].plainName}
+                      className={`block h-1.5 rounded-full ${
+                        active
+                          ? "bg-[var(--signal)]"
+                          : done
+                            ? "bg-[var(--signal)]/50"
+                            : "bg-[var(--line)]"
+                      }`}
+                    />
+                  </li>
+                );
+              })}
+            </ol>
+            <p className="mt-2 text-sm font-medium">{guide.plainName}</p>
+          </div>
+          <div className="hidden md:block">
           <p className="mono mb-1 text-[10px] uppercase tracking-[0.16em] text-[var(--ink-mute)]">
             Your week
           </p>
@@ -315,11 +362,14 @@ export function SprintWorkspace() {
               );
             })}
           </ol>
-          <div className="mt-6 rounded-xl border border-[var(--line)] p-4">
-            <p className="mono text-[10px] uppercase tracking-[0.16em] text-[var(--ink-mute)]">
-              Your job right now
-            </p>
-            <p className="mt-2 text-sm text-[var(--warm)]">{guide.whatYouDo}</p>
+          {!coachOpen && (
+            <div className="mt-6 rounded-xl border border-[var(--line)] p-4">
+              <p className="mono text-[10px] uppercase tracking-[0.16em] text-[var(--ink-mute)]">
+                Your job right now
+              </p>
+              <p className="mt-2 text-sm text-[var(--warm)]">{guide.whatYouDo}</p>
+            </div>
+          )}
           </div>
         </aside>
 
@@ -345,7 +395,7 @@ export function SprintWorkspace() {
           <p className="mono mt-8 text-xs uppercase tracking-[0.18em] text-[var(--ink-mute)]">
             Demo sprint · {graph.title}
           </p>
-          <h1 className="display mt-1 text-4xl md:text-5xl">
+          <h1 className="display mt-1 text-3xl leading-tight md:text-5xl">
             {guide.plainName}
           </h1>
           <p className="mt-3 max-w-2xl text-[var(--ink-dim)]">
@@ -357,7 +407,7 @@ export function SprintWorkspace() {
               graph={graph}
               busy={busy}
               onApprove={() =>
-                runAgents(700, () => {
+                lockGate(() => {
                   commit(
                     appendGate(graph, "approve_hypothesis", DECIDER, {
                       hypothesis: graph.hypothesis,
@@ -399,7 +449,7 @@ export function SprintWorkspace() {
                 })
               }
               onApprove={() =>
-                runAgents(800, () => {
+                lockGate(() => {
                   commit(
                     appendGate(graph, "approve_map", DECIDER, {
                       questions: graph.sprintQuestions.map((q) => q.id),
@@ -468,15 +518,15 @@ export function SprintWorkspace() {
                   commit(applyFacadeToGraph(graph, compiled));
                 })
               }
-              onAccept={() =>
-                runAgents(900, () => {
-                  commit(
-                    appendGate(graph, "accept_prototype", DECIDER, {
-                      brief: graph.prototypeBrief,
-                    }),
-                  );
-                })
-              }
+                onAccept={() =>
+                  lockGate(() => {
+                    commit(
+                      appendGate(graph, "accept_prototype", DECIDER, {
+                        brief: graph.prototypeBrief,
+                      }),
+                    );
+                  })
+                }
             />
           )}
 
@@ -518,7 +568,15 @@ export function SprintWorkspace() {
         </section>
 
         {/* Status rail — plain language */}
-        <aside className="space-y-4">
+        <aside className="space-y-4 lg:block">
+          <details className="rounded-xl border border-[var(--line)] bg-[var(--ground-2)] p-4 lg:hidden">
+            <summary className="cursor-pointer text-sm font-medium">
+              Sprint status (variety, evidence, log)
+            </summary>
+            <p className="mt-2 text-xs text-[var(--ink-mute)]">
+              Open the cards below on a larger screen, or scroll this section.
+            </p>
+          </details>
           <StatusCard
             title="Idea variety check"
             tip="We force different solution shapes so you are not voting on the same idea eight times."
@@ -750,6 +808,17 @@ function FoundationPhase({
       <blockquote className="rounded-xl border border-[var(--signal)]/40 bg-[var(--signal)]/10 p-5 text-lg leading-snug">
         {graph.hypothesis}
       </blockquote>
+      <GateAction hint="Approving records a permanent decision. You are the Decider.">
+        <button
+          type="button"
+          data-testid="gate-approve-hypothesis"
+          disabled={busy || !canAdvance(graph, "approve_hypothesis")}
+          onClick={onApprove}
+          className="btn-signal w-full rounded-md px-5 py-3.5 font-medium disabled:opacity-40 md:w-auto"
+        >
+          Approve this bet → Focus the week
+        </button>
+      </GateAction>
       <div>
         <p className="mono text-xs uppercase text-[var(--ink-mute)]">
           Why this might win (differentiators)
@@ -780,9 +849,10 @@ function FoundationPhase({
           ))}
         </ul>
       </div>
-      <GateAction hint="Approving records a permanent decision in the log. You are acting as the Decider.">
+      <GateAction hint="Same action as above — use whichever is in view.">
         <button
           type="button"
+          data-testid="gate-approve-hypothesis-footer"
           disabled={busy || !canAdvance(graph, "approve_hypothesis")}
           onClick={onApprove}
           className="btn-signal w-full rounded-md px-5 py-3.5 font-medium disabled:opacity-40 md:w-auto"
@@ -841,6 +911,7 @@ function MapPhase({
           </div>
           <button
             type="button"
+            data-testid="pull-research"
             disabled={busy}
             onClick={onRefreshResearch}
             className="rounded-md border border-[var(--line)] px-4 py-2 text-sm hover:border-[var(--signal)]"
@@ -895,6 +966,7 @@ function MapPhase({
       <GateAction>
         <button
           type="button"
+          data-testid="gate-approve-map"
           disabled={busy || !canAdvance(graph, "approve_map")}
           onClick={onApprove}
           className="btn-signal w-full rounded-md px-5 py-3.5 font-medium disabled:opacity-40 md:w-auto"
@@ -923,7 +995,7 @@ function SketchPhase({
 }) {
   useEffect(() => {
     if (lookDone) return;
-    const t = window.setTimeout(onLookDone, 4000);
+    const t = window.setTimeout(onLookDone, 2500);
     return () => window.clearTimeout(t);
   }, [lookDone, onLookDone]);
 
@@ -963,6 +1035,7 @@ function SketchPhase({
                 </span>
                 <button
                   type="button"
+                  data-testid={`heat-${s.id}`}
                   onClick={() => onHeat(s.id)}
                   className="rounded-md border border-[var(--line)] px-3 py-1.5 text-sm hover:border-[var(--signal)]"
                 >
@@ -976,6 +1049,7 @@ function SketchPhase({
       <GateAction hint="Need at least one Dot, and the variety check must pass, before you can continue.">
         <button
           type="button"
+          data-testid="gate-open-decide"
           disabled={
             !lookDone ||
             !diversity?.passesFloor ||
@@ -1042,6 +1116,7 @@ function DecidePhase({
             </button>
             <button
               type="button"
+              data-testid={`select-${s.id}`}
               onClick={() => onPick(s.id)}
               className="rounded-md bg-[var(--ink)] px-3 py-2 text-sm font-medium text-[var(--ground)]"
             >
@@ -1059,6 +1134,7 @@ function DecidePhase({
       >
         <button
           type="button"
+          data-testid="gate-supervote"
           disabled={!graph.winnerSketchId}
           onClick={onSupervote}
           className="btn-signal w-full rounded-md px-5 py-3.5 font-medium disabled:opacity-40 md:w-auto"
@@ -1128,6 +1204,7 @@ function PrototypePhase({
         <div className="flex flex-wrap gap-3">
           <button
             type="button"
+            data-testid="preview-facade"
             disabled={busy}
             onClick={onRender}
             className="rounded-md border border-[var(--line)] px-5 py-3 font-medium"
@@ -1136,7 +1213,8 @@ function PrototypePhase({
           </button>
           <button
             type="button"
-            disabled={busy || !canAdvance(graph, "accept_prototype")}
+            data-testid="gate-accept-prototype"
+            disabled={!canAdvance(graph, "accept_prototype")}
             onClick={onAccept}
             className="btn-signal w-full rounded-md px-5 py-3.5 font-medium disabled:opacity-40 md:w-auto"
           >
@@ -1145,13 +1223,16 @@ function PrototypePhase({
         </div>
       </GateAction>
       {facadeHtml && (
-        <div>
+        <div data-testid="facade-preview">
           <p className="mono mb-2 text-xs text-[var(--ink-mute)]">
-            Preview stub (demo)
+            Click-through preview (demo façade — not the real product)
           </p>
-          <pre className="max-h-48 overflow-auto rounded-xl border border-[var(--line)] bg-[var(--ground-2)] p-4 text-xs text-[var(--ink-mute)]">
-            {facadeHtml}
-          </pre>
+          <iframe
+            title="Façade preview"
+            sandbox=""
+            srcDoc={facadeHtml}
+            className="h-64 w-full rounded-xl border border-[var(--line)] bg-white"
+          />
         </div>
       )}
     </div>
@@ -1199,6 +1280,7 @@ function TestPhase({
       </div>
       <button
         type="button"
+        data-testid="draft-screener"
         onClick={onDraftScreener}
         className="rounded-md border border-[var(--line)] px-4 py-2 text-sm hover:border-[var(--signal)]"
       >
@@ -1233,6 +1315,7 @@ function TestPhase({
             <button
               key={v}
               type="button"
+              data-testid={`verdict-${v}`}
               onClick={() => onVerdict(v, note)}
               className="rounded-md border border-[var(--line)] px-5 py-3 font-medium capitalize hover:border-[var(--signal)]"
             >
@@ -1316,6 +1399,7 @@ function VerdictPhase({
       </p>
       <button
         type="button"
+        data-testid="download-packet"
         onClick={download}
         className="rounded-md bg-[var(--ink)] px-5 py-3 font-medium text-[var(--ground)]"
       >

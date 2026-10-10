@@ -51,7 +51,7 @@ export default function HomePage() {
           <p className="mono rise mb-6 text-xs uppercase tracking-[0.22em] text-[var(--signal)]">
             Decide before you build
           </p>
-          <h1 className="display rise-2 text-[clamp(3.2rem,10vw,6.5rem)] text-[var(--ink)]">
+          <h1 className="display display-hero rise-2 text-[clamp(3.2rem,10vw,6.5rem)] text-[var(--ink)]">
             Held
           </h1>
           <p className="rise-3 mt-6 max-w-xl text-lg text-[var(--ink-dim)] md:text-xl">
@@ -159,7 +159,7 @@ export default function HomePage() {
               href="/sprint"
               className="btn-signal mt-10 inline-block rounded-md px-6 py-3 font-medium"
             >
-              Run the guided demo now
+              Start the guided demo
             </Link>
           </div>
         </section>

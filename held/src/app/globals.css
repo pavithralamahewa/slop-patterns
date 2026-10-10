@@ -4,8 +4,8 @@
   --ground: #0e1110;
   --ground-2: #161b19;
   --ink: #f2f4f1;
-  --ink-dim: #8b948c;
-  --ink-mute: #5c655e;
+  --ink-dim: #a8b0a9;
+  --ink-mute: #7a847c;
   --line: rgba(242, 244, 241, 0.1);
   --signal: #c8f542;
   --signal-ink: #12160f;
@@ -20,6 +20,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -61,7 +62,11 @@ button {
   font-family: var(--font-display), "Syne", sans-serif;
   font-weight: 700;
   letter-spacing: -0.04em;
-  line-height: 0.95;
+  line-height: 1.08;
+}
+
+.display-hero {
+  line-height: 0.92;
 }
 
 .mono {
