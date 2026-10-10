@@ -111,7 +111,7 @@ export const PHASE_GUIDE: Record<PhaseId, PhaseGuide> = {
 export const WELCOME = {
   title: "Welcome to Held",
   subtitle:
-    "Held helps a product team answer one hard question before writing expensive code.",
+    "You will answer one product question, then leave with a written Ship / Loop / Kill verdict.",
   bullets: [
     {
       title: "What you will do",
@@ -128,7 +128,7 @@ export const WELCOME = {
   ],
   roles:
     "You are the Decider for this demo — the person whose vote sticks. In a real company that is usually the founder or product lead.",
-  cta: "Start with naming the bet",
+  cta: "Continue",
 };
 
 export const GLOSSARY: Record<string, string> = {

@@ -149,11 +149,15 @@ async function main() {
       fail(`Hero CTA ${JSON.stringify(hero)}`);
     console.log("OK home CTA", hero);
 
-    const how = await page.evaluate(() =>
-      document.body.innerText.includes("Seven steps. One job each."),
-    );
-    if (!how) fail("How it works missing");
-    console.log("OK landing how-it-works");
+    const calm = await page.evaluate(() => {
+      const text = document.body.innerText;
+      return (
+        text.includes("Answer one hard product question") &&
+        !text.includes("Seven steps. One job each.")
+      );
+    });
+    if (!calm) fail("Landing should be a single calm hero");
+    console.log("OK landing calm hero");
 
     // Mobile home overflow
     await page.setViewport({ width: 390, height: 844 });
@@ -177,15 +181,16 @@ async function main() {
     await waitForText(page, "This demo already drafted a bet");
     console.log("OK welcome dismissed");
 
-    const coachVisible = await page.$('[data-testid="coach-panel"]');
-    if (!coachVisible) fail("Coach missing after welcome");
+    // Help is opt-in — open, then hide, then leave closed
+    if (await page.$('[data-testid="coach-panel"]'))
+      fail("Help should stay closed by default");
+    await clickTestId(page, "toggle-coach");
+    await page.waitForSelector('[data-testid="coach-panel"]');
     await clickTestId(page, "toggle-coach");
     await page.waitForFunction(
       () => !document.querySelector('[data-testid="coach-panel"]'),
     );
-    await clickTestId(page, "toggle-coach");
-    await page.waitForSelector('[data-testid="coach-panel"]');
-    console.log("OK hide/show coach");
+    console.log("OK help toggle");
 
     if (await headingOverlap(page)) fail("H1 overlaps following text");
     console.log("OK heading spacing");

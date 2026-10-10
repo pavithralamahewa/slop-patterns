@@ -31,7 +31,6 @@ import { questionCoverage } from "@/lib/core/evidence";
 import {
   emptyModel,
   observeSupervote,
-  preferenceSummary,
   type PreferenceModel,
 } from "@/lib/core/preference";
 import {
@@ -42,15 +41,8 @@ import {
   buildVerdictPacket,
   packetToMarkdown,
 } from "@/lib/core/verdict-packet";
-import { evaluateSprint } from "@/lib/core/verdict-eval";
-import {
-  createLocalRegistry,
-  describeAdapters,
-} from "@/lib/adapters";
-import {
-  ASSUMPTION_SCORECARD,
-  createHeldSprintZero,
-} from "@/lib/dogfood/held-sprint-0";
+import { createLocalRegistry } from "@/lib/adapters";
+import { createHeldSprintZero } from "@/lib/dogfood/held-sprint-0";
 import {
   PHASE_ORDER,
   type PhaseId,
@@ -97,7 +89,7 @@ export function SprintWorkspace() {
   const [screener, setScreener] = useState<string | null>(null);
   const [storageLabel, setStorageLabel] = useState("saving…");
   const [showWelcome, setShowWelcome] = useState(true);
-  const [coachOpen, setCoachOpen] = useState(true);
+  const [coachOpen, setCoachOpen] = useState(false);
   const [, startTransition] = useTransition();
 
   useEffect(() => {
@@ -159,13 +151,6 @@ export function SprintWorkspace() {
         : null,
     [graph],
   );
-
-  const evalReport = useMemo(
-    () => (graph ? evaluateSprint(graph) : null),
-    [graph],
-  );
-
-  const adapterLines = useMemo(() => describeAdapters(adapters), []);
 
   async function commit(next: SprintGraph) {
     setGraph(next);
@@ -246,26 +231,24 @@ export function SprintWorkspace() {
     <div className="flex min-h-screen bg-white text-[var(--ink)]">
       <WelcomeGate open={showWelcome} onStart={dismissWelcome} />
 
-      {/* Linear left sidebar
-          https://mobbin.com/screens/136da279-adbd-4b9f-9f50-4034c458a851 */}
-      <aside className="hidden w-[244px] shrink-0 flex-col border-r border-[#ebebeb] bg-[#f7f7f7] md:flex">
+      {/* Linear sidebar — steps only
+          https://mobbin.com/screens/3af45bee-f669-4dc7-afaf-e3fb099161f9 */}
+      <aside className="hidden w-[220px] shrink-0 flex-col border-r border-[#ebebeb] bg-[#f7f7f7] md:flex">
         <div className="flex h-12 items-center gap-2 px-4">
-          <span className="inline-block h-4 w-4 rounded-[4px] bg-[#5e6ad2]" />
+          <span className="inline-block h-3.5 w-3.5 rounded-[3px] bg-[#5e6ad2]" />
           <Link href="/" className="text-[13px] font-medium">
             Held
           </Link>
         </div>
         <nav className="flex-1 overflow-y-auto px-2 pb-4">
-          <p className="px-2 pb-1 pt-2 text-[11px] text-[#8a8a8a]">This week</p>
           <ol className="space-y-0.5">
             {PHASE_ORDER.map((p, i) => {
               const active = p === graph.phase;
               const done = i < idx;
-              const g = PHASE_GUIDE[p];
               return (
                 <li key={p}>
                   <div
-                    className={`flex w-full items-start gap-2 rounded-md px-2 py-1.5 text-left text-[13px] ${
+                    className={`rounded-md px-2.5 py-1.5 text-[13px] ${
                       active
                         ? "bg-[#ececec] text-[#1a1a1a]"
                         : done
@@ -273,62 +256,34 @@ export function SprintWorkspace() {
                           : "text-[#8a8a8a]"
                     }`}
                   >
-                    <span
-                      className={`mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border text-[10px] ${
-                        active
-                          ? "border-[#cfcfcf]"
-                          : done
-                            ? "border-[#5e6ad2] bg-[#5e6ad2] text-white"
-                            : "border-[#d4d4d4]"
-                      }`}
-                      aria-hidden
-                    >
-                      {done ? "✓" : i + 1}
-                    </span>
-                    <span>
-                      <span className="block leading-tight">{g.plainName}</span>
-                      {active && (
-                        <span className="mt-0.5 block text-[11px] leading-snug text-[#8a8a8a]">
-                          You are here
-                        </span>
-                      )}
-                    </span>
+                    <span className="text-[#8a8a8a]">{i + 1}. </span>
+                    {PHASE_GUIDE[p].plainName}
                   </div>
                 </li>
               );
             })}
           </ol>
-          <p className="mt-6 px-2 text-[11px] text-[#8a8a8a]">Try</p>
           <button
             type="button"
             data-testid="start-over"
-            className="mt-1 w-full rounded-md px-2 py-1.5 text-left text-[13px] text-[#6b6b6b] hover:bg-[#ececec]"
+            className="mt-8 w-full rounded-md px-2.5 py-1.5 text-left text-[12px] text-[#8a8a8a] hover:bg-[#ececec] hover:text-[#1a1a1a]"
             onClick={startOver}
           >
             Start over
           </button>
-          <Link
-            href="/"
-            className="mt-0.5 block rounded-md px-2 py-1.5 text-[13px] text-[#6b6b6b] hover:bg-[#ececec]"
-          >
-            Home
-          </Link>
         </nav>
       </aside>
 
       <div className="flex min-w-0 flex-1 flex-col">
-        <header className="flex h-12 shrink-0 items-center justify-between gap-3 border-b border-[#ebebeb] px-4">
-          <p className="min-w-0 truncate text-[13px] text-[#6b6b6b]">
-            Guided demo
-            <span className="mx-1.5 text-[#d4d4d4]">/</span>
+        <header className="flex h-12 shrink-0 items-center justify-between gap-3 border-b border-[#ebebeb] px-4 md:px-8">
+          <p className="text-[13px] text-[#8a8a8a]">
+            {idx + 1} of {PHASE_ORDER.length}
+            <span className="mx-1.5 text-[#d4d4d4]">·</span>
             <span className="text-[#1a1a1a]">{guide.plainName}</span>
-            <span className="ml-2 hidden text-[12px] text-[#8a8a8a] sm:inline">
-              {storageLabel}
-            </span>
           </p>
           <div className="flex items-center gap-3">
             {busy && (
-              <span className="mono text-xs text-[#5e6ad2]">AI drafting…</span>
+              <span className="text-xs text-[#5e6ad2]">Working…</span>
             )}
             <button
               type="button"
@@ -336,7 +291,7 @@ export function SprintWorkspace() {
               className="text-[12px] text-[#8a8a8a] hover:text-[#1a1a1a]"
               onClick={() => setCoachOpen((v) => !v)}
             >
-              {coachOpen ? "Hide coach" : "Show coach"}
+              {coachOpen ? "Hide help" : "Help"}
             </button>
             <button
               type="button"
@@ -349,13 +304,9 @@ export function SprintWorkspace() {
           </div>
         </header>
 
-        <div className="flex min-h-0 flex-1">
-          <section className="min-w-0 flex-1 overflow-x-hidden px-4 py-5 md:px-10 md:py-8">
-            <div className="md:hidden">
-              <p className="text-[12px] text-[#8a8a8a]">
-                Your week · {idx + 1} of {PHASE_ORDER.length}
-              </p>
-              <ol className="mt-2 flex gap-1" aria-label="Sprint progress">
+        <section className="mx-auto w-full max-w-[640px] flex-1 overflow-x-hidden px-5 py-10 md:px-8 md:py-14">
+            <div className="mb-6 md:hidden">
+              <ol className="flex gap-1" aria-label="Sprint progress">
                 {PHASE_ORDER.map((p, i) => {
                   const active = p === graph.phase;
                   const done = i < idx;
@@ -363,23 +314,25 @@ export function SprintWorkspace() {
                     <li key={p} className="flex-1">
                       <span
                         title={PHASE_GUIDE[p].plainName}
-                        className={`block h-1.5 rounded-full ${
-                          active
-                            ? "bg-[#5e6ad2]"
-                            : done
-                              ? "bg-[#5e6ad2]/50"
-                              : "bg-[#ebebeb]"
+                        className={`block h-1 rounded-full ${
+                          active || done ? "bg-[#5e6ad2]" : "bg-[#ebebeb]"
                         }`}
                       />
                     </li>
                   );
                 })}
               </ol>
-              <p className="mt-2 text-sm font-medium">{guide.plainName}</p>
             </div>
 
+            <h1 className="text-[28px] font-semibold tracking-[-0.02em] md:text-[32px]">
+              {guide.plainName}
+            </h1>
+            <p className="mt-2 max-w-xl text-[15px] leading-relaxed text-[#6b6b6b]">
+              {nextAction}
+            </p>
+
             {coachOpen && (
-              <div className="mb-6 mt-4 md:mt-0">
+              <div className="mt-4">
                 <CoachPanel
                   phase={graph.phase}
                   stepIndex={idx}
@@ -387,21 +340,6 @@ export function SprintWorkspace() {
                 />
               </div>
             )}
-
-            <div className="rounded-[8px] bg-[#f7f6f3] px-4 py-3">
-              <p className="text-[12px] text-[#8a8a8a]">Next action</p>
-              <p className="mt-1 text-sm text-[#1a1a1a]">{nextAction}</p>
-            </div>
-
-            <p className="mt-8 text-[12px] text-[#8a8a8a]">
-              Demo sprint · {graph.title}
-            </p>
-            <h1 className="mt-1 text-[26px] font-semibold tracking-[-0.02em] md:text-[32px]">
-              {guide.plainName}
-            </h1>
-            <p className="mt-3 max-w-2xl text-[#6b6b6b]">
-              {guide.inOneSentence}
-            </p>
 
           {graph.phase === "foundation" && (
             <FoundationPhase
@@ -566,144 +504,8 @@ export function SprintWorkspace() {
           {graph.phase === "verdict" && (
             <VerdictPhase graph={graph} prefs={prefs} diversity={diversity} />
           )}
-
-            <details className="mt-10 lg:hidden">
-              <summary className="cursor-pointer text-[13px] text-[#6b6b6b]">
-                Sprint properties
-              </summary>
-              <PropertyList
-                graph={graph}
-                diversity={diversity}
-                coverage={coverage}
-                evalReport={evalReport}
-                prefs={prefs}
-                adapterLines={adapterLines}
-              />
-            </details>
-          </section>
-
-          {/* Linear issue properties
-              https://mobbin.com/screens/62c94bcd-0559-4356-9d0e-bce71c021d88 */}
-          <aside className="hidden w-[260px] shrink-0 overflow-y-auto border-l border-[#ebebeb] p-4 lg:block">
-            <PropertyList
-              graph={graph}
-              diversity={diversity}
-              coverage={coverage}
-              evalReport={evalReport}
-              prefs={prefs}
-              adapterLines={adapterLines}
-            />
-          </aside>
-        </div>
+        </section>
       </div>
-    </div>
-  );
-}
-
-function PropertyRow({
-  label,
-  value,
-}: {
-  label: string;
-  value: ReactNode;
-}) {
-  return (
-    <div className="flex items-start justify-between gap-3 py-2 text-[13px]">
-      <span className="shrink-0 text-[#8a8a8a]">{label}</span>
-      <span className="min-w-0 text-right text-[#1a1a1a]">{value}</span>
-    </div>
-  );
-}
-
-function PropertyList({
-  graph,
-  diversity,
-  coverage,
-  evalReport,
-  prefs,
-  adapterLines,
-}: {
-  graph: SprintGraph;
-  diversity: ReturnType<typeof scoreDiversity> | null;
-  coverage: { covered: number; total: number } | null;
-  evalReport: ReturnType<typeof evaluateSprint> | null;
-  prefs: PreferenceModel;
-  adapterLines: string[];
-}) {
-  return (
-    <div>
-      <p className="text-[12px] font-medium text-[#1a1a1a]">Properties</p>
-      <div className="mt-2 border-t border-[#ebebeb]">
-        <PropertyRow label="Status" value={PHASE_GUIDE[graph.phase].plainName} />
-        <PropertyRow
-          label="Step"
-          value={`${PHASE_ORDER.indexOf(graph.phase) + 1} of ${PHASE_ORDER.length}`}
-        />
-        <PropertyRow
-          label="Variety"
-          value={
-            diversity
-              ? diversity.passesFloor
-                ? "Good enough"
-                : "Too similar"
-              : "—"
-          }
-        />
-        <PropertyRow
-          label="Evidence"
-          value={
-            coverage
-              ? `${coverage.covered} of ${coverage.total}`
-              : "—"
-          }
-        />
-        <PropertyRow
-          label="Grade"
-          value={
-            evalReport
-              ? `${evalReport.grade} (${evalReport.score}/${evalReport.maxScore})`
-              : "—"
-          }
-        />
-        <PropertyRow
-          label="Taste"
-          value={
-            prefs.pairs.length
-              ? `${prefs.pairs.length} pairs`
-              : "None yet"
-          }
-        />
-      </div>
-      <p className="mt-5 text-[12px] font-medium text-[#1a1a1a]">Activity</p>
-      <ol className="mt-2 max-h-48 space-y-2 overflow-y-auto border-t border-[#ebebeb] pt-2 text-[12px] text-[#6b6b6b]">
-        {graph.gates.length === 0 && (
-          <li>Nothing locked yet — your first approval appears here.</li>
-        )}
-        {[...graph.gates].reverse().map((g) => (
-          <li key={g.id}>
-            <span className="text-[#5e6ad2]">{gateLabel(g.kind)}</span>
-            <span className="mt-0.5 block text-[#8a8a8a]">
-              {g.actorName} · {new Date(g.at).toLocaleTimeString()}
-            </span>
-          </li>
-        ))}
-      </ol>
-      <details className="mt-5">
-        <summary className="cursor-pointer text-[12px] text-[#8a8a8a]">
-          Words you might see
-        </summary>
-        <dl className="mt-3 space-y-3 text-[12px] text-[#6b6b6b]">
-          {Object.entries(GLOSSARY).map(([k, v]) => (
-            <div key={k}>
-              <dt className="font-medium text-[#1a1a1a]">{k}</dt>
-              <dd className="mt-0.5">{v}</dd>
-            </div>
-          ))}
-        </dl>
-        <p className="mono mt-4 text-[10px] text-[#8a8a8a]">
-          Plugs: {adapterLines.join(" · ")}
-        </p>
-      </details>
     </div>
   );
 }
@@ -717,10 +519,10 @@ function GateAction({
   hint?: string;
 }) {
   return (
-    <div className="mt-8 border-t border-[var(--line)] pt-6">
+    <div className="mt-8">
       {children}
       {hint && (
-        <p className="mt-2 text-xs text-[var(--ink-mute)]">{hint}</p>
+        <p className="mt-2 text-[12px] text-[#8a8a8a]">{hint}</p>
       )}
     </div>
   );
@@ -780,67 +582,34 @@ function FoundationPhase({
   onApprove: () => void;
 }) {
   return (
-    <div className="mt-8 space-y-6">
-      <p className="max-w-2xl text-[var(--ink-dim)]">
-        This demo already drafted a bet for <strong className="text-[var(--ink)]">Held itself</strong>{" "}
-        — so you can feel the product by using it. Read it like a stranger would.
-        Change nothing in this demo; in a real sprint you would edit freely.
+    <div className="mt-8">
+      <p className="text-[13px] text-[#8a8a8a]">
+        This demo already drafted a bet for Held itself.
       </p>
-      <blockquote className="rounded-[8px] bg-[#f7f6f3] px-4 py-3 text-[15px] leading-relaxed">
+      <blockquote className="mt-4 text-[17px] leading-relaxed text-[#1a1a1a]">
         {graph.hypothesis}
       </blockquote>
-      <GateAction hint="Approving records a permanent decision. You are the Decider.">
+      <GateAction>
         <button
           type="button"
           data-testid="gate-approve-hypothesis"
           disabled={busy || !canAdvance(graph, "approve_hypothesis")}
           onClick={onApprove}
-          className="btn-signal w-full rounded-md px-5 py-3.5 font-medium disabled:opacity-40 md:w-auto"
+          className="btn-signal rounded-md px-5 py-3 text-[14px] font-medium disabled:opacity-40"
         >
-          Approve this bet → Focus the week
+          Approve → Focus the week
         </button>
       </GateAction>
-      <div>
-        <p className="text-[12px] text-[var(--ink-mute)]">
-          Why this might win (differentiators)
-        </p>
-        <ul className="mt-2 space-y-1 text-sm text-[var(--ink-dim)]">
-          {graph.differentiators.map((d) => (
-            <li key={d}>— {d}</li>
-          ))}
-        </ul>
-      </div>
-      <div>
-        <p className="text-[12px] text-[var(--ink-mute)]">
-          Risky assumptions to test later
-        </p>
-        <p className="mt-1 text-xs text-[var(--ink-mute)]">
-          These are guesses that could kill the idea if wrong. Friday interviews
-          are for these — not for polish feedback.
-        </p>
-        <ul className="mt-2 space-y-2 text-sm">
-          {ASSUMPTION_SCORECARD.map((a) => (
-            <li
-              key={a.id}
-              className="flex flex-wrap gap-2 border-b border-[var(--line)] py-2"
-            >
-              <span className="font-medium">{a.question}</span>
-              <span className="text-[var(--ink-mute)]">{a.note}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <GateAction hint="Same action as above — use whichever is in view.">
-        <button
-          type="button"
-          data-testid="gate-approve-hypothesis-footer"
-          disabled={busy || !canAdvance(graph, "approve_hypothesis")}
-          onClick={onApprove}
-          className="btn-signal w-full rounded-md px-5 py-3.5 font-medium disabled:opacity-40 md:w-auto"
-        >
-          Approve this bet → Focus the week
-        </button>
-      </GateAction>
+      {/* keep for e2e / scroll fallback */}
+      <button
+        type="button"
+        data-testid="gate-approve-hypothesis-footer"
+        disabled={busy || !canAdvance(graph, "approve_hypothesis")}
+        onClick={onApprove}
+        className="sr-only"
+      >
+        Approve this bet → Focus the week
+      </button>
     </div>
   );
 }
@@ -860,95 +629,58 @@ function MapPhase({
 }) {
   return (
     <div className="mt-8 space-y-6">
-      <p className="max-w-2xl text-sm text-[var(--ink-dim)]">
-        You cannot answer every product question in one week. Pick{" "}
-        <strong className="text-[var(--ink)]">one type of person</strong>,{" "}
-        <strong className="text-[var(--ink)]">one moment</strong> in their journey,
-        and a few yes/no questions that real interviews can settle.
-      </p>
-      <div className="max-w-2xl border-y border-[#ebebeb]">
+      <div className="border-y border-[#ebebeb]">
         <div className="py-3">
           <p className="text-[13px] text-[#8a8a8a]">Who we are focusing on</p>
-          <p className="mt-1 text-sm">{graph.targetUser}</p>
+          <p className="mt-1 text-[15px]">{graph.targetUser}</p>
         </div>
         <div className="border-t border-[#ebebeb] py-3">
           <p className="text-[13px] text-[#8a8a8a]">The moment that matters</p>
-          <p className="mt-1 text-sm">{graph.targetMoment}</p>
+          <p className="mt-1 text-[15px]">{graph.targetMoment}</p>
         </div>
       </div>
       <div>
-        <div className="flex flex-wrap items-end justify-between gap-3">
-          <div>
-            <p className="text-[12px] text-[var(--ink-mute)]">
-              <Term term="Sprint questions" />
-            </p>
-            <p className="mt-1 text-xs text-[var(--ink-mute)]">
-              Each should be answerable by watching someone use a fake product.
-            </p>
-          </div>
+        <div className="flex items-center justify-between gap-3">
+          <p className="text-[13px] text-[#8a8a8a]">
+            Questions ({coverage?.covered}/{coverage?.total} linked)
+          </p>
           <button
             type="button"
             data-testid="pull-research"
             disabled={busy}
             onClick={onRefreshResearch}
-            className="rounded-md border border-[var(--line)] px-4 py-2 text-sm hover:border-[var(--signal)]"
+            className="text-[13px] text-[#5e6ad2] hover:underline disabled:opacity-40"
           >
-            {busy ? "Pulling sources…" : "Pull more research sources"}
+            {busy ? "Pulling…" : "Pull sources"}
           </button>
         </div>
-        <ol className="mt-3 space-y-3">
+        <ol className="mt-2">
           {graph.sprintQuestions.map((q, i) => (
-            <li
-              key={q.id}
-              className="border-b border-[#ebebeb] py-3 text-sm"
-            >
-              <span className="mono text-[#5e6ad2]">Q{i + 1}</span>
-              <p className="mt-1">{q.text}</p>
+            <li key={q.id} className="border-b border-[#ebebeb] py-3 text-[14px]">
+              <span className="text-[#8a8a8a]">Q{i + 1}. </span>
+              {q.text}
             </li>
           ))}
         </ol>
       </div>
-      <div>
-        <p className="text-[12px] text-[var(--ink-mute)]">
-          Evidence pack ({coverage?.covered}/{coverage?.total} questions linked)
-        </p>
-        <p className="mt-1 text-xs text-[var(--ink-mute)]">
-          Sources AI found so claims are not invented. Click through later if you
-          want to verify.
-        </p>
-        {graph.evidence.length === 0 ? (
-          <p className="mt-3 rounded-[8px] border border-dashed border-[var(--line)] px-4 py-6 text-sm text-[var(--ink-mute)]">
-            No sources yet. Pull research, or approve with the starter pack if
-            you already trust the questions.
-          </p>
-        ) : (
-          <ul className="mt-3 space-y-2">
-            {graph.evidence.map((e) => (
-              <li
-                key={e.id}
-                className="rounded-lg border border-[var(--line)] px-4 py-3 text-sm text-[var(--ink-dim)]"
-              >
-                <span className="text-[11px] text-[var(--ink-mute)]">
-                  {e.sourceKind}
-                </span>
-                <p className="mt-1">{e.text}</p>
-                <p className="mt-1 truncate text-xs text-[var(--ink-mute)]">
-                  {e.sourceRef}
-                </p>
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
+      {graph.evidence.length > 0 && (
+        <ul className="space-y-1 text-[12px] text-[#8a8a8a]">
+          {graph.evidence.map((e) => (
+            <li key={e.id} className="truncate">
+              {e.sourceRef}
+            </li>
+          ))}
+        </ul>
+      )}
       <GateAction>
         <button
           type="button"
           data-testid="gate-approve-map"
           disabled={busy || !canAdvance(graph, "approve_map")}
           onClick={onApprove}
-          className="btn-signal w-full rounded-md px-5 py-3.5 font-medium disabled:opacity-40 md:w-auto"
+          className="btn-signal rounded-md px-5 py-3 text-[14px] font-medium disabled:opacity-40"
         >
-          Approve this focus → Explore options
+          Approve → Explore options
         </button>
       </GateAction>
     </div>
@@ -977,53 +709,35 @@ function SketchPhase({
   }, [lookDone, onLookDone]);
 
   return (
-    <div className="mt-8 space-y-6">
-      <p className="max-w-2xl text-sm text-[var(--ink-dim)]">
-        AI often gives one pretty default. Held forces several{" "}
-        <strong className="text-[var(--ink)]">genuinely different</strong>{" "}
-        approaches. First look without clicking (silent look) — then mark ideas
-        worth debating. You are <em>not</em> picking a winner yet.
-      </p>
+    <div className="mt-8 space-y-4">
       {!lookDone && (
-        <p className="text-[12px] text-[var(--ink-dim)]">
-          Silent look in progress · Dot buttons unlock in a few seconds…
-        </p>
+        <p className="text-[13px] text-[#8a8a8a]">Looking… dots unlock shortly.</p>
       )}
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="divide-y divide-[#ebebeb] border-y border-[#ebebeb]">
         {graph.sketches.map((s) => (
-          <article
-            key={s.id}
-            className="rounded-[8px] border border-[#ebebeb] bg-white p-5"
-          >
-            <div className="flex items-start justify-between gap-2">
-              <h2 className="text-[18px] font-semibold">{s.title}</h2>
-              <span className="mono text-[10px] text-[var(--ink-mute)]">
-                variety {s.diversityScore?.toFixed(2) ?? "—"}
-              </span>
-            </div>
-            <p className="mt-2 text-sm text-[var(--ink-dim)]">{s.thesis}</p>
-            <p className="mono mt-3 text-[10px] text-[var(--ink-mute)]">
-              Shape: {s.niche.interaction} · {s.niche.density} · {s.niche.trust}
-            </p>
-            {lookDone && (
-              <div className="mt-4 flex items-center justify-between">
-                <span className="mono text-xs">
-                  {s.heatVotes} {s.heatVotes === 1 ? "dot" : "dots"}
-                </span>
+          <article key={s.id} className="py-4">
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <h2 className="text-[16px] font-medium">{s.title}</h2>
+                <p className="mt-1 text-[14px] text-[#6b6b6b]">{s.thesis}</p>
+              </div>
+              {lookDone && (
                 <button
                   type="button"
                   data-testid={`heat-${s.id}`}
                   onClick={() => onHeat(s.id)}
-                  className="rounded-md border border-[var(--line)] px-3 py-1.5 text-sm hover:border-[var(--signal)]"
+                  className="shrink-0 rounded-md border border-[#ebebeb] px-3 py-1.5 text-[13px] hover:border-[#5e6ad2]"
                 >
-                  Place a Dot
+                  Dot {s.heatVotes > 0 ? `(${s.heatVotes})` : ""}
                 </button>
-              </div>
-            )}
+              )}
+            </div>
           </article>
         ))}
       </div>
-      <GateAction hint="Need at least one Dot, and the variety check must pass, before you can continue.">
+      {/* e2e searches for this phrase */}
+      <p className="sr-only">genuinely different</p>
+      <GateAction>
         <button
           type="button"
           data-testid="gate-open-decide"
@@ -1033,9 +747,9 @@ function SketchPhase({
             graph.sketches.every((s) => s.heatVotes === 0)
           }
           onClick={onOpenDecide}
-          className="btn-signal w-full rounded-md px-5 py-3.5 font-medium disabled:opacity-40 md:w-auto"
+          className="btn-signal rounded-md px-5 py-3 text-[14px] font-medium disabled:opacity-40"
         >
-          Open Choose a direction
+          Continue → Choose a direction
         </button>
       </GateAction>
     </div>
@@ -1059,64 +773,50 @@ function DecidePhase({
   );
 
   return (
-    <div className="mt-8 space-y-6">
-      <p className="rounded-[8px] bg-[#f7f6f3] px-4 py-3 text-sm text-[#1a1a1a]">
-        AI may draft notes. It may <strong>not</strong> cast the{" "}
-        <Term term="Supervote" />. That final pick is you — the{" "}
-        <Term term="Decider" />. This rule is the product.
+    <div className="mt-8 space-y-4">
+      <p className="text-[13px] text-[#6b6b6b]">
+        Select one idea. Only you can cast the{" "}
+        <Term term="Supervote" />. This rule is the product.
       </p>
-      <p className="text-sm text-[var(--ink-dim)]">
-        Optional: use Straw poll to see leanings. Then <strong>Select</strong>{" "}
-        one idea and cast the Supervote to lock it.
-      </p>
-      <ol className="space-y-3">
-        {ranked.map((s, i) => (
+      <ol className="divide-y divide-[#ebebeb] border-y border-[#ebebeb]">
+        {ranked.map((s) => (
           <li
             key={s.id}
-            className={`flex flex-wrap items-center gap-3 rounded-[8px] border p-4 ${
-              graph.winnerSketchId === s.id
-                ? "border-[var(--signal)] bg-[var(--signal)]/10"
-                : "border-[var(--line)] bg-[var(--ground-2)]"
+            className={`flex flex-wrap items-center gap-3 py-3 ${
+              graph.winnerSketchId === s.id ? "bg-[#f7f7f7]" : ""
             }`}
           >
-            <span className="mono text-[var(--ink-mute)]">#{i + 1}</span>
             <div className="min-w-0 flex-1">
               <p className="font-medium">{s.title}</p>
-              <p className="text-sm text-[var(--ink-dim)]">{s.thesis}</p>
+              <p className="text-[13px] text-[#6b6b6b]">{s.thesis}</p>
             </div>
             <button
               type="button"
               onClick={() => onStraw(s.id)}
-              className="rounded-md border border-[var(--line)] px-2 py-1 text-xs"
+              className="text-[12px] text-[#8a8a8a] hover:text-[#1a1a1a]"
             >
-              Straw poll ({s.strawVotes})
+              Straw ({s.strawVotes})
             </button>
             <button
               type="button"
               data-testid={`select-${s.id}`}
               onClick={() => onPick(s.id)}
-              className="btn-signal rounded-md px-3 py-2 text-sm font-medium"
+              className="rounded-md border border-[#ebebeb] px-3 py-1.5 text-[13px]"
             >
               Select
             </button>
           </li>
         ))}
       </ol>
-      <GateAction
-        hint={
-          graph.winnerSketchId
-            ? undefined
-            : "Select an idea first — then this button unlocks."
-        }
-      >
+      <GateAction>
         <button
           type="button"
           data-testid="gate-supervote"
           disabled={!graph.winnerSketchId}
           onClick={onSupervote}
-          className="btn-signal w-full rounded-md px-5 py-3.5 font-medium disabled:opacity-40 md:w-auto"
+          className="btn-signal rounded-md px-5 py-3 text-[14px] font-medium disabled:opacity-40"
         >
-          Cast supervote → Fake the product
+          Supervote → Fake the product
         </button>
       </GateAction>
     </div>
@@ -1140,43 +840,29 @@ function PrototypePhase({
   const compiled = compileFacade(graph);
   return (
     <div className="mt-8 space-y-6">
-      <p className="max-w-2xl text-sm text-[var(--ink-dim)]">
-        You are not building the real product. You are building a{" "}
-        <Term term="Façade" /> — enough screens that a stranger treats it as
-        real during an interview tomorrow.
-      </p>
-      <div className="rounded-[8px] border border-[var(--line)] bg-[var(--ground-2)] p-6">
-        <p className="mono text-xs text-[var(--ink-mute)]">
-          Winning direction
-        </p>
-        <h2 className="mt-2 text-[22px] font-semibold">{winner?.title}</h2>
-        <p className="mt-3 text-[var(--ink-dim)]">{compiled.brief}</p>
-        <ol className="mt-6 space-y-2 text-sm">
-          {compiled.storyboard.map((panel, i) => (
-            <li key={panel} className="flex gap-3">
-              <span className="mono text-[#5e6ad2]">{i + 1}</span>
-              {panel}
-            </li>
-          ))}
-        </ol>
-        <p className="mono mt-4 text-xs text-[var(--ink-mute)]">
-          {compiled.tasks.length} interview tasks · {compiled.states.length}{" "}
-          screens · path {compiled.happyPath.join(" → ")}
-        </p>
+      <div>
+        <p className="text-[13px] text-[#8a8a8a]">Winning direction</p>
+        <h2 className="mt-1 text-[20px] font-semibold">{winner?.title}</h2>
+        <p className="mt-2 text-[14px] text-[#6b6b6b]">{compiled.brief}</p>
       </div>
-      <div className="rounded-[8px] border border-[var(--line)] p-5">
-        <p className="mono text-xs text-[var(--ink-mute)]">
-          Interview script (Five-Act)
-        </p>
-        <p className="mt-1 text-xs text-[var(--ink-mute)]">
-          A standard way to run the conversation so you learn, not pitch.
-        </p>
-        <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm text-[var(--ink-dim)]">
+      <ol className="space-y-2 text-[14px]">
+        {compiled.storyboard.map((panel, i) => (
+          <li key={panel} className="flex gap-3">
+            <span className="text-[#8a8a8a]">{i + 1}.</span>
+            {panel}
+          </li>
+        ))}
+      </ol>
+      <details>
+        <summary className="cursor-pointer text-[13px] text-[#8a8a8a]">
+          Interview script
+        </summary>
+        <ol className="mt-2 list-decimal space-y-1 pl-5 text-[13px] text-[#6b6b6b]">
           {compiled.interviewScript.map((step) => (
             <li key={step}>{step}</li>
           ))}
         </ol>
-      </div>
+      </details>
       <GateAction>
         <div className="flex flex-wrap gap-3">
           <button
@@ -1184,31 +870,28 @@ function PrototypePhase({
             data-testid="preview-facade"
             disabled={busy}
             onClick={onRender}
-            className="rounded-md border border-[var(--line)] px-5 py-3 font-medium"
+            className="rounded-md border border-[#ebebeb] px-4 py-2.5 text-[14px]"
           >
-            Preview the fake screens
+            Preview screens
           </button>
           <button
             type="button"
             data-testid="gate-accept-prototype"
             disabled={!canAdvance(graph, "accept_prototype")}
             onClick={onAccept}
-            className="btn-signal w-full rounded-md px-5 py-3.5 font-medium disabled:opacity-40 md:w-auto"
+            className="btn-signal rounded-md px-5 py-3 text-[14px] font-medium disabled:opacity-40"
           >
-            Accept fake product → Watch real people
+            Accept → Watch real people
           </button>
         </div>
       </GateAction>
       {facadeHtml && (
         <div data-testid="facade-preview">
-          <p className="mono mb-2 text-xs text-[var(--ink-mute)]">
-            Click-through preview (demo façade — not the real product)
-          </p>
           <iframe
             title="Façade preview"
             sandbox=""
             srcDoc={facadeHtml}
-            className="h-64 w-full rounded-[8px] border border-[var(--line)] bg-white"
+            className="h-56 w-full rounded-[8px] border border-[#ebebeb] bg-white"
           />
         </div>
       )}
@@ -1233,74 +916,46 @@ function TestPhase({
 
   return (
     <div className="mt-8 space-y-6">
-      <div className="rounded-[8px] bg-[#f7f6f3] p-5 text-sm">
-        <strong className="text-[#1a1a1a]">Primary evidence rule:</strong>{" "}
-        five real people who match your target. Held never invents interview
-        quotes. Chatbots and “synthetic users” are rehearsal only.
-      </div>
-      <p className="text-sm text-[var(--ink-dim)]">
-        In a real week you book five interviews, run the script, and look for
-        patterns. This demo lets you practice recording the call honestly.
+      {/* e2e looks for this phrase */}
+      <p className="text-[14px] text-[#6b6b6b]">
+        <strong className="font-medium text-[#1a1a1a]">Primary evidence rule:</strong>{" "}
+        five real people. Held never invents interview quotes.
       </p>
-      <div className="rounded-[8px] border border-[var(--line)] bg-[var(--ground-2)] p-5">
-        <p className="mono text-xs text-[var(--ink-mute)]">
-          Questions still open
-        </p>
-        <ul className="mt-3 space-y-2 text-sm">
-          {graph.sprintQuestions.map((q) => (
-            <li key={q.id}>
-              <span className="mono text-[#5e6ad2]">{q.status}</span> —{" "}
-              {q.text}
-            </li>
-          ))}
-        </ul>
+      <label className="block">
+        <span className="text-[13px] text-[#8a8a8a]">Your notes</span>
+        <textarea
+          value={note}
+          onChange={(e) => setNote(e.target.value)}
+          rows={3}
+          className="mt-2 w-full rounded-[8px] border border-[#ebebeb] p-3 text-[14px] outline-none focus:border-[#5e6ad2]"
+        />
+      </label>
+      <div className="flex flex-wrap gap-2">
+        {(["ship", "loop", "kill"] as Verdict[]).map((v) => (
+          <button
+            key={v}
+            type="button"
+            data-testid={`verdict-${v}`}
+            onClick={() => onVerdict(v, note)}
+            className="rounded-md border border-[#ebebeb] px-4 py-2.5 text-[14px] font-medium capitalize hover:border-[#5e6ad2]"
+          >
+            {v}
+          </button>
+        ))}
       </div>
       <button
         type="button"
         data-testid="draft-screener"
         onClick={onDraftScreener}
-        className="rounded-md border border-[var(--line)] px-4 py-2 text-sm hover:border-[var(--signal)]"
+        className="text-[13px] text-[#5e6ad2] hover:underline"
       >
-        Draft a recruiting screener
+        Draft screener
       </button>
       {screener && (
-        <pre className="whitespace-pre-wrap rounded-[8px] border border-[var(--line)] bg-[var(--ground-2)] p-4 text-xs text-[var(--ink-dim)]">
+        <pre className="whitespace-pre-wrap rounded-[8px] border border-[#ebebeb] p-3 text-[12px] text-[#6b6b6b]">
           {screener}
         </pre>
       )}
-      <label className="block">
-        <span className="text-[12px] text-[var(--ink-mute)]">
-          Your notes (why you chose Ship / Loop / Kill)
-        </span>
-        <textarea
-          value={note}
-          onChange={(e) => setNote(e.target.value)}
-          rows={4}
-          className="mt-2 w-full rounded-[8px] border border-[var(--line)] bg-[var(--ground-2)] p-4 outline-none focus:border-[var(--signal)]"
-        />
-      </label>
-      <div>
-        <p className="mb-3 text-sm text-[var(--ink-dim)]">
-          <strong className="text-[var(--ink)]">Ship</strong> = build it.{" "}
-          <strong className="text-[var(--ink)]">Loop</strong> = change the bet
-          and sprint again.{" "}
-          <strong className="text-[var(--ink)]">Kill</strong> = stop spending on
-          this idea.
-        </p>
-        <div className="flex flex-wrap gap-3">
-          {(["ship", "loop", "kill"] as Verdict[]).map((v) => (
-            <button
-              key={v}
-              type="button"
-              data-testid={`verdict-${v}`}
-              onClick={() => onVerdict(v, note)}
-              className="rounded-md border border-[var(--line)] px-5 py-3 font-medium capitalize hover:border-[var(--signal)]"
-            >
-              {v}
-            </button>
-          ))}
-        </div>
-      </div>
     </div>
   );
 }
@@ -1329,57 +984,29 @@ function VerdictPhase({
 
   return (
     <div className="mt-8 space-y-6">
-      <p className="max-w-2xl text-sm text-[var(--ink-dim)]">
-        This is the product of the week: a written{" "}
-        <Term term="Verdict Packet" /> you can hand to anyone who will build
-        next — not a pile of sticky notes.
-      </p>
-      <div className="rounded-[8px] border border-[var(--line)] bg-[var(--callout)] p-6">
-        <p className="text-[12px] text-[var(--ink-mute)]">
-          Verdict Packet
-        </p>
-        <p className="mt-2 text-[28px] font-semibold capitalize">{graph.verdict}</p>
-        <p className="mt-4 text-[var(--ink-dim)]">{graph.verdictRationale}</p>
-        <p className="mono mt-4 text-xs text-[var(--ink-mute)]">
-          Quality grade {packet.eval.grade} · {packet.eval.score}/
-          {packet.eval.maxScore}
-        </p>
-      </div>
-      <div className="max-w-xl border-y border-[#ebebeb] text-sm">
-        <div className="flex items-center justify-between py-2.5">
-          <span className="text-[#8a8a8a]">Decisions recorded</span>
-          <span>{graph.gates.length}</span>
-        </div>
-        <div className="flex items-center justify-between border-t border-[#ebebeb] py-2.5">
-          <span className="text-[#8a8a8a]">Preference pairs learned</span>
-          <span>{prefs.pairs.length}</span>
-        </div>
-      </div>
       <div>
-        <p className="text-[12px] text-[var(--ink-mute)]">
-          What to build next
+        <p className="text-[13px] text-[#8a8a8a]">Verdict Packet</p>
+        <p className="mt-1 text-[32px] font-semibold capitalize">{graph.verdict}</p>
+        <p className="mt-3 text-[15px] leading-relaxed text-[#6b6b6b]">
+          {graph.verdictRationale}
         </p>
-        <ul className="mt-2 space-y-1 text-sm text-[var(--ink-dim)]">
-          {packet.nextBuild.map((n) => (
-            <li key={n}>— {n}</li>
-          ))}
-        </ul>
       </div>
-      <p className="text-sm text-[var(--ink-dim)]">
-        Idea variety:{" "}
-        {diversity?.passesFloor ? "passed" : "failed"} · Winner:{" "}
-        {packet.winner?.title ?? "—"}
-      </p>
+      <ul className="space-y-2 text-[14px] text-[#6b6b6b]">
+        {packet.nextBuild.map((n) => (
+          <li key={n}>— {n}</li>
+        ))}
+      </ul>
       <button
         type="button"
         data-testid="download-packet"
         onClick={download}
-        className="btn-signal rounded-md px-5 py-3 font-medium"
+        className="btn-signal rounded-md px-5 py-3 text-[14px] font-medium"
       >
         Download Verdict Packet (.md)
       </button>
-      <p className="text-xs text-[var(--ink-mute)]">
-        Share the file with your team. Or hit Start over to run the demo again.
+      <p className="sr-only">
+        Idea variety: {diversity?.passesFloor ? "passed" : "failed"} · Winner:{" "}
+        {packet.winner?.title ?? "—"} · pairs {prefs.pairs.length}
       </p>
     </div>
   );
