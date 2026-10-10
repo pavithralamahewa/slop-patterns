@@ -39,7 +39,7 @@ export default function HomePage() {
           </a>
           <Link
             href="/sprint"
-            className="rounded-md bg-[var(--signal)] px-4 py-2 font-medium text-[var(--signal-ink)] transition hover:brightness-110"
+            className="btn-signal rounded-md px-4 py-2 font-medium"
           >
             Try the guided demo
           </Link>
@@ -65,13 +65,13 @@ export default function HomePage() {
           <div className="rise-4 mt-10 flex flex-wrap gap-3">
             <Link
               href="/sprint"
-              className="rounded-md bg-[var(--ink)] px-5 py-3 font-medium text-[var(--ground)] transition hover:bg-white"
+              className="btn-signal inline-flex items-center justify-center rounded-md px-5 py-3 font-medium"
             >
               Start the guided demo
             </Link>
             <a
               href="#how"
-              className="rounded-md border border-[var(--line)] px-5 py-3 font-medium text-[var(--ink)] transition hover:border-[var(--ink-dim)]"
+              className="inline-flex items-center justify-center rounded-md border border-[var(--line)] px-5 py-3 font-medium text-[var(--ink)] transition hover:border-[var(--ink-dim)]"
             >
               See the steps first
             </a>
@@ -157,7 +157,7 @@ export default function HomePage() {
             </ul>
             <Link
               href="/sprint"
-              className="mt-10 inline-block rounded-md bg-[var(--signal)] px-6 py-3 font-medium text-[var(--signal-ink)] transition hover:brightness-110"
+              className="btn-signal mt-10 inline-block rounded-md px-6 py-3 font-medium"
             >
               Run the guided demo now
             </Link>

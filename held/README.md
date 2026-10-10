@@ -1,12 +1,27 @@
-# Held — Product Decision OS
+# Held — Decide before you build
 
-Compress “what should we build?” into a week of structured learning. Agents diverge. **You Decide.** Five real users close a **Verdict Packet**.
+A guided Product Decision OS. Walk a short week: name the bet, focus, explore real options, choose as the Decider, fake a product, watch real people, leave with a **Verdict Packet**.
 
-Not a UI generator. Not Miro with chat. Not Apify + OpenRouter with a landing page.
+No design-sprint experience required — every step explains what you do, what AI does, and what not to skip.
 
-## Product deliverable
+## Run the guided demo
 
-**Verdict Packet:** Founding Hypothesis → evidence with provenance → Ship / Loop / Kill → what to build next.
+```bash
+npm install
+npm run verify:core
+npm run dev          # http://localhost:3000
+npm run test:e2e     # headless FTUE walkthrough (dev server must be up)
+npm run build
+```
+
+1. Open `/` — brand + plain-language “how it works”
+2. **Start the guided demo** → `/sprint`
+3. Welcome modal (first visit) → coach + checklist through Verdict
+4. Export the Verdict Packet (`.md`)
+
+## What you leave with
+
+**Verdict Packet:** the bet → evidence with sources → Ship / Loop / Kill → what to build next.
 
 ## Deep tech (ours)
 
@@ -14,48 +29,19 @@ Not a UI generator. Not Miro with chat. Not Apify + OpenRouter with a landing pa
 | --- | --- |
 | Sprint Graph + Gate Runtime | Append-only Decider events; illegal skips throw |
 | Diversity Engine | Niche + cosine floors; kills near-dupes |
-| Preference Model | Pairwise signals from heat/straw/supervote (never auto-votes) |
+| Preference Model | Pairwise signals from heat/straw/supervote (never auto-decide) |
 | Evidence Graph | Claims cite sources; linked to sprint questions |
-| Verdict Eval Harness | Grades Map citations, diversity, human supervote, Friday rules |
-| Façade Compiler | Storyboard → interview task graph → instrumented states |
+| Verdict Eval Harness | Grades citations, diversity, human supervote, Friday rules |
+| Façade Compiler | Storyboard → interview tasks → instrumented states |
 
 ## Adapters (plugs — not the company)
 
-`src/lib/adapters/` — swappable interfaces:
+`src/lib/adapters/` — swappable: Map research, LLM, Codegen, Panel. Local demos today; Apify / OpenRouter / etc. later.
 
-- Map research → local demo today; `map.apify` stub for Apify
-- LLM → local draft today; `llm.openrouter` stub for OpenRouter
-- Codegen → local HTML façade stub (v0/etc. later)
-- Panel → local screener draft (Respondent / User Interviews later)
+## Persistence
 
-## Sprint Zero (dogfood)
-
-Encoded Design Sprint **on Held itself** at `/sprint`:
-
-1. Foundation — Founding Hypothesis locked  
-2. Map — first-run target + 3 questions + cited evidence  
-3. Sketch — Diversity Engine filters clone  
-4. Decide — human supervote only  
-5. Prototype — Façade Compiler + codegen adapter  
-6. Test — five real users required; no fake quotes  
-7. Verdict — exportable Verdict Packet (.md)
-
-```bash
-npm install
-npm run dev          # http://localhost:3000/sprint
-npm run verify:core  # diversity + gates + dogfood → test + adapters
-npm run build
-```
-
-Production Postgres Gate Runtime ships **after** five real Friday interviews (plan dogfood order).
-
-## Stack
-
-Next.js 15 · React 19 · Tailwind v4
-
-**Persistence (v1):**
 - Durable file repository at `.data/sprints/` via `/api/sprints`
-- Postgres DDL ready in [`src/lib/db/schema.sql`](src/lib/db/schema.sql) — set `DATABASE_URL` when wiring `pg`
-- Browser keeps localStorage cache; UI prefers API store
+- Postgres DDL in [`src/lib/db/schema.sql`](src/lib/db/schema.sql)
+- Browser caches in localStorage; UI prefers the API store
 
-Separate from Slop Patterns.
+Stack: Next.js 15 · React 19 · Tailwind v4

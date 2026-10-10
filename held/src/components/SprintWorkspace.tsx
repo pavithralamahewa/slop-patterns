@@ -666,6 +666,24 @@ function StatusCard({
   );
 }
 
+/** Sticky primary action so mobile users always see the next gate. */
+function StickyAction({
+  children,
+  hint,
+}: {
+  children: React.ReactNode;
+  hint?: string;
+}) {
+  return (
+    <div className="sticky bottom-0 z-20 -mx-5 mt-8 border-t border-[var(--line)] bg-[var(--ground)]/95 px-5 py-4 backdrop-blur md:static md:mx-0 md:border-0 md:bg-transparent md:p-0 md:backdrop-blur-none">
+      {children}
+      {hint && (
+        <p className="mt-2 text-xs text-[var(--ink-mute)]">{hint}</p>
+      )}
+    </div>
+  );
+}
+
 function nextActionFor(
   graph: SprintGraph,
   lookDone: boolean,
@@ -759,18 +777,16 @@ function FoundationPhase({
           ))}
         </ul>
       </div>
-      <button
-        type="button"
-        disabled={busy || !canAdvance(graph, "approve_hypothesis")}
-        onClick={onApprove}
-        className="rounded-md bg-[var(--signal)] px-5 py-3 font-medium text-[var(--signal-ink)] disabled:opacity-40"
-      >
-        Approve this bet → Focus the week
-      </button>
-      <p className="text-xs text-[var(--ink-mute)]">
-        Approving records a permanent decision in the log. You are acting as the{" "}
-        <Term term="Decider" />.
-      </p>
+      <StickyAction hint="Approving records a permanent decision in the log. You are acting as the Decider.">
+        <button
+          type="button"
+          disabled={busy || !canAdvance(graph, "approve_hypothesis")}
+          onClick={onApprove}
+          className="btn-signal w-full rounded-md px-5 py-3.5 font-medium disabled:opacity-40 md:w-auto"
+        >
+          Approve this bet → Focus the week
+        </button>
+      </StickyAction>
     </div>
   );
 }
@@ -873,14 +889,16 @@ function MapPhase({
           </ul>
         )}
       </div>
-      <button
-        type="button"
-        disabled={busy || !canAdvance(graph, "approve_map")}
-        onClick={onApprove}
-        className="rounded-md bg-[var(--signal)] px-5 py-3 font-medium text-[var(--signal-ink)] disabled:opacity-40"
-      >
-        Approve this focus → Explore options
-      </button>
+      <StickyAction>
+        <button
+          type="button"
+          disabled={busy || !canAdvance(graph, "approve_map")}
+          onClick={onApprove}
+          className="btn-signal w-full rounded-md px-5 py-3.5 font-medium disabled:opacity-40 md:w-auto"
+        >
+          Approve this focus → Explore options
+        </button>
+      </StickyAction>
     </div>
   );
 }
@@ -952,22 +970,20 @@ function SketchPhase({
           </article>
         ))}
       </div>
-      <button
-        type="button"
-        disabled={
-          !lookDone ||
-          !diversity?.passesFloor ||
-          graph.sketches.every((s) => s.heatVotes === 0)
-        }
-        onClick={onOpenDecide}
-        className="rounded-md bg-[var(--signal)] px-5 py-3 font-medium text-[var(--signal-ink)] disabled:opacity-40"
-      >
-        Open Choose a direction
-      </button>
-      <p className="text-xs text-[var(--ink-mute)]">
-        Need at least one Dot, and the variety check must pass, before you can
-        continue.
-      </p>
+      <StickyAction hint="Need at least one Dot, and the variety check must pass, before you can continue.">
+        <button
+          type="button"
+          disabled={
+            !lookDone ||
+            !diversity?.passesFloor ||
+            graph.sketches.every((s) => s.heatVotes === 0)
+          }
+          onClick={onOpenDecide}
+          className="btn-signal w-full rounded-md px-5 py-3.5 font-medium disabled:opacity-40 md:w-auto"
+        >
+          Open Choose a direction
+        </button>
+      </StickyAction>
     </div>
   );
 }
@@ -1031,19 +1047,22 @@ function DecidePhase({
           </li>
         ))}
       </ol>
-      <button
-        type="button"
-        disabled={!graph.winnerSketchId}
-        onClick={onSupervote}
-        className="rounded-md bg-[var(--signal)] px-5 py-3 font-medium text-[var(--signal-ink)] disabled:opacity-40"
+      <StickyAction
+        hint={
+          graph.winnerSketchId
+            ? undefined
+            : "Select an idea first — then this button unlocks."
+        }
       >
-        Cast supervote → Fake the product
-      </button>
-      {!graph.winnerSketchId && (
-        <p className="text-xs text-[var(--ink-mute)]">
-          Select an idea first — then this button unlocks.
-        </p>
-      )}
+        <button
+          type="button"
+          disabled={!graph.winnerSketchId}
+          onClick={onSupervote}
+          className="btn-signal w-full rounded-md px-5 py-3.5 font-medium disabled:opacity-40 md:w-auto"
+        >
+          Cast supervote → Fake the product
+        </button>
+      </StickyAction>
     </div>
   );
 }
@@ -1102,24 +1121,26 @@ function PrototypePhase({
           ))}
         </ol>
       </div>
-      <div className="flex flex-wrap gap-3">
-        <button
-          type="button"
-          disabled={busy}
-          onClick={onRender}
-          className="rounded-md border border-[var(--line)] px-5 py-3 font-medium"
-        >
-          Preview the fake screens
-        </button>
-        <button
-          type="button"
-          disabled={busy || !canAdvance(graph, "accept_prototype")}
-          onClick={onAccept}
-          className="rounded-md bg-[var(--signal)] px-5 py-3 font-medium text-[var(--signal-ink)] disabled:opacity-40"
-        >
-          Accept fake product → Watch real people
-        </button>
-      </div>
+      <StickyAction>
+        <div className="flex flex-wrap gap-3">
+          <button
+            type="button"
+            disabled={busy}
+            onClick={onRender}
+            className="rounded-md border border-[var(--line)] px-5 py-3 font-medium"
+          >
+            Preview the fake screens
+          </button>
+          <button
+            type="button"
+            disabled={busy || !canAdvance(graph, "accept_prototype")}
+            onClick={onAccept}
+            className="btn-signal w-full rounded-md px-5 py-3.5 font-medium disabled:opacity-40 md:w-auto"
+          >
+            Accept fake product → Watch real people
+          </button>
+        </div>
+      </StickyAction>
       {facadeHtml && (
         <div>
           <p className="mono mb-2 text-xs text-[var(--ink-mute)]">

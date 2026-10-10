@@ -7,11 +7,11 @@ import { selectDiverseSet, withDiversityScores } from "../core/diversity";
  */
 
 export const FOUNDING_HYPOTHESIS =
-  "If we help seed/Series A product pods answer one risky UX question with agent drafts + human Decide + five real testers, they will choose Held over Miro + Lovable + calendar sprints because the sprint graph forces divergence and a recorded Verdict Packet.";
+  "If we help early-stage product teams answer one risky product question with AI drafts, a human final decision, and five real user interviews, they will choose Held over sticky-note boards and vibe-check mockups — because Held forces real options and ends with a written Ship / Loop / Kill verdict.";
 
 export const DIFFERENTIATORS = [
-  "Measurable sketch diversity (not eight paraphrases)",
-  "Append-only Decider gates as the product, not a prompt pack",
+  "Several genuinely different solution ideas — not eight near-copies of one AI default",
+  "Human decisions are locked in a permanent log — AI cannot cast the final vote",
 ];
 
 /** Candidate pool for Held first-run — intentionally spanning niches. */
@@ -155,29 +155,29 @@ export function createHeldSprintZero(): SprintGraph {
 
   return {
     id: "sprint_held_zero",
-    title: "Held Sprint Zero — first-run of Held",
+    title: "Demo: Held deciding about Held",
     createdAt,
     phase: "foundation",
     hypothesis: FOUNDING_HYPOTHESIS,
     differentiators: DIFFERENTIATORS,
     targetUser:
-      "Seed/Series A PM or product designer who has run or wanted a design sprint",
+      "A product manager or designer at an early-stage startup who wants to decide what to build before writing lots of code",
     targetMoment:
-      "First open of Held: Start sprint → Approve Map → see divergent sketches with diversity receipts",
+      "The first time they open Held and need to go from a fuzzy idea to a clear bet, options, and a written verdict",
     sprintQuestions: [
       {
         id: "q1",
-        text: "Will a PM understand the phase rail and Map gate without a human facilitator?",
+        text: "Can someone new follow the step-by-step week without a human coach in the room?",
         status: "open",
       },
       {
         id: "q2",
-        text: "Will they trust a divergent gallery enough to supervote — instead of asking for one AI best?",
+        text: "Will they pick among several different ideas — instead of asking AI for one “best” mockup?",
         status: "open",
       },
       {
         id: "q3",
-        text: "Does the Verdict Packet feel like a deliverable they would take to their team?",
+        text: "Would they share the written verdict with their team as the outcome of the week?",
         status: "open",
       },
     ],
@@ -199,7 +199,7 @@ export function createHeldSprintZero(): SprintGraph {
     evidence: [
       {
         id: "ev_char_ai",
-        text: "Character Capital: as AI makes building free, deciding what to build matters more — Foundation + Design Sprint are the method.",
+        text: "As AI makes building cheaper, choosing what to build matters more. Structured “decide first” weeks are the method many top teams still use.",
         sourceKind: "url",
         sourceRef: "https://www.character.vc/guide/foundation-sprint",
         supportsQuestionIds: ["q2", "q3"],
@@ -207,7 +207,7 @@ export function createHeldSprintZero(): SprintGraph {
       },
       {
         id: "ev_gv",
-        text: "GV Design Sprint: shortcut to learning via realistic façade + five real customers before expensive build.",
+        text: "A classic design sprint learns fast with a realistic fake product and five real customers — before a costly build.",
         sourceKind: "url",
         sourceRef: "https://www.gv.com/sprint",
         supportsQuestionIds: ["q1", "q3"],
@@ -215,7 +215,7 @@ export function createHeldSprintZero(): SprintGraph {
       },
       {
         id: "ev_market",
-        text: "Market flooded with UI generators (Lovable, v0, Figma Make) — none own diverge→Decide→evidence as a system of record.",
+        text: "Lots of tools generate pretty UIs in minutes. Few help a team diverge, decide, and leave with evidence they can share.",
         sourceKind: "human_note",
         sourceRef: "sprint-zero-foundation",
         supportsQuestionIds: ["q2"],
@@ -228,10 +228,10 @@ export function createHeldSprintZero(): SprintGraph {
 }
 
 export const ASSUMPTION_SCORECARD = [
-  { id: "a1", question: "Right customer?", note: "Seed/Series A product pods — test on Friday" },
-  { id: "a2", question: "Right problem?", note: "Wrong-thing risk + sprint ops cost" },
-  { id: "a3", question: "Right approach?", note: "Decision OS, not generator" },
-  { id: "a4", question: "Choose over competitors?", note: "vs Miro+Lovable+calendar" },
-  { id: "a5", question: "Differentiators click?", note: "Diversity + gate ledger" },
-  { id: "a6", question: "Does it click?", note: "Sprint Zero Friday — five real PMs" },
+  { id: "a1", question: "Right customer?", note: "Early-stage PMs/designers — confirm in real interviews" },
+  { id: "a2", question: "Right problem?", note: "Shipping the wrong thing is costlier than a slow design week" },
+  { id: "a3", question: "Right approach?", note: "A decision system — not another UI generator" },
+  { id: "a4", question: "Choose over alternatives?", note: "Boards + AI mockups + calendar invites vs Held" },
+  { id: "a5", question: "Do the differentiators land?", note: "Real option variety + locked human decisions" },
+  { id: "a6", question: "Does the product click?", note: "Five real people must try the fake product" },
 ];
