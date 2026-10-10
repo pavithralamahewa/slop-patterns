@@ -665,7 +665,14 @@ function PropertyList({
               : "—"
           }
         />
-        <PropertyRow label="Taste" value={preferenceSummary(prefs)} />
+        <PropertyRow
+          label="Taste"
+          value={
+            prefs.pairs.length
+              ? `${prefs.pairs.length} pairs`
+              : "None yet"
+          }
+        />
       </div>
       <p className="mt-5 text-[12px] font-medium text-[#1a1a1a]">Activity</p>
       <ol className="mt-2 max-h-48 space-y-2 overflow-y-auto border-t border-[#ebebeb] pt-2 text-[12px] text-[#6b6b6b]">
@@ -859,14 +866,14 @@ function MapPhase({
         <strong className="text-[var(--ink)]">one moment</strong> in their journey,
         and a few yes/no questions that real interviews can settle.
       </p>
-      <div className="max-w-xl border-y border-[#ebebeb]">
-        <div className="flex items-start justify-between gap-4 py-3">
+      <div className="max-w-2xl border-y border-[#ebebeb]">
+        <div className="py-3">
           <p className="text-[13px] text-[#8a8a8a]">Who we are focusing on</p>
-          <p className="max-w-[18rem] text-right text-sm">{graph.targetUser}</p>
+          <p className="mt-1 text-sm">{graph.targetUser}</p>
         </div>
-        <div className="flex items-start justify-between gap-4 border-t border-[#ebebeb] py-3">
+        <div className="border-t border-[#ebebeb] py-3">
           <p className="text-[13px] text-[#8a8a8a]">The moment that matters</p>
-          <p className="max-w-[18rem] text-right text-sm">{graph.targetMoment}</p>
+          <p className="mt-1 text-sm">{graph.targetMoment}</p>
         </div>
       </div>
       <div>
@@ -1338,18 +1345,14 @@ function VerdictPhase({
           {packet.eval.maxScore}
         </p>
       </div>
-      <div className="grid gap-4 sm:grid-cols-2">
-        <div className="rounded-[8px] border border-[var(--line)] p-4 text-sm">
-          <p className="mono text-xs text-[var(--ink-mute)]">
-            Decisions recorded
-          </p>
-          <p className="mt-2 text-2xl font-medium">{graph.gates.length}</p>
+      <div className="max-w-xl border-y border-[#ebebeb] text-sm">
+        <div className="flex items-center justify-between py-2.5">
+          <span className="text-[#8a8a8a]">Decisions recorded</span>
+          <span>{graph.gates.length}</span>
         </div>
-        <div className="rounded-[8px] border border-[var(--line)] p-4 text-sm">
-          <p className="mono text-xs text-[var(--ink-mute)]">
-            Preference pairs learned
-          </p>
-          <p className="mt-2 text-2xl font-medium">{prefs.pairs.length}</p>
+        <div className="flex items-center justify-between border-t border-[#ebebeb] py-2.5">
+          <span className="text-[#8a8a8a]">Preference pairs learned</span>
+          <span>{prefs.pairs.length}</span>
         </div>
       </div>
       <div>

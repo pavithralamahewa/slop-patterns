@@ -19,17 +19,15 @@ export function CoachPanel({ phase, stepIndex, stepTotal }: Props) {
     >
       {/* Notion getting-started callout
           https://mobbin.com/screens/0d0a0279-39dc-44c9-bae7-f4cd616336d0 */}
-      <div className="flex items-center justify-between gap-3 text-[12px] text-[#8a8a8a]">
-        <span>
-          Step {stepIndex + 1} of {stepTotal}
-        </span>
-        <span className="h-1 w-24 overflow-hidden rounded-full bg-[#ebebeb]">
-          <span
-            className="block h-full rounded-full bg-[#5e6ad2]"
-            style={{ width: `${((stepIndex + 1) / stepTotal) * 100}%` }}
-          />
-        </span>
-      </div>
+      <p className="text-[12px] text-[#8a8a8a]">
+        Step {stepIndex + 1} of {stepTotal}
+      </p>
+      <span className="mt-2 block h-1 overflow-hidden rounded-full bg-[#ebebeb]">
+        <span
+          className="block h-full rounded-full bg-[#5e6ad2]"
+          style={{ width: `${((stepIndex + 1) / stepTotal) * 100}%` }}
+        />
+      </span>
       <p className="mt-2 text-[14px] font-medium leading-snug text-[#1a1a1a]">
         {g.inOneSentence}
       </p>
