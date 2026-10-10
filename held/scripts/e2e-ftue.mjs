@@ -145,7 +145,7 @@ async function main() {
         bg: s.backgroundColor,
       };
     });
-    if (!hero.ok || hero.bg !== "rgb(23, 23, 23)")
+    if (!hero.ok || hero.bg !== "rgb(94, 106, 210)")
       fail(`Hero CTA ${JSON.stringify(hero)}`);
     console.log("OK home CTA", hero);
 

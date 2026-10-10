@@ -1,9 +1,14 @@
 @import "tailwindcss";
 
-/* Tokens lifted from production apps on Mobbin:
-   Linear web workspace (sidebar #f7f7f7, canvas white, indigo #5e6ad2)
-   Maze marketing (black type on white, filled + outline CTAs)
-   Notion getting started (document canvas, callout, checklist) */
+/* Tokens copied from production Mobbin screens:
+   Linear workspace — sidebar #f7f7f7, canvas #fff, selected #ececec, indigo #5e6ad2
+   https://mobbin.com/screens/136da279-adbd-4b9f-9f50-4034c458a851
+   https://mobbin.com/screens/3af45bee-f669-4dc7-afaf-e3fb099161f9
+   Maze marketing — white canvas, near-black type, filled + outline pills
+   https://mobbin.com/sites/sections/68bbcac6-303d-4465-b420-8c02dde24eb9
+   Notion getting started — document, beige callout, checklist, dialog
+   https://mobbin.com/screens/0d0a0279-39dc-44c9-bae7-f4cd616336d0
+   https://mobbin.com/screens/cc865690-f319-4b7b-ba18-ea37ac09e40e */
 
 :root {
   --ground: #ffffff;
@@ -14,10 +19,11 @@
   --line: #ebebeb;
   --signal: #5e6ad2;
   --signal-ink: #ffffff;
+  --signal-hover: #4e5ac4;
   --warm: #1a1a1a;
   --danger: #d14d41;
   --selected: #ececec;
-  --callout: #f4f4f5;
+  --callout: #f7f6f3;
   --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
@@ -69,19 +75,20 @@ button {
   text-transform: none;
 }
 
+/* Linear empty-state / Maze “Get started” filled CTA */
 .btn-signal {
-  background: #171717;
-  color: #ffffff;
+  background: var(--signal);
+  color: var(--signal-ink);
   border-radius: 6px;
 }
 
 .btn-signal:hover {
-  background: #2a2a2a;
+  background: var(--signal-hover);
 }
 
 .btn-ink {
-  background: #171717;
-  color: #ffffff;
+  background: var(--signal);
+  color: var(--signal-ink);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,7 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState, useTransition } from "react";
+import {
+  useEffect,
+  useMemo,
+  useState,
+  useTransition,
+  type ReactNode,
+} from "react";
 import {
   appendGate,
   canAdvance,
@@ -196,11 +202,14 @@ export function SprintWorkspace() {
 
   if (!graph) {
     return (
-      <div className="relative min-h-screen bg-[var(--ground)]">
+      <div className="relative min-h-screen bg-white">
         <WelcomeGate open={showWelcome} onStart={dismissWelcome} />
-        <div className="flex min-h-screen flex-col items-center justify-center gap-3 px-6 text-center">
-          <p className="text-[22px] font-semibold">Held</p>
-          <p className="text-[var(--ink-dim)]">
+        {/* Linear empty canvas
+            https://mobbin.com/screens/3af45bee-f669-4dc7-afaf-e3fb099161f9 */}
+        <div className="flex min-h-screen flex-col items-center justify-center gap-2 px-6 text-center">
+          <span className="mb-3 inline-block h-8 w-8 rounded-md bg-[#5e6ad2]" />
+          <p className="text-[15px] font-medium">Held</p>
+          <p className="max-w-xs text-[13px] text-[#6b6b6b]">
             Preparing your guided demo…
           </p>
         </div>
@@ -212,108 +221,43 @@ export function SprintWorkspace() {
   const guide = PHASE_GUIDE[graph.phase];
   const nextAction = nextActionFor(graph, lookDone, diversity?.passesFloor);
 
+  function startOver() {
+    clearGraph();
+    clearActiveSprintId();
+    setPrefs(emptyModel());
+    setLookDone(false);
+    setFacadeHtml(null);
+    setScreener(null);
+    try {
+      localStorage.removeItem(WELCOME_KEY);
+    } catch {
+      /* ignore */
+    }
+    setShowWelcome(true);
+    void apiCreateSprint().then((created) => {
+      const fresh = created ?? createHeldSprintZero();
+      if (created) setActiveSprintId(created.id);
+      setStorageLabel(created ? "saved" : "on this device");
+      commit(fresh);
+    });
+  }
+
   return (
-    <div className="min-h-screen bg-white text-[var(--ink)]">
+    <div className="flex min-h-screen bg-white text-[var(--ink)]">
       <WelcomeGate open={showWelcome} onStart={dismissWelcome} />
 
-      <header className="border-b border-[var(--line)] bg-white px-5 py-2.5 md:px-6">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3">
-          <div className="flex items-center gap-4">
-            <Link href="/" className="text-[14px] font-semibold">
-              Held
-            </Link>
-            <span className="hidden text-[12px] text-[var(--ink-mute)] sm:inline">
-              Guided demo · {storageLabel}
-            </span>
-          </div>
-          <div className="flex items-center gap-3">
-            {busy && (
-              <span className="mono text-xs text-[#5e6ad2]">
-                AI drafting…
-              </span>
-            )}
-            <button
-              type="button"
-              data-testid="toggle-coach"
-              className="text-[12px] text-[var(--ink-mute)] hover:text-[var(--ink)]"
-              onClick={() => setCoachOpen((v) => !v)}
-            >
-              {coachOpen ? "Hide coach" : "Show coach"}
-            </button>
-            <button
-              type="button"
-              data-testid="start-over"
-              className="text-[12px] text-[var(--ink-mute)] hover:text-[var(--ink)]"
-              onClick={() => {
-                clearGraph();
-                clearActiveSprintId();
-                setPrefs(emptyModel());
-                setLookDone(false);
-                setFacadeHtml(null);
-                setScreener(null);
-                try {
-                  localStorage.removeItem(WELCOME_KEY);
-                } catch {
-                  /* ignore */
-                }
-                setShowWelcome(true);
-                void apiCreateSprint().then((created) => {
-                  const fresh = created ?? createHeldSprintZero();
-                  if (created) setActiveSprintId(created.id);
-                  setStorageLabel(created ? "saved" : "on this device");
-                  commit(fresh);
-                });
-              }}
-            >
-              Start over
-            </button>
-            <Link
-              href="/"
-              className="text-sm text-[var(--ink-dim)] hover:text-[var(--ink)]"
-            >
-              Home
-            </Link>
-          </div>
+      {/* Linear left sidebar
+          https://mobbin.com/screens/136da279-adbd-4b9f-9f50-4034c458a851 */}
+      <aside className="hidden w-[244px] shrink-0 flex-col border-r border-[#ebebeb] bg-[#f7f7f7] md:flex">
+        <div className="flex h-12 items-center gap-2 px-4">
+          <span className="inline-block h-4 w-4 rounded-[4px] bg-[#5e6ad2]" />
+          <Link href="/" className="text-[13px] font-medium">
+            Held
+          </Link>
         </div>
-      </header>
-
-      <div className="mx-auto grid max-w-7xl gap-6 px-5 py-6 md:grid-cols-[220px_1fr] lg:grid-cols-[220px_1fr_280px] md:px-8 md:py-8">
-        {/* Phase checklist rail — compact on mobile, full on desktop */}
-        <aside className="md:sticky md:top-3 md:self-start md:rounded-[8px] md:bg-[var(--ground-2)] md:p-3">
-          <div className="md:hidden">
-            <p className="text-[12px] text-[var(--ink-mute)]">
-              Your week · {idx + 1} of {PHASE_ORDER.length}
-            </p>
-            <ol className="mt-2 flex gap-1" aria-label="Sprint progress">
-              {PHASE_ORDER.map((p, i) => {
-                const active = p === graph.phase;
-                const done = i < idx;
-                return (
-                  <li key={p} className="flex-1">
-                    <span
-                      title={PHASE_GUIDE[p].plainName}
-                      className={`block h-1.5 rounded-full ${
-                        active
-                          ? "bg-[var(--signal)]"
-                          : done
-                            ? "bg-[var(--signal)]/50"
-                            : "bg-[var(--line)]"
-                      }`}
-                    />
-                  </li>
-                );
-              })}
-            </ol>
-            <p className="mt-2 text-sm font-medium">{guide.plainName}</p>
-          </div>
-          <div className="hidden md:block">
-          <p className="mb-1 text-[12px] text-[var(--ink-mute)]">
-            Your week
-          </p>
-          <p className="mb-4 text-xs text-[var(--ink-mute)]">
-            {idx + 1} of {PHASE_ORDER.length} steps · check them off as you go
-          </p>
-          <ol className="space-y-1">
+        <nav className="flex-1 overflow-y-auto px-2 pb-4">
+          <p className="px-2 pb-1 pt-2 text-[11px] text-[#8a8a8a]">This week</p>
+          <ol className="space-y-0.5">
             {PHASE_ORDER.map((p, i) => {
               const active = p === graph.phase;
               const done = i < idx;
@@ -321,12 +265,12 @@ export function SprintWorkspace() {
               return (
                 <li key={p}>
                   <div
-                    className={`flex w-full items-start gap-2 rounded-md px-2.5 py-1.5 text-left text-[13px] ${
+                    className={`flex w-full items-start gap-2 rounded-md px-2 py-1.5 text-left text-[13px] ${
                       active
-                        ? "bg-[var(--selected)] text-[var(--ink)]"
+                        ? "bg-[#ececec] text-[#1a1a1a]"
                         : done
-                          ? "text-[var(--ink)]"
-                          : "text-[var(--ink-mute)]"
+                          ? "text-[#1a1a1a]"
+                          : "text-[#8a8a8a]"
                     }`}
                   >
                     <span
@@ -342,13 +286,9 @@ export function SprintWorkspace() {
                       {done ? "✓" : i + 1}
                     </span>
                     <span>
-                      <span className="block font-medium leading-tight">
-                        {g.plainName}
-                      </span>
+                      <span className="block leading-tight">{g.plainName}</span>
                       {active && (
-                        <span
-                          className="mt-0.5 block text-[11px] leading-snug text-[var(--ink-mute)]"
-                        >
+                        <span className="mt-0.5 block text-[11px] leading-snug text-[#8a8a8a]">
                           You are here
                         </span>
                       )}
@@ -358,43 +298,110 @@ export function SprintWorkspace() {
               );
             })}
           </ol>
-          {!coachOpen && (
-            <div className="mt-6 rounded-[8px] border border-[var(--line)] p-4">
-              <p className="text-[12px] text-[var(--ink-mute)]">
-                Your job right now
+          <p className="mt-6 px-2 text-[11px] text-[#8a8a8a]">Try</p>
+          <button
+            type="button"
+            data-testid="start-over"
+            className="mt-1 w-full rounded-md px-2 py-1.5 text-left text-[13px] text-[#6b6b6b] hover:bg-[#ececec]"
+            onClick={startOver}
+          >
+            Start over
+          </button>
+          <Link
+            href="/"
+            className="mt-0.5 block rounded-md px-2 py-1.5 text-[13px] text-[#6b6b6b] hover:bg-[#ececec]"
+          >
+            Home
+          </Link>
+        </nav>
+      </aside>
+
+      <div className="flex min-w-0 flex-1 flex-col">
+        <header className="flex h-12 shrink-0 items-center justify-between gap-3 border-b border-[#ebebeb] px-4">
+          <p className="min-w-0 truncate text-[13px] text-[#6b6b6b]">
+            Guided demo
+            <span className="mx-1.5 text-[#d4d4d4]">/</span>
+            <span className="text-[#1a1a1a]">{guide.plainName}</span>
+            <span className="ml-2 hidden text-[12px] text-[#8a8a8a] sm:inline">
+              {storageLabel}
+            </span>
+          </p>
+          <div className="flex items-center gap-3">
+            {busy && (
+              <span className="mono text-xs text-[#5e6ad2]">AI drafting…</span>
+            )}
+            <button
+              type="button"
+              data-testid="toggle-coach"
+              className="text-[12px] text-[#8a8a8a] hover:text-[#1a1a1a]"
+              onClick={() => setCoachOpen((v) => !v)}
+            >
+              {coachOpen ? "Hide coach" : "Show coach"}
+            </button>
+            <button
+              type="button"
+              className="text-[12px] text-[#8a8a8a] hover:text-[#1a1a1a] md:hidden"
+              data-testid="start-over"
+              onClick={startOver}
+            >
+              Start over
+            </button>
+          </div>
+        </header>
+
+        <div className="flex min-h-0 flex-1">
+          <section className="min-w-0 flex-1 overflow-x-hidden px-4 py-5 md:px-10 md:py-8">
+            <div className="md:hidden">
+              <p className="text-[12px] text-[#8a8a8a]">
+                Your week · {idx + 1} of {PHASE_ORDER.length}
               </p>
-              <p className="mt-2 text-sm text-[var(--warm)]">{guide.whatYouDo}</p>
+              <ol className="mt-2 flex gap-1" aria-label="Sprint progress">
+                {PHASE_ORDER.map((p, i) => {
+                  const active = p === graph.phase;
+                  const done = i < idx;
+                  return (
+                    <li key={p} className="flex-1">
+                      <span
+                        title={PHASE_GUIDE[p].plainName}
+                        className={`block h-1.5 rounded-full ${
+                          active
+                            ? "bg-[#5e6ad2]"
+                            : done
+                              ? "bg-[#5e6ad2]/50"
+                              : "bg-[#ebebeb]"
+                        }`}
+                      />
+                    </li>
+                  );
+                })}
+              </ol>
+              <p className="mt-2 text-sm font-medium">{guide.plainName}</p>
             </div>
-          )}
-          </div>
-        </aside>
 
-        {/* Main desk */}
-        <section className="min-w-0">
-          {coachOpen && (
-            <div className="mb-6">
-              <CoachPanel
-                phase={graph.phase}
-                stepIndex={idx}
-                stepTotal={PHASE_ORDER.length}
-              />
+            {coachOpen && (
+              <div className="mb-6 mt-4 md:mt-0">
+                <CoachPanel
+                  phase={graph.phase}
+                  stepIndex={idx}
+                  stepTotal={PHASE_ORDER.length}
+                />
+              </div>
+            )}
+
+            <div className="rounded-[8px] bg-[#f7f6f3] px-4 py-3">
+              <p className="text-[12px] text-[#8a8a8a]">Next action</p>
+              <p className="mt-1 text-sm text-[#1a1a1a]">{nextAction}</p>
             </div>
-          )}
 
-          <div className="rounded-[8px] border border-[var(--line)] bg-[var(--callout)] px-4 py-3">
-            <p className="text-[12px] text-[var(--ink-mute)]">Next action</p>
-            <p className="mt-1 text-sm text-[var(--ink)]">{nextAction}</p>
-          </div>
-
-          <p className="mt-8 text-[12px] text-[var(--ink-mute)]">
-            Demo sprint · {graph.title}
-          </p>
-          <h1 className="mt-1 text-[26px] font-semibold tracking-[-0.02em] md:text-[32px]">
-            {guide.plainName}
-          </h1>
-          <p className="mt-3 max-w-2xl text-[var(--ink-dim)]">
-            {guide.inOneSentence}
-          </p>
+            <p className="mt-8 text-[12px] text-[#8a8a8a]">
+              Demo sprint · {graph.title}
+            </p>
+            <h1 className="mt-1 text-[26px] font-semibold tracking-[-0.02em] md:text-[32px]">
+              {guide.plainName}
+            </h1>
+            <p className="mt-3 max-w-2xl text-[#6b6b6b]">
+              {guide.inOneSentence}
+            </p>
 
           {graph.phase === "foundation" && (
             <FoundationPhase
@@ -559,164 +566,137 @@ export function SprintWorkspace() {
           {graph.phase === "verdict" && (
             <VerdictPhase graph={graph} prefs={prefs} diversity={diversity} />
           )}
-        </section>
 
-        {/* Status rail — plain language */}
-        <aside className="space-y-4 lg:block">
-          <details className="rounded-[8px] border border-[var(--line)] bg-[var(--ground-2)] p-4 lg:hidden">
-            <summary className="cursor-pointer text-sm font-medium">
-              Sprint status (variety, evidence, log)
-            </summary>
-            <p className="mt-2 text-xs text-[var(--ink-mute)]">
-              Open the cards below on a larger screen, or scroll this section.
-            </p>
-          </details>
-          <StatusCard
-            title="Idea variety check"
-            tip="We force different solution shapes so you are not voting on the same idea eight times."
-          >
-            {diversity ? (
-              <ul className="mt-3 space-y-2 text-sm text-[var(--ink-dim)]">
-                <li>
-                  Distinct approaches{" "}
-                  <strong className="text-[var(--ink)]">
-                    {diversity.uniqueNiches}/{diversity.nicheCount}
-                  </strong>
-                </li>
-                <li>
-                  Spread score{" "}
-                  <strong className="text-[var(--ink)]">
-                    {diversity.minDistance.toFixed(2)}
-                  </strong>
-                </li>
-                <li>
-                  Status{" "}
-                  <strong
-                    className={
-                      diversity.passesFloor
-                        ? "text-[#5e6ad2]"
-                        : "text-[var(--danger)]"
-                    }
-                  >
-                    {diversity.passesFloor
-                      ? "Good enough variety"
-                      : "Too similar — need more options"}
-                  </strong>
-                </li>
-              </ul>
-            ) : (
-              <p className="mt-2 text-sm text-[var(--ink-mute)]">
-                Appears when you reach Explore options.
-              </p>
-            )}
-          </StatusCard>
+            <details className="mt-10 lg:hidden">
+              <summary className="cursor-pointer text-[13px] text-[#6b6b6b]">
+                Sprint properties
+              </summary>
+              <PropertyList
+                graph={graph}
+                diversity={diversity}
+                coverage={coverage}
+                evalReport={evalReport}
+                prefs={prefs}
+                adapterLines={adapterLines}
+              />
+            </details>
+          </section>
 
-          <StatusCard
-            title="Evidence linked"
-            tip="Every claim should point to a source — a URL, note, or interview — not a vibe."
-          >
-            <p className="mt-3 text-sm text-[var(--ink-dim)]">
-              {coverage
-                ? `${coverage.covered} of ${coverage.total} week questions have at least one cited source`
-                : "—"}
-            </p>
-          </StatusCard>
-
-          <StatusCard
-            title="Your taste (learning)"
-            tip="When you supervote, Held remembers what you preferred for future drafts. You stay in charge."
-          >
-            <p className="mt-3 text-sm text-[var(--ink-dim)]">
-              {preferenceSummary(prefs)}
-            </p>
-          </StatusCard>
-
-          <StatusCard
-            title="Sprint quality score"
-            tip="A checklist grade: did humans decide? Were sources cited? Were five real users required?"
-          >
-            {evalReport ? (
-              <ul className="mt-3 space-y-1 text-sm text-[var(--ink-dim)]">
-                <li>
-                  Grade{" "}
-                  <strong className="text-[#5e6ad2]">
-                    {evalReport.grade}
-                  </strong>{" "}
-                  ({evalReport.score}/{evalReport.maxScore})
-                </li>
-                {evalReport.checks.slice(0, 4).map((c) => (
-                  <li key={c.id} className="text-xs">
-                    {c.passed ? "✓" : "·"} {c.label}
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p className="mt-2 text-sm text-[var(--ink-mute)]">—</p>
-            )}
-          </StatusCard>
-
-          <StatusCard
-            title="Decision log"
-            tip="Append-only record of every human gate. You cannot quietly rewrite history."
-          >
-            <ol className="mt-3 max-h-48 space-y-2 overflow-y-auto text-xs text-[var(--ink-dim)]">
-              {graph.gates.length === 0 && (
-                <li>Nothing locked yet — your first approval will appear here.</li>
-              )}
-              {[...graph.gates].reverse().map((g) => (
-                <li key={g.id}>
-                  <span className="text-[#5e6ad2]">
-                    {gateLabel(g.kind)}
-                  </span>
-                  <br />
-                  <span className="text-[var(--ink-mute)]">
-                    {g.actorName} · {new Date(g.at).toLocaleTimeString()}
-                  </span>
-                </li>
-              ))}
-            </ol>
-          </StatusCard>
-
-          <details className="rounded-[8px] border border-[var(--line)] bg-[var(--ground-2)] p-4">
-            <summary className="cursor-pointer text-[12px] text-[var(--ink-mute)]">
-              Words you might see
-            </summary>
-            <dl className="mt-3 space-y-3 text-xs text-[var(--ink-dim)]">
-              {Object.entries(GLOSSARY).map(([k, v]) => (
-                <div key={k}>
-                  <dt className="font-medium text-[var(--ink)]">{k}</dt>
-                  <dd className="mt-0.5">{v}</dd>
-                </div>
-              ))}
-            </dl>
-            <p className="mono mt-4 text-[10px] text-[var(--ink-mute)]">
-              Plugs: {adapterLines.join(" · ")}
-            </p>
-          </details>
-        </aside>
+          {/* Linear issue properties
+              https://mobbin.com/screens/62c94bcd-0559-4356-9d0e-bce71c021d88 */}
+          <aside className="hidden w-[260px] shrink-0 overflow-y-auto border-l border-[#ebebeb] p-4 lg:block">
+            <PropertyList
+              graph={graph}
+              diversity={diversity}
+              coverage={coverage}
+              evalReport={evalReport}
+              prefs={prefs}
+              adapterLines={adapterLines}
+            />
+          </aside>
+        </div>
       </div>
     </div>
   );
 }
 
-function StatusCard({
-  title,
-  tip,
-  children,
+function PropertyRow({
+  label,
+  value,
 }: {
-  title: string;
-  tip: string;
-  children: React.ReactNode;
+  label: string;
+  value: ReactNode;
 }) {
   return (
-    <div className="rounded-[8px] border border-[var(--line)] bg-[var(--ground-2)] p-4">
-      <p className="text-[12px] text-[var(--ink-mute)]">
-        {title}
-      </p>
-      <p className="mt-1 text-[11px] leading-snug text-[var(--ink-mute)]">
-        {tip}
-      </p>
-      {children}
+    <div className="flex items-start justify-between gap-3 py-2 text-[13px]">
+      <span className="shrink-0 text-[#8a8a8a]">{label}</span>
+      <span className="min-w-0 text-right text-[#1a1a1a]">{value}</span>
+    </div>
+  );
+}
+
+function PropertyList({
+  graph,
+  diversity,
+  coverage,
+  evalReport,
+  prefs,
+  adapterLines,
+}: {
+  graph: SprintGraph;
+  diversity: ReturnType<typeof scoreDiversity> | null;
+  coverage: { covered: number; total: number } | null;
+  evalReport: ReturnType<typeof evaluateSprint> | null;
+  prefs: PreferenceModel;
+  adapterLines: string[];
+}) {
+  return (
+    <div>
+      <p className="text-[12px] font-medium text-[#1a1a1a]">Properties</p>
+      <div className="mt-2 border-t border-[#ebebeb]">
+        <PropertyRow label="Status" value={PHASE_GUIDE[graph.phase].plainName} />
+        <PropertyRow
+          label="Step"
+          value={`${PHASE_ORDER.indexOf(graph.phase) + 1} of ${PHASE_ORDER.length}`}
+        />
+        <PropertyRow
+          label="Variety"
+          value={
+            diversity
+              ? diversity.passesFloor
+                ? "Good enough"
+                : "Too similar"
+              : "—"
+          }
+        />
+        <PropertyRow
+          label="Evidence"
+          value={
+            coverage
+              ? `${coverage.covered} of ${coverage.total}`
+              : "—"
+          }
+        />
+        <PropertyRow
+          label="Grade"
+          value={
+            evalReport
+              ? `${evalReport.grade} (${evalReport.score}/${evalReport.maxScore})`
+              : "—"
+          }
+        />
+        <PropertyRow label="Taste" value={preferenceSummary(prefs)} />
+      </div>
+      <p className="mt-5 text-[12px] font-medium text-[#1a1a1a]">Activity</p>
+      <ol className="mt-2 max-h-48 space-y-2 overflow-y-auto border-t border-[#ebebeb] pt-2 text-[12px] text-[#6b6b6b]">
+        {graph.gates.length === 0 && (
+          <li>Nothing locked yet — your first approval appears here.</li>
+        )}
+        {[...graph.gates].reverse().map((g) => (
+          <li key={g.id}>
+            <span className="text-[#5e6ad2]">{gateLabel(g.kind)}</span>
+            <span className="mt-0.5 block text-[#8a8a8a]">
+              {g.actorName} · {new Date(g.at).toLocaleTimeString()}
+            </span>
+          </li>
+        ))}
+      </ol>
+      <details className="mt-5">
+        <summary className="cursor-pointer text-[12px] text-[#8a8a8a]">
+          Words you might see
+        </summary>
+        <dl className="mt-3 space-y-3 text-[12px] text-[#6b6b6b]">
+          {Object.entries(GLOSSARY).map(([k, v]) => (
+            <div key={k}>
+              <dt className="font-medium text-[#1a1a1a]">{k}</dt>
+              <dd className="mt-0.5">{v}</dd>
+            </div>
+          ))}
+        </dl>
+        <p className="mono mt-4 text-[10px] text-[#8a8a8a]">
+          Plugs: {adapterLines.join(" · ")}
+        </p>
+      </details>
     </div>
   );
 }
@@ -726,7 +706,7 @@ function GateAction({
   children,
   hint,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   hint?: string;
 }) {
   return (
@@ -799,7 +779,7 @@ function FoundationPhase({
         — so you can feel the product by using it. Read it like a stranger would.
         Change nothing in this demo; in a real sprint you would edit freely.
       </p>
-      <blockquote className="rounded-[8px] bg-[var(--callout)] px-4 py-3 text-[15px] leading-relaxed">
+      <blockquote className="rounded-[8px] bg-[#f7f6f3] px-4 py-3 text-[15px] leading-relaxed">
         {graph.hypothesis}
       </blockquote>
       <GateAction hint="Approving records a permanent decision. You are the Decider.">
@@ -879,18 +859,14 @@ function MapPhase({
         <strong className="text-[var(--ink)]">one moment</strong> in their journey,
         and a few yes/no questions that real interviews can settle.
       </p>
-      <div className="grid gap-4 sm:grid-cols-2">
-        <div className="rounded-[8px] border border-[var(--line)] bg-[var(--ground-2)] p-5">
-          <p className="mono text-xs text-[var(--ink-mute)]">
-            Who we are focusing on
-          </p>
-          <p className="mt-2 text-sm">{graph.targetUser}</p>
+      <div className="max-w-xl border-y border-[#ebebeb]">
+        <div className="flex items-start justify-between gap-4 py-3">
+          <p className="text-[13px] text-[#8a8a8a]">Who we are focusing on</p>
+          <p className="max-w-[18rem] text-right text-sm">{graph.targetUser}</p>
         </div>
-        <div className="rounded-[8px] border border-[var(--line)] bg-[var(--ground-2)] p-5">
-          <p className="mono text-xs text-[var(--ink-mute)]">
-            The moment that matters
-          </p>
-          <p className="mt-2 text-sm">{graph.targetMoment}</p>
+        <div className="flex items-start justify-between gap-4 border-t border-[#ebebeb] py-3">
+          <p className="text-[13px] text-[#8a8a8a]">The moment that matters</p>
+          <p className="max-w-[18rem] text-right text-sm">{graph.targetMoment}</p>
         </div>
       </div>
       <div>
@@ -917,7 +893,7 @@ function MapPhase({
           {graph.sprintQuestions.map((q, i) => (
             <li
               key={q.id}
-              className="rounded-[8px] border border-[var(--line)] bg-[var(--ground-2)] p-4 text-sm"
+              className="border-b border-[#ebebeb] py-3 text-sm"
             >
               <span className="mono text-[#5e6ad2]">Q{i + 1}</span>
               <p className="mt-1">{q.text}</p>
@@ -1010,7 +986,7 @@ function SketchPhase({
         {graph.sketches.map((s) => (
           <article
             key={s.id}
-            className="rounded-[8px] border border-[var(--line)] bg-[var(--ground-2)] p-5"
+            className="rounded-[8px] border border-[#ebebeb] bg-white p-5"
           >
             <div className="flex items-start justify-between gap-2">
               <h2 className="text-[18px] font-semibold">{s.title}</h2>
@@ -1077,7 +1053,7 @@ function DecidePhase({
 
   return (
     <div className="mt-8 space-y-6">
-      <p className="rounded-lg border border-[var(--danger)]/40 bg-[var(--danger)]/10 px-4 py-3 text-sm text-[var(--warm)]">
+      <p className="rounded-[8px] bg-[#f7f6f3] px-4 py-3 text-sm text-[#1a1a1a]">
         AI may draft notes. It may <strong>not</strong> cast the{" "}
         <Term term="Supervote" />. That final pick is you — the{" "}
         <Term term="Decider" />. This rule is the product.
@@ -1112,7 +1088,7 @@ function DecidePhase({
               type="button"
               data-testid={`select-${s.id}`}
               onClick={() => onPick(s.id)}
-              className="rounded-md bg-[var(--ink)] px-3 py-2 text-sm font-medium text-[var(--ground)]"
+              className="btn-signal rounded-md px-3 py-2 text-sm font-medium"
             >
               Select
             </button>
@@ -1250,8 +1226,8 @@ function TestPhase({
 
   return (
     <div className="mt-8 space-y-6">
-      <div className="rounded-[8px] border border-[var(--danger)]/50 bg-[var(--danger)]/10 p-5 text-sm">
-        <strong className="text-[var(--warm)]">Primary evidence rule:</strong>{" "}
+      <div className="rounded-[8px] bg-[#f7f6f3] p-5 text-sm">
+        <strong className="text-[#1a1a1a]">Primary evidence rule:</strong>{" "}
         five real people who match your target. Held never invents interview
         quotes. Chatbots and “synthetic users” are rehearsal only.
       </div>
@@ -1395,7 +1371,7 @@ function VerdictPhase({
         type="button"
         data-testid="download-packet"
         onClick={download}
-        className="rounded-md bg-[var(--ink)] px-5 py-3 font-medium text-[var(--ground)]"
+        className="btn-signal rounded-md px-5 py-3 font-medium"
       >
         Download Verdict Packet (.md)
       </button>

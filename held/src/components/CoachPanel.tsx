@@ -15,8 +15,10 @@ export function CoachPanel({ phase, stepIndex, stepTotal }: Props) {
   return (
     <div
       data-testid="coach-panel"
-      className="rounded-[8px] border border-[#ebebeb] bg-[#fafafa] px-4 py-3.5"
+      className="rounded-[8px] bg-[#f7f6f3] px-4 py-3.5"
     >
+      {/* Notion getting-started callout
+          https://mobbin.com/screens/0d0a0279-39dc-44c9-bae7-f4cd616336d0 */}
       <div className="flex items-center justify-between gap-3 text-[12px] text-[#8a8a8a]">
         <span>
           Step {stepIndex + 1} of {stepTotal}
