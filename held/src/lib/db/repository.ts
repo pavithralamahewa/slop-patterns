@@ -4,33 +4,49 @@ import type { GateEvent, SprintGraph } from "@/lib/core/types";
 
 /**
  * Sprint repository — durable system of record.
- * File-backed locally; swap to Postgres using schema.sql when DATABASE_URL is set.
+ * File-backed locally; on Vercel uses /tmp (writable). Swap to Postgres via DATABASE_URL.
  */
 
-const DATA_DIR = path.join(process.cwd(), ".data", "sprints");
+const memory = new Map<string, SprintGraph & { updatedAt?: string }>();
+
+function dataDir(): string {
+  if (process.env.VERCEL || process.env.HELD_DATA_DIR === "tmp") {
+    return path.join("/tmp", "held-sprints");
+  }
+  return path.join(process.cwd(), ".data", "sprints");
+}
 
 async function ensureDir(): Promise<void> {
-  await fs.mkdir(DATA_DIR, { recursive: true });
+  await fs.mkdir(dataDir(), { recursive: true });
 }
 
 function sprintPath(id: string): string {
-  return path.join(DATA_DIR, `${id}.json`);
+  return path.join(dataDir(), `${id}.json`);
 }
 
 export async function saveSprint(graph: SprintGraph): Promise<SprintGraph> {
-  await ensureDir();
   const record = {
     ...graph,
     updatedAt: new Date().toISOString(),
   };
-  await fs.writeFile(sprintPath(graph.id), JSON.stringify(record, null, 2), "utf8");
+  memory.set(record.id, record);
+  try {
+    await ensureDir();
+    await fs.writeFile(sprintPath(graph.id), JSON.stringify(record, null, 2), "utf8");
+  } catch {
+    /* memory is enough on constrained hosts */
+  }
   return record;
 }
 
 export async function getSprint(id: string): Promise<SprintGraph | null> {
+  const cached = memory.get(id);
+  if (cached) return cached;
   try {
     const raw = await fs.readFile(sprintPath(id), "utf8");
-    return JSON.parse(raw) as SprintGraph;
+    const parsed = JSON.parse(raw) as SprintGraph & { updatedAt?: string };
+    memory.set(id, parsed);
+    return parsed;
   } catch {
     return null;
   }
@@ -39,22 +55,33 @@ export async function getSprint(id: string): Promise<SprintGraph | null> {
 export async function listSprints(): Promise<
   { id: string; title: string; phase: string; updatedAt?: string }[]
 > {
-  await ensureDir();
-  const files = await fs.readdir(DATA_DIR);
-  const out: { id: string; title: string; phase: string; updatedAt?: string }[] =
-    [];
-  for (const file of files) {
-    if (!file.endsWith(".json")) continue;
-    const g = await getSprint(file.replace(/\.json$/, ""));
-    if (!g) continue;
-    out.push({
+  const byId = new Map<string, { id: string; title: string; phase: string; updatedAt?: string }>();
+  for (const g of memory.values()) {
+    byId.set(g.id, {
       id: g.id,
       title: g.title,
       phase: g.phase,
-      updatedAt: (g as SprintGraph & { updatedAt?: string }).updatedAt,
+      updatedAt: g.updatedAt,
     });
   }
-  return out.sort((a, b) =>
+  try {
+    await ensureDir();
+    const files = await fs.readdir(dataDir());
+    for (const file of files) {
+      if (!file.endsWith(".json")) continue;
+      const g = await getSprint(file.replace(/\.json$/, ""));
+      if (!g) continue;
+      byId.set(g.id, {
+        id: g.id,
+        title: g.title,
+        phase: g.phase,
+        updatedAt: (g as SprintGraph & { updatedAt?: string }).updatedAt,
+      });
+    }
+  } catch {
+    /* memory-only */
+  }
+  return [...byId.values()].sort((a, b) =>
     String(b.updatedAt ?? "").localeCompare(String(a.updatedAt ?? "")),
   );
 }
