@@ -145,12 +145,12 @@ async function main() {
         bg: s.backgroundColor,
       };
     });
-    if (!hero.ok || hero.color !== "rgb(18, 22, 15)")
+    if (!hero.ok || hero.bg !== "rgb(23, 23, 23)")
       fail(`Hero CTA ${JSON.stringify(hero)}`);
     console.log("OK home CTA", hero);
 
     const how = await page.evaluate(() =>
-      document.body.innerText.includes("Seven plain steps"),
+      document.body.innerText.includes("Seven steps. One job each."),
     );
     if (!how) fail("How it works missing");
     console.log("OK landing how-it-works");
@@ -240,13 +240,12 @@ async function main() {
     console.log("OK → Watch real people");
 
     await clickTestId(page, "draft-screener");
-    await waitForFunctionText(page, "screener", 8000).catch(async () => {
-      await page.waitForFunction(
-        () => document.body.innerText.toLowerCase().includes("screener") ||
-          document.querySelector("pre")?.innerText.length > 20,
-        { timeout: 8000 },
-      );
-    });
+    await page.waitForFunction(
+      () =>
+        document.body.innerText.toLowerCase().includes("screener") ||
+        (document.querySelector("pre")?.innerText.length ?? 0) > 20,
+      { timeout: 8000 },
+    );
     console.log("OK draft screener");
 
     await clickTestId(page, "verdict-loop");

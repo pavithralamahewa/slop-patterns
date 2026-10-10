@@ -12,55 +12,56 @@ export function WelcomeGate({ open, onStart }: Props) {
 
   return (
     <div
-      className="fixed inset-0 z-[60] flex items-end justify-center bg-black/70 p-4 sm:items-center"
+      className="fixed inset-0 z-[60] flex items-end justify-center bg-black/40 p-4 sm:items-center"
       role="dialog"
       aria-modal="true"
       aria-labelledby="held-welcome-title"
     >
-      <div className="max-h-[90svh] w-full max-w-xl overflow-y-auto rounded-2xl border border-[var(--line)] bg-[var(--ground-2)] p-6 shadow-2xl sm:p-8">
-        <p className="mono text-[11px] uppercase tracking-[0.2em] text-[var(--signal)]">
-          First time here
-        </p>
+      <div className="max-h-[90svh] w-full max-w-[520px] overflow-y-auto rounded-[10px] border border-[#ebebeb] bg-white p-7 shadow-[0_12px_40px_rgba(0,0,0,0.12)] sm:p-8">
         <h1
           id="held-welcome-title"
-          className="display mt-3 text-4xl text-[var(--ink)] sm:text-5xl"
+          className="text-[26px] font-semibold tracking-[-0.02em] text-[#1a1a1a]"
         >
           {WELCOME.title}
         </h1>
-        <p className="mt-4 text-base text-[var(--ink-dim)] sm:text-lg">
+        <p className="mt-2 text-[15px] leading-relaxed text-[#6b6b6b]">
           {WELCOME.subtitle}
         </p>
 
-        <ol className="mt-8 space-y-5">
-          {WELCOME.bullets.map((b, i) => (
-            <li key={b.title} className="flex gap-4">
-              <span className="mono mt-0.5 text-[var(--signal)]">
-                0{i + 1}
-              </span>
+        <div className="mt-5 rounded-[8px] bg-[#f4f4f5] px-4 py-3 text-[13px] leading-relaxed text-[#1a1a1a]">
+          {WELCOME.roles}
+        </div>
+
+        <ul className="mt-6 space-y-4">
+          {WELCOME.bullets.map((b) => (
+            <li key={b.title} className="flex gap-3">
+              <span
+                aria-hidden
+                className="mt-0.5 flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-[4px] border border-[#d4d4d4] bg-white"
+              />
               <div>
-                <p className="font-medium text-[var(--ink)]">{b.title}</p>
-                <p className="mt-1 text-sm text-[var(--ink-dim)]">{b.body}</p>
+                <p className="text-[14px] font-medium text-[#1a1a1a]">
+                  {b.title}
+                </p>
+                <p className="mt-0.5 text-[13px] leading-relaxed text-[#6b6b6b]">
+                  {b.body}
+                </p>
               </div>
             </li>
           ))}
-        </ol>
-
-        <p className="mt-8 rounded-xl border border-[var(--line)] bg-[var(--ground)]/60 px-4 py-3 text-sm text-[var(--warm)]">
-          {WELCOME.roles}
-        </p>
+        </ul>
 
         <button
           type="button"
           autoFocus
           data-testid="welcome-start"
           onClick={onStart}
-          className="btn-signal mt-8 w-full rounded-md px-5 py-3.5 text-center font-medium focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--signal)]"
+          className="btn-signal mt-7 w-full py-2.5 text-center text-[14px] font-medium"
         >
           {WELCOME.cta}
         </button>
-        <p className="mt-3 text-center text-xs text-[var(--ink-mute)]">
-          About 15–20 minutes for this guided demo. You can pause anytime —
-          progress is saved.
+        <p className="mt-3 text-center text-[12px] text-[#8a8a8a]">
+          About 15–20 minutes. You can pause — progress is saved.
         </p>
       </div>
     </div>

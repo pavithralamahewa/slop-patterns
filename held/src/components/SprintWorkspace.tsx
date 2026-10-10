@@ -199,7 +199,7 @@ export function SprintWorkspace() {
       <div className="relative min-h-screen bg-[var(--ground)]">
         <WelcomeGate open={showWelcome} onStart={dismissWelcome} />
         <div className="flex min-h-screen flex-col items-center justify-center gap-3 px-6 text-center">
-          <p className="display text-3xl">Held</p>
+          <p className="text-[22px] font-semibold">Held</p>
           <p className="text-[var(--ink-dim)]">
             Preparing your guided demo…
           </p>
@@ -213,29 +213,29 @@ export function SprintWorkspace() {
   const nextAction = nextActionFor(graph, lookDone, diversity?.passesFloor);
 
   return (
-    <div className="min-h-screen bg-[var(--ground)]">
+    <div className="min-h-screen bg-white text-[var(--ink)]">
       <WelcomeGate open={showWelcome} onStart={dismissWelcome} />
 
-      <header className="border-b border-[var(--line)] px-5 py-4 md:px-8">
+      <header className="border-b border-[var(--line)] bg-white px-5 py-2.5 md:px-6">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-4">
-            <Link href="/" className="display text-xl">
+            <Link href="/" className="text-[14px] font-semibold">
               Held
             </Link>
-            <span className="mono hidden text-[10px] uppercase tracking-[0.18em] text-[var(--ink-mute)] sm:inline">
+            <span className="hidden text-[12px] text-[var(--ink-mute)] sm:inline">
               Guided demo · {storageLabel}
             </span>
           </div>
           <div className="flex items-center gap-3">
             {busy && (
-              <span className="mono text-xs text-[var(--signal)]">
+              <span className="mono text-xs text-[#5e6ad2]">
                 AI drafting…
               </span>
             )}
             <button
               type="button"
               data-testid="toggle-coach"
-              className="mono text-[10px] uppercase tracking-wider text-[var(--ink-mute)] hover:text-[var(--ink)]"
+              className="text-[12px] text-[var(--ink-mute)] hover:text-[var(--ink)]"
               onClick={() => setCoachOpen((v) => !v)}
             >
               {coachOpen ? "Hide coach" : "Show coach"}
@@ -243,7 +243,7 @@ export function SprintWorkspace() {
             <button
               type="button"
               data-testid="start-over"
-              className="mono text-[10px] uppercase tracking-wider text-[var(--ink-mute)] hover:text-[var(--ink)]"
+              className="text-[12px] text-[var(--ink-mute)] hover:text-[var(--ink)]"
               onClick={() => {
                 clearGraph();
                 clearActiveSprintId();
@@ -279,9 +279,9 @@ export function SprintWorkspace() {
 
       <div className="mx-auto grid max-w-7xl gap-6 px-5 py-6 md:grid-cols-[220px_1fr] lg:grid-cols-[220px_1fr_280px] md:px-8 md:py-8">
         {/* Phase checklist rail — compact on mobile, full on desktop */}
-        <aside className="md:sticky md:top-4 md:self-start">
+        <aside className="md:sticky md:top-3 md:self-start md:rounded-[8px] md:bg-[var(--ground-2)] md:p-3">
           <div className="md:hidden">
-            <p className="mono text-[10px] uppercase tracking-[0.16em] text-[var(--ink-mute)]">
+            <p className="text-[12px] text-[var(--ink-mute)]">
               Your week · {idx + 1} of {PHASE_ORDER.length}
             </p>
             <ol className="mt-2 flex gap-1" aria-label="Sprint progress">
@@ -307,7 +307,7 @@ export function SprintWorkspace() {
             <p className="mt-2 text-sm font-medium">{guide.plainName}</p>
           </div>
           <div className="hidden md:block">
-          <p className="mono mb-1 text-[10px] uppercase tracking-[0.16em] text-[var(--ink-mute)]">
+          <p className="mb-1 text-[12px] text-[var(--ink-mute)]">
             Your week
           </p>
           <p className="mb-4 text-xs text-[var(--ink-mute)]">
@@ -321,9 +321,9 @@ export function SprintWorkspace() {
               return (
                 <li key={p}>
                   <div
-                    className={`flex w-full items-start gap-2 rounded-lg px-3 py-2.5 text-left text-sm transition ${
+                    className={`flex w-full items-start gap-2 rounded-md px-2.5 py-1.5 text-left text-[13px] ${
                       active
-                        ? "bg-[var(--signal)] text-[var(--signal-ink)]"
+                        ? "bg-[var(--selected)] text-[var(--ink)]"
                         : done
                           ? "text-[var(--ink)]"
                           : "text-[var(--ink-mute)]"
@@ -332,10 +332,10 @@ export function SprintWorkspace() {
                     <span
                       className={`mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border text-[10px] ${
                         active
-                          ? "border-[var(--signal-ink)]/40"
+                          ? "border-[#cfcfcf]"
                           : done
-                            ? "border-[var(--signal)] bg-[var(--signal)] text-[var(--signal-ink)]"
-                            : "border-[var(--ink-mute)]"
+                            ? "border-[#5e6ad2] bg-[#5e6ad2] text-white"
+                            : "border-[#d4d4d4]"
                       }`}
                       aria-hidden
                     >
@@ -347,11 +347,7 @@ export function SprintWorkspace() {
                       </span>
                       {active && (
                         <span
-                          className={`mt-0.5 block text-[11px] leading-snug ${
-                            active
-                              ? "text-[var(--signal-ink)]/75"
-                              : "text-[var(--ink-mute)]"
-                          }`}
+                          className="mt-0.5 block text-[11px] leading-snug text-[var(--ink-mute)]"
                         >
                           You are here
                         </span>
@@ -363,8 +359,8 @@ export function SprintWorkspace() {
             })}
           </ol>
           {!coachOpen && (
-            <div className="mt-6 rounded-xl border border-[var(--line)] p-4">
-              <p className="mono text-[10px] uppercase tracking-[0.16em] text-[var(--ink-mute)]">
+            <div className="mt-6 rounded-[8px] border border-[var(--line)] p-4">
+              <p className="text-[12px] text-[var(--ink-mute)]">
                 Your job right now
               </p>
               <p className="mt-2 text-sm text-[var(--warm)]">{guide.whatYouDo}</p>
@@ -385,17 +381,15 @@ export function SprintWorkspace() {
             </div>
           )}
 
-          <div className="rounded-xl border border-[var(--signal)]/25 bg-[var(--ground-2)] px-4 py-3">
-            <p className="mono text-[10px] uppercase tracking-[0.16em] text-[var(--signal)]">
-              Next action
-            </p>
+          <div className="rounded-[8px] border border-[var(--line)] bg-[var(--callout)] px-4 py-3">
+            <p className="text-[12px] text-[var(--ink-mute)]">Next action</p>
             <p className="mt-1 text-sm text-[var(--ink)]">{nextAction}</p>
           </div>
 
-          <p className="mono mt-8 text-xs uppercase tracking-[0.18em] text-[var(--ink-mute)]">
+          <p className="mt-8 text-[12px] text-[var(--ink-mute)]">
             Demo sprint · {graph.title}
           </p>
-          <h1 className="display mt-1 text-3xl leading-tight md:text-5xl">
+          <h1 className="mt-1 text-[26px] font-semibold tracking-[-0.02em] md:text-[32px]">
             {guide.plainName}
           </h1>
           <p className="mt-3 max-w-2xl text-[var(--ink-dim)]">
@@ -569,7 +563,7 @@ export function SprintWorkspace() {
 
         {/* Status rail — plain language */}
         <aside className="space-y-4 lg:block">
-          <details className="rounded-xl border border-[var(--line)] bg-[var(--ground-2)] p-4 lg:hidden">
+          <details className="rounded-[8px] border border-[var(--line)] bg-[var(--ground-2)] p-4 lg:hidden">
             <summary className="cursor-pointer text-sm font-medium">
               Sprint status (variety, evidence, log)
             </summary>
@@ -600,7 +594,7 @@ export function SprintWorkspace() {
                   <strong
                     className={
                       diversity.passesFloor
-                        ? "text-[var(--signal)]"
+                        ? "text-[#5e6ad2]"
                         : "text-[var(--danger)]"
                     }
                   >
@@ -645,7 +639,7 @@ export function SprintWorkspace() {
               <ul className="mt-3 space-y-1 text-sm text-[var(--ink-dim)]">
                 <li>
                   Grade{" "}
-                  <strong className="text-[var(--signal)]">
+                  <strong className="text-[#5e6ad2]">
                     {evalReport.grade}
                   </strong>{" "}
                   ({evalReport.score}/{evalReport.maxScore})
@@ -671,7 +665,7 @@ export function SprintWorkspace() {
               )}
               {[...graph.gates].reverse().map((g) => (
                 <li key={g.id}>
-                  <span className="text-[var(--signal)]">
+                  <span className="text-[#5e6ad2]">
                     {gateLabel(g.kind)}
                   </span>
                   <br />
@@ -683,8 +677,8 @@ export function SprintWorkspace() {
             </ol>
           </StatusCard>
 
-          <details className="rounded-xl border border-[var(--line)] bg-[var(--ground-2)] p-4">
-            <summary className="mono cursor-pointer text-[10px] uppercase tracking-[0.16em] text-[var(--ink-mute)]">
+          <details className="rounded-[8px] border border-[var(--line)] bg-[var(--ground-2)] p-4">
+            <summary className="cursor-pointer text-[12px] text-[var(--ink-mute)]">
               Words you might see
             </summary>
             <dl className="mt-3 space-y-3 text-xs text-[var(--ink-dim)]">
@@ -715,8 +709,8 @@ function StatusCard({
   children: React.ReactNode;
 }) {
   return (
-    <div className="rounded-xl border border-[var(--line)] bg-[var(--ground-2)] p-4">
-      <p className="mono text-[10px] uppercase tracking-[0.16em] text-[var(--ink-mute)]">
+    <div className="rounded-[8px] border border-[var(--line)] bg-[var(--ground-2)] p-4">
+      <p className="text-[12px] text-[var(--ink-mute)]">
         {title}
       </p>
       <p className="mt-1 text-[11px] leading-snug text-[var(--ink-mute)]">
@@ -805,7 +799,7 @@ function FoundationPhase({
         — so you can feel the product by using it. Read it like a stranger would.
         Change nothing in this demo; in a real sprint you would edit freely.
       </p>
-      <blockquote className="rounded-xl border border-[var(--signal)]/40 bg-[var(--signal)]/10 p-5 text-lg leading-snug">
+      <blockquote className="rounded-[8px] bg-[var(--callout)] px-4 py-3 text-[15px] leading-relaxed">
         {graph.hypothesis}
       </blockquote>
       <GateAction hint="Approving records a permanent decision. You are the Decider.">
@@ -820,7 +814,7 @@ function FoundationPhase({
         </button>
       </GateAction>
       <div>
-        <p className="mono text-xs uppercase text-[var(--ink-mute)]">
+        <p className="text-[12px] text-[var(--ink-mute)]">
           Why this might win (differentiators)
         </p>
         <ul className="mt-2 space-y-1 text-sm text-[var(--ink-dim)]">
@@ -830,7 +824,7 @@ function FoundationPhase({
         </ul>
       </div>
       <div>
-        <p className="mono text-xs uppercase text-[var(--ink-mute)]">
+        <p className="text-[12px] text-[var(--ink-mute)]">
           Risky assumptions to test later
         </p>
         <p className="mt-1 text-xs text-[var(--ink-mute)]">
@@ -886,13 +880,13 @@ function MapPhase({
         and a few yes/no questions that real interviews can settle.
       </p>
       <div className="grid gap-4 sm:grid-cols-2">
-        <div className="rounded-xl border border-[var(--line)] bg-[var(--ground-2)] p-5">
+        <div className="rounded-[8px] border border-[var(--line)] bg-[var(--ground-2)] p-5">
           <p className="mono text-xs text-[var(--ink-mute)]">
             Who we are focusing on
           </p>
           <p className="mt-2 text-sm">{graph.targetUser}</p>
         </div>
-        <div className="rounded-xl border border-[var(--line)] bg-[var(--ground-2)] p-5">
+        <div className="rounded-[8px] border border-[var(--line)] bg-[var(--ground-2)] p-5">
           <p className="mono text-xs text-[var(--ink-mute)]">
             The moment that matters
           </p>
@@ -902,7 +896,7 @@ function MapPhase({
       <div>
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
-            <p className="mono text-xs uppercase text-[var(--ink-mute)]">
+            <p className="text-[12px] text-[var(--ink-mute)]">
               <Term term="Sprint questions" />
             </p>
             <p className="mt-1 text-xs text-[var(--ink-mute)]">
@@ -923,16 +917,16 @@ function MapPhase({
           {graph.sprintQuestions.map((q, i) => (
             <li
               key={q.id}
-              className="rounded-xl border border-[var(--line)] bg-[var(--ground-2)] p-4 text-sm"
+              className="rounded-[8px] border border-[var(--line)] bg-[var(--ground-2)] p-4 text-sm"
             >
-              <span className="mono text-[var(--signal)]">Q{i + 1}</span>
+              <span className="mono text-[#5e6ad2]">Q{i + 1}</span>
               <p className="mt-1">{q.text}</p>
             </li>
           ))}
         </ol>
       </div>
       <div>
-        <p className="mono text-xs uppercase text-[var(--ink-mute)]">
+        <p className="text-[12px] text-[var(--ink-mute)]">
           Evidence pack ({coverage?.covered}/{coverage?.total} questions linked)
         </p>
         <p className="mt-1 text-xs text-[var(--ink-mute)]">
@@ -940,7 +934,7 @@ function MapPhase({
           want to verify.
         </p>
         {graph.evidence.length === 0 ? (
-          <p className="mt-3 rounded-xl border border-dashed border-[var(--line)] px-4 py-6 text-sm text-[var(--ink-mute)]">
+          <p className="mt-3 rounded-[8px] border border-dashed border-[var(--line)] px-4 py-6 text-sm text-[var(--ink-mute)]">
             No sources yet. Pull research, or approve with the starter pack if
             you already trust the questions.
           </p>
@@ -951,7 +945,7 @@ function MapPhase({
                 key={e.id}
                 className="rounded-lg border border-[var(--line)] px-4 py-3 text-sm text-[var(--ink-dim)]"
               >
-                <span className="mono text-[10px] uppercase text-[var(--signal)]">
+                <span className="text-[11px] text-[var(--ink-mute)]">
                   {e.sourceKind}
                 </span>
                 <p className="mt-1">{e.text}</p>
@@ -1008,7 +1002,7 @@ function SketchPhase({
         worth debating. You are <em>not</em> picking a winner yet.
       </p>
       {!lookDone && (
-        <p className="mono animate-pulse text-xs text-[var(--signal)]">
+        <p className="text-[12px] text-[var(--ink-dim)]">
           Silent look in progress · Dot buttons unlock in a few seconds…
         </p>
       )}
@@ -1016,10 +1010,10 @@ function SketchPhase({
         {graph.sketches.map((s) => (
           <article
             key={s.id}
-            className="rounded-xl border border-[var(--line)] bg-[var(--ground-2)] p-5"
+            className="rounded-[8px] border border-[var(--line)] bg-[var(--ground-2)] p-5"
           >
             <div className="flex items-start justify-between gap-2">
-              <h2 className="display text-2xl">{s.title}</h2>
+              <h2 className="text-[18px] font-semibold">{s.title}</h2>
               <span className="mono text-[10px] text-[var(--ink-mute)]">
                 variety {s.diversityScore?.toFixed(2) ?? "—"}
               </span>
@@ -1096,7 +1090,7 @@ function DecidePhase({
         {ranked.map((s, i) => (
           <li
             key={s.id}
-            className={`flex flex-wrap items-center gap-3 rounded-xl border p-4 ${
+            className={`flex flex-wrap items-center gap-3 rounded-[8px] border p-4 ${
               graph.winnerSketchId === s.id
                 ? "border-[var(--signal)] bg-[var(--signal)]/10"
                 : "border-[var(--line)] bg-[var(--ground-2)]"
@@ -1168,16 +1162,16 @@ function PrototypePhase({
         <Term term="Façade" /> — enough screens that a stranger treats it as
         real during an interview tomorrow.
       </p>
-      <div className="rounded-xl border border-[var(--line)] bg-[var(--ground-2)] p-6">
+      <div className="rounded-[8px] border border-[var(--line)] bg-[var(--ground-2)] p-6">
         <p className="mono text-xs text-[var(--ink-mute)]">
           Winning direction
         </p>
-        <h2 className="display mt-2 text-3xl">{winner?.title}</h2>
+        <h2 className="mt-2 text-[22px] font-semibold">{winner?.title}</h2>
         <p className="mt-3 text-[var(--ink-dim)]">{compiled.brief}</p>
         <ol className="mt-6 space-y-2 text-sm">
           {compiled.storyboard.map((panel, i) => (
             <li key={panel} className="flex gap-3">
-              <span className="mono text-[var(--signal)]">{i + 1}</span>
+              <span className="mono text-[#5e6ad2]">{i + 1}</span>
               {panel}
             </li>
           ))}
@@ -1187,7 +1181,7 @@ function PrototypePhase({
           screens · path {compiled.happyPath.join(" → ")}
         </p>
       </div>
-      <div className="rounded-xl border border-[var(--line)] p-5">
+      <div className="rounded-[8px] border border-[var(--line)] p-5">
         <p className="mono text-xs text-[var(--ink-mute)]">
           Interview script (Five-Act)
         </p>
@@ -1231,7 +1225,7 @@ function PrototypePhase({
             title="Façade preview"
             sandbox=""
             srcDoc={facadeHtml}
-            className="h-64 w-full rounded-xl border border-[var(--line)] bg-white"
+            className="h-64 w-full rounded-[8px] border border-[var(--line)] bg-white"
           />
         </div>
       )}
@@ -1256,7 +1250,7 @@ function TestPhase({
 
   return (
     <div className="mt-8 space-y-6">
-      <div className="rounded-xl border border-[var(--danger)]/50 bg-[var(--danger)]/10 p-5 text-sm">
+      <div className="rounded-[8px] border border-[var(--danger)]/50 bg-[var(--danger)]/10 p-5 text-sm">
         <strong className="text-[var(--warm)]">Primary evidence rule:</strong>{" "}
         five real people who match your target. Held never invents interview
         quotes. Chatbots and “synthetic users” are rehearsal only.
@@ -1265,14 +1259,14 @@ function TestPhase({
         In a real week you book five interviews, run the script, and look for
         patterns. This demo lets you practice recording the call honestly.
       </p>
-      <div className="rounded-xl border border-[var(--line)] bg-[var(--ground-2)] p-5">
+      <div className="rounded-[8px] border border-[var(--line)] bg-[var(--ground-2)] p-5">
         <p className="mono text-xs text-[var(--ink-mute)]">
           Questions still open
         </p>
         <ul className="mt-3 space-y-2 text-sm">
           {graph.sprintQuestions.map((q) => (
             <li key={q.id}>
-              <span className="mono text-[var(--signal)]">{q.status}</span> —{" "}
+              <span className="mono text-[#5e6ad2]">{q.status}</span> —{" "}
               {q.text}
             </li>
           ))}
@@ -1287,19 +1281,19 @@ function TestPhase({
         Draft a recruiting screener
       </button>
       {screener && (
-        <pre className="whitespace-pre-wrap rounded-xl border border-[var(--line)] bg-[var(--ground-2)] p-4 text-xs text-[var(--ink-dim)]">
+        <pre className="whitespace-pre-wrap rounded-[8px] border border-[var(--line)] bg-[var(--ground-2)] p-4 text-xs text-[var(--ink-dim)]">
           {screener}
         </pre>
       )}
       <label className="block">
-        <span className="mono text-xs uppercase text-[var(--ink-mute)]">
+        <span className="text-[12px] text-[var(--ink-mute)]">
           Your notes (why you chose Ship / Loop / Kill)
         </span>
         <textarea
           value={note}
           onChange={(e) => setNote(e.target.value)}
           rows={4}
-          className="mt-2 w-full rounded-xl border border-[var(--line)] bg-[var(--ground-2)] p-4 outline-none focus:border-[var(--signal)]"
+          className="mt-2 w-full rounded-[8px] border border-[var(--line)] bg-[var(--ground-2)] p-4 outline-none focus:border-[var(--signal)]"
         />
       </label>
       <div>
@@ -1357,11 +1351,11 @@ function VerdictPhase({
         <Term term="Verdict Packet" /> you can hand to anyone who will build
         next — not a pile of sticky notes.
       </p>
-      <div className="rounded-xl border border-[var(--signal)]/40 bg-[var(--signal)]/10 p-6">
-        <p className="mono text-xs uppercase text-[var(--signal)]">
+      <div className="rounded-[8px] border border-[var(--line)] bg-[var(--callout)] p-6">
+        <p className="text-[12px] text-[var(--ink-mute)]">
           Verdict Packet
         </p>
-        <p className="display mt-2 text-4xl capitalize">{graph.verdict}</p>
+        <p className="mt-2 text-[28px] font-semibold capitalize">{graph.verdict}</p>
         <p className="mt-4 text-[var(--ink-dim)]">{graph.verdictRationale}</p>
         <p className="mono mt-4 text-xs text-[var(--ink-mute)]">
           Quality grade {packet.eval.grade} · {packet.eval.score}/
@@ -1369,13 +1363,13 @@ function VerdictPhase({
         </p>
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
-        <div className="rounded-xl border border-[var(--line)] p-4 text-sm">
+        <div className="rounded-[8px] border border-[var(--line)] p-4 text-sm">
           <p className="mono text-xs text-[var(--ink-mute)]">
             Decisions recorded
           </p>
           <p className="mt-2 text-2xl font-medium">{graph.gates.length}</p>
         </div>
-        <div className="rounded-xl border border-[var(--line)] p-4 text-sm">
+        <div className="rounded-[8px] border border-[var(--line)] p-4 text-sm">
           <p className="mono text-xs text-[var(--ink-mute)]">
             Preference pairs learned
           </p>
@@ -1383,7 +1377,7 @@ function VerdictPhase({
         </div>
       </div>
       <div>
-        <p className="mono text-xs uppercase text-[var(--ink-mute)]">
+        <p className="text-[12px] text-[var(--ink-mute)]">
           What to build next
         </p>
         <ul className="mt-2 space-y-1 text-sm text-[var(--ink-dim)]">

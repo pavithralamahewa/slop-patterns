@@ -1,17 +1,24 @@
 @import "tailwindcss";
 
+/* Tokens lifted from production apps on Mobbin:
+   Linear web workspace (sidebar #f7f7f7, canvas white, indigo #5e6ad2)
+   Maze marketing (black type on white, filled + outline CTAs)
+   Notion getting started (document canvas, callout, checklist) */
+
 :root {
-  --ground: #0e1110;
-  --ground-2: #161b19;
-  --ink: #f2f4f1;
-  --ink-dim: #a8b0a9;
-  --ink-mute: #7a847c;
-  --line: rgba(242, 244, 241, 0.1);
-  --signal: #c8f542;
-  --signal-ink: #12160f;
-  --warm: #e8d5b7;
-  --danger: #ff6b4a;
-  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ground: #ffffff;
+  --ground-2: #f7f7f7;
+  --ink: #1a1a1a;
+  --ink-dim: #6b6b6b;
+  --ink-mute: #8a8a8a;
+  --line: #ebebeb;
+  --signal: #5e6ad2;
+  --signal-ink: #ffffff;
+  --warm: #1a1a1a;
+  --danger: #d14d41;
+  --selected: #ececec;
+  --callout: #f4f4f5;
+  --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 * {
@@ -29,19 +36,9 @@ body {
   background: var(--ground);
   color: var(--ink);
   font-family: var(--font-body), "IBM Plex Sans", system-ui, sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.045;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 a {
@@ -59,90 +56,36 @@ button {
 }
 
 .display {
-  font-family: var(--font-display), "Syne", sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  line-height: 1.08;
-}
-
-.display-hero {
-  line-height: 0.92;
+  font-family: var(--font-body), "IBM Plex Sans", system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
 }
 
 .mono {
-  font-family: var(--font-mono), "IBM Plex Mono", ui-monospace, monospace;
+  font-family: var(--font-body), "IBM Plex Sans", system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+  text-transform: none;
 }
 
 .btn-signal {
-  background: var(--signal);
-  color: var(--signal-ink);
+  background: #171717;
+  color: #ffffff;
+  border-radius: 6px;
 }
 
 .btn-signal:hover {
-  filter: brightness(1.08);
+  background: #2a2a2a;
 }
 
 .btn-ink {
-  background: var(--ink);
-  color: var(--ground);
-}
-
-@keyframes rise {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes pulse-line {
-  0%,
-  100% {
-    transform: scaleX(0.35);
-    opacity: 0.4;
-  }
-  50% {
-    transform: scaleX(1);
-    opacity: 1;
-  }
-}
-
-@keyframes draw {
-  from {
-    stroke-dashoffset: 120;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-.rise {
-  animation: rise 0.8s var(--ease) both;
-}
-
-.rise-2 {
-  animation: rise 0.8s var(--ease) 0.12s both;
-}
-
-.rise-3 {
-  animation: rise 0.8s var(--ease) 0.24s both;
-}
-
-.rise-4 {
-  animation: rise 0.8s var(--ease) 0.36s both;
+  background: #171717;
+  color: #ffffff;
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-  .rise,
-  .rise-2,
-  .rise-3,
-  .rise-4 {
-    animation: none;
   }
 }
