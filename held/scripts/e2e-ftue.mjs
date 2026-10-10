@@ -47,6 +47,17 @@ async function clickTestId(page, id) {
   await el.click();
 }
 
+/** Dismiss Duolingo-style level-clear modal if it is open. */
+async function dismissLevelClear(page) {
+  const btn = await page.$('[data-testid="level-clear-continue"]');
+  if (!btn) return;
+  await btn.click();
+  await page.waitForFunction(
+    () => !document.querySelector('[data-testid="level-clear-continue"]'),
+    { timeout: 5000 },
+  );
+}
+
 async function contrastOk(page, selector) {
   return page.evaluate((sel) => {
     const el = document.querySelector(sel);
@@ -145,7 +156,7 @@ async function main() {
         bg: s.backgroundColor,
       };
     });
-    if (!hero.ok || hero.bg !== "rgb(94, 106, 210)")
+    if (!hero.ok || hero.bg !== "rgb(88, 204, 2)")
       fail(`Hero CTA ${JSON.stringify(hero)}`);
     console.log("OK home CTA", hero);
 
@@ -153,11 +164,12 @@ async function main() {
       const text = document.body.innerText;
       return (
         text.includes("Answer one hard product question") &&
+        text.includes("Held") &&
         !text.includes("Seven steps. One job each.")
       );
     });
-    if (!calm) fail("Landing should be a single calm hero");
-    console.log("OK landing calm hero");
+    if (!calm) fail("Landing should be a single gamified hero");
+    console.log("OK landing gamified hero");
 
     // Mobile home overflow
     await page.setViewport({ width: 390, height: 844 });
@@ -181,6 +193,10 @@ async function main() {
     await waitForText(page, "This demo already drafted a bet");
     console.log("OK welcome dismissed");
 
+    await page.waitForSelector('[data-testid="game-hud"]');
+    await page.waitForSelector('[data-testid="game-path"]');
+    console.log("OK game HUD + path");
+
     // Help is opt-in — open, then hide, then leave closed
     if (await page.$('[data-testid="coach-panel"]'))
       fail("Help should stay closed by default");
@@ -196,6 +212,7 @@ async function main() {
     console.log("OK heading spacing");
 
     await clickTestId(page, "gate-approve-hypothesis");
+    await dismissLevelClear(page);
     await waitForText(page, "Who we are focusing on");
     console.log("OK → Focus the week (instant gate)");
 
@@ -216,17 +233,20 @@ async function main() {
     console.log("OK pull research adds sources");
 
     await clickTestId(page, "gate-approve-map");
+    await dismissLevelClear(page);
     await waitForText(page, "genuinely different");
     console.log("OK → Explore options");
 
     await page.waitForSelector('[data-testid^="heat-"]', { timeout: 8000 });
     await page.click('[data-testid^="heat-"]');
     await clickTestId(page, "gate-open-decide");
+    await dismissLevelClear(page);
     await waitForText(page, "This rule is the product");
     console.log("OK → Choose a direction");
 
     await page.click('[data-testid^="select-"]');
     await clickTestId(page, "gate-supervote");
+    await dismissLevelClear(page);
     await waitForText(page, "Winning direction");
     console.log("OK → Fake the product");
 
@@ -241,6 +261,7 @@ async function main() {
       return b instanceof HTMLButtonElement && !b.disabled;
     });
     await clickTestId(page, "gate-accept-prototype");
+    await dismissLevelClear(page);
     await waitForText(page, "Primary evidence rule");
     console.log("OK → Watch real people");
 
@@ -254,6 +275,7 @@ async function main() {
     console.log("OK draft screener");
 
     await clickTestId(page, "verdict-loop");
+    await dismissLevelClear(page);
     await waitForText(page, "Verdict Packet");
     await waitForText(page, "Download Verdict Packet");
     await page.screenshot({ path: "/tmp/held-e2e-verdict.png" });

@@ -4,6 +4,7 @@ import Link from "next/link";
 import {
   useEffect,
   useMemo,
+  useRef,
   useState,
   useTransition,
   type ReactNode,
@@ -50,8 +51,13 @@ import {
   type Verdict,
 } from "@/lib/core/types";
 import { GLOSSARY, PHASE_GUIDE } from "@/lib/guide/copy";
+import { PHASE_XP, levelFromXp, xpForClearedPhases } from "@/lib/game/xp";
 import { WelcomeGate } from "@/components/WelcomeGate";
 import { CoachPanel } from "@/components/CoachPanel";
+import { HudBar } from "@/components/game/HudBar";
+import { PathMap } from "@/components/game/PathMap";
+import { LevelClear } from "@/components/game/LevelClear";
+import { Mascot } from "@/components/game/Mascot";
 
 const DECIDER = "You (the Decider)";
 const WELCOME_KEY = "held.welcome.seen.v1";
@@ -90,6 +96,11 @@ export function SprintWorkspace() {
   const [storageLabel, setStorageLabel] = useState("saving…");
   const [showWelcome, setShowWelcome] = useState(true);
   const [coachOpen, setCoachOpen] = useState(false);
+  const [levelClear, setLevelClear] = useState<{
+    title: string;
+    xp: number;
+  } | null>(null);
+  const prevPhaseRef = useRef<PhaseId | null>(null);
   const [, startTransition] = useTransition();
 
   useEffect(() => {
@@ -99,6 +110,18 @@ export function SprintWorkspace() {
       /* keep welcome open */
     }
   }, []);
+
+  useEffect(() => {
+    if (!graph) return;
+    const prev = prevPhaseRef.current;
+    if (prev && prev !== graph.phase) {
+      setLevelClear({
+        title: PHASE_GUIDE[prev].plainName,
+        xp: PHASE_XP[prev],
+      });
+    }
+    prevPhaseRef.current = graph.phase;
+  }, [graph]);
 
   useEffect(() => {
     let cancelled = false;
@@ -187,15 +210,13 @@ export function SprintWorkspace() {
 
   if (!graph) {
     return (
-      <div className="relative min-h-screen bg-white">
+      <div className="relative min-h-screen held-playfield">
         <WelcomeGate open={showWelcome} onStart={dismissWelcome} />
-        {/* Linear empty canvas
-            https://mobbin.com/screens/3af45bee-f669-4dc7-afaf-e3fb099161f9 */}
         <div className="flex min-h-screen flex-col items-center justify-center gap-2 px-6 text-center">
-          <span className="mb-3 inline-block h-8 w-8 rounded-md bg-[#5e6ad2]" />
-          <p className="text-[15px] font-medium">Held</p>
-          <p className="max-w-xs text-[13px] text-[#6b6b6b]">
-            Preparing your guided demo…
+          <Mascot mood="think" size={72} />
+          <p className="text-[17px] font-extrabold text-[#58CC02]">Held</p>
+          <p className="max-w-xs text-[13px] font-semibold text-[#777777]">
+            Loading your week path…
           </p>
         </div>
       </div>
@@ -205,6 +226,10 @@ export function SprintWorkspace() {
   const idx = PHASE_ORDER.indexOf(graph.phase);
   const guide = PHASE_GUIDE[graph.phase];
   const nextAction = nextActionFor(graph, lookDone, diversity?.passesFloor);
+  const xp = xpForClearedPhases(graph.phase);
+  const { level, into, need } = levelFromXp(xp);
+  const streak = Math.max(1, graph.gates.length);
+  const gems = idx;
 
   function startOver() {
     clearGraph();
@@ -213,6 +238,8 @@ export function SprintWorkspace() {
     setLookDone(false);
     setFacadeHtml(null);
     setScreener(null);
+    setLevelClear(null);
+    prevPhaseRef.current = null;
     try {
       localStorage.removeItem(WELCOME_KEY);
     } catch {
@@ -228,45 +255,30 @@ export function SprintWorkspace() {
   }
 
   return (
-    <div className="flex min-h-screen bg-white text-[var(--ink)]">
+    <div className="flex min-h-screen held-playfield text-[var(--ink)]">
       <WelcomeGate open={showWelcome} onStart={dismissWelcome} />
+      <LevelClear
+        open={!!levelClear}
+        title={levelClear?.title ?? ""}
+        xp={levelClear?.xp ?? 0}
+        onContinue={() => setLevelClear(null)}
+      />
 
-      {/* Linear sidebar — steps only
-          https://mobbin.com/screens/3af45bee-f669-4dc7-afaf-e3fb099161f9 */}
-      <aside className="hidden w-[220px] shrink-0 flex-col border-r border-[#ebebeb] bg-[#f7f7f7] md:flex">
-        <div className="flex h-12 items-center gap-2 px-4">
-          <span className="inline-block h-3.5 w-3.5 rounded-[3px] bg-[#5e6ad2]" />
-          <Link href="/" className="text-[13px] font-medium">
+      {/* Duolingo learning path sidebar
+          https://mobbin.com/screens/fd077091-e8e9-413f-9aff-bb68984e5b04 */}
+      <aside className="hidden w-[220px] shrink-0 flex-col border-r border-[#E5E5E5] bg-white/80 backdrop-blur-sm md:flex">
+        <div className="flex h-14 items-center gap-2 px-4">
+          <span className="inline-block h-4 w-4 rounded-full bg-[#58CC02] shadow-[0_2px_0_#58A700]" />
+          <Link href="/" className="text-[15px] font-extrabold text-[#58CC02]">
             Held
           </Link>
         </div>
-        <nav className="flex-1 overflow-y-auto px-2 pb-4">
-          <ol className="space-y-0.5">
-            {PHASE_ORDER.map((p, i) => {
-              const active = p === graph.phase;
-              const done = i < idx;
-              return (
-                <li key={p}>
-                  <div
-                    className={`rounded-md px-2.5 py-1.5 text-[13px] ${
-                      active
-                        ? "bg-[#ececec] text-[#1a1a1a]"
-                        : done
-                          ? "text-[#1a1a1a]"
-                          : "text-[#8a8a8a]"
-                    }`}
-                  >
-                    <span className="text-[#8a8a8a]">{i + 1}. </span>
-                    {PHASE_GUIDE[p].plainName}
-                  </div>
-                </li>
-              );
-            })}
-          </ol>
+        <nav className="flex-1 overflow-y-auto px-3 pb-4">
+          <PathMap phase={graph.phase} />
           <button
             type="button"
             data-testid="start-over"
-            className="mt-8 w-full rounded-md px-2.5 py-1.5 text-left text-[12px] text-[#8a8a8a] hover:bg-[#ececec] hover:text-[#1a1a1a]"
+            className="mt-6 w-full rounded-2xl px-2.5 py-2 text-center text-[12px] font-bold text-[#AFAFAF] hover:bg-[#F7F7F7] hover:text-[#3C3C3C]"
             onClick={startOver}
           >
             Start over
@@ -275,27 +287,33 @@ export function SprintWorkspace() {
       </aside>
 
       <div className="flex min-w-0 flex-1 flex-col">
-        <header className="flex h-12 shrink-0 items-center justify-between gap-3 border-b border-[#ebebeb] px-4 md:px-8">
-          <p className="text-[13px] text-[#8a8a8a]">
-            {idx + 1} of {PHASE_ORDER.length}
-            <span className="mx-1.5 text-[#d4d4d4]">·</span>
-            <span className="text-[#1a1a1a]">{guide.plainName}</span>
-          </p>
+        <header className="flex shrink-0 flex-wrap items-center justify-between gap-3 border-b border-[#E5E5E5] bg-white/90 px-4 py-3 backdrop-blur-sm md:px-8">
+          <HudBar
+            xp={xp}
+            level={level}
+            into={into}
+            need={need}
+            streak={streak}
+            gems={gems}
+          />
           <div className="flex items-center gap-3">
             {busy && (
-              <span className="text-xs text-[#5e6ad2]">Working…</span>
+              <span className="text-xs font-bold text-[#1CB0F6]">Working…</span>
             )}
+            <span className="hidden text-[12px] font-bold text-[#AFAFAF] sm:inline">
+              {storageLabel}
+            </span>
             <button
               type="button"
               data-testid="toggle-coach"
-              className="text-[12px] text-[#8a8a8a] hover:text-[#1a1a1a]"
+              className="text-[12px] font-bold text-[#AFAFAF] hover:text-[#3C3C3C]"
               onClick={() => setCoachOpen((v) => !v)}
             >
               {coachOpen ? "Hide help" : "Help"}
             </button>
             <button
               type="button"
-              className="text-[12px] text-[#8a8a8a] hover:text-[#1a1a1a] md:hidden"
+              className="text-[12px] font-bold text-[#AFAFAF] hover:text-[#3C3C3C] md:hidden"
               data-testid="start-over"
               onClick={startOver}
             >
@@ -304,30 +322,19 @@ export function SprintWorkspace() {
           </div>
         </header>
 
-        <section className="mx-auto w-full max-w-[640px] flex-1 overflow-x-hidden px-5 py-10 md:px-8 md:py-14">
-            <div className="mb-6 md:hidden">
-              <ol className="flex gap-1" aria-label="Sprint progress">
-                {PHASE_ORDER.map((p, i) => {
-                  const active = p === graph.phase;
-                  const done = i < idx;
-                  return (
-                    <li key={p} className="flex-1">
-                      <span
-                        title={PHASE_GUIDE[p].plainName}
-                        className={`block h-1 rounded-full ${
-                          active || done ? "bg-[#5e6ad2]" : "bg-[#ebebeb]"
-                        }`}
-                      />
-                    </li>
-                  );
-                })}
-              </ol>
+        <section className="mx-auto w-full max-w-[640px] flex-1 overflow-x-hidden px-5 py-8 md:px-8 md:py-12">
+            <div className="mb-5 md:hidden">
+              <PathMap phase={graph.phase} compact />
             </div>
 
-            <h1 className="text-[28px] font-semibold tracking-[-0.02em] md:text-[32px]">
+            <div className="rounded-[20px] border-2 border-[#E5E5E5] bg-white px-5 py-6 shadow-[0_4px_0_#E5E5E5] md:px-8 md:py-8">
+            <p className="text-[12px] font-extrabold uppercase tracking-wide text-[#58CC02]">
+              Level {idx + 1} of {PHASE_ORDER.length} · +{PHASE_XP[graph.phase]} XP
+            </p>
+            <h1 className="mt-1 text-[26px] font-extrabold tracking-[-0.02em] md:text-[30px]">
               {guide.plainName}
             </h1>
-            <p className="mt-2 max-w-xl text-[15px] leading-relaxed text-[#6b6b6b]">
+            <p className="mt-2 max-w-xl text-[15px] font-semibold leading-relaxed text-[#777777]">
               {nextAction}
             </p>
 
@@ -504,6 +511,7 @@ export function SprintWorkspace() {
           {graph.phase === "verdict" && (
             <VerdictPhase graph={graph} prefs={prefs} diversity={diversity} />
           )}
+            </div>
         </section>
       </div>
     </div>
@@ -595,7 +603,7 @@ function FoundationPhase({
           data-testid="gate-approve-hypothesis"
           disabled={busy || !canAdvance(graph, "approve_hypothesis")}
           onClick={onApprove}
-          className="btn-signal rounded-md px-5 py-3 text-[14px] font-medium disabled:opacity-40"
+          className="btn-signal px-6 py-3.5 text-[14px] disabled:opacity-40"
         >
           Approve → Focus the week
         </button>
@@ -649,7 +657,7 @@ function MapPhase({
             data-testid="pull-research"
             disabled={busy}
             onClick={onRefreshResearch}
-            className="text-[13px] text-[#5e6ad2] hover:underline disabled:opacity-40"
+            className="text-[13px] font-bold text-[#1CB0F6] hover:underline disabled:opacity-40"
           >
             {busy ? "Pulling…" : "Pull sources"}
           </button>
@@ -678,7 +686,7 @@ function MapPhase({
           data-testid="gate-approve-map"
           disabled={busy || !canAdvance(graph, "approve_map")}
           onClick={onApprove}
-          className="btn-signal rounded-md px-5 py-3 text-[14px] font-medium disabled:opacity-40"
+          className="btn-signal px-6 py-3.5 text-[14px] disabled:opacity-40"
         >
           Approve → Explore options
         </button>
@@ -726,7 +734,7 @@ function SketchPhase({
                   type="button"
                   data-testid={`heat-${s.id}`}
                   onClick={() => onHeat(s.id)}
-                  className="shrink-0 rounded-md border border-[#ebebeb] px-3 py-1.5 text-[13px] hover:border-[#5e6ad2]"
+                  className="shrink-0 rounded-2xl border-2 border-[#E5E5E5] px-3 py-1.5 text-[13px] font-bold shadow-[0_2px_0_#E5E5E5] hover:border-[#58CC02]"
                 >
                   Dot {s.heatVotes > 0 ? `(${s.heatVotes})` : ""}
                 </button>
@@ -747,7 +755,7 @@ function SketchPhase({
             graph.sketches.every((s) => s.heatVotes === 0)
           }
           onClick={onOpenDecide}
-          className="btn-signal rounded-md px-5 py-3 text-[14px] font-medium disabled:opacity-40"
+          className="btn-signal px-6 py-3.5 text-[14px] disabled:opacity-40"
         >
           Continue → Choose a direction
         </button>
@@ -801,7 +809,7 @@ function DecidePhase({
               type="button"
               data-testid={`select-${s.id}`}
               onClick={() => onPick(s.id)}
-              className="rounded-md border border-[#ebebeb] px-3 py-1.5 text-[13px]"
+              className="rounded-2xl border-2 border-[#E5E5E5] px-3 py-1.5 text-[13px] font-bold shadow-[0_2px_0_#E5E5E5]"
             >
               Select
             </button>
@@ -814,7 +822,7 @@ function DecidePhase({
           data-testid="gate-supervote"
           disabled={!graph.winnerSketchId}
           onClick={onSupervote}
-          className="btn-signal rounded-md px-5 py-3 text-[14px] font-medium disabled:opacity-40"
+          className="btn-signal px-6 py-3.5 text-[14px] disabled:opacity-40"
         >
           Supervote → Fake the product
         </button>
@@ -870,7 +878,7 @@ function PrototypePhase({
             data-testid="preview-facade"
             disabled={busy}
             onClick={onRender}
-            className="rounded-md border border-[#ebebeb] px-4 py-2.5 text-[14px]"
+            className="rounded-2xl border-2 border-[#E5E5E5] px-4 py-2.5 text-[14px] font-bold shadow-[0_2px_0_#E5E5E5]"
           >
             Preview screens
           </button>
@@ -879,7 +887,7 @@ function PrototypePhase({
             data-testid="gate-accept-prototype"
             disabled={!canAdvance(graph, "accept_prototype")}
             onClick={onAccept}
-            className="btn-signal rounded-md px-5 py-3 text-[14px] font-medium disabled:opacity-40"
+            className="btn-signal px-6 py-3.5 text-[14px] disabled:opacity-40"
           >
             Accept → Watch real people
           </button>
@@ -927,7 +935,7 @@ function TestPhase({
           value={note}
           onChange={(e) => setNote(e.target.value)}
           rows={3}
-          className="mt-2 w-full rounded-[8px] border border-[#ebebeb] p-3 text-[14px] outline-none focus:border-[#5e6ad2]"
+          className="mt-2 w-full rounded-2xl border-2 border-[#E5E5E5] p-3 text-[14px] font-semibold outline-none focus:border-[#58CC02]"
         />
       </label>
       <div className="flex flex-wrap gap-2">
@@ -937,7 +945,7 @@ function TestPhase({
             type="button"
             data-testid={`verdict-${v}`}
             onClick={() => onVerdict(v, note)}
-            className="rounded-md border border-[#ebebeb] px-4 py-2.5 text-[14px] font-medium capitalize hover:border-[#5e6ad2]"
+            className="rounded-2xl border-2 border-[#E5E5E5] px-4 py-2.5 text-[14px] font-extrabold capitalize shadow-[0_2px_0_#E5E5E5] hover:border-[#58CC02]"
           >
             {v}
           </button>
@@ -947,7 +955,7 @@ function TestPhase({
         type="button"
         data-testid="draft-screener"
         onClick={onDraftScreener}
-        className="text-[13px] text-[#5e6ad2] hover:underline"
+        className="text-[13px] font-bold text-[#1CB0F6] hover:underline"
       >
         Draft screener
       </button>
@@ -1000,7 +1008,7 @@ function VerdictPhase({
         type="button"
         data-testid="download-packet"
         onClick={download}
-        className="btn-signal rounded-md px-5 py-3 text-[14px] font-medium"
+        className="btn-signal px-6 py-3.5 text-[14px]"
       >
         Download Verdict Packet (.md)
       </button>

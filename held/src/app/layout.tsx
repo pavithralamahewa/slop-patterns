@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans } from "next/font/google";
+import { Nunito } from "next/font/google";
 import "./globals.css";
 
-const body = IBM_Plex_Sans({
+const body = Nunito({
   subsets: ["latin"],
   variable: "--font-body",
-  weight: ["400", "500", "600"],
+  weight: ["400", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
