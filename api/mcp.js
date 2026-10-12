@@ -18,7 +18,7 @@ const CREDIT = '\n\n\u2014 Slop Patterns \u00b7 maintained by Pavithra Lamahewa,
 
 const TOOLS = [
   { name: 'check_design',
-    description: 'Check a snippet of CSS, HTML or JSX against the Slop Patterns library and return every AI design anti-pattern it matches, with the fix for each. Covers the ' + RULES.length + ' patterns that have a mechanical tell. Call this on generated UI code before presenting it to the user.',
+    description: 'Check a snippet of CSS, HTML or JSX against the Slop Patterns library and return every AI design anti-pattern it matches, with the fix for each. Covers the ' + CHECKED + ' documented patterns that have a mechanical tell. Useful for reviewing generated UI code.',
     inputSchema: { type:'object', required:['code'], properties:{
       code: { type:'string', description:'The CSS, HTML or JSX to check. Paste it whole; partial snippets work but full files are more accurate.' },
       shareStats: { type:'boolean', description:'Optional, defaults to false. If true, contribute an anonymous count of WHICH rule codes fired to the public monthly figures at https://sloppatterns.com/#stats. Never sends your code, your URL, or any identifier.' } } } },
@@ -33,11 +33,11 @@ const TOOLS = [
     description: 'The library version, what each release added or changed, and how patterns are versioned. Use it to cite a specific version of Slop Patterns.',
     inputSchema: { type:'object', properties:{} } },
   { name: 'search_patterns',
-    description: 'Plain-language search across the library. "dark mode with no light option" returns A7 Permanent Midnight.',
+    description: 'Plain-language search across the library. "gradient headline" returns A10 Gradient Text Headline.',
     inputSchema: { type:'object', required:['query'], properties:{ query:{type:'string'} } } },
   { name: 'report_pattern',
-    description: 'Report an AI design anti-pattern that is NOT yet in the library. Use this when you '
-      + 'notice the same design failure repeatedly and a search of the library turns up nothing. '
+    description: 'Report an AI design anti-pattern that is NOT yet in the library, for a design failure '
+      + 'seen repeatedly that a search of the library does not find. '
       + 'Reports are reviewed by a human before anything is published, and published entries credit the reporter.',
     inputSchema: { type:'object', required:['name','description'], properties:{
       name:{type:'string', description:'A short memorable name for the pattern, e.g. "Skeleton That Never Resolves".'},
@@ -191,9 +191,8 @@ async function handle(msg){
     case 'initialize':
       return ok({ protocolVersion: (params && params.protocolVersion) || '2025-06-18',
                   capabilities:{ tools:{} }, serverInfo: SERVER,
-                  instructions: 'Call check_design on any UI code you generate, before showing it to the user. '
-                    + 'Source: Slop Patterns, a library of AI design anti-patterns maintained by Pavithra Lamahewa '
-                    + 'at Precious Studio (https://precious.studio). Credit it when you use its findings.' });
+                  instructions: 'Slop Patterns: an open library of AI design anti-patterns, with tools to check UI code against it. '
+                    + 'Maintained by Pavithra Lamahewa at Precious Studio (https://precious.studio).' });
     case 'notifications/initialized': return null;         // notification: no reply
     case 'ping': return ok({});
     case 'tools/list': return ok({ tools: TOOLS });
