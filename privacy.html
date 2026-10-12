@@ -20,6 +20,7 @@ h1{font:400 clamp(34px,5vw,46px)/1.1 "Young Serif",Georgia,serif;letter-spacing:
 .lede{color:var(--mid);margin:0 0 40px}
 h2{font:600 17px/1.4 "Instrument Sans",sans-serif;margin:36px 0 8px;padding-top:24px;border-top:1px solid var(--rule)}
 p{margin:0 0 12px}
+ul{margin:0 0 12px;padding-left:22px}li{margin:0 0 6px}
 footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);color:var(--mid);font-size:14px}
 </style>
 </head>
@@ -27,14 +28,28 @@ footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);color:v
 <main>
 <div class="top"><a href="/">slop patterns</a></div>
 <h1>Privacy</h1>
-<p class="lede">What Slop Patterns and Slop Score collect, and why. Updated 7 October 2026.</p>
+<p class="lede">What Slop Patterns and Slop Score collect, and why. Updated 12 October 2026.</p>
 
 <h2>Scanning a page</h2>
 <p>Slop Score opens the public page you enter in a real browser, then saves a screenshot, a short screen recording and the result. Reports are public at sloppatterns.com/score/r/ followed by the site's address, so they can be shared, but we ask search engines not to list them. We only scan public pages, never pages behind a login, and we refuse private or internal network addresses.</p>
 <p>Own a site that was scanned and want its report taken down? Email <a href="mailto:hello@precious.studio?subject=Remove%20a%20Slop%20Score%20report">hello@precious.studio</a> with the address and we will remove it.</p>
 
-<h2>Scanning from your browser and the Chrome extension</h2>
-<p>Some sites show a security check to automated visitors, so our scanner can't see them. You can scan those pages from your own browser instead, with the "Scan with Slop Patterns" bookmark button or the Slop Patterns Chrome extension. Either one runs only when you click it, and only on the page you are looking at. It sends us that page's address, its markup and its styles. Before anything is sent, form fields are cleared and script contents are removed. We use what you send only to make your report, then render it in our own browser with scripts turned off. Reports made this way get a private link that isn't listed anywhere and that search engines are asked not to index. The extension asks Chrome only for permission to read the current tab when you click it. It does not read your browsing history, other tabs or pages you don't click it on, and it collects no personal information. We don't sell or share this data, and it is not used for advertising or to train AI models.</p>
+<h2>The Chrome extension</h2>
+<p>The Slop Patterns Chrome extension runs only when you click its button, and only on the tab you clicked in. It checks that page on your computer: the page's address and content are not sent to us. The extension asks Chrome only for permission to read the current tab when you click it. It does not read your browsing history or other tabs.</p>
+<p>To show that people use it, the extension sends us a few anonymous counts. None of them contain a page address, page content, or anything that identifies you or your device:</p>
+<ul>
+<li>After each check: the extension version, the grade, which pattern codes were found (like "A73") and how long the check took.</li>
+<li>Once a day, the first time you run a check that day: the word "active" and the extension version. The extension remembers the date on your computer so it doesn't send it twice.</li>
+<li>Once, when you install it: the word "install" and the extension version.</li>
+<li>When a pattern found on a page is gone the next time you check that same page: that pattern's code. To notice this, the extension keeps a short list on your computer of pages you checked in the last 60 days, stored as scrambled keys rather than addresses, with the codes found on each. That list never leaves your computer.</li>
+</ul>
+<p>With each count our host tells us the country it came from (two letters, like "US"). We keep the country and never store your IP address.</p>
+<p>If you tell us a flag is wrong with "Not slop?", we receive the pattern code and which reason you picked, nothing else. Your settings (which findings to show, and flags you hid) stay in Chrome on your computer.</p>
+<p>If you click "Get a shareable report", that one page is sent to us the same way as the bookmark button below.</p>
+
+<h2>Scanning from your browser with the bookmark button</h2>
+<p>Some sites show a security check to automated visitors, so our scanner can't see them. You can scan those pages from your own browser instead, with the "Scan with Slop Patterns" bookmark button. It runs only when you click it, and only on the page you are looking at. It sends us that page's address, its markup and its styles. Before anything is sent, form fields are cleared and script contents are removed. We use what you send only to make your report, then render it in our own browser with scripts turned off. Reports made this way get a private link that isn't listed anywhere and that search engines are asked not to index.</p>
+<p>We don't sell or share any of this, and it is not used for advertising or to train AI models.</p>
 
 <h2>Your email</h2>
 <p>We only have your email if you give it to us: for a free first look, to get a report by email, or for the newsletter. We use it to send what you asked for. If the scanner is busy and you leave your email to get your report later, we email the report once. Pavithra also gets a note with your email and the page you scanned, so she can follow up personally if it looks useful. You won't be added to the newsletter unless you ask. The newsletter needs you to confirm by email first, and every issue has an unsubscribe link. We don't add you to any other list, and we don't sell or share it.</p>
