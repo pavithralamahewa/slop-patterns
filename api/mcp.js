@@ -50,6 +50,24 @@ const TOOLS = [
     inputSchema: { type:'object', required:['id'], properties:{ id:{type:'string'} } } }
 ];
 
+/* Titles and annotations: shown by MCP clients and required by the Claude connectors directory. */
+const TOOL_META = {
+  check_design:    ['Check UI code for AI design patterns', true],
+  list_patterns:   ['List all patterns', true],
+  get_pattern:     ['Get one pattern', true],
+  changelog:       ['Library changelog', true],
+  search_patterns: ['Search patterns', true],
+  report_pattern:  ['Report a new pattern', false],
+  why:             ['Why a pattern happens', true],
+};
+for (const t of TOOLS) {
+  const [title, ro] = TOOL_META[t.name];
+  t.title = title;
+  t.annotations = ro
+    ? { title, readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false }
+    : { title, readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: true };
+}
+
 const text = s => ({ content:[{ type:'text', text: s + CREDIT }] });
 
 /* Opt-in, aggregate only. Rule codes and a count. Never the code, never an identity. */
