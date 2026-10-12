@@ -1,0 +1,12 @@
+{
+  "name": "slop-patterns",
+  "description": "Slop Patterns: catch the AI-default design patterns in UI code and fix them. By Precious Studio.",
+  "owner": { "name": "Precious Studio", "email": "hello@precious.studio", "url": "https://precious.studio" },
+  "plugins": [
+    {
+      "name": "slop-patterns",
+      "source": "./plugins/slop-patterns",
+      "description": "Checks the UI code your agent writes for AI-default design patterns (gradient headlines, badge above the hero, three identical cards and more) and applies the fix before you see it."
+    }
+  ]
+}

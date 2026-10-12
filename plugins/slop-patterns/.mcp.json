@@ -1,0 +1,5 @@
+{
+  "mcpServers": {
+    "slop-patterns": { "type": "http", "url": "https://sloppatterns.com/mcp" }
+  }
+}
