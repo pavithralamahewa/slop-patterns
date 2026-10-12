@@ -9,6 +9,18 @@ A public library of AI design anti-patterns: what they look like, why the tools 
 
 Maintained by Pavithra Lamahewa at [Precious Studio](https://precious.studio). Suggest a pattern from the site, or open an issue.
 
+## Use it in your AI tools
+
+Your coding agent calls `check_design` on the UI it writes and fixes what it finds before you see it.
+
+- **Claude Code (plugin, MCP plus a skill):**
+  ```
+  /plugin marketplace add pavithralamahewa/slop-patterns
+  /plugin install slop-patterns@slop-patterns
+  ```
+- **Any MCP client:** `npx add-mcp https://sloppatterns.com/mcp`, or add an HTTP server with that URL. It is in the official MCP Registry as `com.sloppatterns/slop-patterns`.
+- **Cursor:** add the server in Settings → MCP (type HTTP, URL above), then copy [`cursor/slop-patterns.mdc`](cursor/slop-patterns.mdc) into `.cursor/rules/`.
+
 ## Use the taxonomy
 
 Every pattern has a stable code (for example `A10`) and a stable URL (`https://sloppatterns.com/#gradient-text-headline`). Codes never change meaning; when an entry is revised, its `version` and `updated` fields change.

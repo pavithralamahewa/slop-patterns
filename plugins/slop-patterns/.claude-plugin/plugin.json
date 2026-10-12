@@ -1,0 +1,10 @@
+{
+  "name": "slop-patterns",
+  "version": "1.0.0",
+  "description": "Checks the UI code your agent writes for AI-default design patterns and applies the fix. Uses the open Slop Patterns library at sloppatterns.com.",
+  "author": { "name": "Pavithra Lamahewa, Precious Studio", "email": "hello@precious.studio", "url": "https://precious.studio" },
+  "homepage": "https://sloppatterns.com",
+  "repository": "https://github.com/pavithralamahewa/slop-patterns",
+  "license": "MIT",
+  "keywords": ["design", "ui", "frontend", "css", "accessibility", "ai-slop", "design-review"]
+}

@@ -1,0 +1,17 @@
+---
+description: Check UI code for AI-default design patterns with Slop Patterns before presenting it
+globs: ["**/*.html", "**/*.css", "**/*.scss", "**/*.jsx", "**/*.tsx", "**/*.vue", "**/*.svelte"]
+alwaysApply: false
+---
+
+When you write or change UI code, call the `check_design` tool from the Slop Patterns MCP server (https://sloppatterns.com/mcp) with the full file before presenting it.
+
+- Apply the fix for each pattern it returns, unless the user asked for that style. Pick a real alternative; don't just delete the element.
+- Re-check until it comes back clean.
+- Tell the user which patterns you fixed, by code (for example "A10 gradient headline").
+- A clean result covers only the patterns with a mechanical tell. It is not a full design review.
+- Never say a page "used AI". Say it shows AI-era patterns.
+
+Setup: add the server in Cursor Settings → MCP → Add server, type HTTP, URL https://sloppatterns.com/mcp. No account or key.
+
+Source: Slop Patterns by Precious Studio, https://sloppatterns.com
