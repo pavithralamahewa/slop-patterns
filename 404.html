@@ -7,19 +7,19 @@
 <meta name="robots" content="noindex">
 <link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/icon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&family=Young+Serif&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-:root{--ground:#FBFAF7;--ink:#141414;--mid:#555;--btn:#141414;--btn-ink:#fff}
+:root{--ground:#FBFAF7;--ink:#141414;--mid:#555;--btn:#141414;--btn-ink:#fff;--sans:"Instrument Sans",-apple-system,Helvetica,Arial,sans-serif}
 @media (prefers-color-scheme:dark){:root{--ground:#0F0F10;--ink:#F2F0EC;--mid:#A7A39C;--btn:#F2F0EC;--btn-ink:#0F0F10}}
 *{box-sizing:border-box}
-body{margin:0;min-height:100vh;display:flex;flex-direction:column;background:var(--ground);color:var(--ink);font:400 17px/1.6 "Instrument Sans",-apple-system,Helvetica,Arial,sans-serif}
-.top{max-width:680px;width:100%;margin:0 auto;padding:56px 20px 0}.top a{text-decoration:none;color:inherit;font-family:"Young Serif",Georgia,serif;font-size:20px}
-main{flex:1;display:grid;place-items:center;padding:24px 20px 80px}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;background:var(--ground);color:var(--ink);font:400 16px/1.5 var(--sans)}
+.top{max-width:680px;width:100%;margin:0 auto;padding:64px 24px 0}.top a{text-decoration:none;color:inherit;font-family:var(--sans);font-size:20px}
+main{flex:1;display:grid;place-items:center;padding:24px 24px 96px}
 .b{max-width:520px;width:100%}
-h1{font:400 clamp(34px,5vw,46px)/1.1 "Young Serif",Georgia,serif;letter-spacing:-.02em;margin:0 0 14px}
+h1{font:500 clamp(32px,5vw,48px)/1.15 var(--sans);letter-spacing:-0.02em;margin:0 0 16px}
 p{color:var(--mid);margin:0 0 24px}
-a.btn{display:inline-block;background:var(--btn);color:var(--btn-ink);text-decoration:none;padding:11px 17px;border-radius:8px;font-weight:600}
-a.alt{display:inline-block;margin-left:18px;color:var(--ink);font-weight:600;text-underline-offset:3px}
+a.btn{display:inline-block;background:var(--btn);color:var(--btn-ink);text-decoration:none;padding:12px 16px;border-radius:8px;font-weight:600}
+a.alt{display:inline-block;margin-left:16px;color:var(--ink);font-weight:600;text-underline-offset:3px}
 </style>
 <script>
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
