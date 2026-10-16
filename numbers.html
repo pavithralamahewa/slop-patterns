@@ -8,26 +8,26 @@
 <link rel="canonical" href="https://sloppatterns.com/numbers">
 <link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/icon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&family=Young+Serif&family=IBM+Plex+Mono&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-:root{--ground:#FBFAF7;--ink:#141414;--mid:#555;--rule:#E6E2DA;--pen:#C8412B}
+:root{--ground:#FBFAF7;--ink:#141414;--mid:#555;--rule:#E6E2DA;--pen:#C8412B;--sans:"Instrument Sans",-apple-system,Helvetica,Arial,sans-serif}
 @media (prefers-color-scheme:dark){:root{--ground:#0F0F10;--ink:#F2F0EC;--mid:#A7A39C;--rule:#2A2926}}
 *{box-sizing:border-box}
-body{margin:0;background:var(--ground);color:var(--ink);font:400 17px/1.6 "Instrument Sans",-apple-system,Helvetica,Arial,sans-serif}
-main{max-width:760px;margin:0 auto;padding:56px 20px 80px}
+body{margin:0;background:var(--ground);color:var(--ink);font:400 16px/1.5 var(--sans)}
+main{max-width:760px;margin:0 auto;padding:64px 24px 96px}
 a{color:inherit;text-underline-offset:3px}
-.top{font-size:15px;margin-bottom:48px}.top a{text-decoration:none;font-family:"Young Serif",Georgia,serif;font-size:20px}
-h1{font:400 clamp(34px,5vw,46px)/1.1 "Young Serif",Georgia,serif;letter-spacing:-.02em;margin:0 0 12px}
-.lede{color:var(--mid);margin:0 0 40px}
-h2{font:600 17px/1.4 "Instrument Sans",sans-serif;margin:40px 0 4px;padding-top:24px;border-top:1px solid var(--rule)}
-.note{color:var(--mid);font-size:15px;margin:0 0 16px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px 28px}
-.n b{display:block;font:400 40px/1.1 "Young Serif",Georgia,serif;letter-spacing:-.01em}
-.n span{display:block;font-size:15px;margin-top:4px}
-.n small{display:block;color:var(--mid);font-size:13px;line-height:19px;margin-top:4px}
+.top{font-size:16px;margin-bottom:48px}.top a{text-decoration:none;font-family:var(--sans);font-size:20px}
+h1{font:500 clamp(32px,5vw,48px)/1.15 var(--sans);letter-spacing:-0.02em;margin:0 0 12px}
+.lede{color:var(--mid);margin:0 0 48px}
+h2{font:600 16px/1.4 var(--sans);margin:48px 0 4px;padding-top:24px;border-top:1px solid var(--rule)}
+.note{color:var(--mid);font-size:16px;margin:0 0 16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px 32px}
+.n b{display:block;font:500 48px/1.15 var(--sans);letter-spacing:-0.02em}
+.n span{display:block;font-size:16px;margin-top:4px}
+.n small{display:block;color:var(--mid);font-size:13px;line-height:1.5;margin-top:4px}
 .n small a{color:var(--mid)}
-.asof{font:13px/20px "IBM Plex Mono",ui-monospace,monospace;color:var(--mid)}
-footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);color:var(--mid);font-size:14px}
+.asof{font:13px/1.5 "IBM Plex Mono",ui-monospace,monospace;color:var(--mid)}
+footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--rule);color:var(--mid);font-size:14px}
 </style>
 <script>
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };

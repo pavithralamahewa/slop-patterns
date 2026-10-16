@@ -4,12 +4,12 @@ const SITE = 'https://sloppatterns.com';
 
 const page = (title, body) => `<!doctype html><html lang="en"><head><meta charset="utf-8">
 <title>${title} — Slop Patterns</title><meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400..700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#fff;color:#141414;
-font-family:"Instrument Sans",-apple-system,Helvetica,Arial,sans-serif;font-weight:456;padding:24px}
-.b{max-width:520px}h1{font-weight:652;font-size:clamp(30px,5vw,46px);line-height:1.05;letter-spacing:-.01em;margin:0 0 16px}
-p{font-size:17px;line-height:25px;color:#717171;margin:0 0 14px}
-a.btn{display:inline-block;margin-top:14px;background:#141414;color:#fff;text-decoration:none;padding:11px 17px;border-radius:7px;font-weight:600}
+font-family:"Instrument Sans",-apple-system,Helvetica,Arial,sans-serif;font-weight:400;padding:24px}
+.b{max-width:520px}h1{font-weight:600;font-size:clamp(32px,5vw,48px);line-height:1.15;letter-spacing:-0.02em;margin:0 0 16px}
+p{font-size:16px;line-height:1.5;color:#717171;margin:0 0 16px}
+a.btn{display:inline-block;margin-top:16px;background:#141414;color:#fff;text-decoration:none;padding:12px 16px;border-radius:8px;font-weight:600}
 @media(prefers-color-scheme:dark){body{background:#0B0B0C;color:#fff}p{color:#8C8C90}a.btn{background:#fff;color:#0B0B0C}}
 </style></head><body><div class="b">${body}</div></body></html>`;
 

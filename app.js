@@ -10418,19 +10418,26 @@ const DATA=[
 var ART={};
 /* ===== artefact templates. Each returns HTML for one schematic screen. ===== */
 const esc = s => String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+/* Gradient text and a display serif belong only on the tell illustrations, not in the site stylesheet. */
+function specimenStyle(o){
+  var bits = [];
+  if(o && o.serif) bits.push('font-family:Georgia,serif');
+  if(o && o.gradText) bits.push('background:linear-gradient(135deg,#6366F1,#C026D3);-webkit-background-clip:text;background-clip:text;color:transparent');
+  return bits.length ? ' style="'+bits.join(';')+'"' : '';
+}
 const W = (cls, inner, extra='') => `<div class="mk ${cls}" data-slop-ignore ${extra}>${inner}</div>`;  // illustrations of slop: scanners skip them
 const M = {
   raw: o => W(`mk-pad mk-c bg-${o.bg||'white'}`, o.html + (o.cap?`<em style="margin-top:8px">${esc(o.cap)}</em>`:'')),
 
   hero: o => W(`mk-pad mk-c bg-${o.bg||'white'}`,
     (o.pill?`<span class="h-pill ${o.pillLt?'lt':''}">${esc(o.pill)}</span>`:'') +
-    `<div class="h-head ${o.gradText?'grad-text':''}">${o.headHtml||esc(o.head)}</div>` +
+    `<div class="h-head"${specimenStyle(o)}>${o.headHtml||esc(o.head)}</div>` +
     (o.sub?`<div class="h-sub">${esc(o.sub)}</div>`:'') +
     (o.btns?`<div class="h-btns">${o.btns.map(b=>`<span class="h-btn ${b.c||''}">${esc(b.t)}</span>`).join('')}</div>`:'') +
     (o.wm?`<span class="wm">${esc(o.wm)}</span>`:'')),
 
   type: o => W('mk-pad mk-c bg-white',
-    `<div class="t-big ${o.serif?'serif':''} ${o.gradText?'grad-text':''}">${o.bigHtml||esc(o.big||'Aa')}</div>` +
+    `<div class="t-big ${o.serif?'serif':''}"${specimenStyle(o)}>${o.bigHtml||esc(o.big||'Aa')}</div>` +
     `<em style="margin-top:6px">${esc(o.cap)}</em>`),
 
   cards: o => W('mk-pad mk-c bg-white',
@@ -10481,7 +10488,7 @@ const M = {
 
   stats: o => W('mk-pad mk-c bg-white',
     `<div class="stats">${o.items.map(i=>
-      `<div><b class="${o.gradText?'grad-text':''}">${esc(i.n)}</b><em>${esc(i.l)}</em>${i.s?`<s>${esc(i.s)}</s>`:''}</div>`).join('')}</div>`),
+      `<div><b${o.gradText?specimenStyle(o):''}>${esc(i.n)}</b><em>${esc(i.l)}</em>${i.s?`<s>${esc(i.s)}</s>`:''}</div>`).join('')}</div>`),
 
   form: o => W('mk-pad mk-c bg-white',
     `<div class="form"><label>${esc(o.label)}</label>` +
@@ -12021,7 +12028,7 @@ function renderMcp(){
     <div><b>${DATA.length-LIB_DETECTED.length}</b><em>readable, not checkable</em></div>
   </div>
   <ul class="covlist">${det}</ul>
-  <p class="covnote">These ${LIB_DETECTED.length} have a tell a rule can see in code: a hex ramp, a font stack, a column count, a missing focus ring. The rest are real failures that need a human read. <code style="font-family:'JetBrains Mono',monospace;font-size:.92em">check_design</code> will never claim one of those. All ${DATA.length} stay readable through the other four tools.</p>
+  <p class="covnote">These ${LIB_DETECTED.length} have a tell a rule can see in code: a hex ramp, a font stack, a column count, a missing focus ring. The rest are real failures that need a human read. <code style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.92em">check_design</code> will never claim one of those. All ${DATA.length} stay readable through the other four tools.</p>
 </section>
 
 <section class="msec faqwrap">
@@ -12367,7 +12374,7 @@ const tile = p => `<button class="tile" data-go="${p.id}">
     <span class="acc">${p.code}</span>
     ${p.tier==='needed'?'<span class="tier">Evidence needed</span>':p.tier==='practitioner-observed'?'<span class="tier">Observed</span>':''}
     <span class="peek" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5c-5 0-8.6 4.2-9.8 6.2a1.5 1.5 0 0 0 0 1.6C3.4 14.8 7 19 12 19s8.6-4.2 9.8-6.2a1.5 1.5 0 0 0 0-1.6C20.6 9.2 17 5 12 5Zm0 10.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Z"/></svg></span>
-    <div class="shot" aria-hidden="true">${ART[p.id] ? art(p.id,'tell') : `<div style="max-width:72%;background:#fff;border-radius:14px;box-shadow:0 1px 3px rgba(0,0,0,.08);padding:22px 26px;text-align:left;font:400 22px/1.2 'Young Serif',Georgia,serif;color:#1b1b1b">${E(SC(p.name))}</div>`}</div>
+    <div class="shot" aria-hidden="true">${ART[p.id] ? art(p.id,'tell') : `<div style="max-width:72%;background:#fff;border-radius:14px;box-shadow:0 1px 3px rgba(0,0,0,.08);padding:22px 26px;text-align:left;font:500 24px/1.2 'Instrument Sans',sans-serif;color:#1b1b1b">${E(SC(p.name))}</div>`}</div>
   </div>
   <div class="tinfo"><p class="tname">${E(SC(p.name))}</p><p class="tdesc">${E(p.oneLiner)}</p></div>
 </button>`;
@@ -12548,6 +12555,35 @@ function flash(btn, msg){
   btn.textContent = msg; btn.classList.add('done');
   setTimeout(()=>{ btn.innerHTML = btn.dataset.html; btn.classList.remove('done'); }, 1600);
 }
+function showToast(msg){
+  var el = document.querySelector('.toast');
+  if(!el){
+    el = document.createElement('div');
+    el.className = 'toast';
+    el.setAttribute('role', 'status');
+    el.setAttribute('aria-live', 'polite');
+    document.body.appendChild(el);
+  }
+  el.textContent = msg;
+  el.classList.add('on');
+  clearTimeout(el._hide);
+  el._hide = setTimeout(function(){ el.classList.remove('on'); }, 2400);
+}
+function renderScan(url){
+  var host = String(url).replace(/^https?:\/\//i,'').replace(/\/$/,'');
+  app.className = 'wrap wide';
+  app.innerHTML = '<section class="scanwait" aria-busy="true" aria-live="polite">'
+    + '<h1>Scanning ' + E(host) + '</h1>'
+    + '<p>Opening the page in a browser and marking each default. About 90 seconds.</p>'
+    + '<div class="skeleton" aria-hidden="true">'
+    + '<span class="sk lg"></span><span class="sk"></span><span class="sk mid"></span><span class="sk"></span><span class="sk short"></span>'
+    + '</div></section>';
+  window.scrollTo(0,0);
+  if(window.trackOffer) window.trackOffer('outbound_score');
+  var go = function(){ location.href = '/score?url=' + encodeURIComponent(url); };
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) requestAnimationFrame(go);
+  else setTimeout(go, 700);
+}
 function setNavCount(){
   const el = document.querySelector('.mark .cnt');
   if(el && !el.textContent) el.textContent = DATA.length + ' documented';
@@ -12587,6 +12623,7 @@ document.addEventListener('click', e => {
   if(cpb){ e.preventDefault(); const src=document.getElementById(cpb.dataset.copy);
     if(src && navigator.clipboard){ navigator.clipboard.writeText(src.textContent.trim()).then(()=>{
       const t=cpb.textContent; cpb.textContent='Copied'; cpb.classList.add('done');
+      showToast('Copied');
       setTimeout(()=>{cpb.textContent=t; cpb.classList.remove('done');},1600); }); }
     return; }
   const go = e.target.closest('[data-go]');
@@ -12615,12 +12652,12 @@ document.addEventListener('click', e => {
     const url='https://sloppatterns.com/#'+p.id;
     const title=p.code+' \u2014 '+SC(p.name)+' \u00b7 Slop Patterns';
     if(navigator.share){ navigator.share({title, text:p.oneLiner, url}).catch(()=>{}); return; }
-    if(navigator.clipboard) navigator.clipboard.writeText(url).then(()=>flash(sh,'Link copied'));
+    if(navigator.clipboard) navigator.clipboard.writeText(url).then(function(){ flash(sh,'Link copied'); showToast('Link copied'); });
     return; }
   const ct = e.target.closest('[data-cite]');
   if(ct){ e.preventDefault();
     if(ct.dataset.cite==='p0'){ const bx=document.getElementById('citebox');
-      if(bx && navigator.clipboard) navigator.clipboard.writeText(bx.textContent.trim()).then(()=>flash(ct,'Citation copied'));
+      if(bx && navigator.clipboard) navigator.clipboard.writeText(bx.textContent.trim()).then(function(){ flash(ct,'Citation copied'); showToast('Citation copied'); });
       return; }
     const p=byId[ct.dataset.cite];
     const box=document.getElementById('citebox');
@@ -12628,11 +12665,11 @@ document.addEventListener('click', e => {
     const txt='Lamahewa, P. ('+p.updated.slice(0,4)+'). '+p.code+' \u2014 '+p.name+' (entry v'+p.version+', updated '+dmy(p.updated)+'). Slop Patterns v'+LIB_VERSION+'. Precious Studio.\n'
       +'https://sloppatterns.com/#'+p.id+' (accessed '+d.getDate()+' '+MM[d.getMonth()]+' '+d.getFullYear()+')';
     if(box){ box.textContent=txt; box.hidden=false; }
-    if(navigator.clipboard) navigator.clipboard.writeText(txt).then(()=>flash(ct,'Citation copied'));
+    if(navigator.clipboard) navigator.clipboard.writeText(txt).then(function(){ flash(ct,'Citation copied'); showToast('Citation copied'); });
     return; }
   const c = e.target.closest('[data-copy]');
   if(c){ const n=c.childNodes[c.childNodes.length-1]; const o=n.textContent;
-    n.textContent='Copied'; setTimeout(()=>{n.textContent=o},1400); return; }
+    n.textContent='Copied'; showToast('Copied'); setTimeout(()=>{n.textContent=o},1400); return; }
   const sq = e.target.closest('[data-submitq]');
   if(sq){ e.preventDefault(); window.__prefill = sq.dataset.submitq; location.hash='submit'; return; }
   const sc = e.target.closest('[data-scroll]');
@@ -12778,6 +12815,16 @@ function parseBlock(txt, review){
 
 /* --- the field itself --- */
 function isUrl(v){ return !!v && !/\s/.test(v) && !/[<>{};]/.test(v) && /^(https?:\/\/)?([a-z0-9-]+\.)+[a-z]{2,}(\/\S*)?$/i.test(v); }
+function urlProblem(v){
+  var s = String(v||'').trim();
+  if(!s || looksLikeCode(s)) return '';
+  var privateHost = /localhost|\.local\b|127\.0\.0\.1|0\.0\.0\.0|10\.\d+\.\d+\.\d+|192\.168\.\d+\.\d+|172\.(1[6-9]|2\d|3[0-1])\.\d+\.\d+/i.test(s);
+  var attempt = privateHost || /^https?:\/\//i.test(s) || (!/\s/.test(s) && /[.]/.test(s));
+  if(!attempt) return '';
+  if(isUrl(s) && !privateHost) return '';
+  if(privateHost) return 'That address is on a private network. Slop Score only opens public pages. Paste a public link, like https://example.com.';
+  return 'That is not a public web address. Paste a full link, like https://example.com.';
+}
 /* Phone menu: one button opens the whole site (search, pages, scan); any choice closes it. */
 function setMenu(open){
   document.body.classList.toggle('menuopen', open);
@@ -12812,16 +12859,36 @@ function buildSearch(host){
     + '<div class="askhint" role="note"><p class="ah-t">One box, three ways in</p>'
     + '<button type="button" data-ask="my landing page looks generic"><b>Describe it</b><span>“my landing page looks generic”</span></button>'
     + '<button type="button" data-ask="&lt;div class=&quot;bg-gradient-to-r from-indigo-500 to-violet-500&quot;&gt;"><b>Paste code</b><span>CSS, HTML or JSX, checked against the library</span></button>'
-    + '<button type="button" data-ask="yoursite.com"><b>Paste a web address</b><span>runs Slop Score on your page</span></button></div>';
+    + '<button type="button" data-ask="yoursite.com"><b>Paste a web address</b><span>runs Slop Score on your page</span></button></div>'
+    + '<p class="fielderr" id="urlerr" role="alert" hidden><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 4.5v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="11.2" r=".8" fill="currentColor"/></svg><span></span></p>';
   host.appendChild(w);
-  var input = w.querySelector('#q'), i = 0, timer;
+  var input = w.querySelector('#q'), err = w.querySelector('#urlerr'), i = 0, timer;
+  function showUrlError(msg){
+    if(!msg){
+      w.classList.remove('is-invalid');
+      err.hidden = true;
+      err.querySelector('span').textContent = '';
+      input.removeAttribute('aria-invalid');
+      input.removeAttribute('aria-describedby');
+      return;
+    }
+    w.classList.add('is-invalid');
+    w.classList.remove('isurl');
+    err.hidden = false;
+    err.querySelector('span').textContent = msg;
+    input.setAttribute('aria-invalid', 'true');
+    input.setAttribute('aria-describedby', 'urlerr');
+  }
 
   function cycle(){
     if(document.activeElement === input || input.value) return;
     input.placeholder = 'Ask, or paste code/URL';
   }
   cycle();
-  input.addEventListener('blur', function(){ if(!input.value) input.placeholder = 'Ask, or paste code/URL'; });
+  input.addEventListener('blur', function(){
+    if(!input.value) input.placeholder = 'Ask, or paste code/URL';
+    showUrlError(urlProblem(input.value));
+  });
 
   function run(){
     var v = input.value.trim();
@@ -12838,13 +12905,17 @@ function buildSearch(host){
   }
   input.addEventListener('input', function(){
     clearTimeout(timer);
+    if(w.classList.contains('is-invalid') && !urlProblem(input.value)) showUrlError('');
     if(looksLikeCode(input.value.trim())) { run(); return; }   // a paste checks at once
     timer = setTimeout(run, 180);
   });
   input.addEventListener('keydown', function(e){
-    if(e.key === 'Escape'){ input.value=''; input.blur(); run(); }
+    if(e.key === 'Escape'){ input.value=''; showUrlError(''); input.blur(); run(); }
     if(e.key === 'Enter'){ clearTimeout(timer);
-      var u = input.value.trim(); if(isUrl(u)){ if(window.trackOffer) window.trackOffer('outbound_score'); location.href = '/score?url=' + encodeURIComponent(u); return; }
+      var u = input.value.trim();
+      var problem = urlProblem(u);
+      if(problem){ e.preventDefault(); showUrlError(problem); return; }
+      if(isUrl(u)){ e.preventDefault(); renderScan(u); return; }
       run(); }
   });
 }
@@ -13070,7 +13141,7 @@ function slopCSS(){
     'body.slop .mark::after{content:"";width:7px;height:7px;border-radius:50%;background:' + hsl(150,70,45) + ';display:inline-block;margin-left:7px;animation:sloppulse 1.4s ease-in-out infinite}',
     '.sloptoast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);z-index:90;',
       'background:var(--ink);color:var(--ground);border-radius:8px;padding:12px 16px;',
-      'font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12px;line-height:19px;',
+      'font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12px;line-height:1.5;',
       'max-width:min(600px,92vw);box-shadow:0 8px 28px rgba(0,0,0,.28)}',
     '.sloptoast em{font-style:normal;font-size:13px;display:block;margin-bottom:5px}',
     '.sloptoast b{font-weight:500;opacity:.62;display:block}',
