@@ -1,0 +1,30 @@
+{
+  "name": "held",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build --turbopack",
+    "start": "next start",
+    "lint": "eslint",
+    "verify:core": "node scripts/verify-core.mjs",
+    "test:e2e": "node scripts/e2e-ftue.mjs"
+  },
+  "dependencies": {
+    "next": "^15.5.9",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.4",
+    "puppeteer-core": "^24.43.1",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
