@@ -20299,8 +20299,134 @@ const DATA=[
   "added": "2026-10-23",
   "updated": "2026-10-23",
   "detect": "judgement"
+ },
+ {
+  "id": "the-photo-from-the-item-name",
+  "name": "The Photo From The Item Name",
+  "track": "surface",
+  "group": "Imagery & icons",
+  "category": "Imagery",
+  "harm": "Trust",
+  "origin": "Business",
+  "oneLiner": "Delivery app menus show a generated dish photo drawn from the item's name, not the restaurant's real food.",
+  "looksLike": "A menu item that had no photo now has a glossy picture that matches its name but not the kitchen. A 'breakfast soda' shows fried eggs and sausages floating in cola, or a burger sits tiny inside a sauce pot. Nothing on the listing says the picture was generated.",
+  "why": "Platforms want every item to have a photo because photos sell, and small restaurants cannot pay for shoots, so an image model fills the gap from the item's text. The model has no idea what this restaurant serves, so it draws an average of everything with a similar name and takes odd names literally.",
+  "who": "Customers order food that looks nothing like what arrives and ask for refunds, and restaurants take the bad ratings for pictures they did not make.",
+  "theFix": "Use only photos of the real dish, or show no photo. If a platform generates one, have the restaurant approve it first and label it as an illustration on the listing.",
+  "heur": "Human review: compare menu photos with the item name and description and with photos of delivered orders; look for literal readings of dish names and for no generated-image label.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Just Eat apologises for surreal AI generated food images",
+    "u": "https://www.restaurantonline.co.uk/Article/2026/10/21/just-eat-apologises-for-surreal-ai-generated-food-images/"
+   },
+   {
+    "t": "Just Eat's AI put bacon and eggs in a glass of cola — and it's exposed a much bigger problem with AI",
+    "u": "https://www.techradar.com/ai-platforms-assistants/just-eats-ai-put-bacon-and-eggs-in-a-glass-of-cola-and-its-exposed-a-much-bigger-problem-with-ai"
+   },
+   {
+    "t": "Zomato Bans Restaurants from Using AI-Generated Food Images To Prevent Misleading Customers",
+    "u": "https://www.medianama.com/2024/08/223-zomato-bans-restaurants-from-using-ai-generated-food-images-to-prevent-misleading-customers/"
+   }
+  ],
+  "code": "A283",
+  "rel": [
+   "the-memorised-stock-photo",
+   "gradient-initial-avatars",
+   "the-fake-dashboard"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-26",
+  "updated": "2026-10-26",
+  "detect": "judgement"
+ },
+ {
+  "id": "facts-nobody-gave",
+  "name": "Facts Nobody Gave",
+  "track": "behavioral",
+  "group": "Generated content",
+  "category": "Website builders",
+  "harm": "Trust",
+  "origin": "Model",
+  "oneLiner": "AI site builders fill a small business site with prices, hours, policies and perks the owner never supplied.",
+  "looksLike": "The owner types a short brief and gets a full site. It also promises free parking, lists payment methods, quotes ingredients, sets a notice period for orders, or gives a price, an opening time or a guarantee that was never in the brief. It reads as smoothly as the true parts, so the owner may publish it unchecked.",
+  "why": "The builder is asked for a complete, finished-looking site, and a model fills every empty slot with plausible business detail instead of leaving it blank. The tool's reply rarely lists which facts it made up, so the owner cannot tell the invented parts from the real ones.",
+  "who": "Customers act on wrong prices, hours and policies, and the owner is left answering for promises and claims they never made.",
+  "theFix": "Tell the tool: use only facts from my brief, and leave a marked gap for anything missing. Before launch, check every price, time, policy, guarantee and contact detail against the brief and delete what you cannot confirm.",
+  "heur": "Human review: list every concrete claim on the generated site (numbers, times, policies, perks, payment options) and mark each one that does not appear in the owner's brief.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "How to Vibe Code a Website: Step by Step, Tested (2026)",
+    "u": "https://www.appypie.com/blog/how-to-vibe-code-a-website"
+   },
+   {
+    "t": "Build a Website with AI: Small Business Launch Plan",
+    "u": "https://www.siteground.com/academy/build-a-website-with-ai"
+   },
+   {
+    "t": "AI Website Builder: No-Code Websites for Small Businesses",
+    "u": "https://www.siteground.com/academy/ai-website-builder-no-code-checklist"
+   }
+  ],
+  "code": "B257",
+  "rel": [
+   "the-many-slice-donut",
+   "best-of-never-touched",
+   "the-pulsing-dot"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-26",
+  "updated": "2026-10-26",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-fake-send",
+  "name": "The Fake Send",
+  "track": "behavioral",
+  "group": "Input & feedback",
+  "category": "Forms",
+  "harm": "Trust",
+  "origin": "Tool default",
+  "oneLiner": "A generated contact form says your message was sent, but nothing is sent or stored anywhere.",
+  "looksLike": "You fill in the enquiry form and press Send. The page thanks you and promises a reply within 24 hours. No network request goes out, or the server only writes a log line, and no email ever reaches the owner.",
+  "why": "AI builders generate the form and its happy-path success state but not the service that receives it, leaving a placeholder handler or a console.log. The success message makes the demo look finished, and the tool's summary often describes the form as working, so no one tests it.",
+  "who": "Visitors think they have booked or asked something and wait for a reply that never comes, and the owner loses leads without knowing they existed.",
+  "theFix": "Show success only after a real endpoint confirms the message was received. Until the form is wired, say plainly on the page that nothing was sent, and send a test message to your own inbox before launch.",
+  "heur": "Code and render check: submit the form with the network panel open; flag a success state with no request, a handler that only logs, or a request that is stored but never delivered.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "How to Vibe Code a Website: Step by Step, Tested (2026)",
+    "u": "https://www.appypie.com/blog/how-to-vibe-code-a-website"
+   },
+   {
+    "t": "Nutlope/hallmark: skills/hallmark/references/gates.md",
+    "u": "https://github.com/Nutlope/hallmark/blob/main/skills/hallmark/references/gates.md"
+   },
+   {
+    "t": "Contact Forms for AI-Built Websites: Claude, Cursor, Lovable",
+    "u": "https://splitforms.com/blog/contact-form-for-ai-built-websites"
+   }
+  ],
+  "code": "B258",
+  "rel": [
+   "toggles-without-consequence",
+   "locked-until-valid",
+   "schema-speak-errors"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-10-26",
+  "updated": "2026-10-26",
+  "detect": "code"
  }
-]
+];
 var ART={};
 /* ===== artefact templates. Each returns HTML for one schematic screen. ===== */
 const esc = s => String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
@@ -21731,7 +21857,7 @@ Object.assign(ART, {
 /* ===== MCP landing page ===== */
 const MCP_ENDPOINT = 'https://sloppatterns.com/mcp';
 
-const LIB_VERSION = '1.3.0';
+const LIB_VERSION = '1.4.0';
 const dmy = s => { const M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; const [y,m,d]=String(s).split('-'); return (+d)+' '+M[+m-1]+' '+y; };
 const DETECTED = ['a1','a2','a3','a6','a7','a8','a10','a12','a15','a16','a18','a19','b31','b32','b34','a20','a22','a25','a36','a37','a40','a43','a44','a45','a46','a47','a48','b118','b122','b123','b115','b117','b119','b124','b134','b135','b137','b131','b133','a32','a23','a24','a38','a49','a50','a51','a52','a53','a54','a55','a56','a57','a58','a59','a60','a61','a62','a63','a64','a65','a66','a69','a71','a9','a26','a11','a27','a28','a29','a30','a35','a67','a21','a13','a5','a41','a42','a14','b89','b104','b109','b125','b169','b182','a73','a74','a76','a77','a78','a79','a81','a82','a83','a88','a90','a92','b164','a89','b166','b168','b170','b179','b180','b181'];
 /* rules whose pattern is in this library; counts of patterns use this, counts of rules use DETECTED */

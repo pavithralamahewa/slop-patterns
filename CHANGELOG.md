@@ -1,12 +1,22 @@
 # Slop Patterns — changelog
 
-Current: **v1.3.0** (2026-10-23). Machine-readable: `/library.json`. Also available from the MCP server as the `changelog` tool.
+Current: **v1.4.0** (2026-10-26). Machine-readable: `/library.json`. Also available from the MCP server as the `changelog` tool.
 
 ## How versions work
 
 - **Library:** Semantic. MAJOR when a pattern is removed or its id changes. MINOR when patterns or detectors are added. PATCH for wording, sources and fixes to existing detectors.
 - **Entries:** Each entry carries version, added and updated. The entry version goes up by 0.1 when its definition, fix or detection changes; wording and source fixes update the date only.
 - **IDs:** Pattern ids and codes are permanent. A retired pattern keeps its code and is marked retired, never reused.
+
+## v1.4.0 — 2026-10-26
+
+Library grows from 531 to 534 patterns.
+
+**Added**
+
+- A283 The Photo From The Item Name
+- B257 Facts Nobody Gave
+- B258 The Fake Send
 
 ## v1.3.0 — 2026-10-23
 
