@@ -1,19 +1,19 @@
 {
  "name": "Slop Patterns",
- "version": "1.3.0",
- "released": "2026-10-23",
+ "version": "1.4.0",
+ "released": "2026-10-26",
  "license": "MIT",
  "maintainer": "Pavithra Lamahewa, Precious Studio",
  "url": "https://sloppatterns.com",
  "counts": {
-  "patterns": 531,
-  "detectableFromCode": 101,
+  "patterns": 534,
+  "detectableFromCode": 102,
   "needsRenderedPage": 9,
-  "judgementOnly": 421,
-  "sourced": 427,
+  "judgementOnly": 423,
+  "sourced": 430,
   "practitionerObserved": 78,
   "evidenceNeeded": 26,
-  "sourceLinks": 1101
+  "sourceLinks": 1110
  },
  "versioning": {
   "library": "Semantic. MAJOR when a pattern is removed or its id changes. MINOR when patterns or detectors are added. PATCH for wording, sources and fixes to existing detectors.",
@@ -21,6 +21,19 @@
   "ids": "Pattern ids and codes are permanent. A retired pattern keeps its code and is marked retired, never reused."
  },
  "changelog": [
+  {
+   "version": "1.4.0",
+   "date": "2026-10-26",
+   "added": [
+    "A283 The Photo From The Item Name",
+    "B257 Facts Nobody Gave",
+    "B258 The Fake Send"
+   ],
+   "changed": [
+    "Library grows from 531 to 534 patterns."
+   ],
+   "notes": ""
+  },
   {
    "version": "1.3.0",
    "date": "2026-10-23",

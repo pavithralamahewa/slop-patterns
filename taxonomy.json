@@ -1,11 +1,11 @@
 {
  "name": "Slop Patterns taxonomy",
- "version": "1.2.0",
- "released": "2026-10-23",
+ "version": "1.3.0",
+ "released": "2026-10-26",
  "license": "MIT",
  "url": "https://sloppatterns.com",
  "cite": "https://github.com/pavithralamahewa/slop-patterns/blob/main/CITATION.cff",
- "count": 531,
+ "count": 534,
  "checkedAutomatically": 101,
  "patterns": [
   {
@@ -13425,6 +13425,93 @@
     {
      "t": "AI UX Patterns | Follow up | ShapeofAI.com",
      "u": "https://www.shapeof.ai/patterns/follow-up"
+    }
+   ]
+  },
+  {
+   "code": "A283",
+   "id": "the-photo-from-the-item-name",
+   "name": "The Photo From The Item Name",
+   "category": "Imagery",
+   "track": "surface",
+   "harm": "Trust",
+   "detection": "needs a person",
+   "url": "https://sloppatterns.com/#the-photo-from-the-item-name",
+   "version": "1.0",
+   "added": "2026-10-26",
+   "updated": "2026-10-26",
+   "oneLiner": "Delivery app menus show a generated dish photo drawn from the item's name, not the restaurant's real food.",
+   "fix": "Use only photos of the real dish, or show no photo. If a platform generates one, have the restaurant approve it first and label it as an illustration on the listing.",
+   "sources": [
+    {
+     "t": "Just Eat apologises for surreal AI generated food images",
+     "u": "https://www.restaurantonline.co.uk/Article/2026/10/21/just-eat-apologises-for-surreal-ai-generated-food-images/"
+    },
+    {
+     "t": "Just Eat's AI put bacon and eggs in a glass of cola — and it's exposed a much bigger problem with AI",
+     "u": "https://www.techradar.com/ai-platforms-assistants/just-eats-ai-put-bacon-and-eggs-in-a-glass-of-cola-and-its-exposed-a-much-bigger-problem-with-ai"
+    },
+    {
+     "t": "Zomato Bans Restaurants from Using AI-Generated Food Images To Prevent Misleading Customers",
+     "u": "https://www.medianama.com/2024/08/223-zomato-bans-restaurants-from-using-ai-generated-food-images-to-prevent-misleading-customers/"
+    }
+   ]
+  },
+  {
+   "code": "B257",
+   "id": "facts-nobody-gave",
+   "name": "Facts Nobody Gave",
+   "category": "Website builders",
+   "track": "behavioral",
+   "harm": "Trust",
+   "detection": "needs a person",
+   "url": "https://sloppatterns.com/#facts-nobody-gave",
+   "version": "1.0",
+   "added": "2026-10-26",
+   "updated": "2026-10-26",
+   "oneLiner": "AI site builders fill a small business site with prices, hours, policies and perks the owner never supplied.",
+   "fix": "Tell the tool: use only facts from my brief, and leave a marked gap for anything missing. Before launch, check every price, time, policy, guarantee and contact detail against the brief and delete what you cannot confirm.",
+   "sources": [
+    {
+     "t": "How to Vibe Code a Website: Step by Step, Tested (2026)",
+     "u": "https://www.appypie.com/blog/how-to-vibe-code-a-website"
+    },
+    {
+     "t": "Build a Website with AI: Small Business Launch Plan",
+     "u": "https://www.siteground.com/academy/build-a-website-with-ai"
+    },
+    {
+     "t": "AI Website Builder: No-Code Websites for Small Businesses",
+     "u": "https://www.siteground.com/academy/ai-website-builder-no-code-checklist"
+    }
+   ]
+  },
+  {
+   "code": "B258",
+   "id": "the-fake-send",
+   "name": "The Fake Send",
+   "category": "Forms",
+   "track": "behavioral",
+   "harm": "Trust",
+   "detection": "automated",
+   "url": "https://sloppatterns.com/#the-fake-send",
+   "version": "1.0",
+   "added": "2026-10-26",
+   "updated": "2026-10-26",
+   "oneLiner": "A generated contact form says your message was sent, but nothing is sent or stored anywhere.",
+   "fix": "Show success only after a real endpoint confirms the message was received. Until the form is wired, say plainly on the page that nothing was sent, and send a test message to your own inbox before launch.",
+   "sources": [
+    {
+     "t": "How to Vibe Code a Website: Step by Step, Tested (2026)",
+     "u": "https://www.appypie.com/blog/how-to-vibe-code-a-website"
+    },
+    {
+     "t": "Nutlope/hallmark: skills/hallmark/references/gates.md",
+     "u": "https://github.com/Nutlope/hallmark/blob/main/skills/hallmark/references/gates.md"
+    },
+    {
+     "t": "Contact Forms for AI-Built Websites: Claude, Cursor, Lovable",
+     "u": "https://splitforms.com/blog/contact-form-for-ai-built-websites"
     }
    ]
   }
