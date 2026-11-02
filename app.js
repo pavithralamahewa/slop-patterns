@@ -20425,6 +20425,170 @@ const DATA=[
   "added": "2026-10-26",
   "updated": "2026-10-26",
   "detect": "code"
+ },
+ {
+  "id": "the-dialog-you-can-t-tab-into",
+  "name": "The Dialog You Can't Tab Into",
+  "track": "behavioral",
+  "group": "Accessibility",
+  "category": "Accessibility",
+  "harm": "Accessibility",
+  "origin": "Model",
+  "oneLiner": "A generated modal or cart drawer opens and looks right, but keyboard focus stays on the page behind it and Escape does nothing.",
+  "looksLike": "Press Enter and the dialog appears over a dimmed page. Press Tab and the focus moves through links you can no longer see behind the overlay. Escape leaves it open. The dialog is fine with a mouse, and nothing appears in the console.",
+  "why": "A model writes the markup and the visible open state, and those are what a screenshot or a quick look can check. Moving focus in, holding it there and closing on Escape only show up when someone drives the page by keyboard. Sometimes the Escape code is even written but does not work, and no error says so.",
+  "who": "Keyboard and screen reader users get stuck behind an overlay or cannot reach what is inside it, including carts and checkouts, so they cannot finish the task.",
+  "theFix": "Use the native dialog element opened with showModal(), or a tested dialog component, instead of a hand-built div. Then test by keyboard: open it, press Tab and Shift Tab until they cycle, press Escape, and check where focus lands after it closes.",
+  "heur": "Human review or browser script: open each dialog and drawer by keyboard; check that focus starts inside, that Tab and Shift Tab stay inside, and that Escape closes it.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "AI builds modals that look right. Do they work?",
+    "u": "https://feather.ca/experiments/ai-ui-accessibility-operability/"
+   },
+   {
+    "t": "New Study: AI Coding Tools Do Not Write Accessible Code",
+    "u": "https://www.audioeye.com/ai-coding-tools-do-not-write-accessible-code/"
+   },
+   {
+    "t": "Where AI-Generated Design Breaks UX Laws",
+    "u": "https://hackernoon.com/where-ai-generated-design-breaks-ux-laws"
+   }
+  ],
+  "code": "B259",
+  "rel": [
+   "nowhere-to-focus",
+   "landmark-free-page",
+   "the-clickable-div"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-11-02",
+  "updated": "2026-11-02",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-praise-only-summary",
+  "name": "The Praise-Only Summary",
+  "track": "behavioral",
+  "group": "Provenance",
+  "category": "Retail",
+  "harm": "Trust",
+  "origin": "Business",
+  "oneLiner": "An AI summary of customer reviews is built to mention only the good, so it can never carry a complaint.",
+  "looksLike": "A short line under an ad or at the top of a product page says what customers love about the business. No complaint ever appears in it, whatever the reviews say. There is usually nothing beside it to check it against: no counts, no quotes, no link to the reviews.",
+  "why": "The summary sits where it helps sell, so the product brief asks for benefits and drops the rest. The model will write a pleasant paragraph from any pile of reviews, and the text reads like a neutral digest of what customers said.",
+  "who": "Shoppers take a filtered sales line for what customers think, and it can shape their view before they read a single review. People who left complaints have their experience dropped without trace.",
+  "theFix": "Summarise good and bad themes together, with counts and links to the reviews behind them. If a surface may only show praise, label it as selected highlights and do not call it a summary of reviews.",
+  "heur": "Human review: compare the summary with the rating distribution and the low star reviews; flag summaries that mention no drawback when complaints exist, and any with no counts or links to reviews.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Google AI writes positive-only review summaries into Search ads in 4 markets",
+    "u": "https://ppc.land/google-ai-writes-positive-only-review-summaries-into-search-ads-in-4-markets/"
+   },
+   {
+    "t": "Google Ads AI-Generated Review Summaries Help Doc",
+    "u": "https://seroundtable.com/google-ads-ai-review-summaries-doc-42370.html"
+   },
+   {
+    "t": "First Impressions: How Placement Shapes the Influence of AI Summaries",
+    "u": "https://arxiv.org/abs/2609.14900"
+   },
+   {
+    "t": "AI Summaries of Reviews",
+    "u": "https://www.nngroup.com/articles/ai-reviews/"
+   }
+  ],
+  "code": "B260",
+  "rel": [
+   "the-review-that-writes-itself",
+   "books-under-your-name",
+   "the-generated-damage-photo"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-11-02",
+  "updated": "2026-11-02",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-reporter-s-inbox",
+  "name": "The Reporter's Inbox",
+  "track": "behavioral",
+  "group": "Conversation",
+  "category": "Support",
+  "harm": "Trust",
+  "origin": "Model",
+  "oneLiner": "A chatbot answers an ordinary tech support problem by telling you to contact journalists, then names one and drafts the email.",
+  "looksLike": "You ask how to get a banned account back. After a few turns the assistant suggests going to the press, lists outlets with a named reporter's address, and writes the message for you. Some of these emails come with an evidence packet or a forensic trail for what is a routine support case.",
+  "why": "When the company's own support is hard to reach, the model still produces a next step, and escalating to someone with public reach sounds like a useful one. It has no sense of who can actually fix the account, or of what a stranger's inbox is for. The reports do not establish a cause, so this is the likely reason and not a measured one.",
+  "who": "People with a real problem spend their hope and time on someone who cannot solve it, and journalists get floods of support requests written by a chatbot.",
+  "theFix": "When the assistant does not know a working route, it should say so and point to the company's official support, appeal or consumer complaint channel. It should not hand out a named person's address or suggest the press unless the user asks for that.",
+  "heur": "Human review: in support style conversations, flag replies that suggest contacting journalists, name a private person's email, or offer an evidence dossier for a routine account or device problem.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "ChatGPT Keeps Telling People 404 Media Can Solve Their Tech Support Problems",
+    "u": "https://www.404media.co/chatgpt-keeps-telling-people-404-media-can-solve-their-tech-support-problems/"
+   }
+  ],
+  "code": "B261",
+  "rel": [
+   "the-doom-loop-to-nowhere",
+   "the-agreeable-sales-bot",
+   "help-docs-that-say-nothing"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-11-02",
+  "updated": "2026-11-02",
+  "detect": "judgement"
+ },
+ {
+  "id": "three-almost-same-buttons",
+  "name": "Three Almost-Same Buttons",
+  "track": "surface",
+  "group": "Components",
+  "category": "Components",
+  "harm": "Credibility",
+  "origin": "Model",
+  "oneLiner": "Each generated screen rebuilds the button, so one app has several that differ slightly in colour, radius and padding.",
+  "looksLike": "The Continue button on one screen is a shade off the one on the next, with a slightly rounder corner and different padding. Inputs, cards and modals do the same. Every screen looks fine alone, and only side by side does the app look like it was made by different people.",
+  "why": "Each prompt is a fresh request, and unless the tool reads the existing components it writes a new one close to its training average. It uses nearby utility classes and raw values, not shared tokens, so small differences build up with every screen.",
+  "who": "The product looks unfinished without anyone being able to say why, and every later change has to be made in several near copies of the same component.",
+  "theFix": "Keep one Button, Input and Card with shared tokens, and tell the tool to reuse them and never write a new one. Then put the screens side by side, or search the code for raw colours and one off radius values, and merge the copies.",
+  "heur": "Human review or code check: list every distinct button style across screens by colour, radius, height and padding; flag several near matches, and component files that duplicate one another.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Why AI Breaks Your Design System (and How to Fix the Drift) (2026)",
+    "u": "https://www.superdesign.dev/blog/ai-design-system-drift"
+   },
+   {
+    "t": "Your AI coding tools are ignoring your design system. Here's how I fixed it.",
+    "u": "https://dev.to/dejan_veljanoski/your-ai-coding-tools-are-ignoring-your-design-system-heres-how-i-fixed-it-161j"
+   },
+   {
+    "t": "How to Clean Up a Vibe-Coded App Without a Rewrite",
+    "u": "https://designpixil.com/blog/how-to-clean-up-vibe-coded-app"
+   }
+  ],
+  "code": "A284",
+  "rel": [
+   "one-radius-for-everything",
+   "one-two-three-steps",
+   "arrow-on-every-button"
+  ],
+  "tier": "practitioner-observed",
+  "observed": "Builders and design tool makers describe this across multi-screen AI builds, with screen level examples and no measured rate.",
+  "version": "1.0",
+  "added": "2026-11-02",
+  "updated": "2026-11-02",
+  "detect": "judgement"
  }
 ];
 var ART={};
@@ -21857,7 +22021,7 @@ Object.assign(ART, {
 /* ===== MCP landing page ===== */
 const MCP_ENDPOINT = 'https://sloppatterns.com/mcp';
 
-const LIB_VERSION = '1.4.0';
+const LIB_VERSION = '1.5.0';
 const dmy = s => { const M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; const [y,m,d]=String(s).split('-'); return (+d)+' '+M[+m-1]+' '+y; };
 const DETECTED = ['a1','a2','a3','a6','a7','a8','a10','a12','a15','a16','a18','a19','b31','b32','b34','a20','a22','a25','a36','a37','a40','a43','a44','a45','a46','a47','a48','b118','b122','b123','b115','b117','b119','b124','b134','b135','b137','b131','b133','a32','a23','a24','a38','a49','a50','a51','a52','a53','a54','a55','a56','a57','a58','a59','a60','a61','a62','a63','a64','a65','a66','a69','a71','a9','a26','a11','a27','a28','a29','a30','a35','a67','a21','a13','a5','a41','a42','a14','b89','b104','b109','b125','b169','b182','a73','a74','a76','a77','a78','a79','a81','a82','a83','a88','a90','a92','b164','a89','b166','b168','b170','b179','b180','b181'];
 /* rules whose pattern is in this library; counts of patterns use this, counts of rules use DETECTED */
