@@ -1,11 +1,11 @@
 {
  "name": "Slop Patterns taxonomy",
- "version": "1.4.0",
- "released": "2026-11-02",
+ "version": "1.5.0",
+ "released": "2026-11-16",
  "license": "MIT",
  "url": "https://sloppatterns.com",
  "cite": "https://github.com/pavithralamahewa/slop-patterns/blob/main/CITATION.cff",
- "count": 538,
+ "count": 540,
  "checkedAutomatically": 101,
  "patterns": [
   {
@@ -13624,6 +13624,64 @@
     {
      "t": "How to Clean Up a Vibe-Coded App Without a Rewrite",
      "u": "https://designpixil.com/blog/how-to-clean-up-vibe-coded-app"
+    }
+   ]
+  },
+  {
+   "code": "A285",
+   "id": "the-brief-read-aloud",
+   "name": "The Brief Read Aloud",
+   "category": "Copy",
+   "track": "surface",
+   "harm": "Credibility",
+   "detection": "needs a person",
+   "url": "https://sloppatterns.com/#the-brief-read-aloud",
+   "version": "1.0",
+   "added": "2026-11-16",
+   "updated": "2026-11-16",
+   "oneLiner": "Instructions from the build chat turn up as product copy, like 'Your files never leave your browser' on every screen.",
+   "fix": "Read every line of copy and ask who it is for and whether you would have written it. Delete lines that only repeat the prompt, and keep a promise like 'nothing is uploaded' only if you have checked it and it matters to users, written once where it is relevant.",
+   "sources": [
+    {
+     "t": "10 tells of a slop ui",
+     "u": "https://godobject.dev/blog/10-tells-of-slop/"
+    },
+    {
+     "t": "Tells of a Slop UI (Hacker News discussion)",
+     "u": "https://news.ycombinator.com/item?id=49867038"
+    },
+    {
+     "t": "I hate everything I vibe-coded. Here they are.",
+     "u": "https://jpain.io/i-hate-everything-i-vibe-coded/"
+    }
+   ]
+  },
+  {
+   "code": "B262",
+   "id": "the-badge-that-covers-one-model",
+   "name": "The Badge That Covers One Model",
+   "category": "Trust",
+   "track": "behavioral",
+   "harm": "Trust",
+   "detection": "needs a person",
+   "url": "https://sloppatterns.com/#the-badge-that-covers-one-model",
+   "version": "1.0",
+   "added": "2026-11-16",
+   "updated": "2026-11-16",
+   "oneLiner": "An app's 'commercially safe' promise sits on the whole product, but only its own models carry it, not the partner models in the same picker.",
+   "fix": "Label each model in the picker and on each result with who made it, what it was trained on and whether the app's assurance covers it. Let teams limit a workspace to covered models, and do not use the safety promise in marketing for the app as a whole.",
+   "sources": [
+    {
+     "t": "I trusted Adobe Firefly because it was the safe AI option, now I'm not so sure",
+     "u": "https://www.creativebloq.com/news/i-trusted-adobe-firefly-because-it-was-the-safe-ai-option-now-im-not-so-sure"
+    },
+    {
+     "t": "Adobe claims its AI tools are 'commercially safe', but does that stack up?",
+     "u": "https://www.creativebloq.com/ai/adobe-claims-its-ai-tools-are-commercially-safe-but-its-latest-move-says-otherwise"
+    },
+    {
+     "t": "Partner models for commercial use (Adobe Community)",
+     "u": "https://community.adobe.com/questions-404/partner-models-for-commercial-use-1622328"
     }
    ]
   }

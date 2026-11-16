@@ -1,19 +1,19 @@
 {
  "name": "Slop Patterns",
- "version": "1.5.0",
- "released": "2026-11-02",
+ "version": "1.6.0",
+ "released": "2026-11-16",
  "license": "MIT",
  "maintainer": "Pavithra Lamahewa, Precious Studio",
  "url": "https://sloppatterns.com",
  "counts": {
-  "patterns": 538,
+  "patterns": 540,
   "detectableFromCode": 102,
   "needsRenderedPage": 9,
-  "judgementOnly": 427,
-  "sourced": 433,
-  "practitionerObserved": 79,
+  "judgementOnly": 429,
+  "sourced": 434,
+  "practitionerObserved": 80,
   "evidenceNeeded": 26,
-  "sourceLinks": 1121
+  "sourceLinks": 1127
  },
  "versioning": {
   "library": "Semantic. MAJOR when a pattern is removed or its id changes. MINOR when patterns or detectors are added. PATCH for wording, sources and fixes to existing detectors.",
@@ -21,6 +21,18 @@
   "ids": "Pattern ids and codes are permanent. A retired pattern keeps its code and is marked retired, never reused."
  },
  "changelog": [
+  {
+   "version": "1.6.0",
+   "date": "2026-11-16",
+   "added": [
+    "A285 The Brief Read Aloud",
+    "B262 The Badge That Covers One Model"
+   ],
+   "changed": [
+    "Library grows from 538 to 540 patterns."
+   ],
+   "notes": "Build chat instructions read back as product copy, and an app-wide safety promise that covers only some models."
+  },
   {
    "version": "1.5.0",
    "date": "2026-11-02",

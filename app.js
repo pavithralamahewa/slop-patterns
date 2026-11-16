@@ -20589,6 +20589,90 @@ const DATA=[
   "added": "2026-11-02",
   "updated": "2026-11-02",
   "detect": "judgement"
+ },
+ {
+  "id": "the-brief-read-aloud",
+  "name": "The Brief Read Aloud",
+  "track": "surface",
+  "group": "Copy",
+  "category": "Copy",
+  "harm": "Credibility",
+  "origin": "Model",
+  "oneLiner": "Instructions from the build chat turn up as product copy, like 'Your files never leave your browser' on every screen.",
+  "looksLike": "The builder told the tool to keep processing on the device, so every panel now says your files never leave your browser. A loading screen says 'three campuses, one app' because the prompt was about merging apps. A footer says the blog was written in Neovim, and a readme boasts of a language version nobody asked to see. Each line answers the person who wrote the prompt, not the person using the product.",
+  "why": "The model treats everything in the conversation as material for the page and is eager to show that it followed each instruction, so a technical rule or a piece of background becomes a reassurance or a tagline. Nobody wrote those lines on purpose, so nobody checks them before launch.",
+  "who": "Users read copy about things they never wondered about, and builders can end up publishing promises, like a privacy claim, that no one has checked against the code.",
+  "theFix": "Read every line of copy and ask who it is for and whether you would have written it. Delete lines that only repeat the prompt, and keep a promise like 'nothing is uploaded' only if you have checked it and it matters to users, written once where it is relevant.",
+  "heur": "Human review: put the build prompt or chat next to the page and flag copy that restates instructions, constraints or background from it, especially privacy or technical promises repeated across screens.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "10 tells of a slop ui",
+    "u": "https://godobject.dev/blog/10-tells-of-slop/"
+   },
+   {
+    "t": "Tells of a Slop UI (Hacker News discussion)",
+    "u": "https://news.ycombinator.com/item?id=49867038"
+   },
+   {
+    "t": "I hate everything I vibe-coded. Here they are.",
+    "u": "https://jpain.io/i-hate-everything-i-vibe-coded/"
+   }
+  ],
+  "code": "A285",
+  "rel": [
+   "every-feature-you-mentioned",
+   "refusal-text-goes-live",
+   "leftover-lorem"
+  ],
+  "tier": "practitioner-observed",
+  "observed": "Developers on Hacker News and in personal write ups describe build chat details and reassurance lines showing up in generated copy, with screen level examples and no measured rate.",
+  "version": "1.0",
+  "added": "2026-11-16",
+  "updated": "2026-11-16",
+  "detect": "judgement"
+ },
+ {
+  "id": "the-badge-that-covers-one-model",
+  "name": "The Badge That Covers One Model",
+  "track": "behavioral",
+  "group": "Transparency",
+  "category": "Trust",
+  "harm": "Trust",
+  "origin": "Business",
+  "oneLiner": "An app's 'commercially safe' promise sits on the whole product, but only its own models carry it, not the partner models in the same picker.",
+  "looksLike": "A creative app is known for AI that is safe to use in client work. Its model menu now lists the house model next to several outside ones, all under the same logo and in the same layout. Nothing at the moment of generation says which outputs carry the safety promise. The difference lives in a help page or in file metadata.",
+  "why": "Adding outside models is a quick way to keep up with rivals, and the brand's safety message was written before they arrived. The picker is designed to make switching models effortless, and a warning on the partner models would slow that down, so the difference ends up in the small print.",
+  "who": "Designers and studios use partner outputs in paid work believing they carry the same assurance, and take on legal risk they did not choose.",
+  "theFix": "Label each model in the picker and on each result with who made it, what it was trained on and whether the app's assurance covers it. Let teams limit a workspace to covered models, and do not use the safety promise in marketing for the app as a whole.",
+  "heur": "Human review: open the model picker and a generated result; check whether each model and output shows plainly whether the app's commercial or licensing assurance applies, without opening a help page or metadata panel.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "I trusted Adobe Firefly because it was the safe AI option, now I'm not so sure",
+    "u": "https://www.creativebloq.com/news/i-trusted-adobe-firefly-because-it-was-the-safe-ai-option-now-im-not-so-sure"
+   },
+   {
+    "t": "Adobe claims its AI tools are 'commercially safe', but does that stack up?",
+    "u": "https://www.creativebloq.com/ai/adobe-claims-its-ai-tools-are-commercially-safe-but-its-latest-move-says-otherwise"
+   },
+   {
+    "t": "Partner models for commercial use (Adobe Community)",
+    "u": "https://community.adobe.com/questions-404/partner-models-for-commercial-use-1622328"
+   }
+  ],
+  "code": "B262",
+  "rel": [
+   "model-picker-fog",
+   "mystery-model",
+   "silent-model-swap"
+  ],
+  "tier": "sourced",
+  "observed": "",
+  "version": "1.0",
+  "added": "2026-11-16",
+  "updated": "2026-11-16",
+  "detect": "judgement"
  }
 ];
 var ART={};
@@ -22021,7 +22105,7 @@ Object.assign(ART, {
 /* ===== MCP landing page ===== */
 const MCP_ENDPOINT = 'https://sloppatterns.com/mcp';
 
-const LIB_VERSION = '1.5.0';
+const LIB_VERSION = '1.6.0';
 const dmy = s => { const M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; const [y,m,d]=String(s).split('-'); return (+d)+' '+M[+m-1]+' '+y; };
 const DETECTED = ['a1','a2','a3','a6','a7','a8','a10','a12','a15','a16','a18','a19','b31','b32','b34','a20','a22','a25','a36','a37','a40','a43','a44','a45','a46','a47','a48','b118','b122','b123','b115','b117','b119','b124','b134','b135','b137','b131','b133','a32','a23','a24','a38','a49','a50','a51','a52','a53','a54','a55','a56','a57','a58','a59','a60','a61','a62','a63','a64','a65','a66','a69','a71','a9','a26','a11','a27','a28','a29','a30','a35','a67','a21','a13','a5','a41','a42','a14','b89','b104','b109','b125','b169','b182','a73','a74','a76','a77','a78','a79','a81','a82','a83','a88','a90','a92','b164','a89','b166','b168','b170','b179','b180','b181'];
 /* rules whose pattern is in this library; counts of patterns use this, counts of rules use DETECTED */
