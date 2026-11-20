@@ -1,12 +1,31 @@
 # Slop Patterns — changelog
 
-Current: **v1.6.0** (2026-11-16). Machine-readable: `/library.json`. Also available from the MCP server as the `changelog` tool.
+Current: **v1.7.0** (2026-11-20). Machine-readable: `/library.json`. Also available from the MCP server as the `changelog` tool.
 
 ## How versions work
 
 - **Library:** Semantic. MAJOR when a pattern is removed or its id changes. MINOR when patterns or detectors are added. PATCH for wording, sources and fixes to existing detectors.
 - **Entries:** Each entry carries version, added and updated. The entry version goes up by 0.1 when its definition, fix or detection changes; wording and source fixes update the date only.
 - **IDs:** Pattern ids and codes are permanent. A retired pattern keeps its code and is marked retired, never reused.
+
+## v1.7.0 — 2026-11-20
+
+Library grows from 540 to 550 patterns.
+
+Agent oversight: 10 new patterns from public vendor advisories and bug reports
+
+**Added**
+
+- B263 Stop Doesn't Stop
+- B264 Orphaned Processes
+- B265 Read-Only In Name Only
+- B266 Agent Edits Its Own Leash
+- B267 Open Folder, Run Code
+- B268 Fail-Open Guard
+- B269 Overbroad Safe List
+- B270 Delete Path Blows Up
+- B271 Broken Undo
+- B272 Undo With Collateral
 
 ## v1.6.0 — 2026-11-16
 

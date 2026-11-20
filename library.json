@@ -1,19 +1,19 @@
 {
  "name": "Slop Patterns",
- "version": "1.6.0",
- "released": "2026-11-16",
+ "version": "1.7.0",
+ "released": "2026-11-20",
  "license": "MIT",
  "maintainer": "Pavithra Lamahewa, Precious Studio",
  "url": "https://sloppatterns.com",
  "counts": {
-  "patterns": 540,
+  "patterns": 550,
   "detectableFromCode": 102,
   "needsRenderedPage": 9,
-  "judgementOnly": 429,
-  "sourced": 434,
-  "practitionerObserved": 80,
+  "judgementOnly": 439,
+  "sourced": 442,
+  "practitionerObserved": 82,
   "evidenceNeeded": 26,
-  "sourceLinks": 1127
+  "sourceLinks": 1166
  },
  "versioning": {
   "library": "Semantic. MAJOR when a pattern is removed or its id changes. MINOR when patterns or detectors are added. PATCH for wording, sources and fixes to existing detectors.",
@@ -21,6 +21,26 @@
   "ids": "Pattern ids and codes are permanent. A retired pattern keeps its code and is marked retired, never reused."
  },
  "changelog": [
+  {
+   "version": "1.7.0",
+   "date": "2026-11-20",
+   "added": [
+    "B263 Stop Doesn't Stop",
+    "B264 Orphaned Processes",
+    "B265 Read-Only In Name Only",
+    "B266 Agent Edits Its Own Leash",
+    "B267 Open Folder, Run Code",
+    "B268 Fail-Open Guard",
+    "B269 Overbroad Safe List",
+    "B270 Delete Path Blows Up",
+    "B271 Broken Undo",
+    "B272 Undo With Collateral"
+   ],
+   "changed": [
+    "Library grows from 540 to 550 patterns."
+   ],
+   "notes": "Agent oversight: 10 new patterns from public vendor advisories and bug reports"
+  },
   {
    "version": "1.6.0",
    "date": "2026-11-16",
