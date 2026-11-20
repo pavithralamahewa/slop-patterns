@@ -1,19 +1,19 @@
 {
  "name": "Slop Patterns",
- "version": "1.4.0",
- "released": "2026-10-26",
+ "version": "1.5.0",
+ "released": "2026-11-02",
  "license": "MIT",
  "maintainer": "Pavithra Lamahewa, Precious Studio",
  "url": "https://sloppatterns.com",
  "counts": {
-  "patterns": 534,
+  "patterns": 538,
   "detectableFromCode": 102,
   "needsRenderedPage": 9,
-  "judgementOnly": 423,
-  "sourced": 430,
-  "practitionerObserved": 78,
+  "judgementOnly": 427,
+  "sourced": 433,
+  "practitionerObserved": 79,
   "evidenceNeeded": 26,
-  "sourceLinks": 1110
+  "sourceLinks": 1121
  },
  "versioning": {
   "library": "Semantic. MAJOR when a pattern is removed or its id changes. MINOR when patterns or detectors are added. PATCH for wording, sources and fixes to existing detectors.",
@@ -21,6 +21,20 @@
   "ids": "Pattern ids and codes are permanent. A retired pattern keeps its code and is marked retired, never reused."
  },
  "changelog": [
+  {
+   "version": "1.5.0",
+   "date": "2026-11-02",
+   "added": [
+    "B259 The Dialog You Can't Tab Into",
+    "B260 The Praise-Only Summary",
+    "B261 The Reporter's Inbox",
+    "A284 Three Almost-Same Buttons"
+   ],
+   "changed": [
+    "Library grows from 534 to 538 patterns."
+   ],
+   "notes": "Keyboard-dead dialogs, praise-only review summaries, chatbots routing support to reporters, near-duplicate buttons."
+  },
   {
    "version": "1.4.0",
    "date": "2026-10-26",

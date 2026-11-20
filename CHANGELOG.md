@@ -1,12 +1,25 @@
 # Slop Patterns — changelog
 
-Current: **v1.4.0** (2026-10-26). Machine-readable: `/library.json`. Also available from the MCP server as the `changelog` tool.
+Current: **v1.5.0** (2026-11-02). Machine-readable: `/library.json`. Also available from the MCP server as the `changelog` tool.
 
 ## How versions work
 
 - **Library:** Semantic. MAJOR when a pattern is removed or its id changes. MINOR when patterns or detectors are added. PATCH for wording, sources and fixes to existing detectors.
 - **Entries:** Each entry carries version, added and updated. The entry version goes up by 0.1 when its definition, fix or detection changes; wording and source fixes update the date only.
 - **IDs:** Pattern ids and codes are permanent. A retired pattern keeps its code and is marked retired, never reused.
+
+## v1.5.0 — 2026-11-02
+
+Library grows from 534 to 538 patterns.
+
+Keyboard-dead dialogs, praise-only review summaries, chatbots routing support to reporters, near-duplicate buttons.
+
+**Added**
+
+- B259 The Dialog You Can't Tab Into
+- B260 The Praise-Only Summary
+- B261 The Reporter's Inbox
+- A284 Three Almost-Same Buttons
 
 ## v1.4.0 — 2026-10-26
 
