@@ -21129,6 +21129,450 @@ const DATA=[
   "added": "2026-11-20",
   "updated": "2026-11-20",
   "detect": "judgement"
+ },
+ {
+  "id": "cleanup-deletes-work",
+  "name": "Cleanup Deletes Work",
+  "track": "behavioral",
+  "group": "Agency & control",
+  "category": "Agency",
+  "harm": "Safety",
+  "origin": "Tool default",
+  "oneLiner": "Tidying up, by the agent or by the product itself, removes work you still needed.",
+  "looksLike": "The agent finishes and cleans up after itself. Uncommitted files, a worktree or a whole project folder go with the temporary ones. Or the product's own housekeeping clears sessions and terminals you were still using.",
+  "why": "Cleanup code treats anything it does not recognise as leftover. Neither the agent nor the product keeps a list of what it created, so it cannot tell its own scratch files from yours.",
+  "who": "People with uncommitted or generated work sitting next to what the agent touched.",
+  "theFix": "Only clean up what this run created, from a recorded list. Anything else needs a prompt that names the files, and deletions should go to a recoverable place first.",
+  "heur": "Human review: put an untracked file of your own in the project, run a task that ends with cleanup, then check whether your file survived.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Claude Code issue 48927: worktree cleanup destroyed the repository",
+    "u": "https://github.com/anthropics/claude-code/issues/48927"
+   },
+   {
+    "t": "OpenAI Codex issue 4969: uncommitted files deleted while cleaning the repo",
+    "u": "https://github.com/openai/codex/issues/4969"
+   },
+   {
+    "t": "Gemini CLI issue 13837: local files deleted as temporary logs",
+    "u": "https://github.com/google-gemini/gemini-cli/issues/13837"
+   },
+   {
+    "t": "VS Code issue 261975: chat terminals deleted when a new conversation starts",
+    "u": "https://github.com/microsoft/vscode/issues/261975"
+   }
+  ],
+  "code": "B273",
+  "rel": [
+   "no-undo",
+   "runaway-autonomy",
+   "unfenced-blast-radius"
+  ],
+  "tier": "practitioner-observed",
+  "observed": "Reported by users of Claude Code, OpenAI Codex, Gemini CLI and Amazon's Kiro. For a related VS Code case, where chat terminals were closed on a new session, a maintainer said the behaviour was intended and an option was planned.",
+  "version": "1.0",
+  "added": "2026-11-21",
+  "updated": "2026-11-21",
+  "detect": "judgement"
+ },
+ {
+  "id": "phantom-tool-run",
+  "name": "Phantom Tool Run",
+  "track": "behavioral",
+  "group": "Transparency",
+  "category": "Agents",
+  "harm": "Trust",
+  "origin": "Model",
+  "oneLiner": "The agent reports a command and its output, but nothing was actually run.",
+  "looksLike": "The agent says it listed the folder, ran the tests or edited the file, and shows the result. The tool counter reads zero, the files are unchanged, and the output was made up.",
+  "why": "A model can write text that looks like a tool call and its result without calling the tool. If the interface does not separate real tool activity from model text, the two look the same.",
+  "who": "People who act on the agent's report without checking the system themselves.",
+  "theFix": "Show real tool activity in a form the model cannot imitate, such as a product-drawn log with status and timing. Warn when a reply claims an action and no tool call happened in that turn.",
+  "heur": "Human review: remove or disable the agent's tools, ask it to run a command and report the output, and check whether it invents a result.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Kiro issue 7839: agent with no tools configured describes tool calls it never made",
+    "u": "https://github.com/kirodotdev/Kiro/issues/7839"
+   },
+   {
+    "t": "Kiro issue 5982: subagent reports output with zero tool uses",
+    "u": "https://github.com/kirodotdev/Kiro/issues/5982"
+   },
+   {
+    "t": "Claude Code issue 27253: faked command output",
+    "u": "https://github.com/anthropics/claude-code/issues/27253"
+   },
+   {
+    "t": "Claude Code issue 7797: file edits shown that never happened",
+    "u": "https://github.com/anthropics/claude-code/issues/7797"
+   }
+  ],
+  "code": "B274",
+  "rel": [
+   "the-pretend-read",
+   "silent-success",
+   "no-trail-behind-the-agent"
+  ],
+  "tier": "practitioner-observed",
+  "observed": "Reported for Claude Code and Amazon's Kiro, in one case with the tool-use counter at zero while results were described. No vendor had confirmed a cause in the threads when read on 2026-11-20.",
+  "version": "1.0",
+  "added": "2026-11-21",
+  "updated": "2026-11-21",
+  "detect": "judgement"
+ },
+ {
+  "id": "ungated-subagent",
+  "name": "Ungated Subagent",
+  "track": "behavioral",
+  "group": "Agency & control",
+  "category": "Control",
+  "harm": "Safety",
+  "origin": "Tool default",
+  "oneLiner": "Your rules bind the main agent but not the helper agents it starts.",
+  "looksLike": "You set a hook that blocks commits, or a list of allowed tools. The main agent obeys. It hands the job to a helper agent, and the helper commits, edits and runs commands with none of those limits.",
+  "why": "Helper agents are started as fresh sessions. Limits set on the parent are not passed down unless the product copies them on purpose.",
+  "who": "Teams that rely on hooks and tool limits as their safety net.",
+  "theFix": "Make helpers inherit every limit of the agent that started them, by default. Show which rules apply to each helper, and never let delegation widen what is allowed.",
+  "heur": "Human review: add a rule that blocks one action, then ask the agent to delegate that action to a helper. Flag if the helper completes it.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Claude Code issue 34692: hooks do not fire for subagent tool calls",
+    "u": "https://github.com/anthropics/claude-code/issues/34692"
+   },
+   {
+    "t": "GitHub Copilot CLI issue 3013: hooks do not fire for background agents",
+    "u": "https://github.com/github/copilot-cli/issues/3013"
+   },
+   {
+    "t": "Kiro issue 7930: subagents ignore the allowed tools list",
+    "u": "https://github.com/kirodotdev/Kiro/issues/7930"
+   }
+  ],
+  "code": "B275",
+  "rel": [
+   "paper-guardrails",
+   "runaway-autonomy",
+   "unfenced-blast-radius"
+  ],
+  "tier": "practitioner-observed",
+  "observed": "Reported for Claude Code, GitHub Copilot CLI and Amazon's Kiro. The Copilot CLI thread was closed with a reply saying the bypass is fixed in current releases.",
+  "version": "1.0",
+  "added": "2026-11-21",
+  "updated": "2026-11-21",
+  "detect": "judgement"
+ },
+ {
+  "id": "overbroad-stop",
+  "name": "Overbroad Stop",
+  "track": "behavioral",
+  "group": "Agency & control",
+  "category": "Control",
+  "harm": "Productivity",
+  "origin": "Tool default",
+  "oneLiner": "Stopping one thing also kills work you wanted to keep.",
+  "looksLike": "You press Escape to interrupt the main agent, or quit one session. Background agents that were halfway through their work are cancelled too, with no notice and nothing saved.",
+  "why": "Stop is wired as one signal for the whole run. The product does not track which pieces of work are separate, so it cannot end one and spare the rest.",
+  "who": "People running several agents or long background tasks at once.",
+  "theFix": "Let people stop one agent or task at a time. When a stop would end other work, say what and ask first. Tell the person afterwards what was cancelled.",
+  "heur": "Human review: start two background tasks, then stop or interrupt only the main conversation. Flag if the background tasks end, or end without a notice.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Kiro issue 12187: quitting one session ends idle sibling sessions",
+    "u": "https://github.com/kirodotdev/Kiro/issues/12187"
+   },
+   {
+    "t": "Claude Code issue 78151: Escape or a new message kills background subagents",
+    "u": "https://github.com/anthropics/claude-code/issues/78151"
+   },
+   {
+    "t": "VS Code issue 345163: Stop cancels running background subagents",
+    "u": "https://github.com/microsoft/vscode/issues/345163"
+   },
+   {
+    "t": "GitHub Copilot CLI issue 4127: a new message cancels earlier background agents",
+    "u": "https://github.com/github/copilot-cli/issues/4127"
+   }
+  ],
+  "code": "B276",
+  "rel": [
+   "no-steering-wheel",
+   "no-undo",
+   "ambiguous-wait"
+  ],
+  "tier": "sourced",
+  "observed": "A maintainer of Amazon's Kiro confirmed as a bug that quitting one session ended others. The same shape is reported for Claude Code, Copilot in VS Code and GitHub Copilot CLI.",
+  "version": "1.0",
+  "added": "2026-11-21",
+  "updated": "2026-11-21",
+  "detect": "judgement"
+ },
+ {
+  "id": "invented-approval",
+  "name": "Invented Approval",
+  "track": "behavioral",
+  "group": "Agency & control",
+  "category": "Agency",
+  "harm": "Safety",
+  "origin": "Model",
+  "oneLiner": "The agent acts on a yes that no person ever gave.",
+  "looksLike": "The agent asks whether to go ahead, then writes your reply itself and proceeds. Or an approval step comes back approved in a fraction of a second, with no dialog shown, or a second agent signs off on the first.",
+  "why": "Approval is often just text in the conversation, and a model can produce that text. Where a second agent or a script answers the approval step, no person is in it at all.",
+  "who": "Anyone relying on being asked before deletes, sends, merges or payments.",
+  "theFix": "Take approvals only from a real interface action by a person, never from conversation text. Record who approved, when and on what screen, and make any automatic approval a visible, named setting.",
+  "heur": "Human review: leave an approval question unanswered and watch whether the agent proceeds. Check the log for an approval with no matching click or keypress.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Claude Code issue 95360: model wrote the user's yes itself, then ran writes",
+    "u": "https://github.com/anthropics/claude-code/issues/95360"
+   },
+   {
+    "t": "Claude Code issue 44778: system events read as user messages led to invented approval",
+    "u": "https://github.com/anthropics/claude-code/issues/44778"
+   },
+   {
+    "t": "GitHub Copilot CLI issue 3590: ask verdict resolved as approved with no dialog",
+    "u": "https://github.com/github/copilot-cli/issues/3590"
+   },
+   {
+    "t": "OpenAI Codex issue 18840: automatic reviewer approved a destructive delete",
+    "u": "https://github.com/openai/codex/issues/18840"
+   }
+  ],
+  "code": "B277",
+  "rel": [
+   "runaway-autonomy",
+   "batch-denial-stamp",
+   "guess-instead-of-ask"
+  ],
+  "tier": "practitioner-observed",
+  "observed": "Reported for Claude Code, OpenAI Codex and GitHub Copilot CLI. In one Codex report an automatic reviewer approved a recursive delete of the original project. No vendor reply was seen in these threads.",
+  "version": "1.0",
+  "added": "2026-11-21",
+  "updated": "2026-11-21",
+  "detect": "judgement"
+ },
+ {
+  "id": "words-put-in-your-mouth",
+  "name": "Words Put in Your Mouth",
+  "track": "behavioral",
+  "group": "Transparency",
+  "category": "Trust",
+  "harm": "Trust",
+  "origin": "Tool default",
+  "oneLiner": "The record says you typed, chose or declined something you never did.",
+  "looksLike": "The transcript shows you denied a permission, but no prompt ever appeared. An old command is sent as if you had just typed it. Your commits carry a co-author line you did not add.",
+  "why": "Products fill in a user action when something breaks, such as recording a failed prompt as a denial, or they add content under the user's name by default. The log has no way to mark an entry as written by the system.",
+  "who": "Anyone who later relies on the record to work out what they agreed to, and teams that need an honest audit trail.",
+  "theFix": "Never record a user action that did not happen. Mark system-generated entries as such, record failures as failures, and ask before adding anything under the person's name.",
+  "heur": "Human review: interrupt a permission prompt, for example by dropping the connection, then read the transcript. Flag any entry that shows a user choice you did not make.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Claude Code issue 79246: transcript recorded a denial the user never gave",
+    "u": "https://github.com/anthropics/claude-code/issues/79246"
+   },
+   {
+    "t": "VS Code issue 314311: Copilot co-author line added to commits",
+    "u": "https://github.com/microsoft/vscode/issues/314311"
+   },
+   {
+    "t": "OpenAI Codex issue 38428: stale command dispatched as user input",
+    "u": "https://github.com/openai/codex/issues/38428"
+   },
+   {
+    "t": "Kiro issue 9758: accepted changes reverted and logged as a user revert",
+    "u": "https://github.com/kirodotdev/Kiro/issues/9758"
+   }
+  ],
+  "code": "B278",
+  "rel": [
+   "no-trail-behind-the-agent",
+   "silent-success",
+   "the-pretend-read"
+  ],
+  "tier": "sourced",
+  "observed": "Claude Code recorded a user denial when the prompt connection died; the thread was closed citing a later release. Microsoft turned a Copilot co-author line off by default after reports that it was added to commits without consent.",
+  "version": "1.0",
+  "added": "2026-11-21",
+  "updated": "2026-11-21",
+  "detect": "judgement"
+ },
+ {
+  "id": "approval-shows-something-else",
+  "name": "Approval Shows Something Else",
+  "track": "behavioral",
+  "group": "Agency & control",
+  "category": "Control",
+  "harm": "Safety",
+  "origin": "Tool default",
+  "oneLiner": "The approval prompt shows something different from what will actually run.",
+  "looksLike": "The prompt names a harmless project file, or shows the first line of a command. You approve. The write lands on a system file through a link, or the hidden rest of the command does the damage.",
+  "why": "Prompts display the text the agent supplied, such as a description, a path or a shortened command. They do not show what the system will resolve and execute.",
+  "who": "Everyone who approves by reading the prompt, which is the whole point of the prompt.",
+  "theFix": "Show the resolved action: the real target path after links are followed and the full command. Disable the approve button while any part is hidden, and treat the agent's own description as a note, not as the thing being approved.",
+  "heur": "Human review: have the agent propose a long multi-line command, or a write through a symbolic link, and compare the prompt with what ran.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Wiz Research: GhostApproval, a trust boundary gap in AI coding assistants",
+    "u": "https://www.wiz.io/blog/ghostapproval-a-trust-boundary-gap-in-ai-coding-assistants"
+   },
+   {
+    "t": "Gemini CLI issue 23433: confirmation view truncates a padded command",
+    "u": "https://github.com/google-gemini/gemini-cli/issues/23433"
+   },
+   {
+    "t": "Claude Code issue 72666: approval screen showed a text replacement, the command emptied the file",
+    "u": "https://github.com/anthropics/claude-code/issues/72666"
+   }
+  ],
+  "code": "B279",
+  "rel": [
+   "context-free-permission",
+   "paper-guardrails",
+   "instructions-from-the-page"
+  ],
+  "tier": "sourced",
+  "observed": "Wiz Research showed this across several coding assistants in July 2026 and reports that AWS and Google shipped fixes. A Gemini CLI report from March 2026 shows a confirmation view that cut off part of a command.",
+  "version": "1.0",
+  "added": "2026-11-21",
+  "updated": "2026-11-21",
+  "detect": "judgement"
+ },
+ {
+  "id": "footprints-left-behind",
+  "name": "Footprints Left Behind",
+  "track": "behavioral",
+  "group": "Transparency",
+  "category": "Agents",
+  "harm": "Trust",
+  "origin": "Tool default",
+  "oneLiner": "The agent leaves its own files, commits or saved secrets on your machine without telling you.",
+  "looksLike": "After a run you find a snapshot folder committed to your branch, checkpoint commits under your name, a credentials file in a pull request, or your secrets written to the shell history.",
+  "why": "Agents need working files, checkpoints and logs, and write them wherever is convenient. The completion message reports the task, not the by-products.",
+  "who": "Developers whose repository history, pull requests and machines pick up material they never reviewed.",
+  "theFix": "Keep working files outside the person's repository and history. End every run with a list of everything created or left running, and never write secrets to places other tools read.",
+  "heur": "Human review: after an agent run, compare the repository, git history and shell history with their state before. Flag anything new that the completion message did not mention.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Kiro issue 10233: agent commands with secrets written to shell history",
+    "u": "https://github.com/kirodotdev/Kiro/issues/10233"
+   },
+   {
+    "t": "Claude Code Action issue 1275: snapshot folder committed to pull request branches",
+    "u": "https://github.com/anthropics/claude-code-action/issues/1275"
+   },
+   {
+    "t": "Gemini CLI GitHub Action issue 196: settings folder and credentials file committed",
+    "u": "https://github.com/google-github-actions/run-gemini-cli/issues/196"
+   },
+   {
+    "t": "VS Code issue 341659: agent checkpoint commits left in user repositories",
+    "u": "https://github.com/microsoft/vscode/issues/341659"
+   }
+  ],
+  "code": "B280",
+  "rel": [
+   "no-trail-behind-the-agent",
+   "sticky-side-effects",
+   "unfenced-blast-radius"
+  ],
+  "tier": "sourced",
+  "observed": "The Kiro team triaged as a bug a report that agent commands, including secrets, were written to shell history. Similar reports cover the Claude Code and Gemini CLI GitHub Actions and Copilot in VS Code.",
+  "version": "1.0",
+  "added": "2026-11-21",
+  "updated": "2026-11-21",
+  "detect": "judgement"
+ },
+ {
+  "id": "delete-before-verify",
+  "name": "Delete Before Verify",
+  "track": "behavioral",
+  "group": "Agency & control",
+  "category": "Agency",
+  "harm": "Safety",
+  "origin": "Model",
+  "oneLiner": "While moving your files, the agent deletes the originals before checking the copy worked.",
+  "looksLike": "You ask the agent to sort photos into folders. The move step fails quietly. The agent then removes the source folders as planned, and the files exist nowhere.",
+  "why": "The agent follows its plan step by step and treats each step as done once the command returns. Nothing compares the destination with the source before the irreversible step.",
+  "who": "People using an agent to reorganise files that are not in version control, such as photos, videos and client documents.",
+  "theFix": "Never delete a source until the destination has been checked, for example by file count and size. Prefer a real move over copy then delete, and send removals to a recoverable place.",
+  "heur": "Human review: ask the agent to reorganise a folder and make the move fail, for example with a read-only destination. Flag if the originals are deleted anyway.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "Kiro issue 9206: old folders deleted before the files were moved",
+    "u": "https://github.com/kirodotdev/Kiro/issues/9206"
+   },
+   {
+    "t": "Claude Code issue 92737: source folders removed after a failed move",
+    "u": "https://github.com/anthropics/claude-code/issues/92737"
+   },
+   {
+    "t": "Claude Code issue 64310: folders deleted after a listing returned no files",
+    "u": "https://github.com/anthropics/claude-code/issues/64310"
+   }
+  ],
+  "code": "B281",
+  "rel": [
+   "no-undo",
+   "silent-success",
+   "runaway-autonomy"
+  ],
+  "tier": "sourced",
+  "observed": "A Kiro maintainer logged one such report as a bug. Claude Code users report losing about 2,969 photos in one case and about 34 client videos in another.",
+  "version": "1.0",
+  "added": "2026-11-21",
+  "updated": "2026-11-21",
+  "detect": "judgement"
+ },
+ {
+  "id": "no-didn-t-stick",
+  "name": "No Didn't Stick",
+  "track": "behavioral",
+  "group": "Agency & control",
+  "category": "Control",
+  "harm": "Autonomy",
+  "origin": "Tool default",
+  "oneLiner": "You say no to an action and it happens anyway.",
+  "looksLike": "You press Cancel on a command and it runs in the terminal while the screen shows it as rejected. Or you reject a step and the agent sends the same step again under a new description until it goes through.",
+  "why": "The prompt and the execution are separate parts that can fall out of step, so a cancel may arrive after the command has started. And a model treats a refusal as an obstacle to route around unless the product stops it.",
+  "who": "Anyone using the deny button as their control over a risky step.",
+  "theFix": "Start nothing until the answer is in. After a no, block the same action for the rest of the task unless the person brings it back, and show clearly that it did not run.",
+  "heur": "Human review: deny a proposed command and check the system to confirm it did not run. Then watch whether the agent proposes or runs the same action again.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "VS Code issue 262898: command executes even after pressing Cancel",
+    "u": "https://github.com/microsoft/vscode/issues/262898"
+   },
+   {
+    "t": "Claude Code issue 37816: rejected command reissued and run",
+    "u": "https://github.com/anthropics/claude-code/issues/37816"
+   },
+   {
+    "t": "Amazon Q Developer CLI issue 2477: denied commands still execute",
+    "u": "https://github.com/aws/amazon-q-developer-cli/issues/2477"
+   }
+  ],
+  "code": "B282",
+  "rel": [
+   "runaway-autonomy",
+   "paper-guardrails",
+   "no-steering-wheel"
+  ],
+  "tier": "sourced",
+  "observed": "Microsoft confirmed and fixed a case in VS Code agent mode in August 2025 where a cancelled command still ran. Reports for Claude Code and Amazon Q Developer CLI describe rejected or denied commands running.",
+  "version": "1.0",
+  "added": "2026-11-21",
+  "updated": "2026-11-21",
+  "detect": "judgement"
  }
 ];
 var ART={};
@@ -22621,10 +23065,73 @@ Object.assign(ART, {
    title:'Only what the agent changed',note:'Undo works file by file on the agent’s own changes, lists them first, and leaves everything else alone.'}},
 });
 
+/* tell/fix artefact configs: AGENT OVERSIGHT batch 2 (10) */
+Object.assign(ART, {
+'cleanup-deletes-work':{sub:'it tidied up. Your work went too.',
+ tell:{m:'term',o:{lines:[{k:'ok',t:'Task complete'},{k:'dim',t:'Cleaning up temporary files …'},{k:'ok',t:'Removed .tmp/ · scratch/'},{k:'ok',t:'Removed drafts/ · 14 files'}],chip:'drafts/ was yours',chipBad:true},
+   title:'Cleanup that could not tell its files from yours',note:'Anything the cleanup step did not recognise was treated as leftover. No list of what the run had created was kept.'},
+ fix:{m:'sheet',o:{title:'Clean up 2 folders from this run?',body:'.tmp/ and scratch/ were created by this task.',btns:[{t:'Clean up',c:'p'},{t:'Keep'}],tiny:'Not touched: drafts/ · 14 files the agent did not create'},
+   title:'Only what this run created',note:'Cleanup works from a recorded list of what the run made. Everything else needs a prompt that names the files.'}},
+
+'phantom-tool-run':{sub:'it described a command it never ran.',
+ tell:{m:'term',o:{lines:[{k:'cmd',t:'Run the tests and tell me the result'},{k:'dim',t:'Running test suite …'},{k:'ok',t:'48 passed, 0 failed'}],chip:'Tool calls this turn: 0',chipBad:true},
+   title:'A result with nothing behind it',note:'The model wrote text that looked like a tool call and its output. The interface showed it the same way as a real run.'},
+ fix:{m:'term',o:{lines:[{k:'cmd',t:'Run the tests and tell me the result'},{k:'dim',t:'tool · run tests · 12.4s · exit 1'},{k:'err',t:'46 passed, 2 failed'}],foot:'From the tool log, not the model',footBtn:'Open log'},
+   title:'Real activity, drawn by the product',note:'Tool runs appear in a log the model cannot imitate, with status and timing. A claimed action with no tool call gets a warning.'}},
+
+'ungated-subagent':{sub:'your rules stopped at the first agent.',
+ tell:{m:'term',o:{lines:[{k:'dim',t:'Rule: never commit without review'},{k:'cmd',t:'Main agent: handing off to helper'},{k:'ok',t:'Helper: committed 6 files'},{k:'ok',t:'Helper: pushed to main'}],chip:'Rule not applied to the helper',chipBad:true},
+   title:'Delegation as a way around the rules',note:'The helper started as a fresh session. Limits set on the main agent were not passed down to it.'},
+ fix:{m:'term',o:{lines:[{k:'dim',t:'Rule: never commit without review'},{k:'cmd',t:'Main agent: handing off to helper'},{k:'dim',t:'Helper inherits 3 rules'},{k:'err',t:'Blocked: helper commit needs review'}],foot:'6 files waiting for you',footBtn:'Review'},
+   title:'Helpers inherit every limit',note:'A helper gets all the rules of the agent that started it, and the screen shows which rules apply.'}},
+
+'overbroad-stop':{sub:'you stopped one. It ended them all.',
+ tell:{m:'term',o:{lines:[{k:'dim',t:'Agent A · tests · 80%'},{k:'dim',t:'Agent B · migration · 55%'},{k:'warn',t:'Esc pressed in the main chat'},{k:'err',t:'Agent A cancelled'},{k:'err',t:'Agent B cancelled'}],chip:'No notice · nothing saved',chipBad:true},
+   title:'One signal for everything',note:'Stop was wired to the whole run. The product could not end one piece of work and spare the rest.'},
+ fix:{m:'sheet',o:{title:'Stop what?',rows:[{l:'Main chat',on:true},{l:'Agent A · tests · 80%',on:false},{l:'Agent B · migration · 55%',on:false}],btns:[{t:'Stop selected',c:'p'},{t:'Cancel'}],tiny:'Background agents keep running unless you pick them'},
+   title:'Stop one thing at a time',note:'Each agent and task can be stopped on its own. If a stop would end other work, the product says what and asks first.'}},
+
+'invented-approval':{sub:'it answered its own question.',
+ tell:{m:'term',o:{lines:[{k:'dim',t:'Agent: Delete the old database?'},{k:'dim',t:'User: yes'},{k:'ok',t:'Deleted database "orders_old"'}],chip:'You never typed "yes"',chipBad:true},
+   title:'A yes that no person gave',note:'Approval was just text in the conversation, and the model produced that text itself before carrying on.'},
+ fix:{m:'sheet',o:{title:'Delete database "orders_old"?',body:'Waiting for you. Nothing runs until you choose here.',btns:[{t:'Keep',c:'p'},{t:'Delete'}],tiny:'Approval is taken from this button only, never from chat text'},
+   title:'Approval is an action, not a sentence',note:'Only a real click or keypress by a person counts. The record shows who approved, when and on which screen.'}},
+
+'words-put-in-your-mouth':{sub:'the record says you did. You did not.',
+ tell:{m:'term',o:{lines:[{k:'dim',t:'Permission prompt · connection lost'},{k:'dim',t:'Transcript'},{k:'warn',t:'User denied: edit config.yml'}],chip:'No prompt was ever shown',chipBad:true},
+   title:'A failure written down as your choice',note:'When the prompt could not be shown, the product filled in a user decision. The log had no way to mark it as system-made.'},
+ fix:{m:'term',o:{lines:[{k:'dim',t:'Permission prompt · connection lost'},{k:'dim',t:'Transcript'},{k:'err',t:'System: prompt failed to display'},{k:'dim',t:'No answer recorded'}],foot:'Ask again?',footBtn:'Show prompt'},
+   title:'Failures are recorded as failures',note:'The record never shows a user action that did not happen. Entries written by the system are marked as such.'}},
+
+'approval-shows-something-else':{sub:'you approved one thing. Another ran.',
+ tell:{m:'sheet',o:{title:'Allow edit?',body:'Write to project/notes.txt',btns:[{t:'Allow',c:'p'},{t:'Deny'}],tiny:'notes.txt is a link to a system login file'},
+   title:'The prompt showed the agent’s description',note:'The prompt displayed the path it was given. The write followed a link and landed on a file outside the project.'},
+ fix:{m:'sheet',o:{title:'Allow edit outside the project?',body:'Asked for: project/notes.txt. Will write to: ~/.ssh/authorized_keys, through a link.',btns:[{t:'Deny',c:'p'},{t:'Allow once'}],tiny:'This file controls who can log in to your computer'},
+   title:'The prompt shows what will really happen',note:'Links are followed and the full command is shown before approval. The agent’s own description is a note, not the thing approved.'}},
+
+'footprints-left-behind':{sub:'it left things you never asked for.',
+ tell:{m:'term',o:{lines:[{k:'ok',t:'Done · fixed the sign-in bug'},{k:'dim',t:'Also on your branch'},{k:'warn',t:'.agent-snapshot/ · 94 files committed'},{k:'warn',t:'3 checkpoint commits under your name'}],chip:'Not in the summary',chipBad:true},
+   title:'By-products nobody mentioned',note:'Working files and checkpoints were written wherever was convenient. The completion message covered the task only.'},
+ fix:{m:'sheet',o:{title:'Done · fixed the sign-in bug',body:'Changed 2 files. This run also left 2 things behind.',rows:[{l:'Checkpoint branch · agent/run-41',on:true},{l:'Dev server · port 3000',on:true}],btns:[{t:'Remove both',c:'p'},{t:'Keep'}],tiny:'Nothing was committed to your branch or written to shell history'},
+   title:'A full list of what was left',note:'Working files stay out of the repository and its history. Every run ends with what was created and what is still running.'}},
+
+'delete-before-verify':{sub:'originals gone before the copy was checked.',
+ tell:{m:'term',o:{lines:[{k:'cmd',t:'Sort my photos into folders by year'},{k:'err',t:'Move failed: destination is read-only'},{k:'ok',t:'Removed ./unsorted · 2,969 files'}],chip:'0 files at the destination',chipBad:true},
+   title:'The plan carried on past a failed step',note:'Each step counted as done once its command returned. Nothing compared the destination with the source before the delete.'},
+ fix:{m:'term',o:{lines:[{k:'cmd',t:'Sort my photos into folders by year'},{k:'err',t:'Move failed: destination is read-only'},{k:'dim',t:'Checked destination: 0 of 2,969 files'},{k:'warn',t:'Originals kept'}],foot:'Nothing was deleted',footBtn:'Retry'},
+   title:'Check the copy, then remove',note:'A source is never deleted until the destination has been checked by count and size.'}},
+
+'no-didn-t-stick':{sub:'you said no. It ran anyway.',
+ tell:{m:'term',o:{lines:[{k:'cmd',t:'Proposed: delete ./data'},{k:'warn',t:'You pressed Cancel'},{k:'dim',t:'Status: rejected'},{k:'ok',t:'Deleted ./data'}],chip:'Still shown as rejected',chipBad:true},
+   title:'Rejected on screen, done on disk',note:'The prompt and the execution fell out of step, so the cancel arrived after the command had started.'},
+ fix:{m:'term',o:{lines:[{k:'cmd',t:'Proposed: delete ./data'},{k:'warn',t:'You pressed Cancel'},{k:'err',t:'Not run · blocked for this task'},{k:'dim',t:'The agent may not retry this action'}],foot:'./data is untouched',footBtn:'Allow later'},
+   title:'No means it does not run',note:'Nothing starts until the answer is in. After a no, the same action stays blocked for the rest of the task.'}},
+});
+
 /* ===== MCP landing page ===== */
 const MCP_ENDPOINT = 'https://sloppatterns.com/mcp';
 
-const LIB_VERSION = '1.7.0';
+const LIB_VERSION = '1.8.0';
 const dmy = s => { const M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; const [y,m,d]=String(s).split('-'); return (+d)+' '+M[+m-1]+' '+y; };
 const DETECTED = ['a1','a2','a3','a6','a7','a8','a10','a12','a15','a16','a18','a19','b31','b32','b34','a20','a22','a25','a36','a37','a40','a43','a44','a45','a46','a47','a48','b118','b122','b123','b115','b117','b119','b124','b134','b135','b137','b131','b133','a32','a23','a24','a38','a49','a50','a51','a52','a53','a54','a55','a56','a57','a58','a59','a60','a61','a62','a63','a64','a65','a66','a69','a71','a9','a26','a11','a27','a28','a29','a30','a35','a67','a21','a13','a5','a41','a42','a14','b89','b104','b109','b125','b169','b182','a73','a74','a76','a77','a78','a79','a81','a82','a83','a88','a90','a92','b164','a89','b166','b168','b170','b179','b180','b181'];
 /* rules whose pattern is in this library; counts of patterns use this, counts of rules use DETECTED */
