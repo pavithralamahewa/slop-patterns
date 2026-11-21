@@ -1,11 +1,11 @@
 {
  "name": "Slop Patterns taxonomy",
- "version": "1.5.0",
- "released": "2026-11-16",
+ "version": "1.7.0",
+ "released": "2026-11-20",
  "license": "MIT",
  "url": "https://sloppatterns.com",
  "cite": "https://github.com/pavithralamahewa/slop-patterns/blob/main/CITATION.cff",
- "count": 540,
+ "count": 550,
  "checkedAutomatically": 101,
  "patterns": [
   {
@@ -13682,6 +13682,332 @@
     {
      "t": "Partner models for commercial use (Adobe Community)",
      "u": "https://community.adobe.com/questions-404/partner-models-for-commercial-use-1622328"
+    }
+   ]
+  },
+  {
+   "code": "B263",
+   "id": "stop-doesnt-stop",
+   "name": "Stop Doesn't Stop",
+   "category": "Control",
+   "track": "behavioral",
+   "harm": "Safety",
+   "detection": "needs a person",
+   "url": "https://sloppatterns.com/#stop-doesnt-stop",
+   "version": "1.0",
+   "added": "2026-11-20",
+   "updated": "2026-11-20",
+   "oneLiner": "You press stop and the agent, or the command it started, keeps running.",
+   "fix": "Make stop end everything the run started, including child processes and helper agents, and check that they are gone before showing Stopped. If something is still running, say what it is and offer a force stop.",
+   "sources": [
+    {
+     "t": "Claude Code issue 85200: stop reported success, delete kept running",
+     "u": "https://github.com/anthropics/claude-code/issues/85200"
+    },
+    {
+     "t": "OpenAI Codex issue 43343: kept deleting after reporting it had stopped",
+     "u": "https://github.com/openai/codex/issues/43343"
+    },
+    {
+     "t": "Amazon Q Developer CLI issue 1071: Ctrl+C cannot cancel",
+     "u": "https://github.com/aws/amazon-q-developer-cli/issues/1071"
+    },
+    {
+     "t": "VS Code issue 325432: Copilot cancel button does nothing",
+     "u": "https://github.com/microsoft/vscode/issues/325432"
+    },
+    {
+     "t": "GitHub Copilot CLI issue 2364: agent session cannot be stopped",
+     "u": "https://github.com/github/copilot-cli/issues/2364"
+    }
+   ]
+  },
+  {
+   "code": "B264",
+   "id": "orphaned-processes",
+   "name": "Orphaned Processes",
+   "category": "Control",
+   "track": "behavioral",
+   "harm": "Trust",
+   "detection": "needs a person",
+   "url": "https://sloppatterns.com/#orphaned-processes",
+   "version": "1.0",
+   "added": "2026-11-20",
+   "updated": "2026-11-20",
+   "oneLiner": "Work the agent started keeps running after the session, task or window is gone.",
+   "fix": "Track every process and helper the agent starts. End them when the session ends, or list them with a stop control and keep that list visible after the task is marked done.",
+   "sources": [
+    {
+     "t": "Kiro issue 8152: MCP server processes orphaned when subagent sessions end",
+     "u": "https://github.com/kirodotdev/Kiro/issues/8152"
+    },
+    {
+     "t": "Claude Code Action issue 865: MCP servers not terminated, workflow hangs",
+     "u": "https://github.com/anthropics/claude-code-action/issues/865"
+    },
+    {
+     "t": "OpenAI Codex issue 21994: killing the parent leaves child processes running",
+     "u": "https://github.com/openai/codex/issues/21994"
+    }
+   ]
+  },
+  {
+   "code": "B265",
+   "id": "read-only-in-name-only",
+   "name": "Read-Only In Name Only",
+   "category": "Control",
+   "track": "behavioral",
+   "harm": "Safety",
+   "detection": "needs a person",
+   "url": "https://sloppatterns.com/#read-only-in-name-only",
+   "version": "1.0",
+   "added": "2026-11-20",
+   "updated": "2026-11-20",
+   "oneLiner": "You pick plan, ask or read-only mode and the agent changes things anyway.",
+   "fix": "Enforce the mode in the product, not in the prompt. Remove or block write and run tools while a read-only mode is on, and show a clear refusal if the agent tries.",
+   "sources": [
+    {
+     "t": "Claude Code issue 38255: file edits made while plan mode was active",
+     "u": "https://github.com/anthropics/claude-code/issues/38255"
+    },
+    {
+     "t": "Copilot in VS Code issue 13221: Ask mode selected, code was edited",
+     "u": "https://github.com/microsoft/vscode-copilot-release/issues/13221"
+    },
+    {
+     "t": "Gemini CLI issue 18365: plan mode not always respected",
+     "u": "https://github.com/google-gemini/gemini-cli/issues/18365"
+    },
+    {
+     "t": "OpenAI Codex issue 32684: read-only helper agent deleted a user profile folder",
+     "u": "https://github.com/openai/codex/issues/32684"
+    }
+   ]
+  },
+  {
+   "code": "B266",
+   "id": "agent-edits-its-own-leash",
+   "name": "Agent Edits Its Own Leash",
+   "category": "Agency",
+   "track": "behavioral",
+   "harm": "Safety",
+   "detection": "needs a person",
+   "url": "https://sloppatterns.com/#agent-edits-its-own-leash",
+   "version": "1.0",
+   "added": "2026-11-20",
+   "updated": "2026-11-20",
+   "oneLiner": "The agent can rewrite the settings and permission files that are meant to restrict it.",
+   "fix": "Treat the agent's own settings, hooks and permission files as off limits to the agent. Any change to them needs a separate confirmation from a person, shown as a permission change.",
+   "sources": [
+    {
+     "t": "GitHub advisory GHSA-66q4-vfjg-2qhh: Claude Code write protection bypass for its settings folder",
+     "u": "https://osv.dev/vulnerability/GHSA-66q4-vfjg-2qhh"
+    },
+    {
+     "t": "Embrace The Red: GitHub Copilot remote code execution via prompt injection (CVE-2025-53773)",
+     "u": "https://embracethered.com/blog/posts/2025/github-copilot-remote-code-execution-via-prompt-injection"
+    },
+    {
+     "t": "AWS security bulletin AWS-2025-019",
+     "u": "https://aws.amazon.com/security/security-bulletins/AWS-2025-019"
+    },
+    {
+     "t": "OpenAI Codex issue 15680: agent edited its own sandbox and network settings",
+     "u": "https://github.com/openai/codex/issues/15680"
+    }
+   ]
+  },
+  {
+   "code": "B267",
+   "id": "open-folder-run-code",
+   "name": "Open Folder, Run Code",
+   "category": "Control",
+   "track": "behavioral",
+   "harm": "Safety",
+   "detection": "needs a person",
+   "url": "https://sloppatterns.com/#open-folder-run-code",
+   "version": "1.0",
+   "added": "2026-11-20",
+   "updated": "2026-11-20",
+   "oneLiner": "Opening a project folder runs that folder's commands before you have agreed to anything.",
+   "fix": "Load nothing from a folder until the person has said they trust it. In the trust prompt, say plainly that trusting lets this folder run commands, and list them.",
+   "sources": [
+    {
+     "t": "GitHub advisory GHSA-j4h9-wv2m-wrf7: Claude Code command ran before the trust dialog",
+     "u": "https://osv.dev/vulnerability/GHSA-j4h9-wv2m-wrf7"
+    },
+    {
+     "t": "GitHub advisory GHSA-2jjv-qf24-vfm4: Claude Code trust dialog bypass through Yarn config",
+     "u": "https://osv.dev/vulnerability/GHSA-2jjv-qf24-vfm4"
+    },
+    {
+     "t": "GitHub advisory GHSA-xrxf-jgv3-qmrm: Codex CLI loaded project config without confirmation",
+     "u": "https://osv.dev/vulnerability/GHSA-xrxf-jgv3-qmrm"
+    },
+    {
+     "t": "GitHub advisory GHSA-wpqr-6v78-jr5g: Gemini CLI trusted workspace folders automatically in headless mode",
+     "u": "https://osv.dev/vulnerability/GHSA-wpqr-6v78-jr5g"
+    }
+   ]
+  },
+  {
+   "code": "B268",
+   "id": "fail-open-guard",
+   "name": "Fail-Open Guard",
+   "category": "Error handling",
+   "track": "behavioral",
+   "harm": "Safety",
+   "detection": "needs a person",
+   "url": "https://sloppatterns.com/#fail-open-guard",
+   "version": "1.0",
+   "added": "2026-11-20",
+   "updated": "2026-11-20",
+   "oneLiner": "When the safety check breaks or times out, the action goes ahead as if it had passed.",
+   "fix": "Fail closed. If a check errors, times out or is missing, block the action and say which check failed. Let an admin choose fail-open on purpose, and show a warning while it is on.",
+   "sources": [
+    {
+     "t": "GitHub advisory GHSA-29w2-fq35-v728: AWS API MCP Server skipped policy checks after a load failure",
+     "u": "https://osv.dev/vulnerability/GHSA-29w2-fq35-v728"
+    },
+    {
+     "t": "GitHub Copilot CLI issue 2893: hook timeout lets the tool call through",
+     "u": "https://github.com/github/copilot-cli/issues/2893"
+    },
+    {
+     "t": "OpenAI Codex issue 27833: hook denial not enforced, write proceeds",
+     "u": "https://github.com/openai/codex/issues/27833"
+    }
+   ]
+  },
+  {
+   "code": "B269",
+   "id": "overbroad-safe-list",
+   "name": "Overbroad Safe List",
+   "category": "Control",
+   "track": "behavioral",
+   "harm": "Safety",
+   "detection": "needs a person",
+   "url": "https://sloppatterns.com/#overbroad-safe-list",
+   "version": "1.0",
+   "added": "2026-11-20",
+   "updated": "2026-11-20",
+   "oneLiner": "Commands marked safe to run without asking can still read files, start programs or send data out.",
+   "fix": "Keep the no-prompt list to commands that cannot write, run other programs or reach the network. Judge the whole command line, not its first word, and show people the list so they can shrink it.",
+   "sources": [
+    {
+     "t": "GitHub advisory GHSA-x5gv-jw7f-j6xj: Claude Code allowlist let a file be read and sent out",
+     "u": "https://osv.dev/vulnerability/GHSA-x5gv-jw7f-j6xj"
+    },
+    {
+     "t": "AWS security bulletin AWS-2025-019",
+     "u": "https://aws.amazon.com/security/security-bulletins/AWS-2025-019"
+    },
+    {
+     "t": "PromptArmor: GitHub Copilot CLI downloads and executes malware",
+     "u": "https://www.promptarmor.com/resources/github-copilot-cli-downloads-and-executes-malware"
+    },
+    {
+     "t": "PromptArmor: IBM Bob downloads and executes malware",
+     "u": "https://www.promptarmor.com/resources/ibm-ai-(-bob-)-downloads-and-executes-malware"
+    }
+   ]
+  },
+  {
+   "code": "B270",
+   "id": "delete-path-blows-up",
+   "name": "Delete Path Blows Up",
+   "category": "Agency",
+   "track": "behavioral",
+   "harm": "Safety",
+   "detection": "needs a person",
+   "url": "https://sloppatterns.com/#delete-path-blows-up",
+   "version": "1.0",
+   "added": "2026-11-20",
+   "updated": "2026-11-20",
+   "oneLiner": "A cleanup command the agent wrote lands on your home folder or a whole drive.",
+   "fix": "Before any recursive delete, resolve the final path and refuse it if it sits outside the project or is a home, root or drive folder. Show the resolved path in the approval prompt, not the command text.",
+   "sources": [
+    {
+     "t": "Claude Code issue 95426: recursive delete resolved to a drive root",
+     "u": "https://github.com/anthropics/claude-code/issues/95426"
+    },
+    {
+     "t": "OpenAI Codex issue 34512: cleanup escaped its folder through nested quoting",
+     "u": "https://github.com/openai/codex/issues/34512"
+    },
+    {
+     "t": "Google AI Developers Forum: Antigravity recursively wiped my D: drive",
+     "u": "https://discuss.ai.google.dev/t/antigravity-recursively-wiped-my-d-drive/191206"
+    },
+    {
+     "t": "OpenAI Codex issue 32684: variable collision led to deletion of a user profile",
+     "u": "https://github.com/openai/codex/issues/32684"
+    }
+   ]
+  },
+  {
+   "code": "B271",
+   "id": "broken-undo",
+   "name": "Broken Undo",
+   "category": "Error handling",
+   "track": "behavioral",
+   "harm": "Trust",
+   "detection": "needs a person",
+   "url": "https://sloppatterns.com/#broken-undo",
+   "version": "1.0",
+   "added": "2026-11-20",
+   "updated": "2026-11-20",
+   "oneLiner": "The undo button is there, but pressing it changes nothing.",
+   "fix": "Check after every undo that the files match the earlier state, and report the result honestly. Disable the control and say why when undo cannot work, such as outside a git repository.",
+   "sources": [
+    {
+     "t": "OpenAI Codex issue 3567: Undo does not work",
+     "u": "https://github.com/openai/codex/issues/3567"
+    },
+    {
+     "t": "VS Code issue 311213: agent mode Undo button does not revert file changes",
+     "u": "https://github.com/microsoft/vscode/issues/311213"
+    },
+    {
+     "t": "Kiro issue 2480: revert does not work",
+     "u": "https://github.com/kirodotdev/Kiro/issues/2480"
+    },
+    {
+     "t": "OpenAI Codex issue 10503: Undo does nothing when the diff list is lost",
+     "u": "https://github.com/openai/codex/issues/10503"
+    }
+   ]
+  },
+  {
+   "code": "B272",
+   "id": "undo-with-collateral",
+   "name": "Undo With Collateral",
+   "category": "Error handling",
+   "track": "behavioral",
+   "harm": "Trust",
+   "detection": "needs a person",
+   "url": "https://sloppatterns.com/#undo-with-collateral",
+   "version": "1.0",
+   "added": "2026-11-20",
+   "updated": "2026-11-20",
+   "oneLiner": "Undo takes back the agent's change and your own work along with it.",
+   "fix": "Undo only what the agent changed, file by file. Before restoring, list what will be reverted or deleted and leave everything else untouched.",
+   "sources": [
+    {
+     "t": "Gemini CLI issue 29654: restore deletes or reverts files excluded from git",
+     "u": "https://github.com/google-gemini/gemini-cli/issues/29654"
+    },
+    {
+     "t": "OpenAI Codex issue 8214: undo resets manually staged files",
+     "u": "https://github.com/openai/codex/issues/8214"
+    },
+    {
+     "t": "GitHub Copilot CLI issue 1675: checkpoint restore deletes all untracked files",
+     "u": "https://github.com/github/copilot-cli/issues/1675"
+    },
+    {
+     "t": "Kiro issue 6049: blanket revert destroyed uncommitted work",
+     "u": "https://github.com/kirodotdev/Kiro/issues/6049"
     }
    ]
   }

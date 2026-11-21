@@ -96,8 +96,7 @@ for p in new:
         'harm': p['harm'], 'detection': 'needs a person' if p['detect'] == 'judgement' else 'automated',
         'url': 'https://sloppatterns.com/#' + p['id'], 'version': p['version'], 'added': p['added'], 'updated': p['updated'],
         'oneLiner': p['oneLiner'], 'fix': p['theFix'], 'sources': p['sources']})
-tmaj, tmnr, _ = (int(x) for x in tax['version'].split('.'))
-tax['count'] = N; tax['version'] = f'{tmaj}.{tmnr + 1}.0'; tax['released'] = DATE
+tax['count'] = N; tax['version'] = VER; tax['released'] = DATE
 open(P('taxonomy.json'), 'w').write(json.dumps(tax, indent=1, ensure_ascii=False) + ('\n' if tt.endswith('\n') else ''))
 
 c = open(P('CHANGELOG.md')).read()
@@ -108,7 +107,7 @@ c = c[:k] + sec + c[k:]
 open(P('CHANGELOG.md'), 'w').write(c)
 
 cff = open(P('CITATION.cff')).read()
-cff = re.sub(r'version: "(\d+)\.(\d+)\.\d+"', lambda m: f'version: "{m.group(1)}.{int(m.group(2)) + 1}.0"', cff, count=1)
+cff = re.sub(r'(?m)^version: "[\d.]+"', f'version: "{VER}"', cff, count=1)
 cff = re.sub(r'date-released: "[\d-]+"', f'date-released: "{DATE}"', cff)
 cff = cff.replace(f'  {OLDN} documented patterns', f'  {N} documented patterns')
 open(P('CITATION.cff'), 'w').write(cff)
