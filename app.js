@@ -23682,6 +23682,49 @@ const specimenBoard = () => `<div class="specs" aria-label="Three patterns from 
     <span class="spec-l"><i>${p.code}</i>${E(SC(p.name))}</span></a>`; }).join('')}
   </div>`;
 
+/* ===== Agent oversight: the agent patterns in the order a person meets them ===== */
+const OVERSIGHT = [
+ {id:'scope',name:'Scope',q:'What may the agent touch?',fix:'Grants that are scoped and expire',
+  pts:['Start in a sandbox. Reaching production takes a visible switch.','Every grant names what it covers and who gave it.','Grants end on a date unless a person renews them.','New tools or wider reach mean asking again.','A read-only mode is enforced by the product, not by the prompt.'],
+  ids:['unfenced-blast-radius','connector-overshare','paper-guardrails','read-only-in-name-only','agent-edits-its-own-leash','the-uninvited-notetaker','memory-that-follows-you','the-split-toggle','no-off-switch']},
+ {id:'approve',name:'Approve',q:'When must it ask?',fix:'Approval by risk, and by plan',
+  pts:['Safe, reversible steps run without asking.','Ask only before steps that can’t be taken back.','Each request shows purpose, scope and what “no” means.','Approve the plan once. Pause on any change to it.','Only a person can approve, and a no stays a no.','If a check fails or times out, the action is blocked.'],
+  ids:['confirm-everything','the-confirm-reflex','context-free-permission','approval-shows-something-else','browser-agent-consent-bypass','open-folder-run-code','overbroad-safe-list','fail-open-guard','ungated-subagent','invented-approval','no-didn-t-stick','batch-denial-stamp','the-plan-it-didn-t-follow','surprise-at-checkout','the-lost-confirmation','the-agreeable-sales-bot','too-small-to-check','twenty-questions-intake']},
+ {id:'act',name:'Act',q:'What does it do when it isn’t sure?',fix:'Ask when it matters, and show the cost',
+  pts:['When two readings lead to different actions, ask one short question.','Treat what the person stated as a hard limit.','Treat page and file content as data, never as orders.','Show a cost or time range before the run, and a cap.','Check where a delete will land before it runs.'],
+  ids:['runaway-autonomy','guess-instead-of-ask','asked-not-told','close-enough-substitution','instructions-from-the-page','delete-path-blows-up','delete-before-verify','blind-budget','tests-bent-to-pass','billed-for-unasked-work','selection-spill','phantom-action-items','the-burned-domain','invisible-instructions','the-image-that-phones-home','the-silent-redirect','instruction-drift','regression-on-every-prompt']},
+ {id:'watch',name:'Watch and stop',q:'Can a person see it and stop it?',fix:'A stop that works everywhere',
+  pts:['Stop, pause and redirect are there for the whole run.','Stop ends everything the run started, and checks that it has.','One agent can be stopped without ending the others.','The screen names the current step and how long it has taken.','After a few identical failures, the agent stops and reports.'],
+  ids:['no-steering-wheel','stop-doesnt-stop','overbroad-stop','orphaned-processes','ambiguous-wait','the-retry-loop','i-ll-get-back-to-you','silent-memory-loss','overage-with-no-ceiling','paying-for-the-fix-loop']},
+ {id:'receipt',name:'Receipt',q:'What did it do?',fix:'A receipt for every action',
+  pts:['One line per action: what, on what, and the result.','Tool activity is drawn by the product, so it cannot be made up.','Failures are shown as failures, not prose.','The record never shows a choice the person did not make.','Every run ends with what it created and what is still running.'],
+  ids:['no-trail-behind-the-agent','silent-success','phantom-tool-run','words-put-in-your-mouth','footprints-left-behind','silent-rewrite','the-pretend-read','the-unauditable-token-bill','scribe-drift']},
+ {id:'undo',name:'Undo and escalate',q:'Can it be reversed, and who gets called?',fix:'Real undo, and a named person',
+  pts:['Save the state before any change, with one-click restore.','Undo reverses only what the agent changed, and checks that it worked.','Say what undo won’t reverse: “This will not unsend the email.”','Generated values stay provisional until a person accepts them.','When the agent can’t go on, it hands over to a named person.'],
+  ids:['no-undo','broken-undo','undo-with-collateral','cleanup-deletes-work','sticky-side-effects','silent-mutation','draft-becomes-record','regenerate-overwrite','the-doom-loop-to-nowhere','auto-rejected-by-rubric']},
+];
+const ovItems = s => s.ids.map(id=>byId[id]).filter(Boolean);
+const ovTotal = () => OVERSIGHT.reduce((n,s)=>n+ovItems(s).length,0);
+const ovChips = () => `<div class="stg">${OVERSIGHT.map((s,i)=>`<a href="#st-${s.id}" data-jump="1"><i>${i+1}</i>${E(s.name)}<b>${ovItems(s).length}</b></a>`).join('')}</div>`;
+const FOOT = `<div class="foot"><span>Maintained by <a href="#p0" data-go="p0" style="text-decoration:none;font-weight:600">Pavithra Lamahewa</a> · Precious Studio</span><span class="sp"></span><a href="#newsletter" data-go="newsletter" style="text-decoration:none">Newsletter</a><a href="#mcp" data-go="mcp" style="text-decoration:none">MCP</a><span><a href="https://github.com/pavithralamahewa/slop-patterns" style="text-decoration:none">Library MIT on GitHub</a>. Scanner code is not open.</span></div>`;
+
+function renderOversight(){
+  app.className='wrap wide';
+  app.innerHTML = `
+  <section class="browse ovs" id="browse">
+    <div class="browsehd"><p class="qk">Agent oversight</p><h2>How people stay in control of AI agents</h2><p>${ovTotal()} patterns in six stages, in the order a person meets them. Each stage opens with what to do instead.</p></div>
+    ${ovChips()}
+    ${OVERSIGHT.map((s,i)=>`<section class="grp" id="st-${s.id}">
+      <div class="grphd"><h2>${E(s.name)}</h2><span class="n">${ovItems(s).length}</span><span class="tr">Stage ${i+1} of 6</span></div>
+      <p class="grpsub">${E(s.q)}</p>
+      <div class="doi"><div><p class="doi-k">Do this instead</p><p class="doi-t">${E(s.fix)}</p></div><ul>${s.pts.map(x=>`<li>${E(x)}</li>`).join('')}</ul></div>
+      <div class="tiles">${ovItems(s).map(tile).join('')}</div>
+    </section>`).join('')}
+    <p class="ovmore">Open data, MIT. <a href="/taxonomy.json">Download the library</a></p>
+  </section>
+  ${FOOT}`;
+}
+
 function renderIndex(){
   const inTrack = p => filter.track==='all' || p.track===filter.track;
   const cross = filter.facet && filter.facet.k!=='group' ? filter.facet : null;
@@ -23703,9 +23746,9 @@ function renderIndex(){
   app.innerHTML = `
   <header class="hero hero2">
     <div class="hero-t">
-    <h1 class="big">AI design fails in <span class="penword">patterns,<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="${penLoop(50,20,46,17,5)}"/></svg></span> not accidents.</h1>
-    <p class="lede">The field guide to AI tells. We measure what AI tools actually ship, explain why it happens, and show what to do instead.</p>
-    <div class="cta"><a class="btn btn-a" href="/score" target="_blank" rel="noopener">Scan your site</a><button class="btn btn-b" data-scroll="1">Browse the library</button></div>
+    <h1 class="big">AI products fail in <span class="penword">patterns,<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="${penLoop(50,20,46,17,5)}"/></svg></span> not accidents.</h1>
+    <p class="lede">A field guide to how AI-built products go wrong, in how they look and how their agents act.</p>
+    <div class="cta"><button class="btn btn-a" data-scroll="1">Browse the library</button><a class="btn btn-b" href="#oversight" data-go="oversight">Agent oversight</a></div>
     <p class="byline">By <a href="#p0" data-go="p0">Pavithra Lamahewa</a>, Co-founder and UX Director at Precious Studio. ${DATA.length} patterns, each with its sources and an evidence tier.</p>
     <p class="reviewline"><a href="#review" data-go="review">Get a review</a> from the designer behind this research.</p>
     <p class="newnote"><a href="/research/half-the-hunt">New research: Half the Hunt. 54% of top Product Hunt launches carry an AI-era design tell →</a></p>
@@ -23714,7 +23757,7 @@ function renderIndex(){
   </header>
   <section class="browse" id="browse">
     ${q ? `<div class="browsehd qhd"><p class="qk">Results</p><h2>“${E(q)}”</h2><p>${list.length ? (list.length + (list.length === 1 ? ' pattern matches' : ' patterns match') + ' best, closest first.') : 'Nothing in the library matches yet.'} <button type="button" class="qclear" data-clearq="1">Clear and show all ${DATA.length}</button></p></div>`
-        : `<div class="browsehd"><h2>The library</h2><p>${DATA.length} patterns in ${GROUPS.length} groups. Each one shows the tell, the fix, and why AI tools keep making it.</p></div>`}
+        : `<div class="browsehd"><h2>The library</h2><p>${DATA.length} patterns, each with a fix and its sources.</p></div>`}
     <div class="ctrl${q ? ' qmode' : ''}">
       <div class="seg" role="tablist">
         ${['all','surface','behavioral'].map(t=>`<button role="tab" class="${filter.track===t?'on':''}" data-track="${t}">${t==='all'?'All':t[0].toUpperCase()+t.slice(1)}</button>`).join('')}
@@ -23732,7 +23775,13 @@ function renderIndex(){
          ${list.length ? '' : q
             ? `<div class="empty"><p><b>Not documented yet.</b></p><p>Nothing in the library matches “${E(q)}”. If you have seen it in a shipped product, that is exactly what belongs here.</p><button class="btn btn-a" data-submitq="${E(q)}">Submit “${E(q)}” as a pattern</button></div>`
             : '<p class="empty">Nothing matches that combination.</p>'}`
-      : present.map(G=>{
+      : `${(filter.track==='surface' || groupSel) ? '' : `<section class="grp" id="s-oversight">
+            <div class="grphd"><h2>When an agent acts</h2><span class="n">${ovTotal()}</span><span class="tr">Agent oversight</span></div>
+            <p class="grpsub">What it may touch, when it must ask, and how you stop or undo it.</p>
+            ${ovChips()}
+            <div class="tiles">${['unfenced-blast-radius','context-free-permission','runaway-autonomy','stop-doesnt-stop','silent-success','no-undo'].map(id=>byId[id]).filter(Boolean).map(tile).join('')}</div>
+            <p class="ovmore"><a href="#oversight" data-go="oversight">All six stages →</a></p>
+          </section>`}` + present.map(G=>{
           const items = DATA.filter(p=>p.group===G.g && inTrack(p));
           if(!items.length) return '';
           return `<section class="grp" id="s-${slugify(G.g)}">
@@ -23842,9 +23891,18 @@ function route(){
   setNavCount();
   const id = location.hash.replace('#','') || 'index';
   // Which page you are on: highlight it in the menu, and show the library groups only in the library.
-  const page = id==='mcp' ? 'mcp' : id==='review' ? 'review' : ['submit','newsletter','stats','p0'].indexOf(id)>=0 ? '' : 'index';
+  const ovPage = id==='oversight' || id.indexOf('st-')===0;
+  const page = ovPage ? 'oversight' : id==='mcp' ? 'mcp' : id==='review' ? 'review' : ['submit','newsletter','stats','p0'].indexOf(id)>=0 ? '' : 'index';
   document.querySelectorAll('.railtop .l').forEach(function(a){ var k=a.dataset.go||''; if(k===page) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
-  document.body.classList.toggle('nolib', page!=='index' && page!=='review');
+  document.body.classList.toggle('nolib', page!=='index' && page!=='review' && page!=='oversight');
+  if(ovPage){
+    renderOversight(); fit(); requestAnimationFrame(fit);
+    if(window.railSync) requestAnimationFrame(window.railSync);
+    const t = id==='oversight' ? null : document.getElementById(id);
+    if(t){ requestAnimationFrame(()=>t.scrollIntoView({block:'start'})); setTimeout(()=>t.scrollIntoView({block:'start'}), 320); }
+    else window.scrollTo(0,0);
+    return;
+  }
   // section deep links: render the index, then scroll to that section
   if(id.indexOf('s-')===0 || id==='review'){
     renderIndex(); fit(); requestAnimationFrame(fit);
@@ -23868,6 +23926,7 @@ document.addEventListener('click', e => {
   const jp = e.target.closest('[data-jump]');
   if(jp){ e.preventDefault(); const tid=jp.getAttribute('href').slice(1); const t=document.getElementById(tid);
     if(t){ history.replaceState(null,'','#'+tid); t.scrollIntoView({behavior:'smooth'}); }
+    else { location.hash = tid; return; }
     setTimeout(markJump,500); return; }
   const cpb = e.target.closest('[data-copy]');
   if(cpb){ e.preventDefault(); const src=document.getElementById(cpb.dataset.copy);
@@ -24155,6 +24214,7 @@ window.addEventListener('load', function(){
 var navIn, railnav, fill, links = [];
 
 function slug(s){ return s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''); }
+var LOOKS = ['colour-type','layout','components','imagery-icons','motion-performance','copy'];
 
 function buildRail(){
   navIn = document.querySelector('.nav-in');
@@ -24162,10 +24222,13 @@ function buildRail(){
   navIn.dataset.railed = '1';
   var html = '<div class="searchmount"></div><a class="railcta" href="/score" target="_blank" rel="noopener">Scan your site</a>'
     + '<div class="railnav"><div class="railfill"></div>'
-    + '<div class="railhd">Where it shows up</div>'
-    + GROUPS.map(function(G){
-        return '<a href="#s-'+slug(G.g)+'" data-jump="1" data-g="'+slug(G.g)+'">'
-             + G.g + '<b data-n="0">0</b></a>'; }).join('')
+    + '<div class="railhd">When an agent acts</div>'
+    + OVERSIGHT.map(function(S){ var n = S.ids.filter(function(id){ return byId[id]; }).length;
+        return '<a href="#st-'+S.id+'" data-jump="1" data-st="'+S.id+'">' + S.name + '<b data-n="'+n+'">'+n+'</b></a>'; }).join('')
+    + [['How it looks', function(G){ return LOOKS.indexOf(slug(G.g)) >= 0; }], ['How it behaves', function(G){ return LOOKS.indexOf(slug(G.g)) < 0; }]].map(function(sec){
+        return '<div class="railhd railhd2">'+sec[0]+'</div>' + GROUPS.filter(sec[1]).map(function(G){
+          return '<a href="#s-'+slug(G.g)+'" data-jump="1" data-g="'+slug(G.g)+'">'
+               + G.g + '<b data-n="0">0</b></a>'; }).join(''); }).join('')
     + '</div>'
     + '<div class="railfoot">'
     + '<a href="#submit" data-go="submit">Submit a pattern</a>'
@@ -24238,7 +24301,7 @@ function markRail(){
     if(m){ m.classList.add('on'); moveFill(m); } else moveFill(null);
     return;
   }
-  if(hash && hash.indexOf('s-') !== 0){          // a detail page
+  if(hash && hash.indexOf('s-') !== 0 && hash !== 'oversight' && hash.indexOf('st-') !== 0){          // a detail page
     links.forEach(function(a){ a.classList.remove('on'); });
     var p = byId[hash];
     var g = p && links.filter(function(a){ return a.dataset.g === slug(p.group); })[0];
