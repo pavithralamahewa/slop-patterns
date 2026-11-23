@@ -1,12 +1,23 @@
 # Slop Patterns — changelog
 
-Current: **v1.8.0** (2026-11-21). Machine-readable: `/library.json`. Also available from the MCP server as the `changelog` tool.
+Current: **v1.9.0** (2026-11-23). Machine-readable: `/library.json`. Also available from the MCP server as the `changelog` tool.
 
 ## How versions work
 
 - **Library:** Semantic. MAJOR when a pattern is removed or its id changes. MINOR when patterns or detectors are added. PATCH for wording, sources and fixes to existing detectors.
 - **Entries:** Each entry carries version, added and updated. The entry version goes up by 0.1 when its definition, fix or detection changes; wording and source fixes update the date only.
 - **IDs:** Pattern ids and codes are permanent. A retired pattern keeps its code and is marked retired, never reused.
+
+## v1.9.0 — 2026-11-23
+
+Library grows from 560 to 562 patterns.
+
+Account email and password changes with no proof of ownership, and actions that appear only on mouse hover.
+
+**Added**
+
+- B283 Account Changes Without Proof
+- A286 Hover To Find The Buttons
 
 ## v1.8.0 — 2026-11-21
 

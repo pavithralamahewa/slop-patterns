@@ -1,19 +1,19 @@
 {
  "name": "Slop Patterns",
- "version": "1.8.0",
- "released": "2026-11-21",
+ "version": "1.9.0",
+ "released": "2026-11-23",
  "license": "MIT",
  "maintainer": "Pavithra Lamahewa, Precious Studio",
  "url": "https://sloppatterns.com",
  "counts": {
-  "patterns": 560,
+  "patterns": 562,
   "detectableFromCode": 102,
   "needsRenderedPage": 9,
-  "judgementOnly": 449,
-  "sourced": 448,
+  "judgementOnly": 451,
+  "sourced": 450,
   "practitionerObserved": 86,
   "evidenceNeeded": 26,
-  "sourceLinks": 1202
+  "sourceLinks": 1207
  },
  "versioning": {
   "library": "Semantic. MAJOR when a pattern is removed or its id changes. MINOR when patterns or detectors are added. PATCH for wording, sources and fixes to existing detectors.",
@@ -21,6 +21,18 @@
   "ids": "Pattern ids and codes are permanent. A retired pattern keeps its code and is marked retired, never reused."
  },
  "changelog": [
+  {
+   "version": "1.9.0",
+   "date": "2026-11-23",
+   "added": [
+    "B283 Account Changes Without Proof",
+    "A286 Hover To Find The Buttons"
+   ],
+   "changed": [
+    "Library grows from 560 to 562 patterns."
+   ],
+   "notes": "Account email and password changes with no proof of ownership, and actions that appear only on mouse hover."
+  },
   {
    "version": "1.8.0",
    "date": "2026-11-21",
