@@ -21573,6 +21573,86 @@ const DATA=[
   "added": "2026-11-21",
   "updated": "2026-11-21",
   "detect": "judgement"
+ },
+ {
+  "id": "account-changes-without-proof",
+  "name": "Account Changes Without Proof",
+  "track": "behavioral",
+  "group": "Safety",
+  "category": "Security",
+  "harm": "Safety",
+  "origin": "Model",
+  "oneLiner": "The settings page lets anyone signed in change the account email or password without the current password, and the old address is never told.",
+  "looksLike": "Profile settings has an email field and a new password field that save on one click. Nothing asks for the current password or a fresh code, no notice goes to the old address, and there is no link to undo the change. Anyone holding an open session, on a shared laptop or through a stolen cookie, can take the account for good in a few seconds.",
+  "why": "Asked for a settings page, the model builds a form that writes straight to the user record, because that is the shortest working version and the demo account is always the owner. Re-authentication and old-address notices are extra steps nobody asked for in the prompt, and the generated flow looks complete without them.",
+  "who": "Account owners lose access with no warning and no way back, and support teams cannot tell a takeover from a real change.",
+  "theFix": "Ask for the current password or a fresh one-time code before changing the email, password or sign-in methods. Confirm a new email on both the old and new addresses, send the old address a notice with a link that cancels the change, and sign out other sessions after a password change. If you use a hosted auth service, turn on its secure email and password change settings.",
+  "heur": "Human review: while signed in, change the account email and then the password. Check whether the app asks for the current password or a code, and whether the old address receives a notice with a way to cancel.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "User Changed Email, Account Takeover: Fix It",
+    "u": "https://vibe-eval.com/fix/email-change-account-takeover/"
+   },
+   {
+    "t": "Authentication Issues in Vibe-Coded Apps",
+    "u": "https://vibeaudits.com/faq/vibe-coding-authentication-issues"
+   },
+   {
+    "t": "Humble Bundle Undergoes A Vibecoded-Looking Redesign, Forgets To Implement Full Account Security",
+    "u": "https://kotaku.com/humble-bundle-vibe-coded-ai-redesign-account-security-password-email-2000756085"
+   }
+  ],
+  "code": "B283",
+  "rel": [
+   "confirmation-switched-off-for-good",
+   "password-theatre",
+   "login-with-no-way-back"
+  ],
+  "tier": "sourced",
+  "observed": "Audit and scanner vendors list missing re-authentication on email and password changes as a common gap in vibe-coded apps. Kotaku reported in November 2026 that a redesign which users said looked vibe coded let people set a new password without the current one and change email with no notice to the old address.",
+  "version": "1.0",
+  "added": "2026-11-23",
+  "updated": "2026-11-23",
+  "detect": "judgement"
+ },
+ {
+  "id": "hover-to-find-the-buttons",
+  "name": "Hover To Find The Buttons",
+  "track": "surface",
+  "group": "Accessibility",
+  "category": "Accessibility",
+  "harm": "Accessibility",
+  "origin": "Tool default",
+  "oneLiner": "Copy, retry, settings and sign out stay invisible until a mouse passes over them, so keyboard and touch users never find them.",
+  "looksLike": "In an AI chat or image tool, each message or result shows its copy, edit, retry and feedback buttons only while the pointer is over it. On a tablet there is no hover, so the buttons never appear. With a keyboard, Tab skips them or lands on something you cannot see. Sidebar sections and the account menu open only on hover too.",
+  "why": "The chat app look that tools and kits copy hides per message actions to keep the thread clean, and the usual code for it is a fade from opacity 0 on group hover. Tested with a mouse on a wide screen it looks tidy, and the focus and no hover cases are never tried.",
+  "who": "Keyboard and screen reader users, people on tablets and phones with wide layouts, and anyone who does not think to sweep the mouse over every block.",
+  "theFix": "Show core actions by default, or reveal them on focus within as well as hover. Apply hide until hover only under a hover capable media query, never by screen width, and keep hidden controls in the tab order with opacity rather than display none or visibility hidden.",
+  "heur": "Class pairs like opacity-0 with group-hover:opacity-100 and no group-focus-within or (hover: hover) guard. Human review: Tab through a message or card, then open the page on a touch device and check every action is visible and reachable.",
+  "sightings": "",
+  "sources": [
+   {
+    "t": "We tested 30 AI tools with a blind user. Only 6 passed.",
+    "u": "https://www.accessibilitychecker.org/ai-accessibility-study-2026/"
+   },
+   {
+    "t": "Understanding SC 1.4.13: Content on Hover or Focus",
+    "u": "https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html"
+   }
+  ],
+  "code": "A286",
+  "rel": [
+   "the-clickable-div",
+   "nameless-icon-buttons",
+   "nowhere-to-focus"
+  ],
+  "tier": "sourced",
+  "observed": "A September 2026 test of 30 AI tools with a blind keyboard user found hover only controls in several products, including settings and sign out with no keyboard path, and sidebar sections that open only on hover.",
+  "version": "1.0",
+  "added": "2026-11-23",
+  "updated": "2026-11-23",
+  "detect": "judgement"
  }
 ];
 var ART={};
@@ -23131,7 +23211,7 @@ Object.assign(ART, {
 /* ===== MCP landing page ===== */
 const MCP_ENDPOINT = 'https://sloppatterns.com/mcp';
 
-const LIB_VERSION = '1.8.0';
+const LIB_VERSION = '1.9.0';
 const dmy = s => { const M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']; const [y,m,d]=String(s).split('-'); return (+d)+' '+M[+m-1]+' '+y; };
 const DETECTED = ['a1','a2','a3','a6','a7','a8','a10','a12','a15','a16','a18','a19','b31','b32','b34','a20','a22','a25','a36','a37','a40','a43','a44','a45','a46','a47','a48','b118','b122','b123','b115','b117','b119','b124','b134','b135','b137','b131','b133','a32','a23','a24','a38','a49','a50','a51','a52','a53','a54','a55','a56','a57','a58','a59','a60','a61','a62','a63','a64','a65','a66','a69','a71','a9','a26','a11','a27','a28','a29','a30','a35','a67','a21','a13','a5','a41','a42','a14','b89','b104','b109','b125','b169','b182','a73','a74','a76','a77','a78','a79','a81','a82','a83','a88','a90','a92','b164','a89','b166','b168','b170','b179','b180','b181'];
 /* rules whose pattern is in this library; counts of patterns use this, counts of rules use DETECTED */

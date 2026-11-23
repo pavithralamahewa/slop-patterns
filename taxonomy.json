@@ -1,11 +1,11 @@
 {
  "name": "Slop Patterns taxonomy",
- "version": "1.8.0",
- "released": "2026-11-21",
+ "version": "1.9.0",
+ "released": "2026-11-23",
  "license": "MIT",
  "url": "https://sloppatterns.com",
  "cite": "https://github.com/pavithralamahewa/slop-patterns/blob/main/CITATION.cff",
- "count": 560,
+ "count": 562,
  "checkedAutomatically": 101,
  "patterns": [
   {
@@ -14322,6 +14322,60 @@
     {
      "t": "Amazon Q Developer CLI issue 2477: denied commands still execute",
      "u": "https://github.com/aws/amazon-q-developer-cli/issues/2477"
+    }
+   ]
+  },
+  {
+   "code": "B283",
+   "id": "account-changes-without-proof",
+   "name": "Account Changes Without Proof",
+   "category": "Security",
+   "track": "behavioral",
+   "harm": "Safety",
+   "detection": "needs a person",
+   "url": "https://sloppatterns.com/#account-changes-without-proof",
+   "version": "1.0",
+   "added": "2026-11-23",
+   "updated": "2026-11-23",
+   "oneLiner": "The settings page lets anyone signed in change the account email or password without the current password, and the old address is never told.",
+   "fix": "Ask for the current password or a fresh one-time code before changing the email, password or sign-in methods. Confirm a new email on both the old and new addresses, send the old address a notice with a link that cancels the change, and sign out other sessions after a password change. If you use a hosted auth service, turn on its secure email and password change settings.",
+   "sources": [
+    {
+     "t": "User Changed Email, Account Takeover: Fix It",
+     "u": "https://vibe-eval.com/fix/email-change-account-takeover/"
+    },
+    {
+     "t": "Authentication Issues in Vibe-Coded Apps",
+     "u": "https://vibeaudits.com/faq/vibe-coding-authentication-issues"
+    },
+    {
+     "t": "Humble Bundle Undergoes A Vibecoded-Looking Redesign, Forgets To Implement Full Account Security",
+     "u": "https://kotaku.com/humble-bundle-vibe-coded-ai-redesign-account-security-password-email-2000756085"
+    }
+   ]
+  },
+  {
+   "code": "A286",
+   "id": "hover-to-find-the-buttons",
+   "name": "Hover To Find The Buttons",
+   "category": "Accessibility",
+   "track": "surface",
+   "harm": "Accessibility",
+   "detection": "needs a person",
+   "url": "https://sloppatterns.com/#hover-to-find-the-buttons",
+   "version": "1.0",
+   "added": "2026-11-23",
+   "updated": "2026-11-23",
+   "oneLiner": "Copy, retry, settings and sign out stay invisible until a mouse passes over them, so keyboard and touch users never find them.",
+   "fix": "Show core actions by default, or reveal them on focus within as well as hover. Apply hide until hover only under a hover capable media query, never by screen width, and keep hidden controls in the tab order with opacity rather than display none or visibility hidden.",
+   "sources": [
+    {
+     "t": "We tested 30 AI tools with a blind user. Only 6 passed.",
+     "u": "https://www.accessibilitychecker.org/ai-accessibility-study-2026/"
+    },
+    {
+     "t": "Understanding SC 1.4.13: Content on Hover or Focus",
+     "u": "https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html"
     }
    ]
   }
